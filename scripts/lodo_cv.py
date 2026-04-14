@@ -1,22 +1,30 @@
-import numpy as np, pandas as pd
+import numpy as np
+import pandas as pd
 from sklearn.metrics import roc_auc_score
-def get_lodo_splits(md, lc='label', cc='study_name'):
-    for co in sorted(md[cc].unique()):
-        te=(md[cc]==co)&(md[lc].isin([0,1]))
-        tr=(md[cc]!=co)&(md[lc].isin([0,1]))
-        tri=md[tr].index.tolist(); tei=md[te].index.tolist()
-        if len(md.loc[tei,lc].unique())<2: continue
-        yield co,tri,tei
-def run_lodo_cv(mf,X,y,md,cc='study_name'):
-    r={'cohort':[],'auc':[],'n_train':[],'n_test':[]}
-    for co,tri,tei in get_lodo_splits(md,cc=cc):
-        m=mf(); m.fit(X.iloc[tri],y.iloc[tri])
-        yp=m.predict_proba(X.iloc[tei])[:,1]
-        a=roc_auc_score(y.iloc[tei],yp)
-        r['cohort'].append(co); r['auc'].append(a)
-        r['n_train'].append(len(tri)); r['n_test'].append(len(tei))
-        print(f'  {co:25s} AUC={a:.3f} (n={len(tei)})')
-    r['mean_auc']=np.mean(r['auc']); r['std_auc']=np.std(r['auc'])
-    print(f'  Mean AUC: {r[chr(34)+chr(34)]}' if False else '')
-    print('  Mean AUC: ' + str(round(np.mean(r['auc']),3)) + ' +/- ' + str(round(np.std(r['auc']),3)))
-    return r
+
+def get_lodo_splits(metadata, label_col="label", cohort_col="study_name"):
+    for cohort in sorted(metadata[cohort_col].unique()):
+        test_mask = (metadata[cohort_col] == cohort) & (metadata[label_col].isin([0, 1]))
+        train_mask = (metadata[cohort_col] != cohort) & (metadata[label_col].isin([0, 1]))
+        train_idx = metadata[train_mask].index.tolist()
+        test_idx = metadata[test_mask].index.tolist()
+        if len(metadata.loc[test_idx, label_col].unique()) < 2 or len(test_idx) == 0:
+            continue
+        yield cohort, train_idx, test_idx
+
+def run_lodo_cv(model_fn, X, y, metadata, cohort_col="study_name"):
+    results = {"cohort": [], "auc": [], "n_train": [], "n_test": []}
+    for cohort, train_idx, test_idx in get_lodo_splits(metadata, cohort_col=cohort_col):
+        model = model_fn()
+        model.fit(X.iloc[train_idx], y.iloc[train_idx])
+        y_prob = model.predict_proba(X.iloc[test_idx])[:, 1]
+        auc = roc_auc_score(y.iloc[test_idx], y_prob)
+        results["cohort"].append(cohort)
+        results["auc"].append(auc)
+        results["n_train"].append(len(train_idx))
+        results["n_test"].append(len(test_idx))
+        print(f'  {cohort:25s}  AUC={auc:.3f}  (n={len(test_idx)})')
+    results["mean_auc"] = np.mean(results["auc"])
+    results["std_auc"] = np.std(results["auc"])
+    print(f'\n  Mean AUC: {results["mean_auc"]:.3f} +/- {results["std_auc"]:.3f}')
+    return results
