@@ -18,5 +18,5 @@ def run_lodo_cv(mf,X,y,md,cc='study_name'):
         print(f'  {co:25s} AUC={a:.3f} (n={len(tei)})')
     r['mean_auc']=np.mean(r['auc']); r['std_auc']=np.std(r['auc'])
     print(f'  Mean AUC: {r[chr(34)+chr(34)]}' if False else '')
-    print(f'  Mean AUC: ' + f'{np.mean(r[chr(39)+"auc"+chr(39)]):.3f} +/- {np.std(r[chr(39)+"auc"+chr(39)]):.3f}')
+    print('  Mean AUC: ' + str(round(np.mean(r['auc']),3)) + ' +/- ' + str(round(np.std(r['auc']),3)))
     return r
