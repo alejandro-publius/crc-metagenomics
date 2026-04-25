@@ -25,3 +25,26 @@ LODO protocol used elsewhere in the paper is documented in Methods.
 - 5-fold CV does not test cross-cohort generalization for adenoma
 - Adenoma definitions may vary across cohorts (advanced vs non-advanced)
 - Sample size limits the precision of reported AUCs
+
+## Hyperparameter handling (Methods note)
+
+XGBoost was used with commonly-cited default hyperparameters
+(n_estimators=500, max_depth=6, learning_rate=0.1, subsample=0.8,
+colsample_bytree=0.8). Hyperparameter tuning via nested CV was not
+performed. Given that the joint XGBoost model did not statistically
+outperform species-only Random Forest in our LODO comparison
+(see results/model_comparison.csv), additional tuning was unlikely
+to alter the qualitative conclusion. Random Forest used n_estimators=500,
+max_features='sqrt', min_samples_leaf=5, class_weight='balanced'.
+For adenoma classification, XGBoost additionally used scale_pos_weight
+set to the inverse class ratio to handle class imbalance.
+
+## Methods sentence (paste-ready)
+
+"Random Forest and XGBoost were used with commonly-cited default
+hyperparameters (RF: 500 trees, max_features=sqrt(p), min_samples_leaf=5,
+class_weight='balanced'; XGBoost: 500 trees, max_depth=6,
+learning_rate=0.1, subsample=0.8, colsample_bytree=0.8). XGBoost
+adenoma classifiers additionally used scale_pos_weight equal to the
+inverse class ratio. Hyperparameters were not tuned because the joint
+model did not statistically outperform the species-only baseline."
