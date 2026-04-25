@@ -27,7 +27,7 @@ def compute_shap(X, y, name):
 
 def main():
     sp = pd.read_csv('data/processed/species_filtered.csv')
-    pw = pd.read_csv('data/processed/pathway_filtered.csv')
+    pw = pd.read_csv('data/processed/pathway_unstratified.csv')
     md = pd.read_csv('data/processed/metadata_clean.csv')
     joint = sp.merge(pw, on='sample_id', suffixes=('_sp', '_pw'))
     mg = md.merge(joint, on='sample_id', how='inner')
