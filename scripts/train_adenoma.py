@@ -21,7 +21,7 @@ def main():
             rf = RandomForestClassifier(n_estimators=500, max_features='sqrt', min_samples_leaf=5, n_jobs=-1, random_state=42, class_weight='balanced')
             rf.fit(X.iloc[tr], y.iloc[tr])
             rf_a.append(roc_auc_score(y.iloc[te], rf.predict_proba(X.iloc[te])[:,1]))
-            xgb = XGBClassifier(n_estimators=500, max_depth=6, learning_rate=0.1, subsample=0.8, colsample_bytree=0.8, random_state=42, eval_metric='logloss', n_jobs=-1)
+            n_pos = int(y.iloc[tr].sum()); n_neg = int((y.iloc[tr] == 0).sum()); spw = n_neg / n_pos if n_pos > 0 else 1.0; xgb = XGBClassifier(n_estimators=500, max_depth=6, learning_rate=0.1, subsample=0.8, colsample_bytree=0.8, random_state=42, eval_metric='logloss', n_jobs=-1, scale_pos_weight=spw)
             xgb.fit(X.iloc[tr], y.iloc[tr])
             xgb_a.append(roc_auc_score(y.iloc[te], xgb.predict_proba(X.iloc[te])[:,1]))
         print(f'  {name}\n    RF:      {np.mean(rf_a):.3f} +/- {np.std(rf_a):.3f}\n    XGBoost: {np.mean(xgb_a):.3f} +/- {np.std(xgb_a):.3f}')
