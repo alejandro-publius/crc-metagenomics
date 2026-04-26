@@ -1,6 +1,6 @@
 """Concatenate per-cohort pathway CSVs from data/raw/pathway_chunks/
 into a single data/raw/pathway_abundance.csv. Run after the R export
-script and before preprocess_pathways.py."""
+script and before filter_pathways.py."""
 import pandas as pd
 import glob
 import os
