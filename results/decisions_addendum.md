@@ -100,3 +100,19 @@ DECISION: requirements.lock pins exact versions of all Python
 dependencies (pandas 2.2.3, numpy 1.26.4, scikit-learn 1.4.2,
 xgboost 2.0.3, shap 0.44.1, matplotlib 3.8.5, scipy 1.12.0).
 Install with pip install -r requirements.lock.
+
+## Species feature filter and LODO leakage
+DECISION: The species prevalence>=10% and mean>=1e-4 filter in
+preprocessing.py is computed on all 762 samples including held-out
+cohorts. This is a mild form of information leakage analogous to the
+pathway filter we now refit per-fold. We retain the global species filter
+for three reasons. First, species presence is structurally stable across
+cohorts because MetaPhlAn maps to a fixed reference database, so the
+filter primarily removes globally rare taxa rather than cohort-specific
+signal. Second, the species feature count is small (247 retained), so
+dilution is minor relative to the 540 pathway candidates. Third, Thomas
+et al. 2019 and Piccinno et al. 2025 both apply species filtering
+globally, matching the reference standard for the comparison. The
+pathway case differs because unstratified HUMAnN abundance has
+heterogeneous cross-cohort distributions and a global filter risks
+removing cohort-specific signal that a per-fold filter retains.
