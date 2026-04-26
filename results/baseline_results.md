@@ -34,7 +34,14 @@ Thomas et al. reported a mean LODO AUC of ~0.80 on a similar species-only featur
 
 ## Comparison to joint model
 
-Adding 405 unstratified pathway features (Joint RF 0.783, Joint XGB 0.790) does not statistically outperform this species-only baseline. Paired t-test p=0.41 (RF) and p=0.45 (XGB); 95% bootstrap CIs include zero. See results/model_comparison.csv.
+Adding 405 unstratified pathway features (Joint RF 0.783, Joint XGB 0.790) does not improve over the species-only baseline.
+
+- Per-cohort paired tests (n=7 LODO folds) do not detect a difference: paired t p=0.41 vs Joint RF, p=0.45 vs Joint XGB; 95% bootstrap CIs on the mean per-cohort difference include zero.
+- DeLong tests on pooled LODO predictions (n=646) find species RF significantly better: p=0.004 vs Joint RF, p=0.013 vs Joint XGB. Pooled AUCs: species RF 0.810, Joint RF 0.777, Joint XGB 0.782.
+
+The two tests answer different questions. Per-cohort tests assess whether the joint model is consistently better across cohorts (it is not, and n=7 has low power). DeLong assesses whether overall sample-level discrimination differs between classifiers given the same held-out predictions. Both agree that pathways do not help; DeLong indicates a small but statistically detectable degradation, likely from added noise in the 405 redundant pathway features.
+
+See results/model_comparison.csv and results/delong_results.csv.
 
 ## Files
 
