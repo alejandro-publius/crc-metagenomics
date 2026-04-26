@@ -1,45 +1,73 @@
-# CRC Metagenomics
+# Species-level taxonomic features alone outperform joint species-plus-pathway models for colorectal cancer detection
 
-Extension of Thomas et al. 2019: CRC classification from gut microbiome species and pathway abundance, with adenoma classification as a separate task.
+**Alejandro Velazquez and Rachel Selbrede**
+
+A rigorous multi-cohort re-evaluation of the Thomas et al. (2019) CRC classification framework, demonstrating that species-only Random Forest classifiers significantly outperform joint species-plus-pathway models under leave-one-dataset-out (LODO) cross-validation.
+
+## Key finding
+
+Species-only RF achieves a pooled LODO AUC of **0.810** (95% CI: 0.777 to 0.841), significantly outperforming:
+- Joint species+pathway RF: AUC 0.776 (DeLong z = 2.88, p = 0.004)
+- Joint species+pathway XGBoost: AUC 0.781 (DeLong z = 2.65, p = 0.008)
+
+This result is stable across random seeds (0.805 +/- 0.002), filter thresholds (AUC range 0.773 to 0.789), and confounder adjustments (age, sex, BMI).
 
 ## Data
-- Source: curatedMetagenomicData (Bioconductor)
-- 7 cohorts, 762 unique subjects, 646 used in joint CRC training
-- Species: 247 features (MetaPhlAn, prevalence>=10%, mean>=1e-4, log10(x+1e-6) transform)
-- Pathways: 540 unstratified candidate features (HUMAnN); 402-406 retained per LODO fold after train-only prevalence>=10% and mean>=1e-6 filter
 
-## Pipeline
-1. `scripts/audit_subject_ids.R` - confirm no cross-cohort overlap
-2. `scripts/merge_pathways.py` - merge per-cohort pathway chunks
-3. `scripts/validate_pathways.py` - audit raw pathway file
-4. `scripts/filter_pathways.py` - prevalence/abundance filter
-5. `scripts/train_joint.py` - LODO RF + XGBoost on species+pathway
-6. `scripts/auc_comparison.py` - paired tests + bootstrap CIs vs species baseline
-7. `scripts/shap_analysis.py`, `scripts/shap_xgb.py` - feature importance
-8. `scripts/train_adenoma.py` - 5-fold CV for adenoma tasks
-9. `scripts/shap_adenoma.py` - adenoma SHAP
-10. `scripts/generate_figures.py` - paper figures
+- **Source**: curatedMetagenomicData (Bioconductor)
+- **Cohorts**: 7 (FengQ_2015, YuJ_2015, VogtmannE_2016, ZellerG_2014, ThomasAM_2018a, ThomasAM_2018b, ThomasAM_2019_c)
+- **Subjects**: 762 unique (326 CRC, 116 adenoma, 320 healthy controls)
+- **Species features**: 247 (MetaPhlAn, prevalence >= 10%, mean >= 1e-4, log10-transformed)
+- **Pathway features**: 540 unstratified candidates (HUMAnN); 402 to 406 retained per LODO fold after per-fold prevalence/mean filtering
 
-## Key results
-- Species-only RF (LODO): AUC 0.803
-- Joint RF (LODO): AUC 0.785
-- Joint XGBoost (LODO): AUC 0.784
-- Adenoma vs healthy XGBoost (5-fold): AUC 0.709
-- Adenoma vs CRC XGBoost (5-fold): AUC 0.809
-- Joint vs species baseline: pathways do not improve and modestly hurt (DeLong p=0.004 vs Joint RF, p=0.013 vs Joint XGB on pooled predictions)
+## Manuscript
 
-## Reproducibility
-All scripts use random_state=42. Verified identical AUCs across reruns.
+The complete manuscript is in `manuscript/`:
+- `CRC_Manuscript_Complete.docx` (single merged document)
+- Individual section files (Title Page, Abstract, Introduction, Methods, Results, Discussion, References, Table 1, Supplementary Tables)
+- `figures/` (Figures 1 to 3 in PNG 300 DPI and PDF)
+
+## Reproducing the analyses
+
+See `REPRODUCING.md` for the full step-by-step pipeline. Quick summary:
+
+```bash
+pip install -r requirements.txt
+Rscript scripts/export_data.R
+python3 scripts/preprocessing.py
+python3 scripts/train_baseline.py        # Species-only RF LODO
+python3 scripts/train_joint.py           # Joint RF + XGBoost LODO
+python3 scripts/auc_comparison.py        # DeLong tests
+python3 scripts/bootstrap_ci.py          # 95% CIs
+python3 scripts/shap_analysis.py         # Feature importance
+python3 scripts/verify_results.py        # Smoke-test headline numbers
+```
+
+All scripts use `random_state=42` and produce deterministic results. Total runtime is approximately 30 minutes on a standard workstation.
+
+## Robustness battery
+
+- Filter threshold sensitivity (20-combination grid)
+- Confounder assessment (direct inclusion + residualization)
+- Random seed stability (5 seeds)
+- Bootstrap confidence intervals (2,000 resamples)
+- Per-fold ComBat batch correction
+- Adenoma classification (exploratory, underpowered)
 
 ## Key files
-- `data/processed/species_filtered.csv` - species relative abundance
-- `data/processed/pathway_unstratified.csv` - pathway relative abundance
-- `data/processed/metadata_clean.csv` - sample metadata
-- `results/` - AUCs, SHAP rankings, comparison tests, decisions logs
-- `figures/` - fig1-fig4
 
-## Decisions
-See `results/decisions_addendum.md` and `results/adenoma_go_nogo_memo.md`.
+| Path | Description |
+|------|-------------|
+| `data/processed/species_filtered.csv` | 247 species features |
+| `data/processed/pathway_unstratified.csv` | 540 pathway candidates |
+| `results/preds_species_rf.csv` | Per-sample LODO predictions (species RF) |
+| `results/preds_joint_rf.csv` | Per-sample LODO predictions (joint RF) |
+| `results/preds_joint_xgb.csv` | Per-sample LODO predictions (joint XGBoost) |
+| `results/delong_results.csv` | DeLong test statistics |
+| `results/shap_crc_features.csv` | SHAP values (RF) |
+| `results/shap_crc_xgb.csv` | SHAP values (XGBoost) |
+| `results/decisions_addendum.md` | Decision log for all analytical choices |
 
-## Requirements
-See `requirements.txt`. R packages installed via BiocManager (curatedMetagenomicData).
+## License
+
+MIT
