@@ -32,3 +32,13 @@ See README.md and results/decisions_addendum.md for the canonical pipeline. Deta
 ## Reproducibility
 
 All scripts use random_state=42. Joint model uses unstratified pathway features filtered per LODO fold (540 candidates; 402-406 retained per fold from train-only prevalence/mean). See results/decisions_addendum.md for SMOTE, DeLong, normalization, tuning, and LODO leakage decisions.
+
+## Robustness and sensitivity analyses
+
+19. python3 scripts/sensitivity_analysis.py   # filter threshold sweep
+20. python3 scripts/confounder_adjustment.py   # age/sex/BMI confounding
+21. python3 scripts/adenoma_lodo.py            # cross-cohort adenoma LODO
+22. python3 scripts/bootstrap_ci.py            # 95% bootstrap CIs on AUCs
+23. python3 scripts/seed_sensitivity.py        # random seed stability
+24. python3 scripts/batch_correction.py        # per-fold ComBat (requires pycombat)
+25. python3 scripts/verify_results.py          # smoke-test headline numbers
