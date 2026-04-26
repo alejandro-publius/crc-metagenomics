@@ -21,13 +21,13 @@ def main():
     def make_rf():
         return RandomForestClassifier(n_estimators=500, max_features='sqrt',
             min_samples_leaf=5, n_jobs=-1, random_state=42, class_weight='balanced')
-    rf_res = run_lodo_cv(make_rf, X, y, meta)
+    rf_res = run_lodo_cv(make_rf, X, y, meta, save_predictions_path="results/preds_joint_rf.csv")
     print('\n=== Joint XGBoost ===')
     def make_xgb():
         return XGBClassifier(n_estimators=500, max_depth=6, learning_rate=0.1,
             subsample=0.8, colsample_bytree=0.8, random_state=42,
             eval_metric='logloss', n_jobs=-1)
-    xgb_res = run_lodo_cv(make_xgb, X, y, meta)
+    xgb_res = run_lodo_cv(make_xgb, X, y, meta, save_predictions_path="results/preds_joint_xgb.csv")
     bl = pd.read_csv('results/baseline_results.csv')
     print(f'\n  Species-only RF:  {bl["auc"].mean():.3f}')
     print(f'  Joint RF:         {rf_res["mean_auc"]:.3f}')
