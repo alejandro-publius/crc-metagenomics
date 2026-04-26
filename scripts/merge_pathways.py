@@ -29,3 +29,12 @@ merged.to_csv(out, index=False)
 print(f'\nMerged {sum(len(d) for d in dfs)} rows from {len(chunks)} chunks')
 print(f'Output shape: {merged.shape[0]} samples x {merged.shape[1]-1} pathways')
 print(f'Saved {out}')
+
+# Also produce an unstratified-only subset for sensitivity_analysis.py
+unstrat_cols = ['sample_id'] + [c for c in merged.columns
+                                if c != 'sample_id' and '|' not in c]
+unstrat = merged[unstrat_cols]
+out_unstrat = 'data/raw/pathway_unstratified_full.csv'
+unstrat.to_csv(out_unstrat, index=False)
+print(f'Unstratified subset: {unstrat.shape[0]} x {unstrat.shape[1]-1} pathways')
+print(f'Saved {out_unstrat}')
