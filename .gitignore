@@ -6,3 +6,5 @@ __pycache__/
 data/raw/pathway_abundance.csv
 data/raw/pathway_chunks/
 data/raw/species_chunks/
+.RData
+.Rhistory
