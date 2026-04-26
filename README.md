@@ -26,7 +26,7 @@ Extension of Thomas et al. 2019: CRC classification from gut microbiome species 
 - Joint XGBoost (LODO): AUC 0.790
 - Adenoma vs healthy XGBoost (5-fold): AUC 0.709
 - Adenoma vs CRC XGBoost (5-fold): AUC 0.809
-- Joint vs species baseline: not statistically significant (paired t p>0.4)
+- Joint vs species baseline: pathways do not improve and modestly hurt (DeLong p=0.004 vs Joint RF, p=0.013 vs Joint XGB on pooled predictions)
 
 ## Reproducibility
 All scripts use random_state=42. Verified identical AUCs across reruns.

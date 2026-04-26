@@ -10,11 +10,14 @@ gains from a more aggressive imbalance method are unlikely to
 change qualitative conclusions.
 
 ## DeLong test
-DECISION: Deferred. Paired t-test and Wilcoxon on per-cohort AUCs
-are reported (auc_comparison.py). DeLong on raw probabilities would
-require refactoring run_lodo_cv to save predictions per fold. n=7
-paired tests are underpowered regardless, and bootstrap CIs already
-include zero for all comparisons.
+DECISION: Implemented. run_lodo_cv now optionally saves per-sample
+predictions per fold; auc_comparison.py applies DeLong (Sun and Xu
+2014) to pooled LODO predictions (n=646) in addition to the per-cohort
+paired t-test and Wilcoxon (n=7). Result: species RF significantly
+outperforms both joint models on the pooled ROC (p=0.004 vs Joint RF,
+p=0.013 vs Joint XGB), while the n=7 per-cohort paired tests do not
+detect a difference (p>0.4) due to low power. Saved to
+results/delong_results.csv.
 
 ## Normalization
 DECISION: Species: log10(x + 1e-6) applied in preprocessing.py after
