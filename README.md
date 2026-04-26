@@ -5,7 +5,7 @@ Extension of Thomas et al. 2019: CRC classification from gut microbiome species 
 ## Data
 - Source: curatedMetagenomicData (Bioconductor)
 - 7 cohorts, 762 unique subjects, 646 used in joint CRC training
-- Species: 247 features (MetaPhlAn)
+- Species: 247 features (MetaPhlAn, prevalence>=10%, mean>=1e-4, log10(x+1e-6) transform)
 - Pathways: 405 unstratified features (HUMAnN, prevalence>=10%, mean>=1e-6)
 
 ## Pipeline
