@@ -17,9 +17,11 @@ paired tests are underpowered regardless, and bootstrap CIs already
 include zero for all comparisons.
 
 ## Normalization
-DECISION: Use raw relative abundance from curatedMetagenomicData
-(MetaPhlAn species, HUMAnN pathway). No CLR, no log transform.
-Random Forest and XGBoost are scale-invariant for tree splits.
+DECISION: Species: log10(x + 1e-6) applied in preprocessing.py after
+row-sum renormalization. Pathways: raw relative abundance from
+curatedMetagenomicData with no transform. Random Forest and XGBoost
+split decisions are scale-invariant per feature, so the asymmetric
+handling does not affect AUC.
 
 ## Pathway feature set
 DECISION: Use unstratified pathway abundance (405 features after
