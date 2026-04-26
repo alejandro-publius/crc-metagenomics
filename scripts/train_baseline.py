@@ -18,7 +18,7 @@ def main():
         return RandomForestClassifier(n_estimators=500, max_features='sqrt',
             min_samples_leaf=5, n_jobs=-1, random_state=42, class_weight='balanced')
     print('Running LODO CV...')
-    results = run_lodo_cv(make_rf, X, y, meta)
+    results = run_lodo_cv(make_rf, X, y, meta, save_predictions_path="results/preds_species_rf.csv")
     os.makedirs('results', exist_ok=True)
     pd.DataFrame({'cohort': results['cohort'], 'auc': results['auc'],
         'n_train': results['n_train'], 'n_test': results['n_test']
