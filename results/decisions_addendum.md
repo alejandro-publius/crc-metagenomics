@@ -27,8 +27,10 @@ split decisions are scale-invariant per feature, so the asymmetric
 handling does not affect AUC.
 
 ## Pathway feature set
-DECISION: Use unstratified pathway abundance (405 features after
-prevalence>=10% and mean>=1e-6 filter). Stratified taxon|pathway
+DECISION: Use unstratified pathway abundance (540 candidate columns
+in the joint model, filtered to 402-406 per LODO fold by prevalence
+>=10% and mean>=1e-6 refit on training cohorts; see "Pathway
+prevalence filter and LODO leakage" below). Stratified taxon|pathway
 features were considered but produce 4589 highly redundant columns
 that did not improve AUC in pilot testing.
 
@@ -39,9 +41,15 @@ statistically outperform species-only baseline; tuning is unlikely
 to change the qualitative conclusion.
 
 ## Pathway prevalence filter and LODO leakage
-NOTE: The prevalence>=10% and mean>=1e-6 filter in filter_pathways.py
-is computed on all 762 samples including held-out cohorts. This is
-a mild form of information leakage. Disclosed as a limitation in
-Discussion. A strict alternative would refit the filter inside each
-LODO fold; the impact is expected to be small because the filter
-removes only zero-inflated columns.
+DECISION: Refit per fold. train_joint.py now loads the unfiltered
+unstratified pathway matrix (540 candidate columns) and applies the
+prevalence>=10% and mean>=1e-6 filter inside each LODO fold using
+only training-cohort samples, via the feature_filter_fn hook added
+to run_lodo_cv. Per-fold pathway counts range from 402 to 406 across
+the 7 folds, vs 405 under the previous global filter. Headline AUCs
+are essentially unchanged (Joint RF 0.783 -> 0.785, Joint XGB 0.790
+-> 0.784) and DeLong conclusions hold: species RF significantly
+better, p=0.004 vs Joint RF and p=0.008 vs Joint XGB on pooled
+predictions. The static filter_pathways.py file is retained because
+shap_xgb.py and the adenoma scripts use the pre-filtered file under
+non-LODO 5-fold CV, where this leakage concern does not apply.

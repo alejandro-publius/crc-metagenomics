@@ -13,7 +13,7 @@ See README.md and results/decisions_addendum.md for the canonical pipeline. Deta
 7. python3 scripts/generate_table1.py
 8. python3 scripts/adenoma_counts.py
 9. python3 scripts/train_baseline.py    # expect AUC 0.803
-10. python3 scripts/train_joint.py      # expect Joint RF 0.783, XGB 0.790
+10. python3 scripts/train_joint.py      # expect Joint RF 0.785, XGB 0.784
 11. python3 scripts/train_adenoma.py    # expect H-vs-A 0.681/0.709, A-vs-CRC 0.787/0.809
 12. python3 scripts/auc_comparison.py
 13. python3 scripts/shap_analysis.py
@@ -31,4 +31,4 @@ See README.md and results/decisions_addendum.md for the canonical pipeline. Deta
 
 ## Reproducibility
 
-All scripts use random_state=42. Joint model uses unstratified pathway features (405 cols). See results/decisions_addendum.md for SMOTE, DeLong, normalization, tuning, and LODO leakage decisions.
+All scripts use random_state=42. Joint model uses unstratified pathway features filtered per LODO fold (540 candidates; 402-406 retained per fold from train-only prevalence/mean). See results/decisions_addendum.md for SMOTE, DeLong, normalization, tuning, and LODO leakage decisions.

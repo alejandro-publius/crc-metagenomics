@@ -6,7 +6,7 @@ Extension of Thomas et al. 2019: CRC classification from gut microbiome species 
 - Source: curatedMetagenomicData (Bioconductor)
 - 7 cohorts, 762 unique subjects, 646 used in joint CRC training
 - Species: 247 features (MetaPhlAn, prevalence>=10%, mean>=1e-4, log10(x+1e-6) transform)
-- Pathways: 405 unstratified features (HUMAnN, prevalence>=10%, mean>=1e-6)
+- Pathways: 540 unstratified candidate features (HUMAnN); 402-406 retained per LODO fold after train-only prevalence>=10% and mean>=1e-6 filter
 
 ## Pipeline
 1. `scripts/audit_subject_ids.R` - confirm no cross-cohort overlap
@@ -22,8 +22,8 @@ Extension of Thomas et al. 2019: CRC classification from gut microbiome species 
 
 ## Key results
 - Species-only RF (LODO): AUC 0.803
-- Joint RF (LODO): AUC 0.783
-- Joint XGBoost (LODO): AUC 0.790
+- Joint RF (LODO): AUC 0.785
+- Joint XGBoost (LODO): AUC 0.784
 - Adenoma vs healthy XGBoost (5-fold): AUC 0.709
 - Adenoma vs CRC XGBoost (5-fold): AUC 0.809
 - Joint vs species baseline: pathways do not improve and modestly hurt (DeLong p=0.004 vs Joint RF, p=0.013 vs Joint XGB on pooled predictions)
