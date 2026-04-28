@@ -1,0 +1,80 @@
+R version 4.6.0 (2026-04-24)
+Platform: aarch64-apple-darwin23
+Running under: macOS Sequoia 15.1.1
+
+Matrix products: default
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/Los_Angeles
+tzcode source: internal
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+ [1] curatedMetagenomicData_3.19.0   TreeSummarizedExperiment_2.19.0
+ [3] Biostrings_2.79.5               XVector_0.51.0                 
+ [5] SingleCellExperiment_1.33.2     SummarizedExperiment_1.41.1    
+ [7] Biobase_2.71.0                  GenomicRanges_1.63.2           
+ [9] Seqinfo_1.1.0                   IRanges_2.45.0                 
+[11] S4Vectors_0.49.2                BiocGenerics_0.57.1            
+[13] generics_0.1.4                  MatrixGenerics_1.23.0          
+[15] matrixStats_1.5.0              
+
+loaded via a namespace (and not attached):
+  [1] DBI_1.3.0                   gridExtra_2.3              
+  [3] httr2_1.2.2                 permute_0.9-10             
+  [5] rlang_1.2.0                 magrittr_2.0.5             
+  [7] scater_1.39.4               compiler_4.6.0             
+  [9] RSQLite_2.4.6               mgcv_1.9-4                 
+ [11] DelayedMatrixStats_1.33.0   reshape2_1.4.5             
+ [13] png_0.1-9                   vctrs_0.7.3                
+ [15] stringr_1.6.0               pkgconfig_2.0.3            
+ [17] crayon_1.5.3                fastmap_1.2.0              
+ [19] dbplyr_2.5.2                scuttle_1.21.6             
+ [21] ggbeeswarm_0.7.3            DirichletMultinomial_1.53.0
+ [23] purrr_1.2.2                 bit_4.6.0                  
+ [25] MultiAssayExperiment_1.37.4 bluster_1.21.1             
+ [27] cachem_1.1.0                beachmat_2.27.5            
+ [29] jsonlite_2.0.0              blob_1.3.0                 
+ [31] DelayedArray_0.37.1         BiocParallel_1.45.0        
+ [33] irlba_2.3.7                 parallel_4.6.0             
+ [35] cluster_2.1.8.2             R6_2.6.1                   
+ [37] stringi_1.8.7               RColorBrewer_1.1-3         
+ [39] Rcpp_1.1.1-1.1              DECIPHER_3.7.1             
+ [41] splines_4.6.0               mia_1.19.8                 
+ [43] Matrix_1.7-5                igraph_2.3.0               
+ [45] tidyselect_1.2.1            abind_1.4-8                
+ [47] yaml_2.3.12                 viridis_0.6.5              
+ [49] vegan_2.7-3                 codetools_0.2-20           
+ [51] curl_7.1.0                  plyr_1.8.9                 
+ [53] lattice_0.22-9              tibble_3.3.1               
+ [55] treeio_1.35.0               KEGGREST_1.51.1            
+ [57] S7_0.2.2                    BiocFileCache_3.1.0        
+ [59] ExperimentHub_3.1.0         pillar_1.11.1              
+ [61] BiocManager_1.30.27         filelock_1.0.3             
+ [63] BiocVersion_3.23.1          ggplot2_4.0.3              
+ [65] sparseMatrixStats_1.23.0    scales_1.4.0               
+ [67] tidytree_0.4.7              glue_1.8.1                 
+ [69] lazyeval_0.2.3              tools_4.6.0                
+ [71] AnnotationHub_4.1.0         BiocNeighbors_2.5.4        
+ [73] ScaledMatrix_1.19.0         fs_2.1.0                   
+ [75] grid_4.6.0                  ecodive_2.2.6              
+ [77] tidyr_1.3.2                 ape_5.8-1                  
+ [79] AnnotationDbi_1.73.1        nlme_3.1-169               
+ [81] beeswarm_0.4.0              BiocSingular_1.27.1        
+ [83] vipor_0.4.7                 cli_3.6.6                  
+ [85] rsvd_1.0.5                  rappdirs_0.3.4             
+ [87] S4Arrays_1.11.1             viridisLite_0.4.3          
+ [89] dplyr_1.2.1                 gtable_0.3.6               
+ [91] yulab.utils_0.2.4           digest_0.6.39              
+ [93] SparseArray_1.11.13         ggrepel_0.9.8              
+ [95] decontam_1.31.0             farver_2.1.2               
+ [97] memoise_2.0.1               lifecycle_1.0.5            
+ [99] httr_1.4.8                  bit64_4.8.0                
+[101] MASS_7.3-65                
