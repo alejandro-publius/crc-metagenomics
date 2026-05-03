@@ -25,7 +25,7 @@ This result is stable across random seeds (0.805 +/- 0.002), filter thresholds (
 The complete manuscript is in `manuscript/`:
 - `CRC_Manuscript_Complete.docx` (single merged document)
 - Individual section files (Title Page, Abstract, Introduction, Methods, Results, Discussion, References, Table 1, Supplementary Tables)
-- `figures/` (Figures 1 to 3 in PNG 300 DPI and PDF)
+- `figures/` (Figures 1 to 4 in PNG 300 DPI and PDF). Figure 1 = forest plot of per-cohort and pooled LODO AUCs; Figure 2 = ROC curves; Figure 3 = TreeSHAP top-species importance for CRC; Figure 4 = three-panel TreeSHAP across the adenoma-carcinoma sequence (healthy-vs-adenoma | CRC-vs-healthy | adenoma-vs-CRC)
 
 ## Reproducing the analyses
 
