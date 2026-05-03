@@ -10,13 +10,13 @@ Species-only RF achieves a pooled LODO AUC of **0.810** (95% CI: 0.777 to 0.841)
 - Joint species+pathway RF: AUC 0.776 (DeLong z = 2.88, p = 0.004)
 - Joint species+pathway XGBoost: AUC 0.781 (DeLong z = 2.65, p = 0.008)
 
-This result is stable across random seeds (0.805 +/- 0.002), filter thresholds (AUC range 0.773 to 0.789), and confounder adjustments (age, sex, BMI).
+This result is stable across random seeds (0.805 +/- 0.002), filter thresholds (joint RF mean per-cohort AUC 0.773 to 0.789 across the 16 substantively non-degenerate cells of the prevalence x mean grid; full 20-cell range 0.773 to 0.811, with the upper bound coming from the degenerate mean >= 1e-3 column that retains only two pathways), and confounder adjustments (age, sex, BMI).
 
 ## Data
 
 - **Source**: curatedMetagenomicData (Bioconductor)
 - **Cohorts**: 7 (FengQ_2015, YuJ_2015, VogtmannE_2016, ZellerG_2014, ThomasAM_2018a, ThomasAM_2018b, ThomasAM_2019_c)
-- **Subjects**: 762 unique (326 CRC, 116 adenoma, 320 healthy controls)
+- **Subjects**: 762 unique (326 CRC, 116 adenoma, 320 controls); the metadata `study_condition` field uses the value `control` (not `healthy`)
 - **Species features**: 247 (MetaPhlAn, prevalence >= 10%, mean >= 1e-4, log10-transformed)
 - **Pathway features**: 540 unstratified candidates (HUMAnN); 402 to 406 retained per LODO fold after per-fold prevalence/mean filtering
 

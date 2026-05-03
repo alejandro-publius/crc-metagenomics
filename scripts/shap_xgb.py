@@ -1,4 +1,11 @@
-"""SHAP on joint XGBoost for all three tasks. Compare to RF SHAP."""
+"""SHAP on joint XGBoost for all three tasks. Compare to RF SHAP.
+
+Scope: SHAP values come from a model fit on the entire labeled dataset
+(or per-task subset). They describe how the fully-fit classifier uses each
+feature; they do not measure cross-cohort generalization. Generalization
+claims come from the LODO scripts; SHAP here is for feature importance
+on the fitted model only.
+"""
 import re, pandas as pd, numpy as np, os, shap
 from xgboost import XGBClassifier
 
