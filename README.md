@@ -6,7 +6,7 @@ A rigorous multi-cohort re-evaluation of the Thomas et al. (2019) CRC classifica
 
 ## Key finding
 
-Species-only RF achieves a pooled LODO AUC of **0.810** (95% CI: 0.777 to 0.841), significantly outperforming:
+Species-only RF achieves a pooled LODO AUC of **0.810** (95% CI: 0.776 to 0.841, 10,000 cohort-stratified bootstrap resamples), significantly outperforming:
 - Joint species+pathway RF: AUC 0.776 (DeLong z = 2.88, p = 0.004)
 - Joint species+pathway XGBoost: AUC 0.781 (DeLong z = 2.65, p = 0.008)
 
