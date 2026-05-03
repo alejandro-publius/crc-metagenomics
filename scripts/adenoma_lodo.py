@@ -92,7 +92,7 @@ def main():
     X_all = mg[fc].reset_index(drop=True)
     md_all = mg[['sample_id', 'study_name', 'study_condition']].reset_index(drop=True)
 
-    h_vs_a = {'healthy': 0, 'adenoma': 1}
+    h_vs_a = {'control': 0, 'adenoma': 1}
     a_vs_c = {'adenoma': 0, 'CRC': 1}
 
     print('--- Healthy vs Adenoma ---')

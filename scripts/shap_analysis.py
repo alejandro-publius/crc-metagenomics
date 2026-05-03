@@ -1,3 +1,13 @@
+"""SHAP feature importance for the species-only Random Forest.
+
+Scope: the model is fit on the entire labeled dataset (all 646 CRC + control
+samples) and SHAP values are computed on that same fit. These values describe
+how the fully-fit model uses each feature; they do NOT measure what drives
+generalization across cohorts. The headline generalization claim comes from
+LODO in train_baseline.py / train_joint.py. Treat these SHAP rankings as
+"feature importance for the trained classifier" rather than as a cross-cohort
+signal of biological causality.
+"""
 import pandas as pd, numpy as np, os, shap
 from sklearn.ensemble import RandomForestClassifier
 

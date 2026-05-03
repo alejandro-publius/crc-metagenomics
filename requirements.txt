@@ -5,3 +5,6 @@ xgboost>=2.0
 shap>=0.44
 matplotlib>=3.7
 scipy>=1.11
+# combat.pycombat (canonical Python ComBat) — required only for
+# scripts/batch_correction.py
+combat>=0.3

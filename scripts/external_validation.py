@@ -1,18 +1,23 @@
 """
-external_validation.py — Test the model on truly held-out cohorts.
+external_validation.py — Sanity check: train on a 5-cohort subset and
+report AUC on two held-out cohorts.
 
 What this script does:
-1. Picks 2 cohorts to hold out completely (YuJ_2015 and ZellerG_2014)
-2. Trains a Random Forest model on ONLY the other 5 cohorts
-3. Tests on each held-out cohort separately
-4. Saves the results
+1. Picks 2 cohorts to hold out (YuJ_2015 and ZellerG_2014)
+2. Trains a Random Forest on the other 5 cohorts
+3. Reports per-cohort and combined AUC on the held-out 2
 
-Why this is different from LODO:
-LODO rotates through all 7 cohorts, leaving one out at a time. Every cohort gets
-to be the test set once and the training set 6 times. External validation is
-stricter — the held-out cohorts never get used for training. They're truly unseen.
-
-This is what reviewers want for generalization claims.
+Relationship to LODO:
+This is NOT a stronger generalization test than LODO. LODO already holds each
+cohort out completely — every fold's test cohort is unseen during that fold's
+training. This script just trains on a smaller subset (5 cohorts instead of
+6) and tests on a fixed pair, so it is a strictly weaker / lower-power check
+than LODO. We keep it because (a) it is a useful sanity check that the model
+behaves as expected when trained on fewer cohorts, and (b) reporting per-
+cohort AUCs from a single train fit is sometimes asked for explicitly. The
+held-out cohorts in this script are still drawn from the same
+curatedMetagenomicData source as the rest of the analysis; they are not an
+independent external dataset.
 
 Authors: Alex Velazquez, Rachel Selbrede
 
@@ -153,16 +158,15 @@ def main():
     results_df.to_csv("results/external_validation.csv", index=False)
     print("\n  Saved results/external_validation.csv")
 
-    # ── Section 8: Print a Methods sentence Rachel can paste into the paper ──
+    # ── Section 8: Print a Methods note for the paper ──
     print("\n" + "=" * 60)
-    print("Methods sentence to paste into the manuscript:")
-    print('  "To assess generalization to unseen cohorts, we held out')
-    print('   the two largest cohorts (YuJ_2015 and ZellerG_2014) and')
-    print('   trained the model on the remaining five. The model achieved')
-    print(f'   AUC {results[0]["auc"]:.3f} on YuJ_2015 and AUC {results[1]["auc"]:.3f} on')
-    print(f'   ZellerG_2014, with a combined external AUC of {overall_auc:.3f}.')
-    print('   These results indicate the model generalizes to truly unseen')
-    print('   patient populations."')
+    print("Suggested Methods note (sanity-check framing):")
+    print('  "As a sanity check on the LODO results, we trained a Random')
+    print('   Forest on a 5-cohort subset (excluding YuJ_2015 and')
+    print(f'   ZellerG_2014) and report AUCs of {results[0]["auc"]:.3f} (YuJ_2015) and')
+    print(f'   {results[1]["auc"]:.3f} (ZellerG_2014); combined AUC {overall_auc:.3f}. This is')
+    print('   a strictly weaker test than the headline LODO analysis, in')
+    print('   which every cohort is held out as a test set in turn."')
     print("=" * 60)
 
 
