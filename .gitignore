@@ -4,6 +4,7 @@ __pycache__/
 *.egg-info/
 .ipynb_checkpoints/
 data/raw/pathway_abundance.csv
+data/raw/pathway_unstratified_full.csv
 data/raw/pathway_chunks/
 data/raw/species_chunks/
 .RData

@@ -12,9 +12,9 @@ See README.md and results/decisions_addendum.md for the canonical pipeline. Deta
 6. python3 scripts/preprocessing.py
 7. python3 scripts/generate_table1.py
 8. python3 scripts/adenoma_counts.py
-9. python3 scripts/train_baseline.py    # expect AUC 0.803
-10. python3 scripts/train_joint.py      # expect Joint RF 0.785, XGB 0.784
-11. python3 scripts/train_adenoma.py    # expect H-vs-A 0.681/0.709, A-vs-CRC 0.787/0.809
+9. python3 scripts/train_baseline.py    # expect species RF per-cohort mean AUC 0.803 (pooled 0.810)
+10. python3 scripts/train_joint.py      # expect Joint RF per-cohort mean 0.785 (pooled 0.776), XGB per-cohort 0.784 (pooled 0.781)
+11. python3 scripts/train_adenoma.py    # expect 5-fold within-cohort H-vs-A 0.681/0.709, A-vs-CRC 0.787/0.809
 12. python3 scripts/auc_comparison.py
 13. python3 scripts/shap_analysis.py
 14. python3 scripts/shap_adenoma.py
@@ -35,10 +35,10 @@ All scripts use random_state=42. Joint model uses unstratified pathway features 
 
 ## Robustness and sensitivity analyses
 
-19. python3 scripts/sensitivity_analysis.py   # filter threshold sweep
-20. python3 scripts/confounder_adjustment.py   # age/sex/BMI confounding
-21. python3 scripts/adenoma_lodo.py            # cross-cohort adenoma LODO
+19. python3 scripts/sensitivity_analysis.py   # per-fold filter threshold sweep; expect joint RF AUC range 0.773-0.811 (full grid), 0.773-0.789 (excluding the degenerate mean>=1e-3 column)
+20. python3 scripts/confounder_adjustment.py   # age/sex/BMI confounding (per-fold imputation)
+21. python3 scripts/adenoma_lodo.py            # cross-cohort adenoma LODO; expect H-vs-A 0.509/0.453, A-vs-CRC 0.583/0.515
 22. python3 scripts/bootstrap_ci.py            # 95% bootstrap CIs on AUCs
 23. python3 scripts/seed_sensitivity.py        # random seed stability
-24. python3 scripts/batch_correction.py        # per-fold ComBat (requires pycombat)
-25. python3 scripts/verify_results.py          # smoke-test headline numbers
+24. python3 scripts/batch_correction.py        # per-fold ComBat (requires `pip install combat`)
+25. python3 scripts/verify_results.py          # verify all headline numbers, p-values, CI bounds
