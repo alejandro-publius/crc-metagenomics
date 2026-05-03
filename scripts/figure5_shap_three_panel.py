@@ -34,7 +34,13 @@ from pathlib import Path
 # CONFIG: edit these paths to match your repo
 # -----------------------------------------------------------------------------
 RESULTS_DIR = Path("results")
-OUTPUT_PATH = Path("figures/figure5_three_panel_shap.png")
+# Manuscript figure (Figure 4): three-panel SHAP across the three classifiers
+# in the adenoma-carcinoma sequence.
+MANUSCRIPT_PNG = Path("manuscript/figures/Figure4_Three_Panel_SHAP.png")
+MANUSCRIPT_PDF = Path("manuscript/figures/Figure4_Three_Panel_SHAP.pdf")
+# Legacy script-output location (kept for backward compatibility with
+# REPRODUCING.md). Will be written if the legacy figures/ dir exists.
+LEGACY_OUTPUT = Path("figures/figure5_three_panel_shap.png")
 
 SHAP_FILES = {
     "Healthy vs Adenoma": RESULTS_DIR / "shap_healthy_vs_adenoma.csv",
@@ -147,9 +153,14 @@ def build_figure():
                 fontsize=18, fontweight="bold", va="top", ha="right")
 
     plt.tight_layout()
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(OUTPUT_PATH, dpi=300, bbox_inches="tight")
-    print(f"Saved: {OUTPUT_PATH}")
+    MANUSCRIPT_PNG.parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(MANUSCRIPT_PNG, dpi=300, bbox_inches="tight")
+    plt.savefig(MANUSCRIPT_PDF, bbox_inches="tight")
+    print(f"Saved: {MANUSCRIPT_PNG}")
+    print(f"Saved: {MANUSCRIPT_PDF}")
+    if LEGACY_OUTPUT.parent.exists():
+        plt.savefig(LEGACY_OUTPUT, dpi=300, bbox_inches="tight")
+        print(f"Saved: {LEGACY_OUTPUT}")
 
 
 if __name__ == "__main__":
