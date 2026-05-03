@@ -71,9 +71,10 @@ cells. Default thresholds (prevalence >= 10%, mean >= 1e-6) yield
 DECISION: Documented. confounder_adjustment.py tests age, sex, and
 BMI as potential confounders via direct inclusion and residualization.
 Covariate imputation uses train-fold-only medians/modes to avoid
-leakage. Results: baseline 0.803, direct RF 0.808, direct XGB 0.812,
-residualized RF 0.807, residualized XGB 0.799. Minimal change
-confirms the classifier is not driven by demographic confounders.
+leakage. Results: baseline 0.803, direct RF 0.808, direct XGB 0.807,
+residualized RF 0.807, residualized XGB 0.816. The 0.807-0.816 range
+sits within sampling noise of the unadjusted baseline, confirming the
+classifier is not driven by demographic confounders.
 
 ## Cross-cohort adenoma LODO
 DECISION: Documented. adenoma_lodo.py runs leave-one-cohort-out
@@ -89,9 +90,14 @@ is recomputed per fold from training labels. Saved to
 results/adenoma_lodo_results.csv.
 
 ## Bootstrap confidence intervals
-DECISION: Documented. bootstrap_ci.py computes 2000-iteration
-bootstrap 95% CIs on per-cohort and pooled AUCs for species RF,
-joint RF, and joint XGB. Species RF pooled: 0.810 [0.776, 0.840].
+DECISION: Documented. bootstrap_ci.py computes 10,000-iteration bootstrap
+95% CIs on per-cohort and pooled AUCs for species RF, joint RF, and
+joint XGB. Per-cohort CIs use i.i.d. resampling within each held-out
+cohort; pooled CIs use cohort-stratified resampling (each iteration
+resamples with replacement within each cohort separately, then
+concatenates) so the LODO sample-size structure is preserved. Species
+RF pooled: 0.810 [0.776, 0.841]. Joint RF pooled: 0.776 [0.740, 0.811].
+Joint XGB pooled: 0.781 [0.746, 0.816].
 
 ## Seed sensitivity
 DECISION: Documented. seed_sensitivity.py runs species RF LODO at
