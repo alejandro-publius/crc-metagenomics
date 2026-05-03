@@ -56,11 +56,16 @@ non-LODO 5-fold CV, where this leakage concern does not apply.
 
 ## Filter threshold sensitivity
 DECISION: Documented. sensitivity_analysis.py sweeps prevalence
-{0.05..0.25} x mean {1e-7..1e-4} under LODO CV. AUC ranges from
-0.773 to 0.789 across all 20 combinations (spread = 0.016),
-confirming that the default thresholds (prevalence >= 10%,
-mean >= 1e-6) are near-optimal and conclusions are not sensitive
-to the specific cutoffs chosen.
+{0.05, 0.10, 0.15, 0.20} x mean {1e-7, 1e-6, 1e-5, 1e-4, 1e-3} under
+LODO CV with the prevalence/mean filter applied PER FOLD using only
+training-cohort samples (matches the headline run in train_joint.py).
+Joint RF mean per-cohort AUC ranges from 0.773 to 0.811 across all 20
+cells (spread 0.038); excluding the degenerate mean >= 1e-3 column
+(which retains only ~2 pathways and effectively reduces the joint
+model to species-only at AUC 0.811), the spread tightens to 0.016
+(range 0.773 to 0.789) across the 16 substantively non-degenerate
+cells. Default thresholds (prevalence >= 10%, mean >= 1e-6) yield
+0.785 and are near-optimal.
 
 ## Confounder adjustment
 DECISION: Documented. confounder_adjustment.py tests age, sex, and
@@ -73,11 +78,15 @@ confirms the classifier is not driven by demographic confounders.
 ## Cross-cohort adenoma LODO
 DECISION: Documented. adenoma_lodo.py runs leave-one-cohort-out
 across the 3 adenoma-containing cohorts (FengQ_2015, ZellerG_2014,
-ThomasAM_2018a). H-vs-A LODO AUC 0.58-0.62 (vs 0.68-0.71 in 5-fold
-CV); A-vs-CRC LODO AUC 0.67-0.69 (vs 0.79-0.81). The substantial
-drop indicates adenoma classification does not generalize well across
-cohorts with current sample sizes. scale_pos_weight is recomputed per
-fold from training labels.
+ThomasAM_2018a). H-vs-A LODO mean AUC 0.509 (RF) / 0.453 (XGB), per-fold
+range 0.379-0.582, vs 0.681/0.709 in within-cohort 5-fold CV; A-vs-CRC
+LODO mean AUC 0.583 (RF) / 0.515 (XGB), per-fold range 0.456-0.631, vs
+0.787/0.809 in within-cohort 5-fold CV. The H-vs-A LODO performance is
+at or below chance, indicating the within-cohort adenoma signal does
+not transfer across cohorts at all. A-vs-CRC LODO performs slightly
+above chance but well below the within-cohort 5-fold CV. scale_pos_weight
+is recomputed per fold from training labels. Saved to
+results/adenoma_lodo_results.csv.
 
 ## Bootstrap confidence intervals
 DECISION: Documented. bootstrap_ci.py computes 2000-iteration
@@ -90,10 +99,19 @@ seeds {0, 1, 2, 42, 100}. Mean AUC = 0.8049 +/- 0.0020, range
 [0.8035, 0.8084]. Results are stable across random seeds.
 
 ## Batch correction (ComBat)
-DECISION: Documented. batch_correction.py applies per-fold ComBat
-on species features (training cohorts only; test fold is single-cohort
-so no correction needed). Requires pycombat. Results should be
-compared against uncorrected baseline to assess batch effect magnitude.
+DECISION: Documented. batch_correction.py applies per-fold ComBat on
+species features. ComBat is fit jointly on the train and test feature
+matrices using only batch labels (study_name); class labels (CRC vs
+control) are never seen by ComBat, so this preserves the LODO no-
+leakage guarantee while keeping train and test in the same corrected
+feature space. (Earlier versions trained on corrected features and
+tested on uncorrected features, leaving train and test in different
+spaces; that version's AUCs were uninterpretable and have been
+discarded.) Result: mean per-cohort AUC 0.806 with ComBat vs 0.803
+without, indicating batch effects in this curatedMetagenomicData
+subset are small relative to the cross-cohort biological signal.
+Requires `pip install combat` (canonical PyPI package providing
+combat.pycombat.pycombat).
 
 ## Package pinning
 DECISION: requirements.lock pins exact versions of all Python
