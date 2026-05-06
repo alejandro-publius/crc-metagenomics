@@ -21,7 +21,9 @@ See README.md and results/decisions_addendum.md for the canonical pipeline. Deta
 15. python3 scripts/shap_xgb.py
 16. python3 scripts/add_covariates.py
 17. python3 scripts/external_validation.py
-18. python3 scripts/generate_figures.py
+18. python3 scripts/generate_figures.py        # script-output draft figures
+18a. python3 scripts/figure1_forest_plot.py    # manuscript Figure 1 (forest plot of per-cohort + pooled CIs)
+18b. python3 scripts/figure5_shap_three_panel.py # manuscript Figure 4 (three-panel SHAP across adenoma-carcinoma sequence)
 
 ## Sanity checks
 
