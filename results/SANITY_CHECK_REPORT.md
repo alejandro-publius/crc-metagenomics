@@ -30,7 +30,6 @@
 - `results/diagnostics/` — calibration, confusion, ROC/PR, subgroup
 - `figures/` and `manuscript/figures/` — all PNG ≥ 300 DPI, PDF vector
 - `submission/` — cover letter, ethics, contributions, checklist, bioRxiv metadata, reviewer responses, pre-submission QA, build bundle ZIP
-- `tal/` — one-pager, dashboard, action-items response, pitch, methodology walkthrough
 - `conference/`, `outreach/` — poster outline, slides, abstracts, lay summary, blog, journalist Q&A
 - Infrastructure — Dockerfile, environment.yml, CITATION.cff, .zenodo.json, CHANGELOG, CONTRIBUTING, LICENSE
 

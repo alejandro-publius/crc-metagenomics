@@ -1,8 +1,9 @@
 """RebalancedCV-style LODO for the adenoma tasks.
 
-Addresses Tal Korem's concern that the adenoma LODO has class-balance shifts
-across the four held-out cohorts (FengQ_2015=47, ZellerG_2014=42,
-ThomasAM_2018a=27, YachidaS_2019=67), which biases per-fold ROC.
+The adenoma LODO has class-balance shifts across the four held-out cohorts
+(FengQ_2015=47, ZellerG_2014=42, ThomasAM_2018a=27, YachidaS_2019=67), which
+can bias per-fold ROC. This script tests whether per-fold rebalancing
+changes the qualitative conclusions.
 
 For each adenoma task (H-vs-A and A-vs-CRC) and each classifier (RF, XGB),
 runs leave-one-cohort-out (country-aware, so JPN<->JPN cross-training is

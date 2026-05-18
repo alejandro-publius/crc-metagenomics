@@ -1,0 +1,35 @@
+To: GitHub Support (https://support.github.com/contact)
+Subject: Purge AI-attribution from merged PR head ref in private/personal repo
+
+Repository: alejandro-publius/crc-metagenomics
+PR in question: #2 ("Fix audit findings: adenoma label bug, ComBat space mismatch, per-fold leakage, doc drift")
+Source branch (now deleted): claude/clever-einstein-8808ff
+Affected commit SHA: a329a34c239f7f5d6e85a0f64fa6436b640acbdf
+Hidden ref still serving it: refs/pull/2/head
+
+Hi GitHub Support,
+
+I am the repository owner. Commit a329a34c on the merged PR #2 contains a
+"Co-Authored-By:" trailer that maps the email noreply@anthropic.com to the
+@claude GitHub user, causing @claude to persistently appear in my
+repository's contributor sidebar.
+
+I have rewritten my main branch history with git filter-branch to remove
+this trailer from all reachable commits and force-pushed. I have verified
+the contributors REST API now returns only the two human collaborators.
+However, the commit at refs/pull/2/head is preserved by GitHub server-side
+and continues to feed the contributor widget.
+
+I am the sole owner. There is no abuse complaint, no legal issue — I just
+want the AI-attribution trailer purged from PR #2's head ref so the @claude
+contributor entry clears.
+
+Could you please:
+1. Purge the orphan commit a329a34c (or replace it with an equivalent
+   commit authored by alejandro-publius only), or
+2. Rewrite PR #2's head ref to point to my current main branch HEAD, or
+3. Delete PR #2 entirely from history.
+
+Any of the above is acceptable. Thank you.
+
+— Alejandro Velazquez

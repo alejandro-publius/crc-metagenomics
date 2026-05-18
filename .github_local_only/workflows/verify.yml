@@ -1,0 +1,43 @@
+name: verify
+
+# Smoke-test the manuscript's headline numbers on every push / PR to main.
+# scripts/verify_results.py reads CSVs from data/processed/ and results/ and
+# exits non-zero if any of its 38 checks fail.
+#
+# Known limitation: data/raw/ is *not* committed (it is rebuilt from
+# scripts/export_data.R via curatedMetagenomicData). data/processed/ and
+# results/*.csv ARE committed, so verify_results.py can run in CI without a
+# separate data-fetch step. If those CSVs are ever removed from the repo
+# because of size, the verify job will need a preceding step that runs the
+# full preprocessing pipeline (Rscript scripts/export_data.R, then
+# scripts/preprocessing.py, then the train_*.py scripts) -- expect ~45 min
+# instead of ~30 s.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.lock
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.lock
+
+      - name: Run verification checks
+        # verify_results.py exits 1 on any check failure, which fails the job.
+        run: python3 scripts/verify_results.py

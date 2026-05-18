@@ -3,8 +3,8 @@
 The decisions log (results/decisions_addendum.md, "Pathway feature set")
 states that stratified taxon|pathway features were "considered but produce
 >4000 highly redundant columns that did not improve AUC in pilot testing."
-Tal asked that this pilot be reproducible. This script re-runs it under the
-same country-aware LODO protocol used for the joint model, and writes a
+This script makes that pilot reproducible. It re-runs the comparison under
+the same country-aware LODO protocol used for the joint model, and writes a
 single CSV with the four head-to-head feature sets:
 
   1. species_only             - species_filtered.csv only
