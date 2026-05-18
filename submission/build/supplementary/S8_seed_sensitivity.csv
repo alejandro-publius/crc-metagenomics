@@ -4,6 +4,3 @@ seed,mean_auc,std_auc
 2,0.8088,0.0626
 42,0.8075,0.0646
 100,0.8113,0.0654
-
-metric,n_seeds,grand_mean,across_seed_std,min,max,spread
-across_seeds,5,0.8097,0.0017,0.8075,0.8115,0.004

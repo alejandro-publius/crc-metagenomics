@@ -29,13 +29,13 @@ Internal checklist before submission to any journal. Update each item to
 - [ ] Effect sizes with 95% CIs
 - [ ] DeLong test statistics include z and exact p
 - [ ] Multiple-testing correction noted where applicable
-- [ ] Bootstrap CI iteration count specified (2000)
+- [ ] Bootstrap CI iteration count specified (10,000)
 
 ## Reproducibility
 - [ ] GitHub repository public and pinned at submission commit
 - [ ] `REPRODUCING.md` end-to-end protocol documented
 - [ ] `requirements.lock` includes exact pinned versions
-- [ ] `scripts/verify_results.py` 38/38 checks pass
+- [ ] `scripts/verify_results.py` 49/49 checks pass
 - [ ] DOI for repository snapshot (Zenodo or equivalent) created and cited
 - [ ] Per-sample prediction files included for independent DeLong / calibration replication
 

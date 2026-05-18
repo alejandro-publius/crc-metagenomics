@@ -14,7 +14,7 @@ validation
 Alejandro Velazquez¹*, Rachel Selbrede²
 
 1. University of California, Berkeley, Computer Science
-2. California State University San Marcos, Department of Biological Sciences
+2. California State University San Marcos, Molecular and Cell Biology
 
 *Corresponding author. Email: alejandro-publius@berkeley.edu. ORCID: 0009-0007-9798-1958*
 

@@ -34,7 +34,7 @@ First release accompanying the manuscript submission.
 - Reproducibility infrastructure: `requirements.lock`, `environment.yml`,
   `Dockerfile`, GitHub Actions verification workflow, pytest stubs for
   `lodo_cv.run_lodo_cv`, `CITATION.cff`, `.zenodo.json`.
-- `scripts/verify_results.py`: 38 headline-number checks tied to manuscript
+- `scripts/verify_results.py`: 49 headline-number checks tied to manuscript
   values; runs in CI on every push and PR.
 
 ### Changed

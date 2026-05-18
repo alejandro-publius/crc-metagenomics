@@ -117,3 +117,7 @@ PWY-6471: peptidoglycan biosynthesis IV (Enterococcus faecium)
 PWY-7332: superpathway of UDP-N-acetylglucosamine-derived O-antigen building blocks biosynthesis
 PWY0-1586: peptidoglycan maturation (meso-diaminopimelate containing)
 UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I
+
+# bile_acid (2 pathways)
+7ALPHADEHYDROX-PWY: cholate degradation (bacteria, anaerobic)
+PWY-7374: 1,4-dihydroxy-6-naphthoate biosynthesis I

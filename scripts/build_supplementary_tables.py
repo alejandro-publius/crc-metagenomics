@@ -154,6 +154,7 @@ def s8_seed_sensitivity():
     for c in ('mean_auc', 'std_auc'):
         if c in seed.columns:
             seed[c] = seed[c].round(4)
+    seed.to_csv(f'{OUT}/S8_seed_sensitivity.csv', index=False)
     summary = pd.DataFrame([{
         'metric': 'across_seeds',
         'n_seeds': len(seed),
@@ -163,11 +164,7 @@ def s8_seed_sensitivity():
         'max': round(seed['mean_auc'].max(), 4),
         'spread': round(seed['mean_auc'].max() - seed['mean_auc'].min(), 4),
     }])
-    out_path = f'{OUT}/S8_seed_sensitivity.csv'
-    with open(out_path, 'w') as f:
-        seed.to_csv(f, index=False)
-        f.write('\n')
-        summary.to_csv(f, index=False)
+    summary.to_csv(f'{OUT}/S8b_seed_sensitivity_summary.csv', index=False)
     return seed
 
 
@@ -215,7 +212,7 @@ def main():
         {'table': 'S3', 'file': 'S3_top_shap_features.csv',
          'description': 'Top 20 SHAP species per task (CRC-vs-control, H-vs-A, A-vs-CRC for both RF and XGB)'},
         {'table': 'S4', 'file': 'S4_bootstrap_ci.csv',
-         'description': '2000-iteration bootstrap 95% CIs (per-cohort and pooled)'},
+         'description': '10,000-iteration bootstrap 95% CIs (per-cohort and pooled)'},
         {'table': 'S5', 'file': 'S5_sensitivity_grid.csv',
          'description': 'Per-fold pathway filter threshold sweep (4 prev x 5 mean = 20 cells)'},
         {'table': 'S6', 'file': 'S6_adenoma_lodo.csv',
@@ -223,7 +220,9 @@ def main():
         {'table': 'S7', 'file': 'S7_confounder_adjustment.csv',
          'description': 'Age, sex, BMI adjustment via direct inclusion and residualization'},
         {'table': 'S8', 'file': 'S8_seed_sensitivity.csv',
-         'description': 'Species RF LODO at 5 random seeds with summary statistics'},
+         'description': 'Species RF LODO at 5 random seeds (per-seed mean/std)'},
+        {'table': 'S8b', 'file': 'S8b_seed_sensitivity_summary.csv',
+         'description': 'Seed sensitivity summary (n_seeds, grand mean, across-seed std, min, max, spread)'},
         {'table': 'S9', 'file': 'S9_external_validation.csv',
          'description': 'Single-cohort holdout AUC for external validation'},
         {'table': 'S10', 'file': 'S10_delong.csv',

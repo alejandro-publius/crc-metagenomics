@@ -68,6 +68,8 @@ SUBMISSION_SCAFFOLD_FILES = [
     "03_author_contributions.md",
     "04_submission_checklist.md",
     "05_biorxiv_metadata.md",
+    "06_reviewer_responses.md",
+    "07_pre_submission_qa.md",
 ]
 
 
@@ -516,6 +518,8 @@ def write_manifest_md(repo: Path, build_dir: Path, report: BuildReport) -> Path:
         "03_author_contributions.md": "Author contributions, funding, competing interests.",
         "04_submission_checklist.md": "Pre-submission readiness checklist.",
         "05_biorxiv_metadata.md": "bioRxiv submission-form fields.",
+        "06_reviewer_responses.md": "Anticipated reviewer-response prep doc.",
+        "07_pre_submission_qa.md": "Internal pre-submission self-critique.",
     }
     for fname, desc in scaffolding_desc.items():
         if (repo / REL_SUBMISSION_DIR / fname).exists():

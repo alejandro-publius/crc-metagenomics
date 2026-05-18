@@ -51,7 +51,7 @@ All scripts use `random_state=42` and produce deterministic results. Total runti
 ## Methodological contributions
 
 - **Country-aware LODO**: when a cohort is held out as the test fold, all cohorts from the same country are excluded from training. This prevents population-level confounding — without this fix, ThomasAM_2019_c (Japan) achieved AUC=0.999 due to YachidaS_2019 (Japan) in the training set; corrected AUC is 0.836.
-- **Biologically-guided pathway shortlist**: 84 unique CRC-relevant pathways selected by keyword matching across 8 biological groups (butyrate/SCFA, fermentation, LPS/inflammation, polyamine, tryptophan, folate/one-carbon, sulfur/methionine, glycan/mucin). Mean per-cohort LODO AUC 0.817, comparable to the species-only baseline (0.807).
+- **Biologically-guided pathway shortlist**: 86 unique CRC-relevant pathways selected by keyword matching across 9 biological groups (butyrate/SCFA, fermentation, LPS/inflammation, polyamine, tryptophan, folate/one-carbon, sulfur/methionine, glycan/mucin, bile-acid metabolism). Mean per-cohort LODO AUC 0.817, comparable to the species-only baseline (0.807).
 
 ## Robustness battery
 

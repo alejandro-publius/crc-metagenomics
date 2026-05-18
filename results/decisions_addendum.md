@@ -194,3 +194,26 @@ distributions.
 Note: removing HanniganGD_2017 (82% sparse) before species filtering
 increased retained features from 220 to 229, further confirming that
 Hannigan's noisy zeros were suppressing real species signal.
+
+## Bile-acid pathway group added to biologically-guided shortlist
+DECISION: A ninth biological group, `bile_acid`, was added to
+`scripts/bio_pathway_shortlist.py` alongside the original eight
+(butyrate/SCFA, fermentation, LPS/inflammation, polyamine, tryptophan,
+folate/one-carbon, sulfur/methionine, glycan/mucin). Bile-acid
+metabolism is a well-established CRC-microbiome axis: bacterial bile
+salt hydrolases (BSH) deconjugate primary bile acids, and
+7alpha-dehydroxylating clostridia (bai operon) generate the
+cytotoxic / tumour-promoting secondary bile acids deoxycholate and
+lithocholate that accumulate in the distal colon under Western diets.
+Keywords cover bile, cholate, deoxycholate, lithocholate,
+chenodeoxycholate, BSH, bai, and the MetaCyc identifiers PWY-6358,
+PWY-7374, CHOLINE-BETAINE-ANA-PWY. The expanded shortlist contains
+86 unique pathway candidates (up from 84); per-fold prevalence/mean
+filtering retains ~66 of these and the joint species + shortlist
+country-aware LODO mean per-cohort AUC is 0.817 (unchanged at three
+decimal places from the eight-group version), confirming that the
+qualitative conclusion is not contingent on which curated functional
+groups are included. The bile-acid group itself contributes only two
+pathways at the unstratified MetaCyc level visible in this HUMAnN
+output, reflecting that bai/BSH genes typically appear in stratified
+gene-family tables rather than as MetaCyc community pathways.

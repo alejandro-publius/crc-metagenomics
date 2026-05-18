@@ -1,0 +1,2 @@
+metric,n_seeds,grand_mean,across_seed_std,min,max,spread
+across_seeds,5,0.8097,0.0017,0.8075,0.8115,0.004

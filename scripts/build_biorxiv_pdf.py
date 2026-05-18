@@ -53,7 +53,7 @@ FIGURE_CAPTIONS = {
     "Figure1_Forest_Plot":
         "**Figure 1.** Country-aware leave-one-dataset-out (LODO) per-cohort "
         "AUC for the species-only Random Forest classifier across all ten "
-        "cohorts. Whiskers are 2000-iteration cohort-stratified bootstrap "
+        "cohorts. Whiskers are 10,000-iteration cohort-stratified bootstrap "
         "95% CIs.",
     "Figure2_ROC_Curves":
         "**Figure 2.** ROC curves for the species-only Random Forest, the "

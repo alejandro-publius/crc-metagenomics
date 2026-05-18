@@ -67,7 +67,7 @@ python3 scripts/adenoma_lodo.py     # cross-cohort LODO across 4 adenoma-contain
 ### 6. Biologically-guided pathway shortlist
 
 ```bash
-python3 scripts/bio_pathway_shortlist.py  # keyword-selected 84 unique CRC-relevant pathways across 8 groups
+python3 scripts/bio_pathway_shortlist.py  # keyword-selected 86 unique CRC-relevant pathways across 9 groups
                                           # expect: mean per-cohort LODO AUC ~0.817 (vs species-only 0.807)
 ```
 

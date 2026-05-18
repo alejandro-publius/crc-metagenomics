@@ -10,7 +10,7 @@ pip install pytest
 pytest tests/ -v
 ```
 
-The verification smoke test (38 checks against committed CSVs) runs the
+The verification smoke test (49 checks against committed CSVs) runs the
 same way CI does:
 
 ```bash

@@ -2,10 +2,11 @@ table,file,description
 S1,S1_cohort_overview.csv,"Per-cohort sample counts, demographics, sequencing depth"
 S2,S2_per_fold_aucs.csv,"Per-fold AUC for species RF, joint RF, joint XGB, bio-pathway RF, and ComBat-corrected species RF"
 S3,S3_top_shap_features.csv,"Top 20 SHAP species per task (CRC-vs-control, H-vs-A, A-vs-CRC for both RF and XGB)"
-S4,S4_bootstrap_ci.csv,2000-iteration bootstrap 95% CIs (per-cohort and pooled)
+S4,S4_bootstrap_ci.csv,"10,000-iteration bootstrap 95% CIs (per-cohort and pooled)"
 S5,S5_sensitivity_grid.csv,Per-fold pathway filter threshold sweep (4 prev x 5 mean = 20 cells)
 S6,S6_adenoma_lodo.csv,"Adenoma cross-cohort LODO (4 cohorts, 4 tasks)"
 S7,S7_confounder_adjustment.csv,"Age, sex, BMI adjustment via direct inclusion and residualization"
-S8,S8_seed_sensitivity.csv,Species RF LODO at 5 random seeds with summary statistics
+S8,S8_seed_sensitivity.csv,Species RF LODO at 5 random seeds (per-seed mean/std)
+S8b,S8b_seed_sensitivity_summary.csv,"Seed sensitivity summary (n_seeds, grand mean, across-seed std, min, max, spread)"
 S9,S9_external_validation.csv,Single-cohort holdout AUC for external validation
 S10,S10_delong.csv,DeLong (1988; Sun and Xu 2014) significance tests on pooled LODO predictions

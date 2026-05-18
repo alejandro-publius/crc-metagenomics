@@ -4,8 +4,7 @@ Instead of all 551 unstratified pathway candidates, selects a curated subset
 based on CRC-relevant biology: butyrate/SCFA production, fermentation,
 LPS/peptidoglycan and inflammation, polyamine synthesis, tryptophan
 metabolism, folate/one-carbon metabolism, sulfur/methionine metabolism,
-and glycan/mucin degradation (eight groups; 84 unique pathways after
-deduplicating cross-group hits such as CENTFERM-PWY).
+glycan/mucin degradation, and bile-acid metabolism (nine groups).
 
 Rationale (key references in manuscript):
 - Butyrate-producing bacteria (Roseburia, Faecalibacterium) are consistently
@@ -26,6 +25,10 @@ Rationale (key references in manuscript):
   in CRC.
 - Glycan/mucin-degrading pathways reflect mucus-layer remodeling that
   precedes epithelial barrier disruption.
+- Bile-acid metabolism: bacterial bile salt hydrolases (BSH) deconjugate
+  primary bile acids; 7alpha-dehydroxylating clostridia (bai operon) convert
+  primary to secondary bile acids (deoxycholate, lithocholate) that are
+  cytotoxic and tumor-promoting in the distal colon.
 
 Usage:
     python3 scripts/bio_pathway_shortlist.py
@@ -66,6 +69,10 @@ BIO_KEYWORDS = {
     'glycan_mucin':    ['N-acetylglucosamine', 'N-acetylneuraminate',
                         'sialyl', 'fucosyl', 'mucin', 'glycan',
                         'GLCMANNANAUT', 'P441-PWY', 'UDPNAGSYN'],
+    'bile_acid':       ['bile', 'cholate', 'deoxycholate', 'lithocholate',
+                        'chenodeoxycholate', 'bile.acid', 'BSH', 'bai',
+                        'cholanoate', 'cholesterol.degradation',
+                        'PWY-6358', 'PWY-7374', 'CHOLINE-BETAINE-ANA-PWY'],
 }
 
 

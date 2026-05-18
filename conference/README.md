@@ -61,7 +61,7 @@ qrencode -o conference/qr.png -s 12 -m 2 "$(head -1 conference/qr_code_target_ur
 
 ## Ground-truth numbers (do not edit without updating all artifacts)
 
-- 10 cohorts, 7 countries, 1,522 samples (674 CRC, 665 control, 183 adenoma).
+- 10 cohorts, 8 countries, 1,522 samples (674 CRC, 665 control, 183 adenoma).
 - Case/control LODO uses 1,339 samples (adenomas excluded from the main task).
 - Species RF: per-cohort mean LODO AUC **0.807 ± 0.065**; pooled **0.781 (0.757-0.805)**.
 - Joint RF pooled AUC 0.756; joint XGBoost pooled 0.766.

@@ -25,7 +25,7 @@ Code & data: github.com/alejandro-publius/crc-metagenomics
 
 ---
 
-## Dataset: 10 cohorts, 7 countries, 1,522 samples
+## Dataset: 10 cohorts, 8 countries, 1,522 samples
 
 | Cohort           | Country | N     | CRC | Adenoma | Control |
 |------------------|---------|-------|-----|---------|---------|

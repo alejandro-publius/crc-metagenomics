@@ -87,7 +87,7 @@ Per-fold ComBat correction (`combat.pycombat.pycombat`) on species features yiel
 
 ## Supplementary Note S4. Biologically-guided pathway shortlist
 
-A pre-specified, keyword-based shortlist drawn from eight biological groups (butyrate/SCFA, fermentation, LPS/inflammation, polyamines, tryptophan metabolism, folate/one-carbon metabolism, sulfur/methionine metabolism, glycan/mucin degradation) expands to 84 unique CRC-relevant pathway candidates; per-fold prevalence/mean filtering retains ~66 of these, giving ~295 total features per fold (229 species + ~66 pathways). The joint species + shortlist-pathway feature set yields per-cohort mean AUC 0.817, comparable to the species-only baseline. Curated CRC-relevant pathways therefore do not provide an advantage over the species features alone. Source: `results/bio_pathway_results.csv`.
+A pre-specified, keyword-based shortlist drawn from nine biological groups (butyrate/SCFA, fermentation, LPS/inflammation, polyamines, tryptophan metabolism, folate/one-carbon metabolism, sulfur/methionine metabolism, glycan/mucin degradation, bile-acid metabolism) expands to 86 unique CRC-relevant pathway candidates; per-fold prevalence/mean filtering retains ~66 of these, giving ~295 total features per fold (229 species + ~66 pathways). The joint species + shortlist-pathway feature set yields per-cohort mean AUC 0.817, comparable to the species-only baseline. Curated CRC-relevant pathways therefore do not provide an advantage over the species features alone. Source: `results/bio_pathway_results.csv`.
 
 ## Supplementary Note S5. Adenoma classification (cross-cohort LODO)
 

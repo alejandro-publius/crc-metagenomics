@@ -2,7 +2,7 @@ name: verify
 
 # Smoke-test the manuscript's headline numbers on every push / PR to main.
 # scripts/verify_results.py reads CSVs from data/processed/ and results/ and
-# exits non-zero if any of its 38 checks fail.
+# exits non-zero if any of its 49 checks fail.
 #
 # Known limitation: data/raw/ is *not* committed (it is rebuilt from
 # scripts/export_data.R via curatedMetagenomicData). data/processed/ and

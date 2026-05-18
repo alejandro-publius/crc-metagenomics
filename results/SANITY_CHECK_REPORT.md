@@ -19,7 +19,7 @@
 - Seed sensitivity: 0.810 ± 0.002 across 5 seeds
 - Confounder adjustment: 0.800-0.814 around 0.807 baseline
 - ComBat: 0.815 corrected vs 0.807 uncorrected
-- Bio-pathway shortlist (8 groups, ~84 candidates): mean LODO AUC 0.817
+- Bio-pathway shortlist (9 groups, ~86 candidates): mean LODO AUC 0.817
 - Stratified pathway pilot (~4700 features): RF 0.752, XGB 0.796 (no improvement over species-only)
 - Rebalanced adenoma LODO: qualitative finding stable across baseline / inverse-weight / random-under / SMOTE
 
@@ -41,7 +41,7 @@
 5. Rachel's social handle in `outreach/twitter_thread.md`
 
 ## Country count
-The dataset spans 8 countries (per `results/table1.csv`): AUT, CAN, CHN, DEU, FRA, ITA, JPN, USA.
+The dataset spans 8 countries (per `results/table1.csv`): AUT, CHN, DEU, FRA, IND, ITA, JPN, USA.
 
 ## Git state
 - 0 commits with generator-attribution trailers

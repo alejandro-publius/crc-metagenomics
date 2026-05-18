@@ -1,7 +1,7 @@
 # Submission Package Manifest
 
-Generated: 2026-05-18T12:09:56+00:00
-Finished:  2026-05-18T12:09:56+00:00
+Generated: 2026-05-18T12:47:25+00:00
+Finished:  2026-05-18T12:47:28+00:00
 
 Master index of everything in the submission package. SHA-256 digests of all final deliverable PDFs and ZIPs are included for integrity tracking.
 
@@ -15,6 +15,8 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `submission/03_author_contributions.md` | Author contributions, funding, competing interests. |
 | `submission/04_submission_checklist.md` | Pre-submission readiness checklist. |
 | `submission/05_biorxiv_metadata.md` | bioRxiv submission-form fields. |
+| `submission/06_reviewer_responses.md` | Anticipated reviewer-response prep doc. |
+| `submission/07_pre_submission_qa.md` | Internal pre-submission self-critique. |
 | `submission/MANIFEST.md` | (this file) |
 
 ## `submission/build/` (auto-generated)
@@ -27,18 +29,12 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `03_author_contributions.md` | 1.3 KB | submission scaffolding |
 | `04_submission_checklist.md` | 4.0 KB | submission scaffolding |
 | `05_biorxiv_metadata.md` | 1.6 KB | submission scaffolding |
-| `CRC_Manuscript_Complete.docx` | 57.6 KB | manuscript (Word) |
-| `README.md` | 4.2 KB | bundle README |
-| `SUBMISSION_BUNDLE.zip` | 3.5 MB | final upload archive |
-| `figures/Figure1_Forest_Plot.pdf` | 34.8 KB | figure (unmerged) |
-| `figures/Figure2_ROC_Curves.pdf` | 25.4 KB | figure (unmerged) |
-| `figures/Figure3_SHAP_Importance.pdf` | 38.5 KB | figure (unmerged) |
-| `figures/Figure4_Three_Panel_SHAP.pdf` | 42.2 KB | figure (unmerged) |
-| `figures/base_rate_ppv.png` | 246.9 KB | figure (unmerged) |
-| `figures/calibration_mechanism.png` | 326.5 KB | figure (unmerged) |
-| `figures/calibration_reliability.png` | 289.3 KB | figure (unmerged) |
-| `figures/confusion_matrices.png` | 363.6 KB | figure (unmerged) |
-| `figures/depth_vs_fnucleatum_shap.png` | 180.8 KB | figure (unmerged) |
+| `06_reviewer_responses.md` | 34.1 KB | submission scaffolding |
+| `07_pre_submission_qa.md` | 10.7 KB | submission scaffolding |
+| `CRC_Manuscript_Complete.docx` | 57.7 KB | manuscript (Word) |
+| `README.md` | 4.7 KB | bundle README |
+| `SUBMISSION_BUNDLE.zip` | 5.5 MB | final upload archive |
+| `figures.pdf` | 4.9 MB | merged figures PDF |
 | `figures/main/Figure1_Forest_Plot.pdf` | 34.8 KB | Figure1_Forest_Plot (PDF) |
 | `figures/main/Figure1_Forest_Plot.png` | 216.6 KB | Figure1_Forest_Plot (PNG) |
 | `figures/main/Figure2_ROC_Curves.pdf` | 25.4 KB | Figure2_ROC_Curves (PDF) |
@@ -47,13 +43,8 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `figures/main/Figure3_SHAP_Importance.png` | 396.3 KB | Figure3_SHAP_Importance (PNG) |
 | `figures/main/Figure4_Three_Panel_SHAP.pdf` | 42.2 KB | Figure4_Three_Panel_SHAP (PDF) |
 | `figures/main/Figure4_Three_Panel_SHAP.png` | 385.7 KB | Figure4_Three_Panel_SHAP (PNG) |
-| `figures/per_cohort_sens_spec.png` | 271.2 KB | figure (unmerged) |
-| `figures/permutation_vs_shap.png` | 237.3 KB | figure (unmerged) |
-| `figures/roc_pr_pooled.png` | 289.4 KB | figure (unmerged) |
-| `figures/sens_at_fixed_spec.png` | 162.0 KB | figure (unmerged) |
-| `figures/subgroup_auc.png` | 247.3 KB | figure (unmerged) |
-| `manuscript_complete.md` | 56.4 KB | manuscript (Markdown source) |
-| `supplementary/INDEX.csv` | 955.0 B | supplementary table |
+| `manuscript_complete.md` | 56.7 KB | manuscript (Markdown source) |
+| `supplementary/INDEX.csv` | 1.1 KB | supplementary table |
 | `supplementary/S10_delong.csv` | 235.0 B | supplementary table |
 | `supplementary/S1_cohort_overview.csv` | 990.0 B | supplementary table |
 | `supplementary/S2_per_fold_aucs.csv` | 755.0 B | supplementary table |
@@ -62,22 +53,25 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `supplementary/S5_sensitivity_grid.csv` | 800.0 B | supplementary table |
 | `supplementary/S6_adenoma_lodo.csv` | 109.0 B | supplementary table |
 | `supplementary/S7_confounder_adjustment.csv` | 98.0 B | supplementary table |
-| `supplementary/S8_seed_sensitivity.csv` | 212.0 B | supplementary table |
+| `supplementary/S8_seed_sensitivity.csv` | 105.0 B | supplementary table |
+| `supplementary/S8b_seed_sensitivity_summary.csv` | 106.0 B | supplementary table |
 | `supplementary/S9_external_validation.csv` | 121.0 B | supplementary table |
 | `supplementary/Supplementary_Tables.docx` | 38.9 KB | supplementary tables (Word) |
 
-**Total bundle size:** 7.7 MB
+**Total bundle size:** 11.9 MB
 
 ## SHA-256 digests (final deliverables)
 
 | File | SHA-256 |
 |---|---|
-| `SUBMISSION_BUNDLE.zip` | `7ebe3b606ca562bc4f50eb520b1730f189bd4b8a22456f54014228df04469539` |
+| `figures.pdf` | `20dcbbdae43c720ff4033ea501634d1c6d0d9fdf2d7542fe7a282aa02410bfd6` |
+| `SUBMISSION_BUNDLE.zip` | `f621423f811cb578fdff9d47889fc1a91f9114cdb525f9606b77f107cf51e7b6` |
 
 ## Warnings during build
 
+- pandoc failed (rc=1); stderr head: 'pandoc: Uncaught exception ghc-internal:GHC.Internal.IO.Exception.IOException:\n\nxelatex: createProcess: find_executable: failed (errnoToString failed)\n\nWhile handling xelatex: createProcess: find_executable: failed (errnoToString failed)\n\nHasCallStack backtrace:\n  throwIO, called at src/Text/Pandoc/'
+- pandoc default engine also failed: 'pandoc: Uncaught exception ghc-internal:GHC.Internal.IO.Exception.IOException:\n\npdflatex: createProcess: find_executable: failed (errnoToString failed)\n\nWhile handling pdflatex: createProcess: find_executable: failed (errnoToString failed)\n\nHasCallStack backtrace:\n  throwIO, called at src/Text/Pando'
 - Could not generate manuscript.pdf: neither pandoc nor soffice produced output. Install pandoc (with a LaTeX engine) or LibreOffice (`soffice`) and rerun.
-- Neither pypdf nor PyPDF2 is installed; cannot merge figure PDFs. Install with `pip install pypdf img2pdf` and rerun. Falling back to copying figures individually into build/figures/.
 
 ## Regenerate
 
