@@ -1,0 +1,5 @@
+task,mean_lodo_auc,n_folds
+h_vs_a_rf,0.5606,4
+h_vs_a_xgb,0.5791,4
+a_vs_crc_rf,0.6714,4
+a_vs_crc_xgb,0.6168,4

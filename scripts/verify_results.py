@@ -41,7 +41,7 @@ def main():
     bl = pd.read_csv("results/baseline_results.csv")
     jr = pd.read_csv("results/joint_results.csv")
     check_near("Baseline species RF per-cohort mean AUC",
-               bl["auc"].mean(), 0.808, tol=0.005)
+               bl["auc"].mean(), 0.807, tol=0.005)
     check_near("Joint RF per-cohort mean AUC",
                jr["rf_auc"].mean(), 0.804, tol=0.005)
     check_near("Joint XGB per-cohort mean AUC",

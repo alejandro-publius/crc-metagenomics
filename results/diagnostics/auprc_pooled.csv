@@ -1,0 +1,4 @@
+model,auroc,auprc,n
+species_rf,0.7812,0.8036,1339
+joint_rf,0.7561,0.7689,1339
+joint_xgb,0.766,0.783,1339

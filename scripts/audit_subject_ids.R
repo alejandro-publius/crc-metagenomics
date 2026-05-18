@@ -1,15 +1,20 @@
 library(curatedMetagenomicData)
 data("sampleMetadata")
 
-thomas_cohorts <- c(
+# Audit the 10-cohort headline universe (HanniganGD_2017 is excluded
+# downstream in preprocessing.py for low sequencing depth, but is
+# included here so cross-cohort subject overlap with it would still
+# be detected).
+crc_cohorts <- c(
   "FengQ_2015", "YuJ_2015", "VogtmannE_2016",
   "ThomasAM_2018a", "ThomasAM_2018b", "ThomasAM_2019_c",
-  "ZellerG_2014"
+  "ZellerG_2014", "YachidaS_2019", "WirbelJ_2018",
+  "HanniganGD_2017", "GuptaA_2019"
 )
 
 md <- sampleMetadata[
   sampleMetadata$study_condition %in% c("CRC", "adenoma", "control") &
-  sampleMetadata$study_name %in% thomas_cohorts,
+  sampleMetadata$study_name %in% crc_cohorts,
   c("sample_id", "subject_id", "study_name", "study_condition")
 ]
 

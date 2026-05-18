@@ -1,0 +1,121 @@
+task,rank,species,feature,mean_abs_shap
+CRC_vs_control_RF,1,Gemella morbillorum,k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_morbillorum,0.03152
+CRC_vs_control_RF,2,Parvimonas micra,k__Bacteria|p__Firmicutes|c__Tissierellia|o__Tissierellales|f__Peptoniphilaceae|g__Parvimonas|s__Parvimonas_micra,0.02852
+CRC_vs_control_RF,3,Peptostreptococcus stomatis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Peptostreptococcaceae|g__Peptostreptococcus|s__Peptostreptococcus_stomatis,0.02328
+CRC_vs_control_RF,4,Fusobacterium nucleatum,k__Bacteria|p__Fusobacteria|c__Fusobacteriia|o__Fusobacteriales|f__Fusobacteriaceae|g__Fusobacterium|s__Fusobacterium_nucleatum,0.01756
+CRC_vs_control_RF,5,Solobacterium moorei,k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Solobacterium|s__Solobacterium_moorei,0.01461
+CRC_vs_control_RF,6,Dialister pneumosintes,k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Dialister|s__Dialister_pneumosintes,0.01383
+CRC_vs_control_RF,7,Ruthenibacterium lactatiformans,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruthenibacterium|s__Ruthenibacterium_lactatiformans,0.01138
+CRC_vs_control_RF,8,Roseburia faecis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_faecis,0.00849
+CRC_vs_control_RF,9,Roseburia intestinalis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_intestinalis,0.00848
+CRC_vs_control_RF,10,Eubacterium eligens,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_eligens,0.00847
+CRC_vs_control_RF,11,Streptococcus salivarius,k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_salivarius,0.00811
+CRC_vs_control_RF,12,Bacteroides caccae,k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_caccae,0.00769
+CRC_vs_control_RF,13,Flavonifractor plautii,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Flavonifractor|s__Flavonifractor_plautii,0.00752
+CRC_vs_control_RF,14,Parabacteroides distasonis,k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Tannerellaceae|g__Parabacteroides|s__Parabacteroides_distasonis,0.00694
+CRC_vs_control_RF,15,Odoribacter splanchnicus,k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Odoribacteraceae|g__Odoribacter|s__Odoribacter_splanchnicus,0.00614
+CRC_vs_control_RF,16,Clostridium symbiosum,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_symbiosum,0.00597
+CRC_vs_control_RF,17,Eisenbergiella tayi,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Eisenbergiella|s__Eisenbergiella_tayi,0.00589
+CRC_vs_control_RF,18,Bacteroides thetaiotaomicron,k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_thetaiotaomicron,0.00585
+CRC_vs_control_RF,19,Intestinimonas butyriciproducens,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_unclassified|g__Intestinimonas|s__Intestinimonas_butyriciproducens,0.00582
+CRC_vs_control_RF,20,Anaerostipes hadrus,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Anaerostipes|s__Anaerostipes_hadrus,0.00576
+CRC_vs_control_XGB,1,Gemella morbillorum,k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_morbillorum,0.51747
+CRC_vs_control_XGB,2,Parvimonas micra,k__Bacteria|p__Firmicutes|c__Tissierellia|o__Tissierellales|f__Peptoniphilaceae|g__Parvimonas|s__Parvimonas_micra,0.43919
+CRC_vs_control_XGB,3,Peptostreptococcus stomatis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Peptostreptococcaceae|g__Peptostreptococcus|s__Peptostreptococcus_stomatis,0.32146
+CRC_vs_control_XGB,4,Streptococcus salivarius,k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_salivarius,0.30758
+CRC_vs_control_XGB,5,Fusobacterium nucleatum,k__Bacteria|p__Fusobacteria|c__Fusobacteriia|o__Fusobacteriales|f__Fusobacteriaceae|g__Fusobacterium|s__Fusobacterium_nucleatum,0.29818
+CRC_vs_control_XGB,6,Eubacterium eligens,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_eligens,0.23143
+CRC_vs_control_XGB,7,Roseburia faecis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_faecis,0.18014
+CRC_vs_control_XGB,8,Collinsella aerofaciens,k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Coriobacteriaceae|g__Collinsella|s__Collinsella_aerofaciens,0.17963
+CRC_vs_control_XGB,9,PWY-6151: S-adenosyl-L-methionine cycle I,PWY-6151: S-adenosyl-L-methionine cycle I,0.17901
+CRC_vs_control_XGB,10,PWY0-162: superpathway of pyrimidine ribonucleotides de novo biosynthesis,PWY0-162: superpathway of pyrimidine ribonucleotides de novo biosynthesis,0.15476
+CRC_vs_control_XGB,11,Flavonifractor plautii,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Flavonifractor|s__Flavonifractor_plautii,0.15029
+CRC_vs_control_XGB,12,Bacteroides caccae,k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_caccae,0.14716
+CRC_vs_control_XGB,13,Roseburia hominis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_hominis,0.14584
+CRC_vs_control_XGB,14,Holdemania filiformis,k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Holdemania|s__Holdemania_filiformis,0.14147
+CRC_vs_control_XGB,15,Eubacterium rectale,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnospiraceae_unclassified|s__Eubacterium_rectale,0.13773
+CRC_vs_control_XGB,16,Roseburia intestinalis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_intestinalis,0.13425
+CRC_vs_control_XGB,17,Dialister pneumosintes,k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Dialister|s__Dialister_pneumosintes,0.12776
+CRC_vs_control_XGB,18,Bacteroides plebeius,k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_plebeius,0.12576
+CRC_vs_control_XGB,19,Veillonella atypica,k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_atypica,0.12112
+CRC_vs_control_XGB,20,Actinomyces sp HMSC035G02,k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_HMSC035G02,0.11981
+H_vs_A_RF,1,PWY-5994: palmitate biosynthesis I (animals and fungi),PWY-5994: palmitate biosynthesis I (animals and fungi),0.00543
+H_vs_A_RF,2,Eubacterium eligens,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_eligens,0.0045
+H_vs_A_RF,3,PANTO-PWY: phosphopantothenate biosynthesis I,PANTO-PWY: phosphopantothenate biosynthesis I,0.00423
+H_vs_A_RF,4,PWY-7392: taxadiene biosynthesis (engineered),PWY-7392: taxadiene biosynthesis (engineered),0.00415
+H_vs_A_RF,5,PWY-7209: superpathway of pyrimidine ribonucleosides degradation,PWY-7209: superpathway of pyrimidine ribonucleosides degradation,0.00404
+H_vs_A_RF,6,Collinsella intestinalis,k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Coriobacteriaceae|g__Collinsella|s__Collinsella_intestinalis,0.00395
+H_vs_A_RF,7,Phascolarctobacterium faecium,k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Phascolarctobacterium|s__Phascolarctobacterium_faecium,0.00354
+H_vs_A_RF,8,PWY-5121: superpathway of geranylgeranyl diphosphate biosynthesis II (via MEP),PWY-5121: superpathway of geranylgeranyl diphosphate biosynthesis II (via MEP),0.00354
+H_vs_A_RF,9,NAGLIPASYN-PWY: lipid IVA biosynthesis,NAGLIPASYN-PWY: lipid IVA biosynthesis,0.00346
+H_vs_A_RF,10,P124-PWY: Bifidobacterium shunt,P124-PWY: Bifidobacterium shunt,0.0031
+H_vs_A_RF,11,P164-PWY: purine nucleobases degradation I (anaerobic),P164-PWY: purine nucleobases degradation I (anaerobic),0.00288
+H_vs_A_RF,12,Mogibacterium diversum,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_Family_XIII_Incertae_Sedis|g__Mogibacterium|s__Mogibacterium_diversum,0.00283
+H_vs_A_RF,13,TRPSYN-PWY: L-tryptophan biosynthesis,TRPSYN-PWY: L-tryptophan biosynthesis,0.0026
+H_vs_A_RF,14,Ruminococcus bicirculans,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcus|s__Ruminococcus_bicirculans,0.00255
+H_vs_A_RF,15,TEICHOICACID-PWY: teichoic acid (poly-glycerol) biosynthesis,TEICHOICACID-PWY: teichoic acid (poly-glycerol) biosynthesis,0.00251
+H_vs_A_RF,16,"PWY-7013: L-1,2-propanediol degradation","PWY-7013: L-1,2-propanediol degradation",0.00248
+H_vs_A_RF,17,Lawsonibacter asaccharolyticus,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_unclassified|g__Lawsonibacter|s__Lawsonibacter_asaccharolyticus,0.00247
+H_vs_A_RF,18,Gemmiger formicilis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Gemmiger|s__Gemmiger_formicilis,0.00244
+H_vs_A_RF,19,PWY-5189: tetrapyrrole biosynthesis II (from glycine),PWY-5189: tetrapyrrole biosynthesis II (from glycine),0.00242
+H_vs_A_RF,20,PWY-6270: isoprene biosynthesis I,PWY-6270: isoprene biosynthesis I,0.00232
+H_vs_A_XGB,1,Eubacterium eligens,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_eligens,0.31695
+H_vs_A_XGB,2,Ruminococcus bicirculans,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcus|s__Ruminococcus_bicirculans,0.30903
+H_vs_A_XGB,3,PWY-7209: superpathway of pyrimidine ribonucleosides degradation,PWY-7209: superpathway of pyrimidine ribonucleosides degradation,0.29418
+H_vs_A_XGB,4,PWY-5994: palmitate biosynthesis I (animals and fungi),PWY-5994: palmitate biosynthesis I (animals and fungi),0.27679
+H_vs_A_XGB,5,Collinsella intestinalis,k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Coriobacteriaceae|g__Collinsella|s__Collinsella_intestinalis,0.26426
+H_vs_A_XGB,6,Mogibacterium diversum,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_Family_XIII_Incertae_Sedis|g__Mogibacterium|s__Mogibacterium_diversum,0.2586
+H_vs_A_XGB,7,Firmicutes bacterium CAG 94,k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_94,0.21389
+H_vs_A_XGB,8,PANTO-PWY: phosphopantothenate biosynthesis I,PANTO-PWY: phosphopantothenate biosynthesis I,0.19792
+H_vs_A_XGB,9,Gemmiger formicilis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Gemmiger|s__Gemmiger_formicilis,0.19071
+H_vs_A_XGB,10,Phascolarctobacterium faecium,k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Phascolarctobacterium|s__Phascolarctobacterium_faecium,0.18781
+H_vs_A_XGB,11,Gemella sanguinis,k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_sanguinis,0.18701
+H_vs_A_XGB,12,Bacteroides caccae,k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_caccae,0.17029
+H_vs_A_XGB,13,Veillonella parvula,k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_parvula,0.16941
+H_vs_A_XGB,14,TEICHOICACID-PWY: teichoic acid (poly-glycerol) biosynthesis,TEICHOICACID-PWY: teichoic acid (poly-glycerol) biosynthesis,0.16803
+H_vs_A_XGB,15,PWY-7315: dTDP-N-acetylthomosamine biosynthesis,PWY-7315: dTDP-N-acetylthomosamine biosynthesis,0.1679
+H_vs_A_XGB,16,Roseburia intestinalis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_intestinalis,0.16631
+H_vs_A_XGB,17,PWY-6263: superpathway of menaquinol-8 biosynthesis II,PWY-6263: superpathway of menaquinol-8 biosynthesis II,0.15859
+H_vs_A_XGB,18,Lawsonibacter asaccharolyticus,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_unclassified|g__Lawsonibacter|s__Lawsonibacter_asaccharolyticus,0.15304
+H_vs_A_XGB,19,Bacteroides cellulosilyticus,k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_cellulosilyticus,0.14696
+H_vs_A_XGB,20,Ruminococcaceae bacterium D16,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcaceae_unclassified|s__Ruminococcaceae_bacterium_D16,0.14535
+A_vs_CRC_RF,1,Peptostreptococcus stomatis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Peptostreptococcaceae|g__Peptostreptococcus|s__Peptostreptococcus_stomatis,0.01702
+A_vs_CRC_RF,2,Parvimonas micra,k__Bacteria|p__Firmicutes|c__Tissierellia|o__Tissierellales|f__Peptoniphilaceae|g__Parvimonas|s__Parvimonas_micra,0.01602
+A_vs_CRC_RF,3,Gemella morbillorum,k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_morbillorum,0.01551
+A_vs_CRC_RF,4,Fusobacterium nucleatum,k__Bacteria|p__Fusobacteria|c__Fusobacteriia|o__Fusobacteriales|f__Fusobacteriaceae|g__Fusobacterium|s__Fusobacterium_nucleatum,0.01009
+A_vs_CRC_RF,5,PWY-6263: superpathway of menaquinol-8 biosynthesis II,PWY-6263: superpathway of menaquinol-8 biosynthesis II,0.00689
+A_vs_CRC_RF,6,Solobacterium moorei,k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Solobacterium|s__Solobacterium_moorei,0.00672
+A_vs_CRC_RF,7,PWY-6478: GDP-D-glycero-&alpha;-D-manno-heptose biosynthesis,PWY-6478: GDP-D-glycero-&alpha;-D-manno-heptose biosynthesis,0.00569
+A_vs_CRC_RF,8,Phascolarctobacterium faecium,k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Phascolarctobacterium|s__Phascolarctobacterium_faecium,0.00565
+A_vs_CRC_RF,9,Dialister pneumosintes,k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Dialister|s__Dialister_pneumosintes,0.00488
+A_vs_CRC_RF,10,ARGSYN-PWY: L-arginine biosynthesis I (via L-ornithine),ARGSYN-PWY: L-arginine biosynthesis I (via L-ornithine),0.00389
+A_vs_CRC_RF,11,PWY-2941: L-lysine biosynthesis II,PWY-2941: L-lysine biosynthesis II,0.00386
+A_vs_CRC_RF,12,PWY-7400: L-arginine biosynthesis IV (archaebacteria),PWY-7400: L-arginine biosynthesis IV (archaebacteria),0.00364
+A_vs_CRC_RF,13,HISDEG-PWY: L-histidine degradation I,HISDEG-PWY: L-histidine degradation I,0.00345
+A_vs_CRC_RF,14,GLUTORN-PWY: L-ornithine biosynthesis,GLUTORN-PWY: L-ornithine biosynthesis,0.00342
+A_vs_CRC_RF,15,TEICHOICACID-PWY: teichoic acid (poly-glycerol) biosynthesis,TEICHOICACID-PWY: teichoic acid (poly-glycerol) biosynthesis,0.00328
+A_vs_CRC_RF,16,ARGSYNBSUB-PWY: L-arginine biosynthesis II (acetyl cycle),ARGSYNBSUB-PWY: L-arginine biosynthesis II (acetyl cycle),0.00321
+A_vs_CRC_RF,17,Bacteroides dorei,k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_dorei,0.00292
+A_vs_CRC_RF,18,P163-PWY: L-lysine fermentation to acetate and butanoate,P163-PWY: L-lysine fermentation to acetate and butanoate,0.00289
+A_vs_CRC_RF,19,Streptococcus anginosus group,k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_anginosus_group,0.00284
+A_vs_CRC_RF,20,ARGININE-SYN4-PWY: L-ornithine de novo  biosynthesis,ARGININE-SYN4-PWY: L-ornithine de novo  biosynthesis,0.00282
+A_vs_CRC_XGB,1,Parvimonas micra,k__Bacteria|p__Firmicutes|c__Tissierellia|o__Tissierellales|f__Peptoniphilaceae|g__Parvimonas|s__Parvimonas_micra,0.40829
+A_vs_CRC_XGB,2,Gemella morbillorum,k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_morbillorum,0.33656
+A_vs_CRC_XGB,3,Peptostreptococcus stomatis,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Peptostreptococcaceae|g__Peptostreptococcus|s__Peptostreptococcus_stomatis,0.33166
+A_vs_CRC_XGB,4,Oscillibacter sp 57 20,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Oscillospiraceae|g__Oscillibacter|s__Oscillibacter_sp_57_20,0.24924
+A_vs_CRC_XGB,5,PWY-6549: L-glutamine biosynthesis III,PWY-6549: L-glutamine biosynthesis III,0.22714
+A_vs_CRC_XGB,6,Phascolarctobacterium faecium,k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Phascolarctobacterium|s__Phascolarctobacterium_faecium,0.21538
+A_vs_CRC_XGB,7,PWY-6263: superpathway of menaquinol-8 biosynthesis II,PWY-6263: superpathway of menaquinol-8 biosynthesis II,0.21342
+A_vs_CRC_XGB,8,PWY-2941: L-lysine biosynthesis II,PWY-2941: L-lysine biosynthesis II,0.21281
+A_vs_CRC_XGB,9,THRESYN-PWY: superpathway of L-threonine biosynthesis,THRESYN-PWY: superpathway of L-threonine biosynthesis,0.18957
+A_vs_CRC_XGB,10,Rothia mucilaginosa,k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Micrococcales|f__Micrococcaceae|g__Rothia|s__Rothia_mucilaginosa,0.1884
+A_vs_CRC_XGB,11,Firmicutes bacterium CAG 110,k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_110,0.18078
+A_vs_CRC_XGB,12,Eubacterium sp CAG 38,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_sp_CAG_38,0.17934
+A_vs_CRC_XGB,13,Collinsella intestinalis,k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Coriobacteriaceae|g__Collinsella|s__Collinsella_intestinalis,0.17527
+A_vs_CRC_XGB,14,PWY66-399: gluconeogenesis III,PWY66-399: gluconeogenesis III,0.17488
+A_vs_CRC_XGB,15,PWY-5994: palmitate biosynthesis I (animals and fungi),PWY-5994: palmitate biosynthesis I (animals and fungi),0.15646
+A_vs_CRC_XGB,16,PWY-5265: peptidoglycan biosynthesis II (staphylococci),PWY-5265: peptidoglycan biosynthesis II (staphylococci),0.15475
+A_vs_CRC_XGB,17,PWY-6562: norspermidine biosynthesis,PWY-6562: norspermidine biosynthesis,0.15015
+A_vs_CRC_XGB,18,Fusobacterium nucleatum,k__Bacteria|p__Fusobacteria|c__Fusobacteriia|o__Fusobacteriales|f__Fusobacteriaceae|g__Fusobacterium|s__Fusobacterium_nucleatum,0.14773
+A_vs_CRC_XGB,19,Clostridium sp CAG 58,k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_sp_CAG_58,0.14505
+A_vs_CRC_XGB,20,PWY-7209: superpathway of pyrimidine ribonucleosides degradation,PWY-7209: superpathway of pyrimidine ribonucleosides degradation,0.14301

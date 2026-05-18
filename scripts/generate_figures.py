@@ -78,7 +78,8 @@ def fig3():
     ax.set_xticklabels(tasks)
     ax.set_ylim(0.5, 0.9)
     ax.legend()
-    ax.set_title('Adenoma Classification (5-Fold CV)', fontweight='bold')
+    ax.set_title('Adenoma Classification (within-cohort 5-fold CV; superseded by adenoma_lodo.py)',
+                 fontweight='bold', fontsize=10)
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     fig.tight_layout()

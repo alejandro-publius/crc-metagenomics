@@ -1,0 +1,4 @@
+model,brier,ece,n
+species_rf,0.19499,0.074,1339
+joint_rf,0.20467,0.06663,1339
+joint_xgb,0.22242,0.15181,1339

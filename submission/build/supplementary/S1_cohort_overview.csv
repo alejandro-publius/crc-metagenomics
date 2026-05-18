@@ -1,0 +1,11 @@
+Cohort,Country,N_total,N_CRC,N_control,N_adenoma,Sequencing_platform,Reads_median_Mreads,Reads_min_Mreads,Reads_max_Mreads,Age_mean,Age_SD,BMI_mean,BMI_SD,Pct_female
+FengQ_2015,AUT,154,46,61,47,IlluminaHiSeq,53.8,31.8,79.8,66.9,8.4,27.4,4.0,43.5
+GuptaA_2019,IND,60,30,30,0,IlluminaNextSeq,8.7,3.3,27.7,50.6,16.0,21.3,3.0,50.0
+ThomasAM_2018a,ITA,80,29,24,27,IlluminaHiSeq,83.4,29.1,375.7,67.5,8.7,25.5,3.9,35.0
+ThomasAM_2018b,ITA,60,32,28,0,IlluminaHiSeq,39.4,10.5,107.2,58.2,8.3,25.8,4.2,35.0
+ThomasAM_2019_c,JPN,80,40,40,0,IlluminaHiSeq,42.5,14.9,98.4,61.1,12.6,22.7,2.6,43.8
+VogtmannE_2016,USA,104,52,52,0,IlluminaHiSeq,66.6,4.1,142.0,61.5,12.3,25.1,4.2,28.8
+WirbelJ_2018,DEU,125,60,65,0,IlluminaHiSeq,46.7,16.3,178.7,59.6,12.9,25.5,3.7,41.6
+YachidaS_2019,JPN,575,258,250,67,IlluminaHiSeq,43.7,4.5,101.4,62.0,11.0,22.9,3.4,40.2
+YuJ_2015,CHN,128,74,54,0,IlluminaHiSeq,58.5,11.0,77.3,64.2,9.1,23.8,3.1,36.7
+ZellerG_2014,FRA,156,53,61,42,IlluminaHiSeq,58.7,5.8,153.4,63.3,10.9,25.3,4.2,44.2

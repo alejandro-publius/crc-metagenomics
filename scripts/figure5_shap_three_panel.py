@@ -1,12 +1,12 @@
 """
-Generate Figure 5: multi-classifier SHAP comparison for the two-phase model.
+Generate Figure 4: multi-classifier SHAP comparison for the two-phase model.
 
 Three-panel horizontal bar chart showing top 10 features (by mean absolute SHAP
 value) for each of the three classifiers in the adenoma-carcinoma sequence:
 
-    Panel A: Healthy vs Adenoma (commensal depletion phase)
-    Panel B: CRC vs Healthy        (oral pathobiont colonization)
-    Panel C: Adenoma vs CRC        (oral pathobiont colonization)
+    Panel A: Healthy vs Adenoma (early commensal-depletion phase)
+    Panel B: CRC vs Healthy     (oral pathobiont colonization, full progression)
+    Panel C: Adenoma vs CRC     (oral pathobiont colonization, malignant transition)
 
 USAGE
 -----
@@ -49,9 +49,9 @@ SHAP_FILES = {
 }
 
 PANEL_SUBTITLES = {
-    "Healthy vs Adenoma": "commensal depletion phase",
-    "CRC vs Healthy":     "oral pathobiont colonization",
-    "Adenoma vs CRC":     "oral pathobiont colonization",
+    "Healthy vs Adenoma": "early commensal-depletion phase",
+    "CRC vs Healthy":     "oral pathobiont colonization (full progression)",
+    "Adenoma vs CRC":     "oral pathobiont colonization (malignant transition)",
 }
 
 TOP_N = 10

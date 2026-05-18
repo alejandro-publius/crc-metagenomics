@@ -42,10 +42,12 @@ def prepare_covariates_per_fold(md_train, md_test):
         cov_cols.append('gender_num')
     return md_train, md_test, cov_cols
 
-def run_lodo_cv_with_covariates(model_fn, X, y, meta, md_full, mode='direct'):
+def run_lodo_cv_with_covariates(model_fn, X, y, meta, md_full, mode='direct',
+                                country_col=None):
     from sklearn.metrics import roc_auc_score
     results = {"cohort": [], "auc": []}
-    for cohort, train_idx, test_idx in get_lodo_splits(meta):
+    for cohort, train_idx, test_idx, excluded in get_lodo_splits(
+            meta, country_col=country_col):
         X_tr = X.iloc[train_idx].copy()
         X_te = X.iloc[test_idx].copy()
         y_tr = y.iloc[train_idx]
@@ -87,8 +89,12 @@ def main():
     mask = mg['label'].isin([0, 1])
     X = mg.loc[mask, fc].reset_index(drop=True)
     y = mg.loc[mask, 'label'].reset_index(drop=True)
-    meta = mg.loc[mask, ['sample_id', 'study_name', 'study_condition', 'label']].reset_index(drop=True)
+    meta_cols = ['sample_id', 'study_name', 'study_condition', 'label']
+    if 'country' in mg.columns:
+        meta_cols.append('country')
+    meta = mg.loc[mask, meta_cols].reset_index(drop=True)
     md_full = mg.loc[mask].reset_index(drop=True)
+    country_col = 'country' if 'country' in meta.columns else None
 
     def make_rf():
         return RandomForestClassifier(n_estimators=500, max_features='sqrt',
@@ -100,13 +106,17 @@ def main():
             eval_metric='logloss', n_jobs=-1)
 
     print('=== Direct inclusion (RF) ===')
-    r1 = run_lodo_cv_with_covariates(make_rf, X.copy(), y, meta, md_full, mode='direct')
+    r1 = run_lodo_cv_with_covariates(make_rf, X.copy(), y, meta, md_full,
+                                     mode='direct', country_col=country_col)
     print('\n=== Direct inclusion (XGB) ===')
-    r2 = run_lodo_cv_with_covariates(make_xgb, X.copy(), y, meta, md_full, mode='direct')
+    r2 = run_lodo_cv_with_covariates(make_xgb, X.copy(), y, meta, md_full,
+                                     mode='direct', country_col=country_col)
     print('\n=== Residualized (RF) ===')
-    r3 = run_lodo_cv_with_covariates(make_rf, X.copy(), y, meta, md_full, mode='residualize')
+    r3 = run_lodo_cv_with_covariates(make_rf, X.copy(), y, meta, md_full,
+                                     mode='residualize', country_col=country_col)
     print('\n=== Residualized (XGB) ===')
-    r4 = run_lodo_cv_with_covariates(make_xgb, X.copy(), y, meta, md_full, mode='residualize')
+    r4 = run_lodo_cv_with_covariates(make_xgb, X.copy(), y, meta, md_full,
+                                     mode='residualize', country_col=country_col)
 
     rows = [
         {'method': 'direct_rf', 'mean_auc': r1['mean_auc']},

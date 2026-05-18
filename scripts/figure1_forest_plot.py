@@ -16,20 +16,26 @@ import matplotlib.pyplot as plt
 
 COHORT_ORDER = [
     "FengQ_2015",
+    "GuptaA_2019",
     "ThomasAM_2018a",
     "ThomasAM_2018b",
     "ThomasAM_2019_c",
     "VogtmannE_2016",
+    "WirbelJ_2018",
+    "YachidaS_2019",
     "YuJ_2015",
     "ZellerG_2014",
 ]
 
 COHORT_LABEL = {
     "FengQ_2015":      "FengQ 2015 (AUT)",
+    "GuptaA_2019":     "GuptaA 2019 (IND)",
     "ThomasAM_2018a":  "ThomasAM 2018a (ITA)",
     "ThomasAM_2018b":  "ThomasAM 2018b (ITA)",
     "ThomasAM_2019_c": "ThomasAM 2019c (JPN)",
     "VogtmannE_2016":  "VogtmannE 2016 (USA)",
+    "WirbelJ_2018":    "WirbelJ 2018 (DEU)",
+    "YachidaS_2019":   "YachidaS 2019 (JPN)",
     "YuJ_2015":        "YuJ 2015 (CHN)",
     "ZellerG_2014":    "ZellerG 2014 (FRA)",
 }
@@ -45,7 +51,7 @@ MODELS = [
 def main():
     bc = pd.read_csv("results/bootstrap_ci.csv")
 
-    fig, ax = plt.subplots(figsize=(9, 6))
+    fig, ax = plt.subplots(figsize=(9, 7.5))
     fig.patch.set_facecolor("#f7f5f1")
     ax.set_facecolor("#f7f5f1")
 
@@ -80,9 +86,14 @@ def main():
             elinewidth=1.2, markersize=6.5, label=disp,
         )
 
-    # Y ticks: cohort labels and pooled label
+    # Y ticks: cohort labels and pooled label.
+    # Pool size comes from the bootstrap_ci.csv "pooled" row so it stays in
+    # sync with the actual data (n = 1339 for the 10-cohort headline run).
+    pooled_n = int(bc[(bc["model"] == "species_rf") &
+                      (bc["cohort"] == "pooled")]["n"].iloc[0])
     yticks = [cohort_y[c] for c in COHORT_ORDER] + [pooled_y]
-    yticklabels = [COHORT_LABEL[c] for c in COHORT_ORDER] + ["Pooled (n = 646)"]
+    yticklabels = ([COHORT_LABEL[c] for c in COHORT_ORDER]
+                   + [f"Pooled (n = {pooled_n})"])
     ax.set_yticks(yticks)
     ax.set_yticklabels(yticklabels)
 

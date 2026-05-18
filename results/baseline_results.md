@@ -20,8 +20,8 @@ leave-one-dataset-out (LODO) cross-validation across 10 cohorts, 1339 samples
 | YuJ_2015        | 0.865 | 128    | CHN     | —                        |
 | ZellerG_2014    | 0.803 | 114    | FRA     | —                        |
 
-**Per-cohort mean AUC: 0.808 ± 0.065**
-**Pooled LODO AUC: 0.781** (95% CI: 0.756–0.805; 2000-resample bootstrap)
+**Per-cohort mean AUC: 0.807 ± 0.065** (population SD across 10 folds)
+**Pooled LODO AUC: 0.781** (95% CI: 0.757–0.805; 10,000-resample cohort-stratified bootstrap)
 
 ## Comparison to Thomas et al. 2019
 

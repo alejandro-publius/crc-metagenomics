@@ -1,23 +1,26 @@
 """
-external_validation.py — Sanity check: train on a 5-cohort subset and
-report AUC on two held-out cohorts.
+external_validation.py — Sanity check: train on most cohorts and report
+AUC on a fixed pair of held-out cohorts.
 
 What this script does:
 1. Picks 2 cohorts to hold out (YuJ_2015 and ZellerG_2014)
-2. Trains a Random Forest on the other 5 cohorts
+2. Trains a Random Forest on the remaining cohorts
 3. Reports per-cohort and combined AUC on the held-out 2
 
 Relationship to LODO:
-This is NOT a stronger generalization test than LODO. LODO already holds each
-cohort out completely — every fold's test cohort is unseen during that fold's
-training. This script just trains on a smaller subset (5 cohorts instead of
-6) and tests on a fixed pair, so it is a strictly weaker / lower-power check
-than LODO. We keep it because (a) it is a useful sanity check that the model
-behaves as expected when trained on fewer cohorts, and (b) reporting per-
-cohort AUCs from a single train fit is sometimes asked for explicitly. The
-held-out cohorts in this script are still drawn from the same
-curatedMetagenomicData source as the rest of the analysis; they are not an
-independent external dataset.
+This is NOT a stronger generalization test than LODO. LODO already holds
+each cohort out completely - every fold's test cohort is unseen during
+that fold's training. This script just trains on a fixed subset (all
+cohorts except YuJ_2015 and ZellerG_2014) and tests on that fixed pair,
+so it is a strictly weaker / lower-power check than LODO. We keep it
+because (a) it is a useful sanity check that the model behaves as
+expected when trained on a fixed subset, and (b) reporting per-cohort
+AUCs from a single train fit is sometimes asked for explicitly. This
+script does NOT apply country-aware exclusion (training set includes all
+non-held-out cohorts), so the AUCs here are not directly comparable to
+the headline LODO numbers in baseline_results.csv. The held-out cohorts
+are still drawn from the same curatedMetagenomicData source as the rest
+of the analysis; they are not an independent external dataset.
 
 Authors: Alex Velazquez, Rachel Selbrede
 
@@ -88,7 +91,7 @@ def main():
     # ── Section 4: Train the model ──
     # We use the same Random Forest configuration as the rest of the project,
     # so the comparison is apples-to-apples.
-    print("\n--- Training Random Forest on 5 cohorts ---")
+    print(f"\n--- Training Random Forest on {len(training_cohorts)} cohorts ---")
 
     model = RandomForestClassifier(
         n_estimators=500,           # 500 trees
@@ -161,8 +164,8 @@ def main():
     # ── Section 8: Print a Methods note for the paper ──
     print("\n" + "=" * 60)
     print("Suggested Methods note (sanity-check framing):")
-    print('  "As a sanity check on the LODO results, we trained a Random')
-    print('   Forest on a 5-cohort subset (excluding YuJ_2015 and')
+    print(f'  "As a sanity check on the LODO results, we trained a Random')
+    print(f'   Forest on a {len(training_cohorts)}-cohort subset (excluding YuJ_2015 and')
     print(f'   ZellerG_2014) and report AUCs of {results[0]["auc"]:.3f} (YuJ_2015) and')
     print(f'   {results[1]["auc"]:.3f} (ZellerG_2014); combined AUC {overall_auc:.3f}. This is')
     print('   a strictly weaker test than the headline LODO analysis, in')

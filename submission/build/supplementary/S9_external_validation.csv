@@ -1,0 +1,4 @@
+cohort,auc,n_samples,n_crc,n_control
+YuJ_2015,0.8656,128,74,54
+ZellerG_2014,0.7974,114,53,61
+COMBINED,0.8325,242,127,115

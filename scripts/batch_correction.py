@@ -32,7 +32,11 @@ def run_lodo_cv_combat():
     mask = mg['label'].isin([0, 1])
     X = mg.loc[mask, fc].reset_index(drop=True)
     y = mg.loc[mask, 'label'].reset_index(drop=True)
-    meta = mg.loc[mask, ['sample_id', 'study_name', 'study_condition', 'label']].reset_index(drop=True)
+    meta_cols = ['sample_id', 'study_name', 'study_condition', 'label']
+    if 'country' in mg.columns:
+        meta_cols.append('country')
+    meta = mg.loc[mask, meta_cols].reset_index(drop=True)
+    country_col = 'country' if 'country' in meta.columns else None
 
     try:
         from combat.pycombat import pycombat
@@ -40,11 +44,12 @@ def run_lodo_cv_combat():
         print('ERROR: combat not installed. Run: pip install combat')
         sys.exit(1)
 
-    print('=== Species RF with per-fold ComBat ===')
+    print('=== Species RF with per-fold ComBat (country-aware LODO) ===')
     print('ComBat is fit jointly on train+test with batch=study_name; class')
     print('labels are not used by ComBat, so LODO is preserved.')
     results = {"cohort": [], "auc": []}
-    for cohort, train_idx, test_idx in get_lodo_splits(meta):
+    for cohort, train_idx, test_idx, excluded in get_lodo_splits(
+            meta, country_col=country_col):
         idx_all = np.concatenate([np.asarray(train_idx), np.asarray(test_idx)])
         X_all = X.iloc[idx_all].copy()
         batch_all = meta.iloc[idx_all]['study_name'].values

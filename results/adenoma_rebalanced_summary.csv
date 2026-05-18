@@ -1,0 +1,17 @@
+task,strategy,mean_lodo_auc
+a_vs_crc_rf,baseline,0.6713898333625392
+a_vs_crc_rf,random_under,0.6545331030923016
+a_vs_crc_rf,rebalanced_weight,0.6691803400773119
+a_vs_crc_rf,smote,0.6549451508653674
+a_vs_crc_xgb,baseline,0.6168381309744783
+a_vs_crc_xgb,random_under,0.6318126164103303
+a_vs_crc_xgb,rebalanced_weight,0.6213322053502781
+a_vs_crc_xgb,smote,0.6275823753597087
+h_vs_a_rf,baseline,0.5605807096138371
+h_vs_a_rf,random_under,0.5393597785011344
+h_vs_a_rf,rebalanced_weight,0.5777156867816536
+h_vs_a_rf,smote,0.5748829874022332
+h_vs_a_xgb,baseline,0.5791394545460873
+h_vs_a_xgb,random_under,0.570813519509342
+h_vs_a_xgb,rebalanced_weight,0.5816636482658873
+h_vs_a_xgb,smote,0.5844546171407006

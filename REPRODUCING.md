@@ -35,7 +35,7 @@ python3 scripts/adenoma_counts.py      # per-cohort adenoma sample counts
 
 ```bash
 python3 scripts/train_baseline.py   # species-only RF LODO (country-aware)
-                                    # expect: per-cohort mean AUC ~0.808, pooled AUC ~0.781
+                                    # expect: per-cohort mean AUC ~0.807, pooled AUC ~0.781
 
 python3 scripts/train_joint.py      # joint RF + XGBoost LODO (country-aware, per-fold pathway filter)
                                     # expect: Joint RF per-cohort ~0.804 (pooled ~0.756)
@@ -67,27 +67,27 @@ python3 scripts/adenoma_lodo.py     # cross-cohort LODO across 4 adenoma-contain
 ### 6. Biologically-guided pathway shortlist
 
 ```bash
-python3 scripts/bio_pathway_shortlist.py  # keyword-selected 84 CRC-relevant pathways
-                                          # expect: mean LODO AUC ~0.817 (vs species-only 0.807)
+python3 scripts/bio_pathway_shortlist.py  # keyword-selected 84 unique CRC-relevant pathways across 8 groups
+                                          # expect: mean per-cohort LODO AUC ~0.817 (vs species-only 0.807)
 ```
 
 ### 7. Robustness battery
 
 ```bash
-python3 scripts/bootstrap_ci.py          # 2000-resample bootstrap 95% CIs
-                                         # expect: species RF pooled 0.781 [0.756, 0.805]
+python3 scripts/bootstrap_ci.py          # 10,000-resample bootstrap 95% CIs (cohort-stratified pooled)
+                                         # expect: species RF pooled 0.781 [0.757, 0.805]
 
 python3 scripts/seed_sensitivity.py      # seeds {0,1,2,42,100}; expect spread < 0.005
 
 python3 scripts/sensitivity_analysis.py  # 4x5 prevalence/mean grid (country-aware, per-fold filter)
-                                         # expect: joint RF AUC range 0.798-0.810
+                                         # expect: joint RF mean per-cohort AUC range 0.794-0.812
 
-python3 scripts/confounder_adjustment.py # direct inclusion + residualization of age, sex, BMI
-                                         # expect: AUC 0.807-0.816 (within noise of unadjusted 0.808)
+python3 scripts/confounder_adjustment.py # direct inclusion + residualization of age, sex, BMI (country-aware)
+                                         # expect: per-cohort AUC 0.800-0.814 (within noise of unadjusted 0.807)
 
-python3 scripts/batch_correction.py      # per-fold ComBat on species features
+python3 scripts/batch_correction.py      # per-fold ComBat on species features (country-aware LODO)
                                          # requires: pip install combat
-                                         # expect: mean AUC ~0.806 (vs uncorrected ~0.808)
+                                         # expect: mean per-cohort AUC ~0.815 (vs uncorrected ~0.807)
 ```
 
 ### 8. Figures and verification

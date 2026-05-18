@@ -1,0 +1,5 @@
+method,mean_auc
+direct_rf,0.8144
+direct_xgb,0.8062
+residualized_rf,0.8013
+residualized_xgb,0.7997

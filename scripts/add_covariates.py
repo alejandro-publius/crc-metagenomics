@@ -34,10 +34,11 @@ def make_rf():
     )
 
 
-def run_species_plus_cov_lodo(X_species, y, meta, md_full):
+def run_species_plus_cov_lodo(X_species, y, meta, md_full, country_col=None):
     """Per-fold-imputed LODO for species + (age, gender, BMI)."""
     results = {"cohort": [], "auc": []}
-    for cohort, train_idx, test_idx in get_lodo_splits(meta):
+    for cohort, train_idx, test_idx, excluded in get_lodo_splits(
+            meta, country_col=country_col):
         X_tr = X_species.iloc[train_idx].copy()
         X_te = X_species.iloc[test_idx].copy()
         md_tr = md_full.iloc[train_idx].copy()
@@ -95,19 +96,24 @@ def main():
 
     X_species = df[feat_cols].reset_index(drop=True)
     y = df["label"].reset_index(drop=True)
-    meta = df[["sample_id", "study_name", "study_condition", "label"]].reset_index(drop=True)
+    meta_cols = ["sample_id", "study_name", "study_condition", "label"]
+    if "country" in df.columns:
+        meta_cols.append("country")
+    meta = df[meta_cols].reset_index(drop=True)
     md_full = df.reset_index(drop=True)
+    country_col = "country" if "country" in meta.columns else None
 
     print(f"\n  Species-only features:     {X_species.shape[1]}")
     print(f"  Samples:                   {len(y)} (CRC={int(y.sum())}, control={int((y==0).sum())})")
 
     print("\n" + "=" * 60)
-    print("=== LODO: Species Only (baseline) ===")
-    res_species = run_lodo_cv(make_rf, X_species, y, meta)
+    print("=== LODO: Species Only (baseline, country-aware) ===")
+    res_species = run_lodo_cv(make_rf, X_species, y, meta, country_col=country_col)
 
     print("\n" + "=" * 60)
-    print("=== LODO: Species + Clinical Covariates (per-fold imputed) ===")
-    res_cov = run_species_plus_cov_lodo(X_species, y, meta, md_full)
+    print("=== LODO: Species + Clinical Covariates (per-fold imputed, country-aware) ===")
+    res_cov = run_species_plus_cov_lodo(X_species, y, meta, md_full,
+                                        country_col=country_col)
 
     print("\n" + "=" * 60)
     print("=== COMPARISON ===")

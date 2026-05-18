@@ -1,0 +1,6 @@
+https://github.com/alejandro-publius/crc-metagenomics
+# Generate the QR code with libqrencode (brew install qrencode):
+#   qrencode -o conference/qr.png -s 12 -m 2 "$(head -1 conference/qr_code_target_url.txt)"
+# Or with Python (qrcode + pillow):
+#   python -c "import qrcode; qrcode.make(open('conference/qr_code_target_url.txt').readline().strip()).save('conference/qr.png')"
+# Place qr.png in the bottom strip of the poster and on the final lightning-talk slide.

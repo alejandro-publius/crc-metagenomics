@@ -1,21 +1,31 @@
 """Biologically-guided pathway shortlist for CRC LODO analysis.
 
 Instead of all 551 unstratified pathway candidates, selects a curated subset
-based on CRC-relevant biology: butyrate/SCFA production, LPS biosynthesis,
-polyamine synthesis, tryptophan metabolism, folate/one-carbon metabolism,
-sulfur amino acid metabolism, and fermentation pathways.
+based on CRC-relevant biology: butyrate/SCFA production, fermentation,
+LPS/peptidoglycan and inflammation, polyamine synthesis, tryptophan
+metabolism, folate/one-carbon metabolism, sulfur/methionine metabolism,
+and glycan/mucin degradation (eight groups; 84 unique pathways after
+deduplicating cross-group hits such as CENTFERM-PWY).
 
-Rationale:
+Rationale (key references in manuscript):
 - Butyrate-producing bacteria (Roseburia, Faecalibacterium) are consistently
-  depleted in CRC; butyrate is a key colonocyte energy source and anti-tumorigenic.
+  depleted in CRC; butyrate is a key colonocyte energy source and
+  anti-tumorigenic. Note that Fusobacterium nucleatum, despite being a CRC
+  pathobiont, is itself a butyrate-producer, so the depletion signal comes
+  from the wider commensal community rather than from removal of one taxon.
 - Polyamines (spermine, spermidine, putrescine) promote tumor cell proliferation
   and are elevated in CRC.
-- LPS from Fusobacterium nucleatum and other gram-negative species drives
-  colonic inflammation and CRC progression.
+- LPS from gram-negative species and peptidoglycan turnover drive colonic
+  inflammation; Fusobacterium nucleatum signals through FadA / Fap2 and is
+  associated with NF-kB activation in CRC progression.
 - Folate/one-carbon metabolism affects DNA methylation and nucleotide synthesis,
   altered in CRC.
-- Tryptophan/indole metabolites modulate immune responses in the tumor microenvironment.
-- Sulfur amino acid metabolism generates H2S, a colonocyte genotoxin elevated in CRC.
+- Tryptophan/indole metabolites modulate AhR signaling and immune responses
+  in the tumor microenvironment.
+- Sulfur amino acid metabolism generates H2S, a colonocyte genotoxin elevated
+  in CRC.
+- Glycan/mucin-degrading pathways reflect mucus-layer remodeling that
+  precedes epithelial barrier disruption.
 
 Usage:
     python3 scripts/bio_pathway_shortlist.py

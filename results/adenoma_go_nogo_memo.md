@@ -36,7 +36,8 @@ Full results and interpretation: `results/adenoma_lodo_results.csv` and
   published literature showing weak cross-cohort microbiome signal for adenoma
 - **A-vs-CRC** (adenoma vs CRC): RF 0.671, XGB 0.617 — above chance, driven by the
   oral-bacterial CRC signature (Fusobacterium nucleatum, Parvimonas micra,
-  Peptostreptococcus stomatis) emerging during malignant transformation
+  Peptostreptococcus stomatis, Gemella morbillorum) emerging during malignant
+  transformation
 
 ## Hyperparameter configuration
 
@@ -49,7 +50,9 @@ No nested CV tuning — the joint model did not outperform species-only in the m
 
 - Adenoma definitions vary across cohorts (advanced vs. non-advanced adenoma;
   not uniformly reported in curatedMetagenomicData metadata)
-- Per-fold training sets for adenoma are small (e.g., ThomasAM_2018a n_test=27;
-  n_train adenoma ~156), limiting classifier performance
+- Per-fold adenoma training sets are small (e.g., when ThomasAM_2018a is the
+  held-out test cohort, the training set contains the other three cohorts'
+  adenoma samples only: 47 + 42 + 67 = 156 adenomas), limiting classifier
+  performance on the H-vs-A task
 - H-vs-A near-chance performance reflects cross-cohort generalization difficulty,
   not necessarily absence of any microbiome signal for adenoma

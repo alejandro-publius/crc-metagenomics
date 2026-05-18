@@ -3,6 +3,7 @@ __pycache__/
 .DS_Store
 *.egg-info/
 .ipynb_checkpoints/
+.pytest_cache/
 data/raw/pathway_abundance.csv
 data/raw/pathway_unstratified_full.csv
 data/raw/pathway_chunks/

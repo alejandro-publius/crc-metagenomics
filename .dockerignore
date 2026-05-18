@@ -1,0 +1,28 @@
+# Keep the image small and free of provenance noise.
+.git/
+.github/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Manuscript artefacts are not needed at runtime.
+manuscript/
+submission/
+
+# Raw curatedMetagenomicData exports are large and reconstructible via
+# scripts/export_data.R; data/processed/ is kept because verify_results.py
+# reads metadata_clean.csv from it.
+data/raw/
+
+# R session detritus.
+.RData
+.Rhistory
+
+# Editor / IDE
+.vscode/
+.idea/

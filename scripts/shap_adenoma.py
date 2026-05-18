@@ -1,9 +1,11 @@
 """SHAP on Random Forest for adenoma tasks (healthy-vs-adenoma,
-adenoma-vs-CRC). Scope: model is fit on the full per-task subset; SHAP
-values describe feature importance for the fitted classifier, not
-cross-cohort generalization. The adenoma LODO results in adenoma_lodo.py
-show the within-cohort signal does not generalize, so these SHAP rankings
-should be interpreted as exploratory / hypothesis-generating only.
+adenoma-vs-CRC). Scope: model is fit on the full per-task subset across
+all available cohorts; SHAP values describe feature importance for the
+fitted classifier, not cross-cohort generalization. The cross-cohort
+adenoma LODO results in adenoma_lodo.py show the healthy-vs-adenoma
+signal does not generalize across cohorts (mean LODO AUC ~0.56-0.58),
+so these SHAP rankings should be interpreted as exploratory /
+hypothesis-generating only.
 """
 import re, pandas as pd, numpy as np, os, shap
 from sklearn.ensemble import RandomForestClassifier

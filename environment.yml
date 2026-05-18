@@ -1,0 +1,41 @@
+# Conda environment mirroring requirements.lock plus the R toolchain needed
+# to regenerate data/raw/ via scripts/export_data.R (curatedMetagenomicData).
+#
+# Create:   conda env create -f environment.yml
+# Activate: conda activate crc-metagenomics
+# Update:   conda env update -f environment.yml --prune
+
+name: crc-metagenomics
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  # --- Core Python (matches requirements.lock) ---
+  - python=3.11
+  - pip
+  - pandas=2.2.3
+  - numpy=1.26.4
+  - scikit-learn=1.4.2
+  - xgboost=2.0.3
+  - matplotlib=3.8.5
+  - scipy=1.12.0
+
+  # --- Tooling for the test suite (not in requirements.lock; dev-only) ---
+  - pytest
+
+  # --- R + Bioconductor for end-to-end re-derivation from raw data ---
+  # curatedMetagenomicData ships via Bioconductor; bioconductor-* packages on
+  # bioconda pull in the matching R and Bioconductor core.
+  - r-base=4.3
+  - bioconductor-curatedmetagenomicdata
+  - bioconductor-summarizedexperiment
+  - bioconductor-mia
+  - r-tidyverse
+  - r-data.table
+
+  # --- Pip-only packages (no conda-forge / bioconda recipe at pinned ver) ---
+  - pip:
+      - shap==0.44.1
+      - combat==0.3.3

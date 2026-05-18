@@ -24,10 +24,13 @@ joint models (0.708 vs 0.669/0.694). Saved to results/delong_results.csv.
 
 ## Normalization
 DECISION: Species: log10(x + 1e-6) applied in preprocessing.py after
-row-sum renormalization. Pathways: raw relative abundance from
-curatedMetagenomicData with no transform. Random Forest and XGBoost
-split decisions are scale-invariant per feature, so the asymmetric
-handling does not affect AUC.
+row-sum renormalization (renorm is conditional on the row-sum mean
+being > 1.5, i.e., applied only when curatedMetagenomicData returns
+values on a percentage rather than a 0-1 relative-abundance scale).
+Pathways: raw relative abundance from curatedMetagenomicData with no
+transform. Random Forest and XGBoost split decisions are
+scale-invariant per feature, so the asymmetric handling does not
+affect AUC.
 
 ## Pathway feature set
 DECISION: Use unstratified pathway abundance (551 candidate columns
@@ -55,19 +58,20 @@ DECISION: Documented. sensitivity_analysis.py sweeps prevalence
 country-aware LODO CV with the prevalence/mean filter applied PER FOLD
 using only training-cohort samples (matches the headline run in
 train_joint.py). 10-cohort results: joint RF mean per-cohort AUC
-ranges from 0.798 to 0.810 across all 20 cells (spread 0.012).
-Threshold insensitivity is confirmed; default thresholds (prevalence
->= 10%, mean >= 1e-6) are near-optimal. Saved to
-results/sensitivity_thresholds.csv.
+ranges from 0.794 to 0.812 across all 20 cells (spread 0.018). The
+default thresholds (prevalence >= 10%, mean >= 1e-6) give 0.804, near
+the middle of the observed range. Saved to results/sensitivity_thresholds.csv.
 
 ## Confounder adjustment
 DECISION: Documented. confounder_adjustment.py tests age, sex, and
-BMI as potential confounders via direct inclusion and residualization.
-Covariate imputation uses train-fold-only medians/modes to avoid
-leakage. 10-cohort results: baseline 0.808, direct RF 0.808, direct XGB
-0.807, residualized RF 0.807, residualized XGB 0.816. The 0.807-0.816
-range sits within sampling noise of the unadjusted baseline, confirming
-the classifier is not driven by demographic confounders.
+BMI as potential confounders via direct inclusion and residualization,
+under country-aware LODO. Covariate imputation uses train-fold-only
+medians/modes to avoid leakage. 10-cohort mean per-cohort AUCs:
+baseline 0.807, direct RF 0.814, direct XGB 0.806, residualized RF
+0.801, residualized XGB 0.800. The 0.800-0.814 range sits within
+sampling noise of the unadjusted baseline, confirming the classifier
+is not driven by demographic confounders. Saved to
+results/confounder_results.csv.
 
 ## Cross-cohort adenoma LODO
 DECISION: Implemented. Adenoma-containing cohorts in 10-cohort dataset:
@@ -93,19 +97,20 @@ top the SHAP rankings for A-vs-CRC but not H-vs-A, consistent with the
 biological progression model. Saved to results/adenoma_lodo_results.csv.
 
 ## Bootstrap confidence intervals
-DECISION: Documented. bootstrap_ci.py computes 2000-iteration bootstrap
-95% CIs. Per-cohort CIs use i.i.d. resampling within each held-out cohort;
-pooled CIs use cohort-stratified resampling (resample within each cohort
-separately, then concatenate) to preserve the LODO sample-size structure.
-10-cohort pooled results: Species RF 0.781 [0.757, 0.805],
-Joint RF 0.756 [0.731, 0.781], Joint XGB 0.766 [0.740, 0.790].
+DECISION: Documented. bootstrap_ci.py computes 10,000-iteration bootstrap
+95% CIs (seed=42). Per-cohort CIs use i.i.d. resampling within each held-out
+cohort; pooled CIs use cohort-stratified resampling (resample within each
+cohort separately, then concatenate) to preserve the LODO sample-size
+structure. 10-cohort pooled results: Species RF 0.781 [0.757, 0.805],
+Joint RF 0.756 [0.731, 0.781], Joint XGB 0.766 [0.740, 0.791].
 Saved to results/bootstrap_ci.csv.
 
 ## Seed sensitivity
 DECISION: Documented. seed_sensitivity.py runs species RF LODO at seeds
-{0, 1, 2, 42, 100} with country-aware LODO. 10-cohort results:
-mean 0.8097 +/- 0.0015, range [0.808, 0.812]. Classifier performance
-is insensitive to random seed choice. Saved to results/seed_sensitivity.csv.
+{0, 1, 2, 42, 100} with country-aware LODO. 10-cohort results: mean
+per-cohort AUC 0.8097 +/- 0.0015 (popn SD across seeds), range
+[0.807, 0.811]. Classifier performance is insensitive to random seed
+choice. Saved to results/seed_sensitivity.csv.
 
 ## Cohort expansion (v2 analysis)
 DECISION: Expanded from 7 to 10 cohorts by adding YachidaS_2019,
@@ -116,13 +121,15 @@ HanniganGD_2017 subsequently excluded (see below). Final dataset:
 ## HanniganGD_2017 exclusion
 DECISION: Excluded from all analyses. Justification: mean sequencing
 depth of 6.5M reads (range 17K-21M) is substantially below all other
-cohorts (mean 40-102M reads, minimum 9.2M for GuptaA_2019). Feature
-sparsity confirms degraded profiling: 82% zero-valued species features
-vs 61% mean for other cohorts. Both metrics were assessed before model
-training; the exclusion is pre-specified and independent of classification
-results. Applied in preprocessing.py via EXCLUDE_COHORTS constant.
-A per-sample minimum of 1M reads is also applied to catch individual
-extreme outliers across all cohorts (removed 4 additional samples).
+cohorts (per-cohort mean depth in the retained 10-cohort set ranges
+from 9.2M for GuptaA_2019 to 102M for ThomasAM_2018a; all others are
+above 40M). Feature sparsity confirms degraded profiling: 82% zero-valued
+species features vs 61% mean for the other cohorts. Both metrics were
+assessed before model training; the exclusion is pre-specified and
+independent of classification results. Applied in preprocessing.py via
+the EXCLUDE_COHORTS constant. A per-sample minimum of 1M reads is also
+applied to catch individual extreme outliers across all cohorts
+(removed 4 additional samples).
 
 ## Country-aware LODO
 DECISION: Implemented in lodo_cv.py (country_col parameter). When a
@@ -144,24 +151,31 @@ bio_pathway_shortlist.py.
 
 ## Biologically-guided pathway shortlist
 DECISION: Implemented in bio_pathway_shortlist.py. Selects a curated
-subset of CRC-relevant pathways using keyword matching across 7 biological
+subset of CRC-relevant pathways using keyword matching across 8 biological
 groups: butyrate/SCFA production, fermentation, LPS/inflammation,
 polyamine synthesis, tryptophan metabolism, folate/one-carbon metabolism,
-and sulfur/methionine metabolism. Keyword selection is pre-specified based
-on published CRC microbiome literature; not data-driven. Results compared
-to full-pathway joint model. Saved to results/bio_pathway_results.csv.
+sulfur/methionine metabolism, and glycan/mucin degradation. Keyword
+selection is pre-specified based on published CRC microbiome literature;
+not data-driven. The eight groups expand to 84 unique pathway IDs
+(some pathways belong to multiple groups, e.g., CENTFERM-PWY appears in
+both butyrate_SCFA and fermentation). Of these 84 candidates, ~66 are
+retained per fold after the per-fold prevalence/mean filter (training-
+cohort-only), giving ~295 total features per fold (229 species + ~66
+pathways). 10-cohort result: mean per-cohort LODO AUC 0.817, comparable
+to the species-only baseline (0.807). Saved to
+results/bio_pathway_results.csv.
 
 ## Batch correction (ComBat)
 DECISION: Documented. batch_correction.py applies per-fold ComBat on
-species features. ComBat is fit jointly on the train and test feature
-matrices using only batch labels (study_name); class labels (CRC vs
-control) are never seen by ComBat, so this preserves the LODO no-
-leakage guarantee while keeping train and test in the same corrected
-feature space. Result: mean per-cohort AUC 0.806 with ComBat vs 0.803
-without, indicating batch effects in this curatedMetagenomicData
-subset are small relative to the cross-cohort biological signal.
-Requires `pip install combat` (canonical PyPI package providing
-combat.pycombat.pycombat).
+species features under country-aware LODO. ComBat is fit jointly on
+the train and test feature matrices using only batch labels (study_name);
+class labels (CRC vs control) are never seen by ComBat, so this preserves
+the LODO no-leakage guarantee while keeping train and test in the same
+corrected feature space. 10-cohort result: mean per-cohort AUC 0.815
+with ComBat vs 0.807 without (delta +0.008), indicating residual batch
+effects in this curatedMetagenomicData subset are modest relative to
+the cross-cohort biological signal. Requires `pip install combat`
+(canonical PyPI package providing combat.pycombat.pycombat).
 
 ## Package pinning
 DECISION: requirements.lock pins exact versions of all Python dependencies.

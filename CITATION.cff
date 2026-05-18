@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "Cross-cohort gut microbiome classification of colorectal cancer: a 10-cohort meta-analysis"
+abstract: >-
+  Country-aware leave-one-dataset-out (LODO) meta-analysis of gut shotgun
+  metagenomes from 10 colorectal cancer cohorts (n = 1,522 subjects),
+  showing that species-only Random Forest classifiers significantly
+  outperform joint species-plus-pathway models for CRC detection across
+  cohorts.
+type: software
+version: "1.0.0"
+date-released: "2026-05-18"
+license: MIT
+keywords:
+  - microbiome
+  - colorectal cancer
+  - metagenomics
+  - machine learning
+  - meta-analysis
+  - LODO
+authors:
+  - given-names: Alejandro
+    family-names: Velazquez
+    affiliation: "University of California, Berkeley (Computer Science)"
+    email: thealexschroeder@gmail.com
+  - given-names: Rachel
+    family-names: Selbrede
+    affiliation: "[Affiliation] (Biology)"
+references:
+  - type: software
+    title: curatedMetagenomicData
+    doi: 10.18129/B9.bioc.curatedMetagenomicData
+    notes: "Source of all raw taxonomic and functional profiles."
