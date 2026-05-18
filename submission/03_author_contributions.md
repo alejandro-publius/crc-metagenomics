@@ -13,9 +13,9 @@ All authors read and approved the final manuscript.
 
 This research did not receive any specific grant from funding agencies in
 the public, commercial, or not-for-profit sectors. Computational resources
-were provided by [Institution]. The funders had no role in study design,
-data collection and analysis, decision to publish, or preparation of the
-manuscript.
+were provided by the authors' personal workstations. The funders had no
+role in study design, data collection and analysis, decision to publish,
+or preparation of the manuscript.
 
 # Competing Interests
 

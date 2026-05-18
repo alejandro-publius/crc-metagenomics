@@ -6,7 +6,7 @@ Sharing my first research paper: a multi-cohort re-analysis of whether the gut m
 
 Colorectal cancer is one of the most common and most treatable cancers when caught early, but screening uptake remains low. A stool-DNA test has long been proposed as a more comfortable alternative to colonoscopy. We wanted to know how well such a test could actually work, and how much of the prior optimism survives careful cross-population testing.
 
-Working with data from about 1,500 people across 10 published studies in 7 countries, we trained machine-learning models that look only at which bacterial species are present in stool. The best model distinguishes colorectal cancer patients from healthy controls with roughly 78% accuracy across cohorts it had never seen. Two findings stood out.
+Working with data from about 1,500 people across 10 published studies in 8 countries, we trained machine-learning models that look only at which bacterial species are present in stool. The best model distinguishes colorectal cancer patients from healthy controls with roughly 78% accuracy across cohorts it had never seen. Two findings stood out.
 
 First, adding metabolic pathway information to the model made it slightly worse, not better — a useful negative result for anyone designing similar diagnostic pipelines. Second, when training and test data come from the same country, performance is inflated by population-level differences in the microbiome. After controlling for this, the cross-population numbers are noticeably more honest — and noticeably more modest.
 

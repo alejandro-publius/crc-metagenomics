@@ -1,0 +1,4 @@
+model,brier,reliability,resolution,uncertainty
+species_rf,0.195,0.0067,0.0606,0.25
+joint_rf,0.2047,0.0057,0.049,0.25
+joint_xgb,0.2224,0.026,0.053,0.25

@@ -35,7 +35,7 @@ The model can't reliably distinguish pre-cancerous adenomas from healthy control
 ---
 
 **Q7. How is this different from prior microbiome-and-cancer studies?**
-We expanded the dataset from earlier 7-cohort meta-analyses to 10 cohorts in 7 countries, and we introduced a country-aware cross-validation correction that removes a hidden source of inflated performance. The result is a more honest cross-population number, lower than some prior headlines.
+We expanded the dataset from earlier 7-cohort meta-analyses to 10 cohorts in 8 countries, and we introduced a country-aware cross-validation correction that removes a hidden source of inflated performance. The result is a more honest cross-population number, lower than some prior headlines.
 
 ---
 

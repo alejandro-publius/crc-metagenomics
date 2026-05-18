@@ -8,7 +8,7 @@
 
 **BERKELEY, Calif.** — A new study from a University of California, Berkeley undergraduate computer-scientist and a biology collaborator finds that a stool-DNA test based on gut bacteria can distinguish colorectal cancer patients from healthy people with roughly 78 percent accuracy across populations — promising, but not yet ready to replace existing screening tools such as colonoscopy or fecal immunochemical testing.
 
-The work, posted today, re-analyzes published data from about 1,500 people across 10 studies in 7 countries to settle inconsistent results from prior single-cohort reports and to correct a subtle statistical bias that had inflated earlier estimates.
+The work, posted today, re-analyzes published data from about 1,500 people across 10 studies in 8 countries to settle inconsistent results from prior single-cohort reports and to correct a subtle statistical bias that had inflated earlier estimates.
 
 The authors, Alejandro Velazquez (Berkeley CS undergraduate, primary author) and Rachel Selbrede (biology collaborator), found that the best machine-learning model uses only the bacterial species present in stool — not the more elaborate metabolic-pathway features that have been a focus of prior work. Adding pathway data, somewhat counterintuitively, made the model slightly worse.
 

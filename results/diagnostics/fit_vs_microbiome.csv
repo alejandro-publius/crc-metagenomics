@@ -1,0 +1,6 @@
+assay,sensitivity,specificity,ppv_5pct,npv_5pct,source,notes
+FIT (CRC endpoint),0.79,0.94,0.4093,0.9884,"Imperiale 2014, NEJM 370:1287",Single FIT vs colonoscopy; average-risk asymptomatic screening cohort (n=9989).
+FIT (advanced adenoma endpoint),0.24,0.96,0.24,0.96,"Imperiale 2014, NEJM 370:1287","FIT detects advanced adenomas poorly; shown for completeness, not directly comparable to CRC row."
+Species RF (at FIT-matched 94% spec),0.4199,0.9429,0.2789,0.9686,This work; pooled LODO n=1339; threshold=0.6480,Like-for-like comparison vs FIT CRC row at matched specificity.
+Species RF (at FIT-AA-matched 96% spec),0.3398,0.9609,0.3138,0.9651,This work; pooled LODO n=1339; threshold=0.6829,Comparator for the FIT-AA row at matched specificity.
+Species RF (Youden-J),0.7389,0.6977,0.114,0.9807,This work; pooled LODO n=1339; threshold=0.4847,Balanced operating point on pooled LODO; not specificity-matched to FIT.

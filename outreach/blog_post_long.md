@@ -18,7 +18,7 @@ The starting point was a well-known 2019 meta-analysis by Thomas et al., which p
 
 The first surprise was how much had changed since that paper. The Bioconductor resource `curatedMetagenomicData` had grown from 7 CRC cohorts to 10 (and one I eventually excluded for being sequenced too shallowly to be comparable). More cohorts means more population diversity — good for honest evaluation, harder for the model.
 
-I pulled 1,522 unique subjects across 10 cohorts in 7 countries: 674 CRC patients, 183 with adenomas, 665 healthy controls. From this I extracted 229 species-level taxonomic features (after light prevalence and abundance filtering) and 551 functional pathway features.
+I pulled 1,522 unique subjects across 10 cohorts in 8 countries: 674 CRC patients, 183 with adenomas, 665 healthy controls. From this I extracted 229 species-level taxonomic features (after light prevalence and abundance filtering) and 551 functional pathway features.
 
 Then I ran the standard leave-one-dataset-out (LODO) cross-validation: train on 9 cohorts, test on the 10th, rotate.
 
@@ -80,7 +80,7 @@ I spent a lot of time chasing performance before I understood the data. The coun
 
 I also under-estimated how much "decision log discipline" matters. Every analytical choice — which filter threshold, which random seed, which transform, which cohort to exclude on quality grounds — could shift a number by a couple of points. Writing those choices down explicitly, with the rationale, is how you keep yourself honest months later when you have forgotten why you did something. The decisions addendum in our repo is the document I am most quietly proud of; it is also the document I most wish I had started writing on day one instead of day sixty.
 
-The third lesson is about negative results. I almost did not write up the pathway story, because it felt anticlimactic. A senior collaborator pushed back and pointed out that "a thing everyone expected to work, didn't" is exactly the kind of finding the field needs more of. They were right. If the only papers that get written are the ones where the experiment worked, we collectively waste a lot of time re-running experiments that have already silently failed.
+The third lesson is about negative results. I almost did not write up the pathway story, because it felt anticlimactic. On reflection, "a thing everyone expected to work, didn't" is exactly the kind of finding the field needs more of. If the only papers that get written are the ones where the experiment worked, we collectively waste a lot of time re-running experiments that have already silently failed.
 
 ## Acknowledgments and the meta-story
 

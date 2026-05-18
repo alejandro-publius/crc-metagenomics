@@ -11,12 +11,12 @@ validation
 *Use the final abstract from `manuscript/CRC_Abstract.docx`. 250 words max.*
 
 ## Authors
-Alex [Last Name]¹*, Rachel [Last Name]²
+Alejandro Velazquez¹*, Rachel Selbrede²
 
-1. [Affiliation 1]
-2. [Affiliation 2]
+1. University of California, Berkeley, Computer Science
+2. [Affiliation TBD]
 
-*Corresponding author. Email: [email]. ORCID: [iD]*
+*Corresponding author. Email: thealexschroeder@gmail.com. Phone: [Phone TBD]. ORCID: [ORCID TBD]*
 
 ## Subject area
 - **Primary**: Bioinformatics

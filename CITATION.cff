@@ -25,7 +25,7 @@ authors:
     email: thealexschroeder@gmail.com
   - given-names: Rachel
     family-names: Selbrede
-    affiliation: "[Affiliation] (Biology)"
+    affiliation: "[Affiliation TBD] (Biology)"
 references:
   - type: software
     title: curatedMetagenomicData

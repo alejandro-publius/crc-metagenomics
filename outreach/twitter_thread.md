@@ -13,7 +13,7 @@ Why this matters: colorectal cancer is highly curable when caught early, but upt
 ---
 
 **Tweet 3/10**
-We pooled 10 published cohorts from 7 countries (curatedMetagenomicData), then trained machine-learning models using leave-one-dataset-out cross-validation. So every test cohort is one the model has truly never seen.
+We pooled 10 published cohorts from 8 countries (curatedMetagenomicData), then trained machine-learning models using leave-one-dataset-out cross-validation. So every test cohort is one the model has truly never seen.
 [Figure: figures/fig1_lodo_auc.png]
 
 ---

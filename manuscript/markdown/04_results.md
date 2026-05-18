@@ -2,11 +2,11 @@
 
 ## Cohorts and feature spaces
 
-The analysis dataset comprised 1,522 unique subjects across 10 cohorts: 674 CRC cases, 665 controls, and 183 adenomas, spanning 9 countries (Austria, China, France, Germany, India, Italy, Japan, USA; Table 1). Per-cohort sample sizes ranged from 60 (GuptaA_2019, ThomasAM_2018b) to 575 (YachidaS_2019). After global filtering (prevalence ≥ 10%, mean ≥ 1e-4) and log10(x + 1e-6) transformation, 229 MetaPhlAn species features were retained. From HUMAnN unstratified pathway tables, 551 candidate pathways entered the per-fold filter; 402–406 pathways were retained per LODO fold after the prevalence ≥ 10% / mean ≥ 1e-6 filter computed on training-cohort samples only.
+The analysis dataset comprised 1,522 unique subjects across 10 cohorts: 674 CRC cases, 665 controls, and 183 adenomas, spanning 8 countries (Austria, China, France, Germany, India, Italy, Japan, USA; Table 1). Per-cohort sample sizes ranged from 60 (GuptaA_2019, ThomasAM_2018b) to 575 (YachidaS_2019). After global filtering (prevalence ≥ 10%, mean ≥ 1e-4) and log10(x + 1e-6) transformation, 229 MetaPhlAn species features were retained. From HUMAnN unstratified pathway tables, 551 candidate pathways entered the per-fold filter; 402–406 pathways were retained per LODO fold after the prevalence ≥ 10% / mean ≥ 1e-6 filter computed on training-cohort samples only.
 
 ## Species-only Random Forest under country-aware LODO
 
-The species-only Random Forest achieved a per-cohort mean LODO AUC of **0.807 ± 0.065 (SD across 10 folds)** and a pooled AUC of **0.781 (95% CI 0.757–0.805)** across all 1,339 case/control predictions. Per-cohort AUCs ranged from 0.694 (ThomasAM_2018a; n_test = 53) to 0.882 (GuptaA_2019, n_test = 60; WirbelJ_2018, n_test = 125) (Figure 1; Supplementary Table S2). The largest fold, YachidaS_2019 (n_test = 508), reached an AUC of 0.708; its size dominates the pooled estimate and the DeLong comparison.
+The species-only Random Forest achieved a per-cohort mean LODO AUC of **0.807 ± 0.065 (SD across 10 folds)** and a pooled AUC of **0.781 (95% CI 0.757–0.805)** across all 1,339 case/control predictions. Per-cohort AUCs ranged from 0.694 (ThomasAM_2018a; n_test = 53) to 0.882 (GuptaA_2019, n_test = 60; WirbelJ_2018, n_test = 125) (Figure 1; Supplementary Table S2). The largest fold, YachidaS_2019 (n_test = 508), reached an AUC of 0.708; its size dominates the pooled estimate and the DeLong comparison. At a fixed specificity of 90%, species RF achieves a sensitivity of 49.9% (`results/diagnostics/sens_at_fixed_spec.csv`); at 95% specificity, 39.8% (same table).
 
 Seed sensitivity confirmed stability: across seeds {0, 1, 2, 42, 100} the per-cohort mean AUC was 0.810 ± 0.002 (range 0.807–0.811).
 
