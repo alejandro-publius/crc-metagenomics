@@ -7,11 +7,13 @@
   "creators": [
     {
       "name": "Velazquez, Alejandro",
-      "affiliation": "University of California, Berkeley (Computer Science)"
+      "affiliation": "University of California, Berkeley (Computer Science)",
+      "orcid": "0009-0007-9798-1958"
     },
     {
       "name": "Selbrede, Rachel",
-      "affiliation": "[Affiliation TBD] (Biology)"
+      "affiliation": "California State University San Marcos (Molecular and Cell Biology)",
+      "orcid": "0009-0006-7046-3192"
     }
   ],
   "keywords": [

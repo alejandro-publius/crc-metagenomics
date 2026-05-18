@@ -85,6 +85,6 @@ Sincerely,
 
 Alejandro Velazquez
 University of California, Berkeley (Computer Science)
-thealexschroeder@gmail.com
+alejandro-publius@berkeley.edu
 
 On behalf of all co-authors.

@@ -1,7 +1,7 @@
 # Submission Package Manifest
 
-Generated: 2026-05-18T11:56:05+00:00
-Finished:  2026-05-18T11:56:06+00:00
+Generated: 2026-05-18T12:09:56+00:00
+Finished:  2026-05-18T12:09:56+00:00
 
 Master index of everything in the submission package. SHA-256 digests of all final deliverable PDFs and ZIPs are included for integrity tracking.
 
@@ -26,7 +26,7 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `02_ethics_statement.md` | 1.1 KB | submission scaffolding |
 | `03_author_contributions.md` | 1.3 KB | submission scaffolding |
 | `04_submission_checklist.md` | 4.0 KB | submission scaffolding |
-| `05_biorxiv_metadata.md` | 1.5 KB | submission scaffolding |
+| `05_biorxiv_metadata.md` | 1.6 KB | submission scaffolding |
 | `CRC_Manuscript_Complete.docx` | 57.6 KB | manuscript (Word) |
 | `README.md` | 4.2 KB | bundle README |
 | `SUBMISSION_BUNDLE.zip` | 3.5 MB | final upload archive |
@@ -72,7 +72,7 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 
 | File | SHA-256 |
 |---|---|
-| `SUBMISSION_BUNDLE.zip` | `e295ef5158f883e5e712d4610639ee80aff916b4b747099f67bad33ac12f88f1` |
+| `SUBMISSION_BUNDLE.zip` | `7ebe3b606ca562bc4f50eb520b1730f189bd4b8a22456f54014228df04469539` |
 
 ## Warnings during build
 

@@ -11,6 +11,7 @@ type: software
 version: "1.0.0"
 date-released: "2026-05-18"
 license: MIT
+repository-code: "https://github.com/alejandro-publius/crc-metagenomics"
 keywords:
   - microbiome
   - colorectal cancer
@@ -22,10 +23,12 @@ authors:
   - given-names: Alejandro
     family-names: Velazquez
     affiliation: "University of California, Berkeley (Computer Science)"
-    email: thealexschroeder@gmail.com
+    email: alejandro-publius@berkeley.edu
+    orcid: "https://orcid.org/0009-0007-9798-1958"
   - given-names: Rachel
     family-names: Selbrede
-    affiliation: "[Affiliation TBD] (Biology)"
+    affiliation: "California State University San Marcos (Molecular and Cell Biology)"
+    orcid: "https://orcid.org/0009-0006-7046-3192"
 references:
   - type: software
     title: curatedMetagenomicData

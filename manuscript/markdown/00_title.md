@@ -5,7 +5,7 @@ Alejandro Velazquez^1,\*^, Rachel Selbrede^2^
 ^1^ University of California, Berkeley, CA, USA
 ^2^ California State University San Marcos, San Marcos, CA, USA
 
-\* Correspondence: thealexschroeder@gmail.com
+\* Correspondence: alejandro-publius@berkeley.edu
 
 **Keywords:** colorectal cancer; gut microbiome; shotgun metagenomics; machine learning; Random Forest; leave-one-dataset-out cross-validation; DeLong test; SHAP; curatedMetagenomicData.
 
