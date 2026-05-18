@@ -1,46 +1,119 @@
 # Reproducing the Analyses
 
-See README.md and results/decisions_addendum.md for the canonical pipeline. Detailed step-by-step reproduction instructions are in this commit message and the script docstrings.
+See README.md and results/decisions_addendum.md for the canonical pipeline and all analytical decisions.
 
-## Quick start
+## Environment
 
-1. Rscript scripts/export_data.R
-2. Rscript scripts/audit_subject_ids.R
-3. python3 scripts/merge_pathways.py
-4. python3 scripts/validate_pathways.py
-5. python3 scripts/filter_pathways.py
-6. python3 scripts/preprocessing.py
-7. python3 scripts/generate_table1.py
-8. python3 scripts/adenoma_counts.py
-9. python3 scripts/train_baseline.py    # expect species RF per-cohort mean AUC 0.803 (pooled 0.810)
-10. python3 scripts/train_joint.py      # expect Joint RF per-cohort mean 0.785 (pooled 0.776), XGB per-cohort 0.784 (pooled 0.781)
-11. python3 scripts/train_adenoma.py    # expect 5-fold within-cohort H-vs-A 0.681/0.709, A-vs-CRC 0.787/0.809
-12. python3 scripts/auc_comparison.py
-13. python3 scripts/shap_analysis.py
-14. python3 scripts/shap_adenoma.py
-15. python3 scripts/shap_xgb.py
-16. python3 scripts/add_covariates.py
-17. python3 scripts/external_validation.py
-18. python3 scripts/generate_figures.py        # script-output draft figures
-18a. python3 scripts/figure1_forest_plot.py    # manuscript Figure 1 (forest plot of per-cohort + pooled CIs)
-18b. python3 scripts/figure5_shap_three_panel.py # manuscript Figure 4 (three-panel SHAP across adenoma-carcinoma sequence)
+```bash
+pip install -r requirements.lock
+```
 
-## Sanity checks
+All scripts use `random_state=42` and produce deterministic results. Total runtime is approximately 45 minutes on a standard workstation (dominated by LODO CV training).
 
-- python3 scripts/sanity_check.py
-- python3 scripts/find_nans.py
-- python3 scripts/check_label_dist.py
+## Step-by-step pipeline
 
-## Reproducibility
+### 1. Data export (R)
 
-All scripts use random_state=42. Joint model uses unstratified pathway features filtered per LODO fold (540 candidates; 402-406 retained per fold from train-only prevalence/mean). See results/decisions_addendum.md for SMOTE, DeLong, normalization, tuning, and LODO leakage decisions.
+```bash
+Rscript scripts/export_data.R          # pulls curatedMetagenomicData; exports 11 cohorts (~1604 samples)
+Rscript scripts/audit_subject_ids.R    # verifies no duplicated subject IDs across cohorts
+```
 
-## Robustness and sensitivity analyses
+### 2. Data processing
 
-19. python3 scripts/sensitivity_analysis.py   # per-fold filter threshold sweep; expect joint RF AUC range 0.773-0.811 (full grid), 0.773-0.789 (excluding the degenerate mean>=1e-3 column)
-20. python3 scripts/confounder_adjustment.py   # age/sex/BMI confounding (per-fold imputation)
-21. python3 scripts/adenoma_lodo.py            # cross-cohort adenoma LODO; expect H-vs-A 0.509/0.453, A-vs-CRC 0.583/0.515
-22. python3 scripts/bootstrap_ci.py            # 95% bootstrap CIs on AUCs
-23. python3 scripts/seed_sensitivity.py        # random seed stability
-24. python3 scripts/batch_correction.py        # per-fold ComBat (requires `pip install combat`)
-25. python3 scripts/verify_results.py          # verify all headline numbers, p-values, CI bounds
+```bash
+python3 scripts/merge_pathways.py      # concatenates per-cohort HUMAnN pathway chunks
+python3 scripts/validate_pathways.py   # sanity-checks pathway matrix dimensions
+python3 scripts/filter_pathways.py     # global static filter (used by SHAP scripts only)
+python3 scripts/preprocessing.py       # quality filters: excludes HanniganGD_2017 (low depth),
+                                       # drops samples <1M reads; outputs 1522 samples, 10 cohorts
+python3 scripts/generate_table1.py     # Table 1 demographics
+python3 scripts/adenoma_counts.py      # per-cohort adenoma sample counts
+```
+
+### 3. Main LODO classification
+
+```bash
+python3 scripts/train_baseline.py   # species-only RF LODO (country-aware)
+                                    # expect: per-cohort mean AUC ~0.808, pooled AUC ~0.781
+
+python3 scripts/train_joint.py      # joint RF + XGBoost LODO (country-aware, per-fold pathway filter)
+                                    # expect: Joint RF per-cohort ~0.804 (pooled ~0.756)
+                                    #         Joint XGB per-cohort ~0.797 (pooled ~0.766)
+                                    # 551 pathway candidates; 402-406 retained per fold
+
+python3 scripts/auc_comparison.py   # paired tests (t, Wilcoxon) + DeLong on pooled predictions
+                                    # expect: species_rf vs joint_rf DeLong z=3.35, p=0.0008
+                                    #         species_rf vs joint_xgb DeLong z=2.00, p=0.046
+```
+
+### 4. Feature importance (SHAP)
+
+```bash
+python3 scripts/shap_analysis.py    # RF TreeSHAP for CRC vs control
+python3 scripts/shap_xgb.py         # XGBoost TreeSHAP for all three tasks
+python3 scripts/shap_adenoma.py     # RF TreeSHAP for adenoma tasks (H-vs-A, A-vs-CRC)
+```
+
+### 5. Adenoma classification
+
+```bash
+python3 scripts/adenoma_lodo.py     # cross-cohort LODO across 4 adenoma-containing cohorts
+                                    # (FengQ_2015, ZellerG_2014, ThomasAM_2018a, YachidaS_2019)
+                                    # expect: H-vs-A RF ~0.561, H-vs-A XGB ~0.579
+                                    #         A-vs-CRC RF ~0.671, A-vs-CRC XGB ~0.617
+```
+
+### 6. Biologically-guided pathway shortlist
+
+```bash
+python3 scripts/bio_pathway_shortlist.py  # keyword-selected 84 CRC-relevant pathways
+                                          # expect: mean LODO AUC ~0.817 (vs species-only 0.807)
+```
+
+### 7. Robustness battery
+
+```bash
+python3 scripts/bootstrap_ci.py          # 2000-resample bootstrap 95% CIs
+                                         # expect: species RF pooled 0.781 [0.756, 0.805]
+
+python3 scripts/seed_sensitivity.py      # seeds {0,1,2,42,100}; expect spread < 0.005
+
+python3 scripts/sensitivity_analysis.py  # 4x5 prevalence/mean grid (country-aware, per-fold filter)
+                                         # expect: joint RF AUC range 0.798-0.810
+
+python3 scripts/confounder_adjustment.py # direct inclusion + residualization of age, sex, BMI
+                                         # expect: AUC 0.807-0.816 (within noise of unadjusted 0.808)
+
+python3 scripts/batch_correction.py      # per-fold ComBat on species features
+                                         # requires: pip install combat
+                                         # expect: mean AUC ~0.806 (vs uncorrected ~0.808)
+```
+
+### 8. Figures and verification
+
+```bash
+python3 scripts/generate_figures.py          # draft figures
+python3 scripts/figure1_forest_plot.py       # Figure 1: forest plot of per-cohort + pooled CIs
+python3 scripts/figure5_shap_three_panel.py  # Figure 4: three-panel SHAP (H-vs-A, CRC-vs-control, A-vs-CRC)
+python3 scripts/verify_results.py            # smoke-tests all headline numbers against saved CSVs
+```
+
+## Sanity checks (run any time)
+
+```bash
+python3 scripts/sanity_check.py
+python3 scripts/find_nans.py
+python3 scripts/check_label_dist.py
+```
+
+## Country-aware LODO
+
+When a cohort is held out as the test fold, all training-set cohorts from the same country are excluded. Affected pairs:
+
+- **ThomasAM_2019_c (JPN) ↔ YachidaS_2019 (JPN)**: without this fix ThomasAM_2019_c achieves AUC=0.999 due to geographic signal leakage. With fix: AUC=0.836.
+- **ThomasAM_2018a (ITA) ↔ ThomasAM_2018b (ITA)**: each excluded from the other's training fold.
+
+## Key design decisions
+
+See `results/decisions_addendum.md` for the complete log covering: SMOTE vs class weights, DeLong implementation, normalization strategy, per-fold vs global pathway filtering, hyperparameter tuning rationale, HanniganGD_2017 exclusion, and more.

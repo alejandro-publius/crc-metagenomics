@@ -94,14 +94,18 @@ biological progression model. Saved to results/adenoma_lodo_results.csv.
 
 ## Bootstrap confidence intervals
 DECISION: Documented. bootstrap_ci.py computes 2000-iteration bootstrap
-95% CIs. 10-cohort pooled results: Species RF 0.781 [0.756, 0.805],
-Joint RF 0.756 [0.728, 0.781], Joint XGB 0.766 [0.738, 0.790].
+95% CIs. Per-cohort CIs use i.i.d. resampling within each held-out cohort;
+pooled CIs use cohort-stratified resampling (resample within each cohort
+separately, then concatenate) to preserve the LODO sample-size structure.
+10-cohort pooled results: Species RF 0.781 [0.757, 0.805],
+Joint RF 0.756 [0.731, 0.781], Joint XGB 0.766 [0.740, 0.790].
 Saved to results/bootstrap_ci.csv.
 
 ## Seed sensitivity
 DECISION: Documented. seed_sensitivity.py runs species RF LODO at seeds
-{0, 1, 2, 42, 100} with country-aware LODO. Results pending rerun on
-10-cohort dataset. Prior 7-cohort results: mean 0.8049 +/- 0.0020.
+{0, 1, 2, 42, 100} with country-aware LODO. 10-cohort results:
+mean 0.8097 +/- 0.0015, range [0.808, 0.812]. Classifier performance
+is insensitive to random seed choice. Saved to results/seed_sensitivity.csv.
 
 ## Cohort expansion (v2 analysis)
 DECISION: Expanded from 7 to 10 cohorts by adding YachidaS_2019,

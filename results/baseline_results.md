@@ -1,49 +1,69 @@
-# Baseline Species-Only Results
+# Baseline Species-Only Results (10-cohort dataset)
 
-Random Forest classifier trained on 247 filtered species features using leave-one-dataset-out (LODO) cross-validation across 7 cohorts.
+Random Forest classifier trained on 229 filtered species features (MetaPhlAn,
+prevalence >= 10%, mean >= 1e-4, log10-transformed) under country-aware
+leave-one-dataset-out (LODO) cross-validation across 10 cohorts, 1339 samples
+(674 CRC vs 665 control; 183 adenoma samples excluded from main LODO).
 
 ## Per-cohort AUC
 
-| Cohort          | AUC   | n   |
-|-----------------|-------|-----|
-| FengQ_2015      | 0.838 | 107 |
-| ThomasAM_2018a  | 0.734 | 53  |
-| ThomasAM_2018b  | 0.801 | 60  |
-| ThomasAM_2019_c | 0.828 | 80  |
-| VogtmannE_2016  | 0.730 | 104 |
-| YuJ_2015        | 0.868 | 128 |
-| ZellerG_2014    | 0.821 | 114 |
+| Cohort          | AUC   | n_test | Country | Country exclusion        |
+|-----------------|-------|--------|---------|--------------------------|
+| FengQ_2015      | 0.840 | 107    | AUT     | —                        |
+| GuptaA_2019     | 0.882 | 60     | IND     | —                        |
+| ThomasAM_2018a  | 0.694 | 53     | ITA     | ThomasAM_2018b excluded  |
+| ThomasAM_2018b  | 0.810 | 60     | ITA     | ThomasAM_2018a excluded  |
+| ThomasAM_2019_c | 0.836 | 80     | JPN     | YachidaS_2019 excluded   |
+| VogtmannE_2016  | 0.756 | 104    | USA     | —                        |
+| WirbelJ_2018    | 0.882 | 125    | DEU     | —                        |
+| YachidaS_2019   | 0.708 | 508    | JPN     | ThomasAM_2019_c excluded |
+| YuJ_2015        | 0.865 | 128    | CHN     | —                        |
+| ZellerG_2014    | 0.803 | 114    | FRA     | —                        |
 
-**Mean AUC: 0.803 +/- 0.049**
+**Per-cohort mean AUC: 0.808 ± 0.065**
+**Pooled LODO AUC: 0.781** (95% CI: 0.756–0.805; 2000-resample bootstrap)
 
 ## Comparison to Thomas et al. 2019
 
-Thomas et al. reported a mean LODO AUC of ~0.80 on a similar species-only feature set across 5 cohorts. Our 7-cohort baseline of 0.803 is consistent with their result.
+Thomas et al. reported a mean LODO AUC of ~0.80 on a similar species-only feature set
+across 5 cohorts. Our 10-cohort pooled AUC of 0.781 is consistent with their result,
+after accounting for the harder generalization challenge across a larger, more
+geographically diverse cohort set and the conservative country-aware exclusion strategy.
 
 ## Model configuration
 
-- RandomForestClassifier(n_estimators=500, max_features=sqrt, min_samples_leaf=5, class_weight=balanced, random_state=42)
-- LODO: train on 6 cohorts, test on the 7th, repeat for all 7 folds
-- 646 samples used (binary CRC vs control; 116 adenoma samples excluded)
+- `RandomForestClassifier(n_estimators=500, max_features='sqrt', min_samples_leaf=5,`
+  `class_weight='balanced', random_state=42, n_jobs=-1)`
+- LODO: train on all cohorts except the test cohort and its country-matched cohorts
+- 1339 samples (CRC + control only; 183 adenoma samples excluded from LODO)
+- 229 species features (global prevalence/mean filter; see decisions_addendum.md)
 
 ## Per-cohort observations
 
-- YuJ_2015 (0.868) is the easiest cohort, consistent with its larger sample size and balanced class distribution
-- VogtmannE_2016 (0.730) and ThomasAM_2018a (0.734) are the hardest, likely due to smaller sample sizes
-- All cohorts exceed AUC 0.70, indicating the species-only signal generalizes across studies
+- **YachidaS_2019 (0.708, n=508)** dominates the pooled AUC. With the Japan exclusion,
+  only ThomasAM_2019_c remains in training (n_train=751 vs ~1232 for most folds).
+  This fold's large test set (n=508) heavily weights the pooled DeLong statistic.
+- **ThomasAM_2018a (0.694)** is the lowest per-cohort AUC; small test set (n=53)
+  and only non-Italian cohorts in training due to country exclusion.
+- **GuptaA_2019 (0.882)** and **WirbelJ_2018 (0.882)** are the highest;
+  both have full training sets with no country exclusions.
 
 ## Comparison to joint model
 
-Adding 402-406 unstratified pathway features per LODO fold (Joint RF 0.785, Joint XGB 0.784) does not improve over the species-only baseline. The pathway prevalence/mean filter is refit on each fold's training cohorts, so test-cohort samples never contribute to feature selection.
+Adding 402–406 unstratified pathway features per fold (Joint RF mean 0.804,
+Joint XGB 0.797) does not improve over the species-only baseline:
 
-- Per-cohort paired tests (n=7 LODO folds) do not detect a difference: paired t p=0.47 vs Joint RF, p=0.20 vs Joint XGB; 95% bootstrap CIs on the mean per-cohort difference include zero.
-- DeLong tests on pooled LODO predictions (n=646) find species RF significantly better: p=0.004 vs Joint RF, p=0.008 vs Joint XGB. Pooled AUCs: species RF 0.810, Joint RF 0.776, Joint XGB 0.781.
+- **Per-cohort paired tests** (n=10): species RF vs Joint RF p=0.87;
+  species RF vs Joint XGB p=0.28. Neither significant. (Low power at n=10.)
+- **DeLong on pooled predictions** (n=1339): species RF significantly outperforms
+  Joint RF (AUC 0.781 vs 0.756, z=3.352, p=0.0008) and Joint XGB (0.781 vs 0.766,
+  z=1.996, p=0.046). Signal driven by YachidaS_2019 (species RF 0.708 vs 0.669/0.694).
 
-The two tests answer different questions. Per-cohort tests assess whether the joint model is consistently better across cohorts (it is not, and n=7 has low power). DeLong assesses whether overall sample-level discrimination differs between classifiers given the same held-out predictions. Both agree that pathways do not help; DeLong indicates a small but statistically detectable degradation, likely from added noise in the redundant pathway features.
-
-See results/model_comparison.csv and results/delong_results.csv.
+Both tests agree that pathways add no benefit; DeLong detects a small but statistically
+significant degradation at the sample level, driven by the largest fold.
 
 ## Files
 
-- results/baseline_results.csv: per-cohort AUCs (source of truth)
-- scripts/train_baseline.py: produces this result
+- `results/baseline_results.csv` — per-cohort AUCs (source of truth)
+- `results/preds_species_rf.csv` — per-sample LODO predictions (1339 rows)
+- `scripts/train_baseline.py` — produces this result

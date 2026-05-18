@@ -38,7 +38,7 @@ def main():
     sp_feat_cols = [sanitize(c) for c in sp.columns if c != 'sample_id']
     pw_feat_cols = [sanitize(c) for c in unstrat_cols]
     y = mg.loc[mask, 'label'].reset_index(drop=True)
-    meta = mg.loc[mask, ['sample_id', 'study_name', 'study_condition', 'label']].reset_index(drop=True)
+    meta = mg.loc[mask, ['sample_id', 'study_name', 'study_condition', 'label', 'country']].reset_index(drop=True)
 
     prev_grid = [0.05, 0.10, 0.15, 0.20]
     mean_grid = [1e-7, 1e-6, 1e-5, 1e-4, 1e-3]
@@ -60,7 +60,8 @@ def main():
             def make_rf():
                 return RandomForestClassifier(n_estimators=500, max_features='sqrt',
                     min_samples_leaf=5, n_jobs=-1, random_state=42, class_weight='balanced')
-            res = run_lodo_cv(make_rf, X, y, meta, feature_filter_fn=make_filter())
+            res = run_lodo_cv(make_rf, X, y, meta, feature_filter_fn=make_filter(),
+                              country_col='country')
             mean_n_pw = float(np.mean([n - len(sp_feat_cols) for n in res['n_features']]))
             rows.append({'prev_threshold': prev_t, 'mean_threshold': mean_t,
                          'n_pathways_mean': mean_n_pw,
