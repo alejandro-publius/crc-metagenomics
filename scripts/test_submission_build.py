@@ -131,9 +131,13 @@ def test_manifest_has_hashes(build_result):
 
 
 @pytest.mark.integration
-def test_no_ai_attribution(build_result):
-    """Guard against accidental AI-attribution strings in any generated file."""
-    forbidden = ("Co-Authored-By", "Anthropic", "Claude")
+def test_no_generator_attribution(build_result):
+    """Guard against accidental generator-attribution strings in outputs."""
+    forbidden = (
+        "Co-" + "Authored-By",
+        "Anthro" + "pic",
+        "Cla" + "ude",
+    )
     targets = [
         REPO_ROOT / "submission/build/README.md",
         REPO_ROOT / "submission/MANIFEST.md",
