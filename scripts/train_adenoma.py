@@ -1,8 +1,27 @@
-import re, pandas as pd, numpy as np, os, sys
+"""Adenoma classifiers under stratified k-fold (non-LODO; deprecated).
+
+Trains three adenoma-related models inside a single 5-fold stratified
+CV (NOT cross-cohort LODO): (a) healthy-vs-adenoma RF / XGB, (b)
+adenoma-vs-CRC RF / XGB, (c) a 3-class RF over {control, adenoma, CRC}.
+Writes mean AUCs to `results/adenoma_results.csv`.
+
+DEPRECATED: this script is retained for reference only. The headline
+adenoma analysis uses cross-cohort LODO in `scripts/adenoma_lodo.py`,
+which is the result quoted in the manuscript. This script's
+within-cohort estimates over-state generalisation because they do not
+hold any cohort out.
+"""
+import os
+import re
+import sys
+
+import numpy as np
+import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, roc_auc_score
 from sklearn.model_selection import StratifiedKFold
-from sklearn.metrics import roc_auc_score, accuracy_score
 from xgboost import XGBClassifier
+
 
 def main():
     sp = pd.read_csv('data/processed/species_filtered.csv')

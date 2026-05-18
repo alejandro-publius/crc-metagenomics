@@ -42,29 +42,34 @@ generalization. Our study addresses both gaps.
 3. **A statistically rigorous negative result on pathways.** Adding 402-406
    per-fold-filtered HUMAnN pathway features to the species-only Random
    Forest does not improve mean per-cohort AUC (species 0.807 vs joint
-   0.804) and *significantly degrades* sample-level discrimination on
-   pooled predictions (DeLong z = 3.35, p = 0.0008, n = 1,339). Per-fold
-   pathway filtering is essential: pre-filtering on all samples leaks
-   test-fold information and produces spuriously favorable results.
+   0.804; `results/baseline_results.csv`, `results/joint_results.csv`)
+   and *significantly degrades* sample-level discrimination on
+   pooled predictions (DeLong z = 3.35, p = 0.0008, n = 1,339;
+   `results/delong_results.csv`). Per-fold pathway filtering is
+   essential: pre-filtering on all samples leaks test-fold information
+   and produces spuriously favorable results.
 
 4. **Adenoma stage analysis.** Healthy-vs-adenoma classification is near
-   chance across cohorts (AUC 0.561, four cohorts), whereas
-   adenoma-vs-CRC reaches moderate performance (AUC 0.671). SHAP
-   importances place oral-associated taxa
-   (*Fusobacterium nucleatum*, *Peptostreptococcus stomatis*,
-   *Parvimonas micra*, *Gemella morbillorum*) at the top of the
-   adenoma-vs-CRC ranking but not the healthy-vs-adenoma ranking,
-   consistent with the proposed model in which the oral-bacterial CRC
-   signature emerges during malignant transformation rather than at the
-   adenoma stage.
+   chance across cohorts (AUC 0.561, four cohorts;
+   `results/adenoma_lodo_results.csv`), whereas adenoma-vs-CRC reaches
+   moderate performance (AUC 0.671; same source). SHAP importances
+   place oral-associated taxa (*Fusobacterium nucleatum*,
+   *Peptostreptococcus stomatis*, *Parvimonas micra*,
+   *Gemella morbillorum*) at the top of the adenoma-vs-CRC ranking but
+   not the healthy-vs-adenoma ranking, consistent with the proposed
+   model in which the oral-bacterial CRC signature emerges during
+   malignant transformation rather than at the adenoma stage.
 
 5. **Comprehensive sensitivity analyses** including (i) per-fold filter
-   threshold sweep across a 4 × 5 grid showing AUC spread of 0.018,
-   (ii) seed sensitivity across five random seeds (mean 0.810 ± 0.002),
-   (iii) age/sex/BMI confounder adjustment via direct inclusion and
-   residualization (range 0.800-0.814 around an unadjusted baseline of
-   0.807), and (iv) ComBat batch correction (AUC 0.815 corrected vs
-   0.807 uncorrected).
+   threshold sweep across a 4 × 5 grid showing AUC spread of 0.018
+   (`results/sensitivity_thresholds.csv`), (ii) seed sensitivity across
+   five random seeds (mean 0.810 ± 0.002;
+   `results/seed_sensitivity.csv`), (iii) age/sex/BMI confounder
+   adjustment via direct inclusion and residualization (range
+   0.800-0.814 around an unadjusted baseline of 0.807;
+   `results/confounder_results.csv`, `results/baseline_results.csv`),
+   and (iv) ComBat batch correction (AUC 0.815 corrected vs 0.807
+   uncorrected; `results/combat_results.csv`).
 
 All code, predictions, and supplementary tables are publicly available
 at <https://github.com/alejandro-publius/crc-metagenomics>, and the

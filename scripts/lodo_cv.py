@@ -1,6 +1,28 @@
+"""Library: country-aware leave-one-dataset-out cross-validation.
+
+This module is a library imported by `train_baseline.py`,
+`train_joint.py`, `seed_sensitivity.py`, `sensitivity_analysis.py`,
+`bio_pathway_shortlist.py`, `confounder_adjustment.py`, and
+`batch_correction.py`, and exercised by `tests/test_lodo_cv.py`. It is
+not intended to be executed directly.
+
+Exposed contracts:
+
+- `get_lodo_splits(metadata, ..., country_col=None)` yields
+  `(cohort, train_idx, test_idx, excluded_cohorts)` for each LODO fold.
+  When `country_col` is provided, cohorts sharing the test cohort's
+  country are removed from the training fold.
+- `run_lodo_cv(model_fn, X, y, metadata, ...)` orchestrates the loop
+  and optionally calls a per-fold `feature_filter_fn(X_train)` to
+  pick training-fold-only features (prevents test-fold leakage).
+
+All module-level code below is function definitions only; importing this
+module has no side effects.
+"""
+import os
+
 import numpy as np
 import pandas as pd
-import os
 from sklearn.metrics import roc_auc_score
 
 

@@ -1,7 +1,24 @@
-import pandas as pd, numpy as np, os, sys
+"""Species-only Random Forest under country-aware LODO (headline model).
+
+Reads `data/processed/species_filtered.csv` and
+`data/processed/metadata_clean.csv`, restricts to the CRC/control
+binary subset, and runs country-aware LODO with a 500-tree RF
+(`max_features='sqrt'`, `min_samples_leaf=5`,
+`class_weight='balanced'`, `random_state=42`). Writes per-fold AUCs to
+`results/baseline_results.csv` and per-sample held-out probabilities to
+`results/preds_species_rf.csv`. Expected per-cohort mean AUC ~0.807;
+pooled bootstrap AUC ~0.781.
+"""
+import os
+import sys
+
+import numpy as np
+import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+
 sys.path.insert(0, os.path.dirname(__file__))
-from lodo_cv import run_lodo_cv
+from lodo_cv import run_lodo_cv  # noqa: E402
+
 
 def main():
     sp = pd.read_csv('data/processed/species_filtered.csv')

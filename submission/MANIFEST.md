@@ -1,7 +1,7 @@
 # Submission Package Manifest
 
-Generated: 2026-05-18T12:47:25+00:00
-Finished:  2026-05-18T12:47:28+00:00
+Generated: 2026-05-18T13:06:17+00:00
+Finished:  2026-05-18T13:06:21+00:00
 
 Master index of everything in the submission package. SHA-256 digests of all final deliverable PDFs and ZIPs are included for integrity tracking.
 
@@ -23,7 +23,7 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 
 | Relative path | Size | Note |
 |---|---:|---|
-| `00_cover_letter.md` | 4.1 KB | submission scaffolding |
+| `00_cover_letter.md` | 4.4 KB | submission scaffolding |
 | `01_data_availability.md` | 2.0 KB | submission scaffolding |
 | `02_ethics_statement.md` | 1.1 KB | submission scaffolding |
 | `03_author_contributions.md` | 1.3 KB | submission scaffolding |
@@ -31,7 +31,7 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `05_biorxiv_metadata.md` | 1.6 KB | submission scaffolding |
 | `06_reviewer_responses.md` | 34.1 KB | submission scaffolding |
 | `07_pre_submission_qa.md` | 10.7 KB | submission scaffolding |
-| `CRC_Manuscript_Complete.docx` | 57.7 KB | manuscript (Word) |
+| `CRC_Manuscript_Complete.docx` | 58.2 KB | manuscript (Word) |
 | `README.md` | 4.7 KB | bundle README |
 | `SUBMISSION_BUNDLE.zip` | 5.5 MB | final upload archive |
 | `figures.pdf` | 4.9 MB | merged figures PDF |
@@ -43,7 +43,7 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `figures/main/Figure3_SHAP_Importance.png` | 396.3 KB | Figure3_SHAP_Importance (PNG) |
 | `figures/main/Figure4_Three_Panel_SHAP.pdf` | 42.2 KB | Figure4_Three_Panel_SHAP (PDF) |
 | `figures/main/Figure4_Three_Panel_SHAP.png` | 385.7 KB | Figure4_Three_Panel_SHAP (PNG) |
-| `manuscript_complete.md` | 56.7 KB | manuscript (Markdown source) |
+| `manuscript_complete.md` | 57.9 KB | manuscript (Markdown source) |
 | `supplementary/INDEX.csv` | 1.1 KB | supplementary table |
 | `supplementary/S10_delong.csv` | 235.0 B | supplementary table |
 | `supplementary/S1_cohort_overview.csv` | 990.0 B | supplementary table |
@@ -65,7 +65,7 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | File | SHA-256 |
 |---|---|
 | `figures.pdf` | `20dcbbdae43c720ff4033ea501634d1c6d0d9fdf2d7542fe7a282aa02410bfd6` |
-| `SUBMISSION_BUNDLE.zip` | `f621423f811cb578fdff9d47889fc1a91f9114cdb525f9606b77f107cf51e7b6` |
+| `SUBMISSION_BUNDLE.zip` | `912fa9ead85a127ce8693c04d07f987cb1af8e81deaec70b306a35d094b6caf8` |
 
 ## Warnings during build
 

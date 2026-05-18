@@ -1,4 +1,8 @@
-# Sanity Check Report — Final Status
+# Sanity Check Report — Snapshot 2026-05-18
+
+> Point-in-time snapshot. The current canonical read-only audit is
+> `results/FLETCHER_AUDIT.md`. This file is preserved as a historical
+> record and is not actively maintained.
 
 **Date**: 2026-05-18
 **Status**: PASS — submission-ready

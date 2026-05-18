@@ -1,11 +1,37 @@
-import re, pandas as pd, numpy as np, os, sys
+"""Joint species + unstratified pathway models under country-aware LODO.
+
+Reads species, raw unstratified pathway candidates (551), and metadata;
+merges; sanitises column names for XGBoost; and runs country-aware
+LODO twice: once with a 500-tree Random Forest and once with XGBoost
+(`n_estimators=500`, `max_depth=6`, `learning_rate=0.1`,
+`colsample_bytree=0.8`, `subsample=0.8`, `random_state=42`). A per-fold
+prevalence/mean pathway filter (prevalence >=10%, mean >=1e-6) is
+recomputed on training-cohort samples only inside each fold; species
+features pass through (the species filter is global, in
+`preprocessing.py`). Writes:
+
+- `results/joint_results.csv` — per-cohort RF and XGB AUCs.
+- `results/preds_joint_rf.csv`, `results/preds_joint_xgb.csv` —
+  per-sample held-out predictions for downstream DeLong / bootstrap.
+
+Expected per-cohort mean AUCs: joint RF ~0.804, joint XGB ~0.797.
+Expected per-fold retained pathway count: 402-406.
+"""
+import os
+import re
+import sys
+
+import numpy as np
+import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
+
 sys.path.insert(0, os.path.dirname(__file__))
-from lodo_cv import run_lodo_cv
+from lodo_cv import run_lodo_cv  # noqa: E402
 
 PREVALENCE_THRESHOLD = 0.10
 MEAN_THRESHOLD = 1e-6
+
 
 def main():
     sp = pd.read_csv('data/processed/species_filtered.csv')

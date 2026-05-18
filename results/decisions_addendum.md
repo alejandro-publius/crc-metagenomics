@@ -151,19 +151,29 @@ bio_pathway_shortlist.py.
 
 ## Biologically-guided pathway shortlist
 DECISION: Implemented in bio_pathway_shortlist.py. Selects a curated
-subset of CRC-relevant pathways using keyword matching across 8 biological
-groups: butyrate/SCFA production, fermentation, LPS/inflammation,
-polyamine synthesis, tryptophan metabolism, folate/one-carbon metabolism,
-sulfur/methionine metabolism, and glycan/mucin degradation. Keyword
-selection is pre-specified based on published CRC microbiome literature;
-not data-driven. The eight groups expand to 84 unique pathway IDs
-(some pathways belong to multiple groups, e.g., CENTFERM-PWY appears in
-both butyrate_SCFA and fermentation). Of these 84 candidates, ~66 are
-retained per fold after the per-fold prevalence/mean filter (training-
-cohort-only), giving ~295 total features per fold (229 species + ~66
-pathways). 10-cohort result: mean per-cohort LODO AUC 0.817, comparable
-to the species-only baseline (0.807). Saved to
+subset of CRC-relevant pathways using keyword matching across nine
+biological groups: butyrate/SCFA production, fermentation,
+LPS/inflammation, polyamine synthesis, tryptophan metabolism,
+folate/one-carbon metabolism, sulfur/methionine metabolism,
+glycan/mucin degradation, and bile-acid metabolism (added in a later
+revision; see "Bile-acid pathway group" entry below for the biology).
+Keyword selection is pre-specified based on published CRC microbiome
+literature; not data-driven. The nine groups expand to 86 unique
+pathway IDs (some pathways belong to multiple groups, e.g., CENTFERM-PWY
+appears in both butyrate_SCFA and fermentation). Of these 86 candidates,
+~66 are retained per fold after the per-fold prevalence/mean filter
+(training-cohort-only), giving ~295 total features per fold (229
+species + ~66 pathways). 10-cohort result: mean per-cohort LODO AUC
+0.817, comparable to the species-only baseline (0.807; per-cohort
+breakdown in results/bio_pathway_results.csv). Saved to
 results/bio_pathway_results.csv.
+
+Historical note: the original implementation used the first eight
+groups (everything except bile_acid) and yielded 84 distinct pathway
+IDs. Bile-acid metabolism was added in a later revision; per-cohort
+LODO AUC is unchanged at three decimal places (0.817), confirming the
+qualitative conclusion is not contingent on the specific curated
+groups included.
 
 ## Batch correction (ComBat)
 DECISION: Documented. batch_correction.py applies per-fold ComBat on

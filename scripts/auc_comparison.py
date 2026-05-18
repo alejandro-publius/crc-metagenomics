@@ -2,26 +2,19 @@
 Reads results CSVs (no hardcoded values) and reports paired t-test,
 Wilcoxon signed-rank, bootstrap 95% CIs on per-cohort AUC differences,
 and DeLong tests on pooled LODO ROC curves."""
-import pandas as pd
-import numpy as np
 import os
+
+import numpy as np
+import pandas as pd
 from scipy import stats
 from scipy.stats import norm
 
-bl = pd.read_csv('results/baseline_results.csv').sort_values('cohort').reset_index(drop=True)
-joint = pd.read_csv('results/joint_results.csv').sort_values('cohort').reset_index(drop=True)
-
-assert (bl['cohort'].values == joint['cohort'].values).all(), 'Cohort order mismatch'
-
-cohorts = bl['cohort'].tolist()
-baseline = bl['auc'].values
-joint_rf = joint['rf_auc'].values
-joint_xgb = joint['xgb_auc'].values
 
 def boot_ci(diffs, n=10000, seed=42):
     rng = np.random.default_rng(seed)
     boots = [rng.choice(diffs, size=len(diffs), replace=True).mean() for _ in range(n)]
     return np.percentile(boots, [2.5, 97.5])
+
 
 def compare(a, b, label):
     diffs = a - b
@@ -42,26 +35,6 @@ def compare(a, b, label):
         'n_folds': len(a)
     }
 
-print('Cohorts (in order):', cohorts)
-print('n folds:', len(cohorts))
-
-rows = [
-    compare(baseline, joint_rf,  'Species RF vs Joint RF'),
-    compare(baseline, joint_xgb, 'Species RF vs Joint XGB'),
-    compare(joint_xgb, joint_rf, 'Joint XGB vs Joint RF'),
-]
-
-print('\n=== Per-cohort differences ===')
-for i, c in enumerate(cohorts):
-    print(f'  {c:20s}  spRF={baseline[i]:.3f}  jRF={joint_rf[i]:.3f}  jXGB={joint_xgb[i]:.3f}')
-
-os.makedirs('results', exist_ok=True)
-pd.DataFrame(rows).to_csv('results/model_comparison.csv', index=False)
-print('\nSaved results/model_comparison.csv')
-
-print(f'\nNote: n={len(cohorts)} paired tests have low power. Bootstrap CIs that include 0')
-print('mean the difference is not robustly distinguishable from zero.')
-
 
 def _midrank(x):
     J = np.argsort(x, kind='mergesort')
@@ -78,6 +51,7 @@ def _midrank(x):
     T2 = np.empty(N)
     T2[J] = T
     return T2
+
 
 def delong_roc_test(y_true, y_prob_a, y_prob_b):
     """Two-tailed DeLong test for paired AUCs (Sun and Xu 2014 fast algorithm).
@@ -117,16 +91,48 @@ def delong_roc_test(y_true, y_prob_a, y_prob_b):
     return auc_a, auc_b, z, p
 
 
-pred_files = {
-    'species_rf': 'results/preds_species_rf.csv',
-    'joint_rf':   'results/preds_joint_rf.csv',
-    'joint_xgb':  'results/preds_joint_xgb.csv',
-}
-missing = [p for p in pred_files.values() if not os.path.exists(p)]
-if missing:
-    print(f'\nDeLong skipped (missing prediction files: {missing}).')
-    print('Re-run train_baseline and train_joint to generate them.')
-else:
+def main():
+    bl = pd.read_csv('results/baseline_results.csv').sort_values('cohort').reset_index(drop=True)
+    joint = pd.read_csv('results/joint_results.csv').sort_values('cohort').reset_index(drop=True)
+
+    assert (bl['cohort'].values == joint['cohort'].values).all(), 'Cohort order mismatch'
+
+    cohorts = bl['cohort'].tolist()
+    baseline = bl['auc'].values
+    joint_rf = joint['rf_auc'].values
+    joint_xgb = joint['xgb_auc'].values
+
+    print('Cohorts (in order):', cohorts)
+    print('n folds:', len(cohorts))
+
+    rows = [
+        compare(baseline, joint_rf, 'Species RF vs Joint RF'),
+        compare(baseline, joint_xgb, 'Species RF vs Joint XGB'),
+        compare(joint_xgb, joint_rf, 'Joint XGB vs Joint RF'),
+    ]
+
+    print('\n=== Per-cohort differences ===')
+    for i, c in enumerate(cohorts):
+        print(f'  {c:20s}  spRF={baseline[i]:.3f}  jRF={joint_rf[i]:.3f}  jXGB={joint_xgb[i]:.3f}')
+
+    os.makedirs('results', exist_ok=True)
+    pd.DataFrame(rows).to_csv('results/model_comparison.csv', index=False)
+    print('\nSaved results/model_comparison.csv')
+
+    print(f'\nNote: n={len(cohorts)} paired tests have low power. Bootstrap CIs that include 0')
+    print('mean the difference is not robustly distinguishable from zero.')
+
+    pred_files = {
+        'species_rf': 'results/preds_species_rf.csv',
+        'joint_rf':   'results/preds_joint_rf.csv',
+        'joint_xgb':  'results/preds_joint_xgb.csv',
+    }
+    missing = [p for p in pred_files.values() if not os.path.exists(p)]
+    if missing:
+        print(f'\nDeLong skipped (missing prediction files: {missing}).')
+        print('Re-run train_baseline and train_joint to generate them.')
+        return
+
     print('\n=== DeLong tests on pooled LODO predictions ===')
     preds = {k: pd.read_csv(v).sort_values('sample_id').reset_index(drop=True)
              for k, v in pred_files.items()}
@@ -139,7 +145,7 @@ else:
     n_pos = int(y_true.sum())
     print(f'  Pooled n={n_total} (CRC={n_pos}, control={n_total - n_pos})')
     delong_rows = []
-    for a, b in [('species_rf','joint_rf'), ('species_rf','joint_xgb'), ('joint_xgb','joint_rf')]:
+    for a, b in [('species_rf', 'joint_rf'), ('species_rf', 'joint_xgb'), ('joint_xgb', 'joint_rf')]:
         au_a, au_b, z, p = delong_roc_test(y_true, preds[a]['y_prob'].values, preds[b]['y_prob'].values)
         print(f'  {a:12s} vs {b:12s}  AUC {au_a:.3f} vs {au_b:.3f}  diff={au_a-au_b:+.3f}  z={z:+.3f}  p={p:.4f}')
         delong_rows.append({'model_a': a, 'model_b': b, 'auc_a': au_a, 'auc_b': au_b,
@@ -149,3 +155,7 @@ else:
     print('\nNote: DeLong is run on pooled LODO predictions (each sample contributes')
     print('its single held-out cohort prediction). This tests overall classifier')
     print('performance and complements the per-cohort paired tests above.')
+
+
+if __name__ == '__main__':
+    main()

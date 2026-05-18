@@ -1,4 +1,27 @@
-import pandas as pd, numpy as np, os
+"""Quality filters and feature preprocessing for the 10-cohort dataset.
+
+Reads raw species and metadata from `data/raw/` and writes the cleaned
+modelling-ready files to `data/processed/`. Steps:
+
+1. Per-sample depth filter: drop samples with `<1,000,000` reads.
+2. Per-cohort exclusion: drop HanniganGD_2017 a priori (see
+   `EXCLUDE_COHORTS` and `results/decisions_addendum.md`).
+3. Align species and metadata on `sample_id`.
+4. Filter species features: keep columns with prevalence >=10% AND mean
+   abundance >=1e-4.
+5. Conditional row-sum renormalisation followed by `log10(x + 1e-6)`.
+6. Map `study_condition` -> `label` (`CRC`->1, `control`->0,
+   `adenoma`->-1; adenoma rows are excluded from binary LODO via the
+   downstream `label.isin([0, 1])` mask).
+
+Outputs:
+- `data/processed/species_filtered.csv`
+- `data/processed/metadata_clean.csv`
+"""
+import os
+
+import numpy as np
+import pandas as pd
 
 # ── Quality filters (documented, applied before any modeling) ─────────────────
 # Per-sample: minimum reads for reliable MetaPhlAn species profiling.

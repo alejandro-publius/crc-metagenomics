@@ -1,42 +1,63 @@
-import pandas as pd, numpy as np, os, sys
+"""Validate the merged HUMAnN pathway matrix shape and content.
+
+Reads `data/raw/pathway_abundance.csv` and prints overall shape, the
+split between stratified (`|`-separated `pathway|taxon`) and
+unstratified columns, the number of unique pathway IDs, the count of
+columns that are mostly zero, and any column names containing
+problematic characters (comma / double-quote). If
+`data/raw/species_abundance.csv` is also present it cross-checks the
+sample-ID overlap between species and pathway tables. Exits with
+code 1 if the pathway file is missing.
+"""
+import os
+import sys
+
+import numpy as np
+import pandas as pd
 
 PATH = 'data/raw/pathway_abundance.csv'
 SPECIES = 'data/raw/species_abundance.csv'
 
-if not os.path.exists(PATH):
-    sys.exit(f'ERROR: {PATH} not found')
 
-df = pd.read_csv(PATH)
-print(f'Shape: {df.shape[0]} samples x {df.shape[1]-1} columns')
+def main():
+    if not os.path.exists(PATH):
+        sys.exit(f'ERROR: {PATH} not found')
 
-cols = [c for c in df.columns if c != 'sample_id']
-stratified = [c for c in cols if '|' in c]
-unstratified = [c for c in cols if '|' not in c]
-print(f'Stratified (taxon-level):   {len(stratified)}')
-print(f'Unstratified (pathway sum): {len(unstratified)}')
+    df = pd.read_csv(PATH)
+    print(f'Shape: {df.shape[0]} samples x {df.shape[1]-1} columns')
 
-unique_pwy = set(c.split('|')[0] for c in cols)
-print(f'Unique pathway IDs:         {len(unique_pwy)}')
+    cols = [c for c in df.columns if c != 'sample_id']
+    stratified = [c for c in cols if '|' in c]
+    unstratified = [c for c in cols if '|' not in c]
+    print(f'Stratified (taxon-level):   {len(stratified)}')
+    print(f'Unstratified (pathway sum): {len(unstratified)}')
 
-X = df[cols]
-zero_frac = (X == 0).mean(axis=0)
-print(f'\nColumns >=99% zero: {(zero_frac >= 0.99).sum()}')
-print(f'Columns >=95% zero: {(zero_frac >= 0.95).sum()}')
-print(f'Columns >=50% zero: {(zero_frac >= 0.50).sum()}')
+    unique_pwy = set(c.split('|')[0] for c in cols)
+    print(f'Unique pathway IDs:         {len(unique_pwy)}')
 
-bad = [c for c in cols if ',' in c or '"' in c]
-print(f'\nColumn names with comma or quote: {len(bad)}')
-if bad:
-    print('  Examples:', bad[:5])
+    X = df[cols]
+    zero_frac = (X == 0).mean(axis=0)
+    print(f'\nColumns >=99% zero: {(zero_frac >= 0.99).sum()}')
+    print(f'Columns >=95% zero: {(zero_frac >= 0.95).sum()}')
+    print(f'Columns >=50% zero: {(zero_frac >= 0.50).sum()}')
 
-if os.path.exists(SPECIES):
-    sp = pd.read_csv(SPECIES)
-    pw_ids = set(df['sample_id'])
-    sp_ids = set(sp['sample_id']) if 'sample_id' in sp.columns else set(sp.iloc[:,0])
-    print(f'\nSpecies samples: {len(sp_ids)}')
-    print(f'Pathway samples: {len(pw_ids)}')
-    print(f'In both:         {len(pw_ids & sp_ids)}')
-    print(f'Pathway only:    {len(pw_ids - sp_ids)}')
-    print(f'Species only:    {len(sp_ids - pw_ids)}')
-else:
-    print(f'\n(species file not at {SPECIES}, skipping ID overlap check)')
+    bad = [c for c in cols if ',' in c or '"' in c]
+    print(f'\nColumn names with comma or quote: {len(bad)}')
+    if bad:
+        print('  Examples:', bad[:5])
+
+    if os.path.exists(SPECIES):
+        sp = pd.read_csv(SPECIES)
+        pw_ids = set(df['sample_id'])
+        sp_ids = set(sp['sample_id']) if 'sample_id' in sp.columns else set(sp.iloc[:, 0])
+        print(f'\nSpecies samples: {len(sp_ids)}')
+        print(f'Pathway samples: {len(pw_ids)}')
+        print(f'In both:         {len(pw_ids & sp_ids)}')
+        print(f'Pathway only:    {len(pw_ids - sp_ids)}')
+        print(f'Species only:    {len(sp_ids - pw_ids)}')
+    else:
+        print(f'\n(species file not at {SPECIES}, skipping ID overlap check)')
+
+
+if __name__ == "__main__":
+    main()
