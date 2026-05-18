@@ -58,7 +58,7 @@ DECISION: Documented. sensitivity_analysis.py sweeps prevalence
 country-aware LODO CV with the prevalence/mean filter applied PER FOLD
 using only training-cohort samples (matches the headline run in
 train_joint.py). 10-cohort results: joint RF mean per-cohort AUC
-ranges from 0.794 to 0.812 across all 20 cells (spread 0.018). The
+ranges from 0.781 to 0.835 across all 20 cells (spread 0.055). The
 default thresholds (prevalence >= 10%, mean >= 1e-6) give 0.804, near
 the middle of the observed range. Saved to results/sensitivity_thresholds.csv.
 

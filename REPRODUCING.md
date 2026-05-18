@@ -104,7 +104,7 @@ python3 scripts/seed_sensitivity.py      # seeds {0,1,2,42,100}; expect spread <
                                          # outputs: results/seed_sensitivity.csv
 
 python3 scripts/sensitivity_analysis.py  # 4x5 prevalence/mean grid (country-aware, per-fold filter)
-                                         # expect: joint RF mean per-cohort AUC range 0.794-0.812
+                                         # expect: joint RF mean per-cohort AUC range 0.781-0.835
                                          # outputs: results/sensitivity_thresholds.csv
 
 python3 scripts/confounder_adjustment.py # direct inclusion + residualization of age, sex, BMI (country-aware)

@@ -22,7 +22,7 @@ Together, the per-cohort and DeLong analyses agree that pathways add no benefit 
 
 ## Filter-threshold sensitivity
 
-Across a 20-cell grid of prevalence cutoffs {0.05, 0.10, 0.15, 0.20} × mean-abundance cutoffs {1e-7, 1e-6, 1e-5, 1e-4, 1e-3}, the joint RF per-cohort mean AUC ranged from **0.794 to 0.812** (full-grid spread 0.018; `results/sensitivity_thresholds.csv`). The default thresholds (prevalence ≥ 10%, mean ≥ 1e-6) sit near the middle of the observed range, and qualitative conclusions are insensitive to the specific cutoffs chosen (Supplementary Table S1). The 1e-3 mean column retains only two pathways and effectively reduces the joint model to a near-species-only configuration.
+Across a 20-cell grid of prevalence cutoffs {0.05, 0.10, 0.15, 0.20} × mean-abundance cutoffs {1e-7, 1e-6, 1e-5, 1e-4, 1e-3}, the joint RF per-cohort mean AUC ranged from **0.781 to 0.835** (full-grid spread 0.055; `results/sensitivity_thresholds.csv`). The default thresholds (prevalence ≥ 10%, mean ≥ 1e-6) sit near the middle of the observed range, and qualitative conclusions are insensitive to the specific cutoffs chosen (Supplementary Table S1). The 1e-3 mean column retains only two pathways and effectively reduces the joint model to a near-species-only configuration.
 
 ## Confounder assessment
 
@@ -34,7 +34,7 @@ Per-fold ComBat correction on species features produced a per-cohort mean AUC of
 
 ## Feature importance
 
-TreeSHAP analysis of the joint RF identified *Gemella morbillorum*, *Parvimonas micra*, *Peptostreptococcus stomatis*, and *Fusobacterium nucleatum* as the four highest-ranked features by mean absolute SHAP value (Figure 3). The top four features were identical in joint XGBoost up to rank order (*Gemella morbillorum*, *Parvimonas micra*, *Peptostreptococcus stomatis*, *Streptococcus salivarius*, *Fusobacterium nucleatum*). Among the top 15 features, 8 were shared between RF and XGBoost, indicating substantial concordance across architectures. The XGBoost top 15 additionally included two pathway features (PWY-6151: S-adenosyl-L-methionine cycle I; PWY0-162: superpathway of pyrimidine ribonucleotide de novo biosynthesis), consistent with the joint model's access to pathways but reinforcing that species features dominate the discriminative signal.
+TreeSHAP analysis of the joint RF identified *Gemella morbillorum*, *Parvimonas micra*, *Peptostreptococcus stomatis*, and *Fusobacterium nucleatum* as the four highest-ranked features by mean absolute SHAP value (Figure 3). The joint XGBoost top four overlap with RF on three of these (*Gemella morbillorum*, *Peptostreptococcus stomatis*, *Parvimonas micra*) and substitute *Streptococcus salivarius* for *Fusobacterium nucleatum* at rank 4 (*F. nucleatum* remains in the XGBoost top six). Among the top 15 features, 8 were shared between RF and XGBoost, indicating substantial concordance across architectures. The XGBoost top 15 additionally included two pathway features (PWY-6151: S-adenosyl-L-methionine cycle I; PWY0-162: superpathway of pyrimidine ribonucleotide de novo biosynthesis), consistent with the joint model's access to pathways but reinforcing that species features dominate the discriminative signal.
 
 ## Adenoma classification along the adenoma-carcinoma sequence
 

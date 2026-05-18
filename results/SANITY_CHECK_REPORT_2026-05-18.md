@@ -19,7 +19,7 @@
 - Joint XGB: per-cohort 0.797 / pooled 0.766 [0.740, 0.791]
 - DeLong: species RF vs joint RF z = 3.35, p = 0.0008; vs joint XGB z = 2.00, p = 0.046
 - Adenoma LODO (4 cohorts, n = 183): H-vs-A RF 0.561 / XGB 0.579; A-vs-CRC RF 0.671 / XGB 0.617
-- Sensitivity sweep across 4 × 5 grid: 0.794-0.812 (spread 0.018)
+- Sensitivity sweep across 4 × 5 grid: 0.781-0.835 (spread 0.055)
 - Seed sensitivity: 0.810 ± 0.002 across 5 seeds
 - Confounder adjustment: 0.800-0.814 around 0.807 baseline
 - ComBat: 0.815 corrected vs 0.807 uncorrected

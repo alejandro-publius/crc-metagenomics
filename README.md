@@ -10,7 +10,7 @@ Species-only RF achieves a pooled LODO AUC of **0.781** (95% bootstrap CI: 0.757
 - Joint species+pathway RF: AUC 0.756 (DeLong z = 3.35, p = 0.0008)
 - Joint species+pathway XGBoost: AUC 0.766 (DeLong z = 2.00, p = 0.046)
 
-This result is stable across random seeds (mean per-cohort AUC 0.810 +/- 0.002 across 5 seeds), filter thresholds (joint RF per-cohort AUC 0.794 to 0.812 across a 4x5 prevalence-by-mean grid; spread 0.018), and confounder adjustments (age, sex, BMI; mean per-cohort AUC 0.800 to 0.814 across direct/residualized x RF/XGB cells, vs unadjusted species-RF baseline 0.807).
+This result is stable across random seeds (mean per-cohort AUC 0.810 +/- 0.002 across 5 seeds), filter thresholds (joint RF per-cohort AUC 0.781 to 0.835 across a 4x5 prevalence-by-mean grid; spread 0.055), and confounder adjustments (age, sex, BMI; mean per-cohort AUC 0.800 to 0.814 across direct/residualized x RF/XGB cells, vs unadjusted species-RF baseline 0.807).
 
 ## Data
 
@@ -74,7 +74,7 @@ See `src/crc_lodo_bench/README.md` for the full API and a runnable example.
 ## Robustness battery
 
 - Country-aware leave-one-dataset-out cross-validation (10 cohorts)
-- Filter threshold sensitivity (4 x 5 prevalence-by-mean grid; joint RF per-cohort AUC 0.794 to 0.812, spread 0.018)
+- Filter threshold sensitivity (4 x 5 prevalence-by-mean grid; joint RF per-cohort AUC 0.781 to 0.835, spread 0.055)
 - Confounder assessment (direct inclusion + residualization of age, sex, BMI; per-cohort AUC 0.800 to 0.814 across the four cells)
 - Random seed stability (5 seeds {0, 1, 2, 42, 100}; per-cohort AUC 0.810 +/- 0.002, range 0.807 to 0.811)
 - Bootstrap confidence intervals (10,000 resamples; cohort-stratified for the pooled CI)

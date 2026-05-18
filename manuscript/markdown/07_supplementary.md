@@ -24,7 +24,7 @@ HanniganGD_2017 was excluded a priori for low sequencing depth (mean 6.5M reads 
 
 ## Supplementary Table S1. Pathway filter-threshold sensitivity (joint Random Forest, country-aware LODO)
 
-Each row reports one country-aware LODO run (10 folds, 1,339 case/control samples) over species ∪ unstratified pathway features, with the per-fold prevalence/mean filter computed on training-cohort samples only at the indicated thresholds. The headline run uses prevalence ≥ 0.10, mean ≥ 1e-6. Across the full 20-cell grid, mean per-cohort AUC ranges from 0.794 to 0.812 (spread 0.018). The mean ≥ 1e-3 column retains only two pathways and effectively reduces the joint model to species-only. Source: `results/sensitivity_thresholds.csv`.
+Each row reports one country-aware LODO run (10 folds, 1,339 case/control samples) over species ∪ unstratified pathway features, with the per-fold prevalence/mean filter computed on training-cohort samples only at the indicated thresholds. The headline run uses prevalence ≥ 0.10, mean ≥ 1e-6. Across the full 20-cell grid, mean per-cohort AUC ranges from 0.781 to 0.835 (spread 0.055). The mean ≥ 1e-3 column retains only two pathways and effectively reduces the joint model to species-only. Source: `results/sensitivity_thresholds.csv`.
 
 | Prevalence | Mean abundance | Pathways retained (mean) | Total features (mean) | Mean per-cohort AUC | SD across folds |
 |---|---|---|---|---|---|
@@ -83,7 +83,7 @@ Adjusting for age, sex, and BMI with train-fold-only imputation (medians for age
 
 ## Supplementary Note S3. ComBat batch correction
 
-Per-fold ComBat correction (`combat.pycombat.pycombat`) on species features yields a per-cohort mean AUC of 0.815 versus 0.807 without correction (Δ +0.008). ComBat is fit jointly on train and test feature matrices using only batch labels (`study_name`); class labels are never seen by ComBat. Source: `results/combat_results.csv`.
+Per-fold ComBat correction (`combat.pycombat.pycombat`) on species features yields a per-cohort mean AUC of 0.815 versus 0.807 without correction (Δ +0.008). ComBat is fit on the union of train and test feature matrices using only batch labels (`study_name`); class labels are never seen, but test-fold feature distribution informs the correction — so this is reported only as a robustness-check upper bound, not the headline. Source: `results/combat_results.csv`.
 
 ## Supplementary Note S4. Biologically-guided pathway shortlist
 
