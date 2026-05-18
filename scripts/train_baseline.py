@@ -11,14 +11,19 @@ def main():
     mask = mg['label'].isin([0, 1])
     X = mg.loc[mask, fc].reset_index(drop=True)
     y = mg.loc[mask, 'label'].reset_index(drop=True)
-    meta = mg.loc[mask, ['sample_id','study_name','study_condition','label']].reset_index(drop=True)
+    meta_cols = ['sample_id', 'study_name', 'study_condition', 'label']
+    if 'country' in mg.columns:
+        meta_cols.append('country')
+    meta = mg.loc[mask, meta_cols].reset_index(drop=True)
     print(f'Samples: {len(X)} (CRC={int(y.sum())}, control={int((y==0).sum())})')
     print(f'Features: {X.shape[1]}')
     def make_rf():
         return RandomForestClassifier(n_estimators=500, max_features='sqrt',
             min_samples_leaf=5, n_jobs=-1, random_state=42, class_weight='balanced')
-    print('Running LODO CV...')
-    results = run_lodo_cv(make_rf, X, y, meta, save_predictions_path="results/preds_species_rf.csv")
+    print('Running LODO CV (country-aware)...')
+    results = run_lodo_cv(make_rf, X, y, meta,
+                          save_predictions_path="results/preds_species_rf.csv",
+                          country_col='country' if 'country' in meta.columns else None)
     os.makedirs('results', exist_ok=True)
     pd.DataFrame({'cohort': results['cohort'], 'auc': results['auc'],
         'n_train': results['n_train'], 'n_test': results['n_test']

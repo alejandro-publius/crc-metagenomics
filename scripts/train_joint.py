@@ -35,7 +35,10 @@ def main():
     assert set(sp_feat_cols + pw_feat_cols).issubset(X.columns), 'missing feature columns post-merge'
 
     y = mg.loc[mask, 'label'].reset_index(drop=True)
-    meta = mg.loc[mask, ['sample_id','study_name','study_condition','label']].reset_index(drop=True)
+    meta_cols = ['sample_id', 'study_name', 'study_condition', 'label']
+    if 'country' in mg.columns:
+        meta_cols.append('country')
+    meta = mg.loc[mask, meta_cols].reset_index(drop=True)
     print(f'Samples: {len(X)}, pre-fold features: {X.shape[1]} '
           f'(species={len(sp_feat_cols)}, pathway candidates={len(pw_feat_cols)})')
 
@@ -49,22 +52,26 @@ def main():
                    if prev[c] >= PREVALENCE_THRESHOLD and ma[c] >= MEAN_THRESHOLD]
         return sp_feat_cols + keep_pw
 
-    print('\n=== Joint Random Forest (per-fold pathway filter) ===')
+    country_col = 'country' if 'country' in meta.columns else None
+
+    print('\n=== Joint Random Forest (per-fold pathway filter, country-aware LODO) ===')
     def make_rf():
         return RandomForestClassifier(n_estimators=500, max_features='sqrt',
             min_samples_leaf=5, n_jobs=-1, random_state=42, class_weight='balanced')
     rf_res = run_lodo_cv(make_rf, X, y, meta,
                          save_predictions_path="results/preds_joint_rf.csv",
-                         feature_filter_fn=pathway_filter)
+                         feature_filter_fn=pathway_filter,
+                         country_col=country_col)
 
-    print('\n=== Joint XGBoost (per-fold pathway filter) ===')
+    print('\n=== Joint XGBoost (per-fold pathway filter, country-aware LODO) ===')
     def make_xgb():
         return XGBClassifier(n_estimators=500, max_depth=6, learning_rate=0.1,
             subsample=0.8, colsample_bytree=0.8, random_state=42,
             eval_metric='logloss', n_jobs=-1)
     xgb_res = run_lodo_cv(make_xgb, X, y, meta,
                           save_predictions_path="results/preds_joint_xgb.csv",
-                          feature_filter_fn=pathway_filter)
+                          feature_filter_fn=pathway_filter,
+                          country_col=country_col)
 
     bl = pd.read_csv('results/baseline_results.csv')
     print(f'\n  Species-only RF:  {bl["auc"].mean():.3f}')

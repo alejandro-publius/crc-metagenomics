@@ -1,8 +1,8 @@
 """Cross-cohort LODO validation for adenoma classification.
 
-Runs leave-one-cohort-out across the 3 cohorts with adenoma samples
-(FengQ_2015, ZellerG_2014, ThomasAM_2018a). Computes scale_pos_weight
-per fold to handle class imbalance correctly.
+Runs leave-one-cohort-out across the 4 cohorts with adenoma samples
+(FengQ_2015, ZellerG_2014, ThomasAM_2018a, YachidaS_2019). Computes
+scale_pos_weight per fold to handle class imbalance correctly.
 
 Usage:
     python3 scripts/adenoma_lodo.py
@@ -17,7 +17,7 @@ from xgboost import XGBClassifier
 sys.path.insert(0, os.path.dirname(__file__))
 from lodo_cv import get_lodo_splits
 
-ADENOMA_COHORTS = ['FengQ_2015', 'ZellerG_2014', 'ThomasAM_2018a']
+ADENOMA_COHORTS = ['FengQ_2015', 'ZellerG_2014', 'ThomasAM_2018a', 'YachidaS_2019']
 
 def make_rf(y_train):
     return RandomForestClassifier(n_estimators=500, max_features='sqrt',
@@ -36,7 +36,7 @@ def run_adenoma_lodo(task_name, label_map, model_fn_factory, X, md):
     sub = md[md['study_condition'].isin(label_map.keys()) &
              md['study_name'].isin(ADENOMA_COHORTS)].copy()
     sub['bin_label'] = sub['study_condition'].map(label_map)
-    sub = sub.reset_index(drop=True)
+    # Keep original index so X.loc[train_idx] maps correctly into X_all
 
     print(f'\n=== {task_name} ===')
     print(f'Total samples: {len(sub)}')
@@ -57,12 +57,6 @@ def run_adenoma_lodo(task_name, label_map, model_fn_factory, X, md):
         train_idx = sub[train_mask].index.tolist()
         test_idx = sub[test_mask].index.tolist()
 
-        sids_tr = sub.loc[train_idx, 'sample_id']
-        sids_te = sub.loc[test_idx, 'sample_id']
-        X_tr = X[X.index.isin(sids_tr.index)].iloc[:, :]
-        X_te = X[X.index.isin(sids_te.index)].iloc[:, :]
-
-        # Align by sample_id
         X_tr = X.loc[train_idx]
         X_te = X.loc[test_idx]
         y_tr = sub.loc[train_idx, 'bin_label']

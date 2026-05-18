@@ -1,0 +1,119 @@
+
+# butyrate_SCFA (19 pathways)
+3-HYDROXYPHENYLACETATE-DEGRADATION-PWY: 4-hydroxyphenylacetate degradation
+ARGDEG-PWY: superpathway of L-arginine, putrescine, and 4-aminobutanoate degradation
+CENTFERM-PWY: pyruvate fermentation to butanoate
+HCAMHPDEG-PWY: 3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation to 2-oxopent-4-enoate
+METH-ACETATE-PWY: methanogenesis from acetate
+P108-PWY: pyruvate fermentation to propanoate I
+P163-PWY: L-lysine fermentation to acetate and butanoate
+P461-PWY: hexitol fermentation to lactate, formate, ethanol and acetate
+PROPFERM-PWY: L-alanine fermentation to propanoate and acetate
+PWY-5022: 4-aminobutanoate degradation V
+PWY-5088: L-glutamate degradation VIII (to propanoate)
+PWY-5100: pyruvate fermentation to acetate and lactate II
+PWY-5109: 2-methylbutanoate biosynthesis
+PWY-5676: acetyl-CoA fermentation to butanoate II
+PWY-5677: succinate fermentation to butanoate
+PWY-7218: photosynthetic 3-hydroxybutanoate biosynthesis (engineered)
+PWY-7254: TCA cycle VII (acetate-producers)
+PWY0-1277: 3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation
+PWY0-321: phenylacetate degradation I (aerobic)
+
+# fermentation (15 pathways)
+ANAEROFRUCAT-PWY: homolactic fermentation
+CENTFERM-PWY: pyruvate fermentation to butanoate
+FERMENTATION-PWY: mixed acid fermentation
+P108-PWY: pyruvate fermentation to propanoate I
+P122-PWY: heterolactic fermentation
+P163-PWY: L-lysine fermentation to acetate and butanoate
+P461-PWY: hexitol fermentation to lactate, formate, ethanol and acetate
+PROPFERM-PWY: L-alanine fermentation to propanoate and acetate
+PWY-5100: pyruvate fermentation to acetate and lactate II
+PWY-5676: acetyl-CoA fermentation to butanoate II
+PWY-5677: succinate fermentation to butanoate
+PWY-6588: pyruvate fermentation to acetone
+PWY-6590: superpathway of Clostridium acetobutylicum acidogenic fermentation
+PWY-7111: pyruvate fermentation to isobutanol (engineered)
+PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii)
+
+# LPS_inflammation (15 pathways)
+LPSSYN-PWY: superpathway of lipopolysaccharide biosynthesis
+OANTIGEN-PWY: O-antigen building blocks biosynthesis (E. coli)
+PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing)
+PWY-5265: peptidoglycan biosynthesis II (staphylococci)
+PWY-6385: peptidoglycan biosynthesis III (mycobacteria)
+PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing)
+PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing)
+PWY-6470: peptidoglycan biosynthesis V (&beta;-lactam resistance)
+PWY-6471: peptidoglycan biosynthesis IV (Enterococcus faecium)
+PWY-7290: Escherichia coli serotype O86 O-antigen biosynthesis
+PWY-7317: superpathway of dTDP-glucose-derived O-antigen building blocks biosynthesis
+PWY-7323: superpathway of GDP-mannose-derived O-antigen building blocks biosynthesis
+PWY-7328: superpathway of UDP-glucose-derived O-antigen building blocks biosynthesis
+PWY-7332: superpathway of UDP-N-acetylglucosamine-derived O-antigen building blocks biosynthesis
+PWY0-1586: peptidoglycan maturation (meso-diaminopimelate containing)
+
+# polyamine (8 pathways)
+ARG+POLYAMINE-SYN: superpathway of arginine and polyamine biosynthesis
+ARGDEG-PWY: superpathway of L-arginine, putrescine, and 4-aminobutanoate degradation
+POLYAMINSYN3-PWY: superpathway of polyamine biosynthesis II
+POLYAMSYN-PWY: superpathway of polyamine biosynthesis I
+PWY-6305: putrescine biosynthesis IV
+PWY-6562: norspermidine biosynthesis
+PWY-6565: superpathway of polyamine biosynthesis III
+PWY-6834: spermidine biosynthesis III
+
+# tryptophan (6 pathways)
+NADSYN-PWY: NAD biosynthesis II (from tryptophan)
+PWY-5651: L-tryptophan degradation to 2-amino-3-carboxymuconate semialdehyde
+PWY-6307: L-tryptophan degradation X (mammalian, via tryptamine)
+PWY-6309: L-tryptophan degradation XI (mammalian, via kynurenine)
+PWY-6629: superpathway of L-tryptophan biosynthesis
+TRPSYN-PWY: L-tryptophan biosynthesis
+
+# folate_onecarbon (5 pathways)
+1CMET2-PWY: N10-formyl-tetrahydrofolate biosynthesis
+FOLSYN-PWY: superpathway of tetrahydrofolate biosynthesis and salvage
+PWY-2201: folate transformations I
+PWY-3841: folate transformations II
+PWY-6612: superpathway of tetrahydrofolate biosynthesis
+
+# sulfur_methionine (24 pathways)
+GLCMANNANAUT-PWY: superpathway of N-acetylglucosamine, N-acetylmannosamine and N-acetylneuraminate degradation
+HOMOSER-METSYN-PWY: L-methionine biosynthesis I
+HSERMETANA-PWY: L-methionine biosynthesis III
+MET-SAM-PWY: superpathway of S-adenosyl-L-methionine biosynthesis
+METSYN-PWY: L-homoserine and L-methionine biosynthesis
+P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I
+PWY-5306: superpathway of thiosulfate metabolism (Desulfovibrio sulfodismutans)
+PWY-5345: superpathway of L-methionine biosynthesis (by sulfhydrylation)
+PWY-5347: superpathway of L-methionine biosynthesis (transsulfuration)
+PWY-5514: UDP-N-acetyl-D-galactosamine biosynthesis II
+PWY-6151: S-adenosyl-L-methionine cycle I
+PWY-6281: L-selenocysteine biosynthesis II (archaea and eukaryotes)
+PWY-6572: chondroitin sulfate degradation I (bacterial)
+PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II
+PWY-7315: dTDP-N-acetylthomosamine biosynthesis
+PWY-7316: dTDP-N-acetylviosamine biosynthesis
+PWY-7332: superpathway of UDP-N-acetylglucosamine-derived O-antigen building blocks biosynthesis
+PWY-7527: L-methionine salvage cycle III
+PWY-7528: L-methionine salvage cycle I (bacteria and plants)
+PWY-821: superpathway of sulfur amino acid biosynthesis (Saccharomyces cerevisiae)
+SO4ASSIM-PWY: sulfate reduction I (assimilatory)
+SULFATE-CYS-PWY: superpathway of sulfate assimilation and cysteine biosynthesis
+UDPNACETYLGALSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis II
+UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I
+
+# glycan_mucin (11 pathways)
+GLCMANNANAUT-PWY: superpathway of N-acetylglucosamine, N-acetylmannosamine and N-acetylneuraminate degradation
+P441-PWY: superpathway of N-acetylneuraminate degradation
+PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing)
+PWY-5265: peptidoglycan biosynthesis II (staphylococci)
+PWY-6138: CMP-N-acetylneuraminate biosynthesis I (eukaryotes)
+PWY-6385: peptidoglycan biosynthesis III (mycobacteria)
+PWY-6470: peptidoglycan biosynthesis V (&beta;-lactam resistance)
+PWY-6471: peptidoglycan biosynthesis IV (Enterococcus faecium)
+PWY-7332: superpathway of UDP-N-acetylglucosamine-derived O-antigen building blocks biosynthesis
+PWY0-1586: peptidoglycan maturation (meso-diaminopimelate containing)
+UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I

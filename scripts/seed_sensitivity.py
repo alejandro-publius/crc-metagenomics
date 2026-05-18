@@ -23,7 +23,11 @@ def main():
     mask = mg['label'].isin([0, 1])
     X = mg.loc[mask, fc].reset_index(drop=True)
     y = mg.loc[mask, 'label'].reset_index(drop=True)
-    meta = mg.loc[mask, ['sample_id', 'study_name', 'study_condition', 'label']].reset_index(drop=True)
+    meta_cols = ['sample_id', 'study_name', 'study_condition', 'label']
+    if 'country' in mg.columns:
+        meta_cols.append('country')
+    meta = mg.loc[mask, meta_cols].reset_index(drop=True)
+    country_col = 'country' if 'country' in meta.columns else None
 
     rows = []
     for seed in SEEDS:
@@ -31,7 +35,7 @@ def main():
         def make_rf(s=seed):
             return RandomForestClassifier(n_estimators=500, max_features='sqrt',
                 min_samples_leaf=5, n_jobs=-1, random_state=s, class_weight='balanced')
-        res = run_lodo_cv(make_rf, X, y, meta)
+        res = run_lodo_cv(make_rf, X, y, meta, country_col=country_col)
         rows.append({'seed': seed, 'mean_auc': res['mean_auc'], 'std_auc': res['std_auc']})
 
     df = pd.DataFrame(rows)

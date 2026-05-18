@@ -59,7 +59,7 @@ os.makedirs('results', exist_ok=True)
 pd.DataFrame(rows).to_csv('results/model_comparison.csv', index=False)
 print('\nSaved results/model_comparison.csv')
 
-print('\nNote: n=7 paired tests have low power. Bootstrap CIs that include 0')
+print(f'\nNote: n={len(cohorts)} paired tests have low power. Bootstrap CIs that include 0')
 print('mean the difference is not robustly distinguishable from zero.')
 
 

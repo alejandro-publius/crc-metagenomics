@@ -1,653 +1,633 @@
 feature,mean_abs_shap
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_morbillorum,0.4874696
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Micrococcales|f__Micrococcaceae|g__Rothia|s__Rothia_mucilaginosa,0.4161831
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_thermophilus,0.3896544
-PWY-5265: peptidoglycan biosynthesis II (staphylococci),0.3069488
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_cellulosilyticus,0.29348472
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Prevotella|s__Prevotella_copri,0.2709956
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Peptostreptococcaceae|g__Peptostreptococcus|s__Peptostreptococcus_stomatis,0.27037546
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Tannerellaceae|g__Parabacteroides|s__Parabacteroides_distasonis,0.22632468
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_xylanisolvens,0.21358864
-P23-PWY: reductive TCA cycle I,0.21243209
-PWY66-399: gluconeogenesis III,0.21067396
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_unclassified|g__Intestinimonas|s__Intestinimonas_butyriciproducens,0.21003497
-PWY-5677: succinate fermentation to butanoate,0.20624638
-PWY-6263: superpathway of menaquinol-8 biosynthesis II,0.19808912
-PWY0-1296: purine ribonucleosides degradation,0.17711973
-PWY-6549: L-glutamine biosynthesis III,0.1756631
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_shahii,0.1652518
-PWY-6595: superpathway of guanosine nucleotides degradation (plants),0.1635679
-POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli),0.16236357
-k__Bacteria|p__Fusobacteria|c__Fusobacteriia|o__Fusobacteriales|f__Fusobacteriaceae|g__Fusobacterium|s__Fusobacterium_nucleatum,0.15849078
-PWY-2941: L-lysine biosynthesis II,0.1575588
-PWY-621: sucrose degradation III (sucrose invertase),0.15147534
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Enterorhabdus|s__Enterorhabdus_caecimuris,0.15022933
-PWY0-162: superpathway of pyrimidine ribonucleotides de novo biosynthesis,0.14317842
-P162-PWY: L-glutamate degradation V (via hydroxyglutarate),0.13796575
-PWY-5505: L-glutamate and L-glutamine biosynthesis,0.1334915
-P124-PWY: Bifidobacterium shunt,0.12579878
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_obeum,0.12414596
-k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_94,0.122555666
-TEICHOICACID-PWY: teichoic acid (poly-glycerol) biosynthesis,0.11722413
-CENTFERM-PWY: pyruvate fermentation to butanoate,0.116905086
-PANTOSYN-PWY: pantothenate and coenzyme A biosynthesis I,0.116045795
-PWY-5392: reductive TCA cycle II,0.115736015
-k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_83,0.11363241
-ARG+POLYAMINE-SYN: superpathway of arginine and polyamine biosynthesis,0.110095225
-PWY-7234: inosine-5'-phosphate biosynthesis III,0.10513084
-THRESYN-PWY: superpathway of L-threonine biosynthesis,0.10418049
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Odoribacteraceae|g__Butyricimonas|s__Butyricimonas_virosa,0.10264489
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Phascolarctobacterium|s__Phascolarctobacterium_faecium,0.10200998
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_wexlerae,0.10198322
-k__Bacteria|p__Firmicutes|c__Tissierellia|o__Tissierellales|f__Peptoniphilaceae|g__Parvimonas|s__Parvimonas_micra,0.10045099
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Oscillospiraceae|g__Oscillibacter|s__Oscillibacter_sp_57_20,0.09757144
-PWY-7616: methanol oxidation to carbon dioxide,0.09430855
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_ovatus,0.09424348
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_anginosus_group,0.09399923
-P221-PWY: octane oxidation,0.091509365
-PWY-7187: pyrimidine deoxyribonucleotides de novo biosynthesis II,0.091375135
-k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_110,0.08321945
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Dorea|s__Dorea_formicigenerans,0.08252878
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Erysipelatoclostridium|s__Erysipelatoclostridium_ramosum,0.081673995
-TRPSYN-PWY: L-tryptophan biosynthesis,0.080722444
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_bolteae,0.080688626
-PWY-7229: superpathway of adenosine nucleotides de novo biosynthesis I,0.07889726
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_dorei,0.07823056
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Holdemania|s__Holdemania_filiformis,0.074978925
-"PWY-7371: 1,4-dihydroxy-6-naphthoate biosynthesis II",0.07439416
-"PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle",0.07393123
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Odoribacteraceae|g__Odoribacter|s__Odoribacter_splanchnicus,0.07087284
-PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing),0.06894451
-PWY-7392: taxadiene biosynthesis (engineered),0.06807084
-PWY-7210: pyrimidine deoxyribonucleotides biosynthesis from CTP,0.06788704
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Agathobaculum|s__Agathobaculum_butyriciproducens,0.06782752
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Asaccharobacter|s__Asaccharobacter_celatus,0.06725491
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcaceae_unclassified|s__Clostridium_leptum,0.0667189
-PWY-7400: L-arginine biosynthesis IV (archaebacteria),0.0663536
-FOLSYN-PWY: superpathway of tetrahydrofolate biosynthesis and salvage,0.06563066
-PWY-7209: superpathway of pyrimidine ribonucleosides degradation,0.06453267
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Denitrobacterium|s__Denitrobacterium_detoxificans,0.063245505
-PWY0-1297: superpathway of purine deoxyribonucleosides degradation,0.06291496
-PWY-6590: superpathway of Clostridium acetobutylicum acidogenic fermentation,0.061827812
-PWY66-389: phytol degradation,0.05934565
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_symbiosum,0.059112377
-PANTO-PWY: phosphopantothenate biosynthesis I,0.058399625
-"PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type",0.058068365
-"PRPP-PWY: superpathway of histidine, purine, and pyrimidine biosynthesis",0.05756244
-PWY-1861: formaldehyde assimilation II (RuMP Cycle),0.05625573
-ARGSYNBSUB-PWY: L-arginine biosynthesis II (acetyl cycle),0.055621527
-PWY-7332: superpathway of UDP-N-acetylglucosamine-derived O-antigen building blocks biosynthesis,0.05357876
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Anaerotruncus|s__Anaerotruncus_colihominis,0.053269587
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Coprococcus|s__Coprococcus_catus,0.05284506
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Coprococcus|s__Coprococcus_comes,0.052685823
-PWY-7211: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis,0.052608173
-k__Archaea|p__Euryarchaeota|c__Methanobacteria|o__Methanobacteriales|f__Methanobacteriaceae|g__Methanobrevibacter|s__Methanobrevibacter_smithii,0.05240843
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_ramulus,0.0505988
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_indistinctus,0.04969961
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_thetaiotaomicron,0.049085863
-PWY-5004: superpathway of L-citrulline metabolism,0.04866113
-PWY-5845: superpathway of menaquinol-9 biosynthesis,0.048569083
-PWY-7046: 4-coumarate degradation (anaerobic),0.04843211
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Christensenellaceae|g__Christensenella|s__Christensenella_minuta,0.048271354
-PWY-6151: S-adenosyl-L-methionine cycle I,0.047842823
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Ruminococcus_gnavus,0.047488537
-PPGPPMET-PWY: ppGpp biosynthesis,0.04611861
-PWY-6147: 6-hydroxymethyl-dihydropterin diphosphate biosynthesis I,0.04505162
-PWY-5188: tetrapyrrole biosynthesis I (from glutamate),0.04435066
-k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacterales|f__Enterobacteriaceae|g__Klebsiella|s__Klebsiella_pneumoniae,0.04427801
-PWY-6588: pyruvate fermentation to acetone,0.044009384
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Catabacteriaceae|g__Catabacter|s__Catabacter_hongkongensis,0.04291528
-PWY-6385: peptidoglycan biosynthesis III (mycobacteria),0.04267033
-PWY-6507: 4-deoxy-L-threo-hex-4-enopyranuronate degradation,0.04263273
-PWY-5676: acetyl-CoA fermentation to butanoate II,0.041201327
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Gemmiger|s__Gemmiger_formicilis,0.04091885
-PROPFERM-PWY: L-alanine fermentation to propanoate and acetate,0.040538236
-PWY-6126: superpathway of adenosine nucleotides de novo biosynthesis II,0.04039493
-PWY-6415: L-ascorbate biosynthesis V,0.040372748
-PWY-5367: petroselinate biosynthesis,0.04025174
-PWY-6606: guanosine nucleotides degradation II,0.03995482
-k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pasteurellales|f__Pasteurellaceae|g__Haemophilus|s__Haemophilus_parainfluenzae,0.03990672
-PWY-3841: folate transformations II,0.039849665
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_fragilis,0.038588382
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_salyersiae,0.037841234
-k__Bacteria|p__Proteobacteria|c__Betaproteobacteria|o__Burkholderiales|f__Sutterellaceae|g__Parasutterella|s__Parasutterella_excrementihominis,0.037728176
-GLUDEG-I-PWY: GABA shunt,0.037207145
-PWY-6163: chorismate biosynthesis from 3-dehydroquinate,0.036467876
-PWY-6700: queuosine biosynthesis,0.03627229
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Faecalibacterium|s__Faecalibacterium_prausnitzii,0.035836525
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_hominis,0.03401038
-PWY-6305: putrescine biosynthesis IV,0.031691164
-PWY-622: starch biosynthesis,0.03116861
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_inulinivorans,0.030802354
-PWY-7315: dTDP-N-acetylthomosamine biosynthesis,0.030532634
-ARGSYN-PWY: L-arginine biosynthesis I (via L-ornithine),0.030489447
-PWY-7456: mannan degradation,0.030126693
-"PWY-7388: octanoyl-_acyl-carrier protein_ biosynthesis (mitochondria, yeast)",0.029701917
-PWY-6123: inosine-5'-phosphate biosynthesis I,0.029611235
-COBALSYN-PWY: adenosylcobalamin salvage from cobinamide I,0.029273424
-PWY-7282: 4-amino-2-methyl-5-phosphomethylpyrimidine biosynthesis (yeast),0.029258061
-PWY-6703: preQ0 biosynthesis,0.028878188
-PWY-6749: CMP-legionaminate biosynthesis I,0.028806709
-P185-PWY: formaldehyde assimilation III (dihydroxyacetone cycle),0.028329086
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_Family_XIII_Incertae_Sedis|g__Clostridiales_Family_XIII_Incertae_Sedis_unclassified|s__Eubacterium_sulci,0.028026717
-PWY-5994: palmitate biosynthesis I (animals and fungi),0.027979916
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_ICM47,0.027963614
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_parasanguinis,0.027528664
-PWY-5941: glycogen degradation II (eukaryotic),0.027443847
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_mitis,0.02732196
-PWY-7003: glycerol degradation to butanol,0.02712328
-PWY-5659: GDP-mannose biosynthesis,0.027048057
-PWY0-1261: anhydromuropeptides recycling,0.02670396
-KETOGLUCONMET-PWY: ketogluconate metabolism,0.025755541
-PWY-5005: biotin biosynthesis II,0.025358213
-PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV,0.02516707
-PWY-7219: adenosine ribonucleotides de novo biosynthesis,0.025049457
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcus|s__Ruminococcus_bicirculans,0.024701918
-POLYAMINSYN3-PWY: superpathway of polyamine biosynthesis II,0.024667947
-PWY4FS-7: phosphatidylglycerol biosynthesis I (plastidic),0.02466186
-PWY-5104: L-isoleucine biosynthesis IV,0.024133401
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Oscillospiraceae|g__Oscillibacter|s__Oscillibacter_sp_CAG_241,0.023760336
-ANAEROFRUCAT-PWY: homolactic fermentation,0.023509512
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_eligens,0.023410825
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_salivarius,0.02300048
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Ruminococcus_torques,0.022689119
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnospiraceae_unclassified|s__Eubacterium_rectale,0.022628399
-ASPASN-PWY: superpathway of L-aspartate and L-asparagine biosynthesis,0.022547005
-DENOVOPURINE2-PWY: superpathway of purine nucleotides de novo biosynthesis II,0.021975432
-P42-PWY: incomplete reductive TCA cycle,0.021960758
-PWY0-845: superpathway of pyridoxal 5'-phosphate biosynthesis and salvage,0.021746749
-PWY-6891: thiazole biosynthesis II (Bacillus),0.021525236
-PWY-5686: UMP biosynthesis,0.021509385
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_catenulatum,0.021395147
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_sp_CAG_38,0.021321839
-COLANSYN-PWY: colanic acid building blocks biosynthesis,0.021175217
-PYRIDNUCSAL-PWY: NAD salvage pathway I,0.02091262
-PWY-6168: flavin biosynthesis III (fungi),0.020669619
-PROTOCATECHUATE-ORTHO-CLEAVAGE-PWY: protocatechuate degradation II (ortho-cleavage pathway),0.020422395
-RHAMCAT-PWY: L-rhamnose degradation I,0.020322891
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_ventriosum,0.020302273
-PWY-6895: superpathway of thiamin diphosphate biosynthesis II,0.020171
-HEXITOLDEGSUPER-PWY: superpathway of hexitol degradation (bacteria),0.0198157
-PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing),0.019638194
-PWY66-367: ketogenesis,0.019437747
-PWY-7269: NAD/NADP-NADH/NADPH mitochondrial interconversion (yeast),0.019437473
-ARGININE-SYN4-PWY: L-ornithine de novo  biosynthesis,0.019246303
-LACTOSECAT-PWY: lactose and galactose degradation I,0.01914539
-PWY-7357: thiamin formation from pyrithiamine and oxythiamine (yeast),0.019122923
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_intestinalis,0.018945353
-PWY-1269: CMP-3-deoxy-D-manno-octulosonate biosynthesis I,0.018611254
-DTDPRHAMSYN-PWY: dTDP-L-rhamnose biosynthesis I,0.018336775
-NAD-BIOSYNTHESIS-II: NAD salvage pathway II,0.018209003
-PWY-5189: tetrapyrrole biosynthesis II (from glycine),0.01796593
-PWY-7199: pyrimidine deoxyribonucleosides salvage,0.017836282
-PWY-6612: superpathway of tetrahydrofolate biosynthesis,0.017658308
-PWY-5384: sucrose degradation IV (sucrose phosphorylase),0.01754383
-PWY-4984: urea cycle,0.01741664
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Lactococcus|s__Lactococcus_lactis,0.017414095
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_finegoldii,0.017377276
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Fusicatenibacter|s__Fusicatenibacter_saccharivorans,0.017289378
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_putredinis,0.017139608
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_gordonii,0.01698896
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_lavalense,0.016797671
-PWY-7328: superpathway of UDP-glucose-derived O-antigen building blocks biosynthesis,0.016705086
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_hallii,0.016467746
-CALVIN-PWY: Calvin-Benson-Bassham cycle,0.016425831
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_citroniae,0.016298302
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Acidaminococcus|s__Acidaminococcus_intestini,0.016240664
-PWY0-881: superpathway of fatty acid biosynthesis I (E. coli),0.016121835
-"PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type",0.016115837
-UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I,0.015977556
-PWY4FS-8: phosphatidylglycerol biosynthesis II (non-plastidic),0.015864274
-PWY-3781: aerobic respiration I (cytochrome c),0.015803644
-PWY-5177: glutaryl-CoA degradation,0.01576795
-PWY66-409: superpathway of purine nucleotide salvage,0.015755119
-PWY0-1241: ADP-L-glycero-&beta;-D-manno-heptose biosynthesis,0.015676169
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Coriobacteriaceae|g__Collinsella|s__Collinsella_aerofaciens,0.015660815
-PWY0-166: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis (E. coli),0.015631206
-PYRIDNUCSYN-PWY: NAD biosynthesis I (from aspartate),0.015608082
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_pseudocatenulatum,0.015548185
-k__Bacteria|p__Proteobacteria|c__Proteobacteria_unclassified|o__Proteobacteria_unclassified|f__Proteobacteria_unclassified|g__Proteobacteria_unclassified|s__Proteobacteria_bacterium_CAG_139,0.0154333
-GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronide and D-glucuronate degradation,0.015387796
-PWY-5022: 4-aminobutanoate degradation V,0.015213368
-ANAGLYCOLYSIS-PWY: glycolysis III (from glucose),0.015136685
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_inops,0.014981412
-PWY-6470: peptidoglycan biosynthesis V (&beta;-lactam resistance),0.014714451
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_oralis,0.014706283
-"PWY-7383: anaerobic energy metabolism (invertebrates, cytosol)",0.01470074
-PWY-5747: 2-methylcitrate cycle II,0.0145864235
-"ARGDEG-PWY: superpathway of L-arginine, putrescine, and 4-aminobutanoate degradation",0.01442831
-"P461-PWY: hexitol fermentation to lactate, formate, ethanol and acetate",0.014360304
-PYRIDOXSYN-PWY: pyridoxal 5'-phosphate biosynthesis I,0.014324363
-CITRULBIO-PWY: L-citrulline biosynthesis,0.01419222
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_mutans,0.014022363
-PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii),0.01389966
-P441-PWY: superpathway of N-acetylneuraminate degradation,0.013834628
-TCA: TCA cycle I (prokaryotic),0.013797801
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_stercoris,0.0137554305
-PWY-5154: L-arginine biosynthesis III (via N-acetyl-L-citrulline),0.013747888
-"GLCMANNANAUT-PWY: superpathway of N-acetylglucosamine, N-acetylmannosamine and N-acetylneuraminate degradation",0.01335016
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Slackia|s__Slackia_isoflavoniconvertens,0.013302219
-PWY-6629: superpathway of L-tryptophan biosynthesis,0.013196262
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_unclassified|g__Lawsonibacter|s__Lawsonibacter_asaccharolyticus,0.013128873
-PWY-6731: starch degradation III,0.013006226
-P108-PWY: pyruvate fermentation to propanoate I,0.012702919
-PWY-6628: superpathway of L-phenylalanine biosynthesis,0.012632059
-PWY-6317: galactose degradation I (Leloir pathway),0.012604949
-PWY-6527: stachyose degradation,0.0125688985
-GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation,0.012556065
-"GOLPDLCAT-PWY: superpathway of glycerol degradation to 1,3-propanediol",0.012500798
-3-HYDROXYPHENYLACETATE-DEGRADATION-PWY: 4-hydroxyphenylacetate degradation,0.01238733
-PWY-6572: chondroitin sulfate degradation I (bacterial),0.012236298
-PWY-6545: pyrimidine deoxyribonucleotides de novo biosynthesis III,0.012202363
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_clarus,0.012164205
-PWY-7197: pyrimidine deoxyribonucleotide phosphorylation,0.012134177
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruthenibacterium|s__Ruthenibacterium_lactatiformans,0.012079429
-HISTSYN-PWY: L-histidine biosynthesis,0.012013912
-k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_95,0.011997903
-PWY-6936: seleno-amino acid biosynthesis,0.011990726
-PHOSLIPSYN-PWY: superpathway of phospholipid biosynthesis I (bacteria),0.011863727
-k__Bacteria|p__Lentisphaerae|c__Lentisphaeria|o__Victivallales|f__Victivallaceae|g__Victivallis|s__Victivallis_vadensis,0.011793032
-"PWY-7013: L-1,2-propanediol degradation",0.011698936
-PWY-5973: cis-vaccenate biosynthesis,0.01169611
-UNINTEGRATED,0.011663131
-DAPLYSINESYN-PWY: L-lysine biosynthesis I,0.0116380965
-KDO-NAGLIPASYN-PWY: superpathway of (Kdo)2-lipid A biosynthesis,0.011635605
-THISYN-PWY: superpathway of thiamin diphosphate biosynthesis I,0.011629877
-THISYNARA-PWY: superpathway of thiamin diphosphate biosynthesis III (eukaryotes),0.011520338
-PWY-5690: TCA cycle II (plants and fungi),0.011318137
-GLYCOCAT-PWY: glycogen degradation I (bacterial),0.011312826
-PWY-6471: peptidoglycan biosynthesis IV (Enterococcus faecium),0.011259588
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_rogosae,0.011210106
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Barnesiellaceae|g__Coprobacter|s__Coprobacter_secundus,0.011148344
-PWY-5656: mannosylglycerate biosynthesis I,0.011105264
-PWY-7539: 6-hydroxymethyl-dihydropterin diphosphate biosynthesis III (Chlamydia),0.011014504
-PWY-6478: GDP-D-glycero-&alpha;-D-manno-heptose biosynthesis,0.010986703
-PWY0-1415: superpathway of heme biosynthesis from uroporphyrinogen-III,0.010937652
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Coriobacteriaceae|g__Enorma|s__Enorma_massiliensis,0.010731307
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_odontolyticus,0.010621365
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Anaerotignum|s__Anaerotignum_lactatifermentans,0.010612807
-PWY-7184: pyrimidine deoxyribonucleotides de novo biosynthesis I,0.010592072
-PWY-5136: fatty acid &beta;-oxidation II (peroxisome),0.010570157
-FAO-PWY: fatty acid &beta;-oxidation I,0.010482218
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Holdemanella|s__Holdemanella_biformis,0.010477501
-"PWY-7237: myo-, chiro- and scillo-inositol degradation",0.010378686
-FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation,0.010259515
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_caccae,0.010228717
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcus|s__Ruminococcus_lactaris,0.01012649
-PWY-6901: superpathway of glucose and xylose degradation,0.009995474
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_sanguinis,0.009972298
-PWY-7279: aerobic respiration II (cytochrome c) (yeast),0.009752449
-PWY0-42: 2-methylcitrate cycle I,0.009743231
-PWY-5971: palmitate biosynthesis II (bacteria and plants),0.00964869
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_finegoldii,0.00959288
-PWY-7228: superpathway of guanosine nucleotides de novo biosynthesis I,0.009587697
-PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis,0.009502252
-P163-PWY: L-lysine fermentation to acetate and butanoate,0.009361296
-PWY-5345: superpathway of L-methionine biosynthesis (by sulfhydrylation),0.009359584
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_nordii,0.009274335
-"ARGORNPROST-PWY: arginine, ornithine and proline interconversion",0.0090979
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Flavonifractor|s__Flavonifractor_plautii,0.009093458
-FERMENTATION-PWY: mixed acid fermentation,0.009063321
-PWY-7220: adenosine deoxyribonucleotides de novo biosynthesis II,0.008987265
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_graevenitzii,0.008972072
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_salivarius,0.008890865
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcus|s__Ruminococcus_bromii,0.008858493
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Tannerellaceae|g__Parabacteroides|s__Parabacteroides_merdae,0.00884612
-TRNA-CHARGING-PWY: tRNA charging,0.0087401075
-PWY-4242: pantothenate and coenzyme A biosynthesis III,0.008739834
-"PWY-6318: L-phenylalanine degradation IV (mammalian, via side chain)",0.008682027
-OANTIGEN-PWY: O-antigen building blocks biosynthesis (E. coli),0.008663091
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Pseudoflavonifractor|s__Pseudoflavonifractor_sp_An184,0.008532297
-P164-PWY: purine nucleobases degradation I (anaerobic),0.008507502
-PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli),0.008497292
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Gordonibacter|s__Gordonibacter_pamelaeae,0.008475062
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_infantium,0.008435068
-PWY-5705: allantoin degradation to glyoxylate III,0.008394647
-PWY-5180: toluene degradation I (aerobic) (via o-cresol),0.008348889
-PWY-3001: superpathway of L-isoleucine biosynthesis I,0.008339436
-PWY-6285: superpathway of fatty acids biosynthesis (E. coli),0.00832471
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Enterococcaceae|g__Enterococcus|s__Enterococcus_faecium,0.00826703
-PWY66-398: TCA cycle III (animals),0.008259022
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Dielma|s__Dielma_fastidiosa,0.008184033
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_longum,0.008151992
-k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacterales|f__Enterobacteriaceae|g__Escherichia|s__Escherichia_coli,0.00809797
-PWY0-41: allantoin degradation IV (anaerobic),0.008097399
-COMPLETE-ARO-PWY: superpathway of aromatic amino acid biosynthesis,0.0080416305
-PWY-6609: adenine and adenosine salvage III,0.00794849
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Tannerellaceae|g__Parabacteroides|s__Parabacteroides_goldsteinii,0.007930336
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_intestinalis,0.0078081083
-GLYCOL-GLYOXDEG-PWY: superpathway of glycol metabolism and degradation,0.007799772
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Butyrivibrio|s__Butyrivibrio_crossotus,0.0077884947
-PWY-7242: D-fructuronate degradation,0.0077838073
-PWY-5675: nitrate reduction V (assimilatory),0.0077725817
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_parvula,0.007747843
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_HPA0247,0.0076730517
-PWY-7111: pyruvate fermentation to isobutanol (engineered),0.0075609824
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_oral_taxon_181,0.0075562582
-PWY-5989: stearate biosynthesis II (bacteria and plants),0.0074721854
-PWY-4702: phytate degradation I,0.007464062
-COA-PWY: coenzyme A biosynthesis I,0.007370606
-PWY-5910: superpathway of geranylgeranyldiphosphate biosynthesis I (via mevalonate),0.0073339255
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_coccoides,0.0073127793
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Adlercreutzia|s__Adlercreutzia_equolifaciens,0.007310514
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Eggerthella|s__Eggerthella_lenta,0.0073014847
-PWY-7323: superpathway of GDP-mannose-derived O-antigen building blocks biosynthesis,0.00721724
-k__Bacteria|p__Synergistetes|c__Synergistia|o__Synergistales|f__Synergistaceae|g__Fretibacterium|s__Fretibacterium_fastidiosum,0.007186929
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_uniformis,0.007156311
-GLUCONEO-PWY: gluconeogenesis I,0.0071017696
-PWY-7316: dTDP-N-acetylviosamine biosynthesis,0.007031141
-HEMESYN2-PWY: heme biosynthesis II (anaerobic),0.0069079204
-PWY-5838: superpathway of menaquinol-8 biosynthesis I,0.0068704193
-PWY0-1586: peptidoglycan maturation (meso-diaminopimelate containing),0.0068640662
-PWY-4981: L-proline biosynthesis II (from arginine),0.006804118
-GLYCOLYSIS-E-D: superpathway of glycolysis and Entner-Doudoroff,0.0067827376
-FUCCAT-PWY: fucose degradation,0.0067209937
-GALACT-GLUCUROCAT-PWY: superpathway of hexuronide and hexuronate degradation,0.0067042597
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Coriobacteriaceae|g__Collinsella|s__Collinsella_intestinalis,0.0066770962
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_atypica,0.0065855845
-GLUTORN-PWY: L-ornithine biosynthesis,0.006552297
-BIOTIN-BIOSYNTHESIS-PWY: biotin biosynthesis I,0.0064947414
-PWY-4041: &gamma;-glutamyl cycle,0.006377889
-"PWY-5138: unsaturated, even numbered fatty acid &beta;-oxidation",0.0062787635
-PWY-5097: L-lysine biosynthesis VI,0.0062781544
-GLUCARDEG-PWY: D-glucarate degradation I,0.0062292223
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_plebeius,0.0062179286
-PWY-6282: palmitoleate biosynthesis I (from (5Z)-dodec-5-enoate),0.006181127
-NONMEVIPP-PWY: methylerythritol phosphate pathway I,0.0061559672
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Odoribacteraceae|g__Butyricimonas|s__Butyricimonas_synergistica,0.0061117844
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Anaeromassilibacillus|s__Anaeromassilibacillus_sp_An250,0.0060542384
-PWY-6562: norspermidine biosynthesis,0.006009358
-k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae|o__Verrucomicrobiales|f__Akkermansiaceae|g__Akkermansia|s__Akkermansia_muciniphila,0.0058870665
-ALLANTOINDEG-PWY: superpathway of allantoin degradation in yeast,0.0058537037
-PWY-841: superpathway of purine nucleotides de novo biosynthesis I,0.005844683
-SALVADEHYPOX-PWY: adenosine nucleotides degradation II,0.0057608
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_S6_Spd3,0.005739872
-PWY-7208: superpathway of pyrimidine nucleobases salvage,0.005645267
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Eisenbergiella|s__Eisenbergiella_massiliensis,0.0056356536
-PWY-2942: L-lysine biosynthesis III,0.005511327
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_faecis_CAG_32,0.0054789125
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_sp_CAG_58,0.0054739537
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_infantis,0.005468365
-PWY-5913: TCA cycle VI (obligate autotrophs),0.005436344
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Dialister|s__Dialister_sp_CAG_357,0.005375686
-PWY-5840: superpathway of menaquinol-7 biosynthesis,0.0052947756
-RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants),0.00527391
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Coprococcus|s__Coprococcus_eutactus,0.005256426
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Barnesiellaceae|g__Coprobacter|s__Coprobacter_fastidiosus,0.0052182274
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Peptostreptococcaceae|g__Romboutsia|s__Romboutsia_ilealis,0.0051732417
-"PWY-7409: phospholipid remodeling (phosphatidylethanolamine, yeast)",0.005158167
-PWY-5484: glycolysis II (from fructose 6-phosphate),0.005101922
-PWY-7446: sulfoglycolysis,0.005082737
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_sp_CAG_167,0.004985437
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_sp_CAG_471,0.0049604406
-HEME-BIOSYNTHESIS-II: heme biosynthesis I (aerobic),0.004956641
-PWY3O-355: stearate biosynthesis III (fungi),0.0048832414
-PWY-6122: 5-aminoimidazole ribonucleotide biosynthesis II,0.0048532034
-GLYCOGENSYNTH-PWY: glycogen biosynthesis I (from ADP-D-Glucose),0.0047551407
-PWY-6803: phosphatidylcholine acyl editing,0.0046311417
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Peptostreptococcaceae|g__Intestinibacter|s__Intestinibacter_bartlettii,0.0045993775
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcaceae_unclassified|s__Eubacterium_siraeum,0.004485955
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_bolteae_CAG_59,0.004356889
-PWY-5898: superpathway of menaquinol-12 biosynthesis,0.0043501626
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_asparagiforme,0.0040732063
-PWY-6143: CMP-pseudaminate biosynthesis,0.003983131
-PWY-6121: 5-aminoimidazole ribonucleotide biosynthesis I,0.003914489
-BRANCHED-CHAIN-AA-SYN-PWY: superpathway of branched amino acid biosynthesis,0.0038495513
-PWY-5121: superpathway of geranylgeranyl diphosphate biosynthesis II (via MEP),0.0038463804
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Erysipelatoclostridium|s__Clostridium_spiroforme,0.0038077126
-PWY-7221: guanosine ribonucleotides de novo biosynthesis,0.0037087384
-PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing),0.003616832
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_haemolysans,0.003402526
-PWY-821: superpathway of sulfur amino acid biosynthesis (Saccharomyces cerevisiae),0.0032788783
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_Family_XIII_Incertae_Sedis|g__Mogibacterium|s__Mogibacterium_diversum,0.0028939217
-MET-SAM-PWY: superpathway of S-adenosyl-L-methionine biosynthesis,0.002754348
-PWY-6608: guanosine nucleotides degradation III,0.0025340563
-PWY66-391: fatty acid &beta;-oxidation VI (peroxisome),0.0019305577
-PWY-6124: inosine-5'-phosphate biosynthesis II,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Prevotella|s__Prevotella_sp_CAG_279,0.0
-PWY490-3: nitrate reduction VI (assimilatory),0.0
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_delbrueckii,0.0
-ORNARGDEG-PWY: superpathway of L-arginine and L-ornithine degradation,0.0
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Enterococcaceae|g__Enterococcus|s__Enterococcus_faecalis,0.0
-PWY-6353: purine nucleotides degradation II (aerobic),0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Tannerellaceae|g__Parabacteroides|s__Parabacteroides_johnsonii,0.0
-PWY-6167: flavin biosynthesis II (archaea),0.0
-PWY-5101: L-isoleucine biosynthesis II,0.0
-METHANOGENESIS-PWY: methanogenesis from H2 and CO2,0.0
-"PWY-6953: dTDP-3-acetamido-3,6-dideoxy-&alpha;-D-galactose biosynthesis",0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_onderdonkii,0.0
-PWY-5850: superpathway of menaquinol-6 biosynthesis I,0.0
-PWY-5896: superpathway of menaquinol-10 biosynthesis,0.0
-PWY-6349: CDP-archaeol biosynthesis,0.0
-ECASYN-PWY: enterobacterial common antigen biosynthesis,0.0
-PWY-7286: 7-(3-amino-3-carboxypropyl)-wyosine biosynthesis,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Paraprevotella|s__Paraprevotella_xylaniphila,0.0
-PWY-6630: superpathway of L-tyrosine biosynthesis,0.0
-PWY-5860: superpathway of demethylmenaquinol-6 biosynthesis I,0.0
-PWY-5198: factor 420 biosynthesis,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Paraprevotella|s__Paraprevotella_clara,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Porphyromonadaceae|g__Sanguibacteroides|s__Sanguibacteroides_justesenii,0.0
-PWY-6165: chorismate biosynthesis II (archaea),0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Barnesiellaceae|g__Barnesiella|s__Barnesiella_intestinihominis,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_vulgatus,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_sp_CAG_144,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_massiliensis,0.0
-"PWY-6837: fatty acid beta-oxidation V (unsaturated, odd number, di-isomerase-dependent)",0.0
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_paragasseri,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_galacturonicus,0.0
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_australis,0.0
-"PWY-5837: 1,4-dihydroxy-2-naphthoate biosynthesis I",0.0
-REDCITCYC: TCA cycle VIII (helicobacter),0.0
-FASYN-ELONG-PWY: fatty acid elongation -- saturated,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Hungatella|s__Hungatella_hathewayi,0.0
-GALACTARDEG-PWY: D-galactarate degradation I,0.0
-GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_sp_CAG_299,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_sp_CAG_253,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_sp_CAG_242,0.0
-P105-PWY: TCA cycle IV (2-oxoglutarate decarboxylase),0.0
-METSYN-PWY: L-homoserine and L-methionine biosynthesis,0.0
-P122-PWY: heterolactic fermentation,0.0
-"PWY-7288: fatty acid &beta;-oxidation (peroxisome, yeast)",0.0
-METH-ACETATE-PWY: methanogenesis from acetate,0.0
-"GLYCOLYSIS-TCA-GLYOX-BYPASS: superpathway of glycolysis, pyruvate dehydrogenase, TCA, and glyoxylate bypass",0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_disporicum,0.0
-PWY-7196: superpathway of pyrimidine ribonucleosides salvage,0.0
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_vestibularis,0.0
-PWY-5723: Rubisco shunt,0.0
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_sp_F0442,0.0
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_sp_A12,0.0
-PWY-561: superpathway of glyoxylate cycle and fatty acid degradation,0.0
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_sanguinis,0.0
-P562-PWY: myo-inositol degradation I,0.0
-k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_cristatus,0.0
-TCA-GLYOX-BYPASS: superpathway of glyoxylate bypass and TCA,0.0
-GLYOXYLATE-BYPASS: glyoxylate cycle,0.0
+k__Bacteria|p__Firmicutes|c__Tissierellia|o__Tissierellales|f__Peptoniphilaceae|g__Parvimonas|s__Parvimonas_micra,0.40829414
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_morbillorum,0.33656362
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Peptostreptococcaceae|g__Peptostreptococcus|s__Peptostreptococcus_stomatis,0.33166206
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Oscillospiraceae|g__Oscillibacter|s__Oscillibacter_sp_57_20,0.24923956
+PWY-6549: L-glutamine biosynthesis III,0.22713807
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Phascolarctobacterium|s__Phascolarctobacterium_faecium,0.21538153
+PWY-6263: superpathway of menaquinol-8 biosynthesis II,0.21341793
+PWY-2941: L-lysine biosynthesis II,0.21281092
+THRESYN-PWY: superpathway of L-threonine biosynthesis,0.18956797
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Micrococcales|f__Micrococcaceae|g__Rothia|s__Rothia_mucilaginosa,0.18839614
+k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_110,0.18077587
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_sp_CAG_38,0.17933589
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Coriobacteriaceae|g__Collinsella|s__Collinsella_intestinalis,0.17526671
+PWY66-399: gluconeogenesis III,0.1748767
+PWY-5994: palmitate biosynthesis I (animals and fungi),0.1564612
+PWY-5265: peptidoglycan biosynthesis II (staphylococci),0.15474711
+PWY-6562: norspermidine biosynthesis,0.1501517
+k__Bacteria|p__Fusobacteria|c__Fusobacteriia|o__Fusobacteriales|f__Fusobacteriaceae|g__Fusobacterium|s__Fusobacterium_nucleatum,0.14773208
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_sp_CAG_58,0.14504981
+PWY-7209: superpathway of pyrimidine ribonucleosides degradation,0.14300568
+k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_83,0.13776436
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_plebeius,0.13455132
+"PWY-6318: L-phenylalanine degradation IV (mammalian, via side chain)",0.13264176
+TEICHOICACID-PWY: teichoic acid (poly-glycerol) biosynthesis,0.13249736
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Prevotella|s__Prevotella_copri,0.13131183
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_dorei,0.1305351
+PWY-7616: methanol oxidation to carbon dioxide,0.12865856
+PWY-6151: S-adenosyl-L-methionine cycle I,0.121465944
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_shahii,0.10847889
+PWY-621: sucrose degradation III (sucrose invertase),0.10842479
+"PWY-7371: 1,4-dihydroxy-6-naphthoate biosynthesis II",0.10771153
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_faecis,0.10651741
+PWY-6595: superpathway of guanosine nucleotides degradation (plants),0.10612984
+k__Bacteria|p__Proteobacteria|c__Betaproteobacteria|o__Burkholderiales|f__Sutterellaceae|g__Parasutterella|s__Parasutterella_excrementihominis,0.10186235
+PWY-6478: GDP-D-glycero-&alpha;-D-manno-heptose biosynthesis,0.10047962
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Dorea|s__Dorea_longicatena,0.09721094
+PWY0-881: superpathway of fatty acid biosynthesis I (E. coli),0.09687041
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcus|s__Ruminococcus_bromii,0.09510826
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Asaccharobacter|s__Asaccharobacter_celatus,0.09314807
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_xylanisolvens,0.092224486
+COBALSYN-PWY: adenosylcobalamin salvage from cobinamide I,0.09097449
+FUCCAT-PWY: fucose degradation,0.08778328
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_salivarius,0.08613253
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_ICM47,0.08310577
+P124-PWY: Bifidobacterium shunt,0.08289395
+PWY0-162: superpathway of pyrimidine ribonucleotides de novo biosynthesis,0.081764504
+CALVIN-PWY: Calvin-Benson-Bassham cycle,0.081682645
+POLYISOPRENSYN-PWY: polyisoprenoid biosynthesis (E. coli),0.08097634
+PWY-7046: 4-coumarate degradation (anaerobic),0.08039658
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Adlercreutzia|s__Adlercreutzia_equolifaciens,0.080336966
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Coprococcus|s__Coprococcus_comes,0.07781079
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Coriobacteriaceae|g__Collinsella|s__Collinsella_aerofaciens,0.07761826
+NAD-BIOSYNTHESIS-II: NAD salvage pathway II,0.077278554
+PWY-7199: pyrimidine deoxyribonucleosides salvage,0.076494105
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_unclassified|g__Lawsonibacter|s__Lawsonibacter_asaccharolyticus,0.075008705
+PWY-7229: superpathway of adenosine nucleotides de novo biosynthesis I,0.074940056
+ARGSYNBSUB-PWY: L-arginine biosynthesis II (acetyl cycle),0.073089056
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_unclassified|g__Intestinimonas|s__Intestinimonas_butyriciproducens,0.07281837
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcus|s__Ruminococcus_bicirculans,0.07278786
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_cellulosilyticus,0.07273505
+THISYNARA-PWY: superpathway of thiamin diphosphate biosynthesis III (eukaryotes),0.072627485
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_intestinalis,0.070577875
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_anginosus_group,0.07011323
+PROPFERM-PWY: L-alanine fermentation to propanoate and acetate,0.06938978
+PWY-5677: succinate fermentation to butanoate,0.0693278
+PWY-6859: all-trans-farnesol biosynthesis,0.0691686
+PWY0-1296: purine ribonucleosides degradation,0.0687742
+P42-PWY: incomplete reductive TCA cycle,0.06795852
+"PRPP-PWY: superpathway of histidine, purine, and pyrimidine biosynthesis",0.067527525
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_obeum,0.0670289
+HEMESYN2-PWY: heme biosynthesis II (anaerobic),0.06572132
+ARGININE-SYN4-PWY: L-ornithine de novo  biosynthesis,0.064212866
+SER-GLYSYN-PWY: superpathway of L-serine and glycine biosynthesis I,0.063761726
+PWY-7323: superpathway of GDP-mannose-derived O-antigen building blocks biosynthesis,0.0629052
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Solobacterium|s__Solobacterium_moorei,0.061323915
+KETOGLUCONMET-PWY: ketogluconate metabolism,0.06079775
+PWY66-389: phytol degradation,0.05892571
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_uniformis,0.056428216
+PWY-6901: superpathway of glucose and xylose degradation,0.05629537
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_hominis,0.056289222
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Holdemania|s__Holdemania_filiformis,0.05547626
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_asparagiforme,0.055343106
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_oralis,0.055276036
+k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_94,0.05514726
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Dorea|s__Dorea_formicigenerans,0.05504186
+PWY-7392: taxadiene biosynthesis (engineered),0.055012483
+PWY-622: starch biosynthesis,0.05339121
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Anaerostipes|s__Anaerostipes_hadrus,0.053320244
+PWY-6897: thiamin salvage II,0.052794345
+PYRIDNUCSYN-PWY: NAD biosynthesis I (from aspartate),0.052400127
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_ovatus,0.051931113
+PWY-7184: pyrimidine deoxyribonucleotides de novo biosynthesis I,0.051799208
+RIBOSYN2-PWY: flavin biosynthesis I (bacteria and plants),0.051769573
+NAGLIPASYN-PWY: lipid IVA biosynthesis,0.051396027
+PWY-6588: pyruvate fermentation to acetone,0.05068598
+PWY-7456: mannan degradation,0.050390553
+GLUCOSE1PMETAB-PWY: glucose and glucose-1-phosphate degradation,0.050116763
+GLUTORN-PWY: L-ornithine biosynthesis,0.04966297
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Eggerthella|s__Eggerthella_lenta,0.04908803
+"PWY-7383: anaerobic energy metabolism (invertebrates, cytosol)",0.04875976
+P162-PWY: L-glutamate degradation V (via hydroxyglutarate),0.04751115
+CENTFERM-PWY: pyruvate fermentation to butanoate,0.047169283
+PWY-1861: formaldehyde assimilation II (RuMP Cycle),0.046815384
+PWY-5103: L-isoleucine biosynthesis III,0.046794266
+PWY-7187: pyrimidine deoxyribonucleotides de novo biosynthesis II,0.046761125
+PWY-5484: glycolysis II (from fructose 6-phosphate),0.046537295
+"ARGORNPROST-PWY: arginine, ornithine and proline interconversion",0.045769148
+BRANCHED-CHAIN-AA-SYN-PWY: superpathway of branched amino acid biosynthesis,0.04570554
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Phascolarctobacterium|s__Phascolarctobacterium_succinatutens,0.045362
+ANAGLYCOLYSIS-PWY: glycolysis III (from glucose),0.044289645
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_vulgatus,0.04404636
+GLYCOLYSIS: glycolysis I (from glucose 6-phosphate),0.043737266
+PWY-5154: L-arginine biosynthesis III (via N-acetyl-L-citrulline),0.04306869
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcaceae_unclassified|s__Ruminococcaceae_bacterium_D5,0.04201306
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Barnesiellaceae|g__Barnesiella|s__Barnesiella_intestinihominis,0.041756026
+"PWY-7115: C4 photosynthetic carbon assimilation cycle, NAD-ME type",0.04146247
+PWY-3781: aerobic respiration I (cytochrome c),0.041456535
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Hungatella|s__Hungatella_hathewayi,0.04144883
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_wexlerae,0.040966164
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Barnesiellaceae|g__Coprobacter|s__Coprobacter_secundus,0.040451277
+ARO-PWY: chorismate biosynthesis I,0.039216883
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_stercoris,0.039184645
+PWY-6969: TCA cycle V (2-oxoglutarate:ferredoxin oxidoreductase),0.038900472
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Gemmiger|s__Gemmiger_formicilis,0.03818579
+PWY-7210: pyrimidine deoxyribonucleotides biosynthesis from CTP,0.03740609
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Gordonibacter|s__Gordonibacter_pamelaeae,0.037273098
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Agathobaculum|s__Agathobaculum_butyriciproducens,0.036774963
+GLUDEG-I-PWY: GABA shunt,0.036773823
+PWY-5505: L-glutamate and L-glutamine biosynthesis,0.036624935
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_ramulus,0.036540296
+PWY-6305: putrescine biosynthesis IV,0.03650618
+PWY-5845: superpathway of menaquinol-9 biosynthesis,0.036016207
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_symbiosum,0.033739712
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_putredinis,0.033716265
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Tannerellaceae|g__Parabacteroides|s__Parabacteroides_distasonis,0.033659734
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruthenibacterium|s__Ruthenibacterium_lactatiformans,0.03365437
+PWY-5030: L-histidine degradation III,0.033614937
+OANTIGEN-PWY: O-antigen building blocks biosynthesis (E. coli),0.03329249
+PWY-7197: pyrimidine deoxyribonucleotide phosphorylation,0.03323768
+PWY0-166: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis (E. coli),0.033212744
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Flavonifractor|s__Flavonifractor_plautii,0.033074338
+POLYAMINSYN3-PWY: superpathway of polyamine biosynthesis II,0.03289091
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Tannerellaceae|g__Parabacteroides|s__Parabacteroides_merdae,0.032295283
+RHAMCAT-PWY: L-rhamnose degradation I,0.03208167
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_eggerthii,0.03204217
+PWY-5941: glycogen degradation II (eukaryotic),0.031822357
+CITRULBIO-PWY: L-citrulline biosynthesis,0.031647608
+PWY-7198: pyrimidine deoxyribonucleotides de novo biosynthesis IV,0.03159691
+UNINTEGRATED,0.0313515
+"PWY-7237: myo-, chiro- and scillo-inositol degradation",0.03079722
+"PWY-5464: superpathway of cytosolic glycolysis (plants), pyruvate dehydrogenase and TCA cycle",0.030695993
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Odoribacteraceae|g__Butyricimonas|s__Butyricimonas_virosa,0.030614808
+"P125-PWY: superpathway of (R,R)-butanediol biosynthesis",0.03045341
+PWY-5004: superpathway of L-citrulline metabolism,0.030208778
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Odoribacteraceae|g__Odoribacter|s__Odoribacter_splanchnicus,0.030113604
+RUMP-PWY: formaldehyde oxidation I,0.029784026
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_inops,0.029429536
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_thetaiotaomicron,0.029156325
+ASPASN-PWY: superpathway of L-aspartate and L-asparagine biosynthesis,0.029124629
+PWY-821: superpathway of sulfur amino acid biosynthesis (Saccharomyces cerevisiae),0.028542437
+PWY-6628: superpathway of L-phenylalanine biosynthesis,0.028127572
+PWY-5088: L-glutamate degradation VIII (to propanoate),0.028098265
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_sp_CAG_257,0.028072704
+PWY-6126: superpathway of adenosine nucleotides de novo biosynthesis II,0.02800222
+PWY-6531: mannitol cycle,0.027722403
+PWY-3841: folate transformations II,0.026923541
+"PWY-7013: L-1,2-propanediol degradation",0.02674994
+PWY-6891: thiazole biosynthesis II (Bacillus),0.026484389
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_ventriosum,0.026271855
+GALACTUROCAT-PWY: D-galacturonate degradation I,0.026269184
+PWY-5690: TCA cycle II (plants and fungi),0.02597594
+HSERMETANA-PWY: L-methionine biosynthesis III,0.02549617
+PWY-6606: guanosine nucleotides degradation II,0.025466774
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Christensenellaceae|g__Christensenella|s__Christensenella_minuta,0.02529721
+HISDEG-PWY: L-histidine degradation I,0.0251911
+P108-PWY: pyruvate fermentation to propanoate I,0.025188068
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_adolescentis,0.024983214
+"GOLPDLCAT-PWY: superpathway of glycerol degradation to 1,3-propanediol",0.024940833
+UNMAPPED,0.024908999
+PWY-6317: galactose degradation I (Leloir pathway),0.024643244
+PWY-7316: dTDP-N-acetylviosamine biosynthesis,0.024642514
+PWY-7003: glycerol degradation to butanol,0.024640733
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_galacturonicus,0.024281085
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcaceae_unclassified|s__Clostridium_leptum,0.024095178
+TRPSYN-PWY: L-tryptophan biosynthesis,0.023814991
+PWY0-1298: superpathway of pyrimidine deoxyribonucleosides degradation,0.023804314
+P164-PWY: purine nucleobases degradation I (anaerobic),0.023632403
+PWY-7315: dTDP-N-acetylthomosamine biosynthesis,0.023556216
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_sp_A12,0.023441136
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_indistinctus,0.02326408
+PWY-5695: urate biosynthesis/inosine 5'-phosphate degradation,0.023217903
+BIOTIN-BIOSYNTHESIS-PWY: biotin biosynthesis I,0.023196032
+PANTO-PWY: phosphopantothenate biosynthesis I,0.023018187
+PWY-7234: inosine-5'-phosphate biosynthesis III,0.022779768
+PWY-5676: acetyl-CoA fermentation to butanoate II,0.022756886
+PWY-5910: superpathway of geranylgeranyldiphosphate biosynthesis I (via mevalonate),0.0225735
+PWY-6749: CMP-legionaminate biosynthesis I,0.022523182
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_dentium,0.022475462
+P221-PWY: octane oxidation,0.022409543
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcaceae_unclassified|s__Eubacterium_siraeum,0.022323115
+PWY-4242: pantothenate and coenzyme A biosynthesis III,0.022259556
+PWY66-391: fatty acid &beta;-oxidation VI (peroxisome),0.022186944
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_sp_CAG_274,0.022100361
+PWY-6609: adenine and adenosine salvage III,0.021966547
+NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch),0.021878744
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Oscillospiraceae|g__Oscillibacter|s__Oscillibacter_sp_CAG_241,0.021790681
+UDPNAGSYN-PWY: UDP-N-acetyl-D-glucosamine biosynthesis I,0.021762913
+"PWY-241: C4 photosynthetic carbon assimilation cycle, NADP-ME type",0.021108113
+PWY-5345: superpathway of L-methionine biosynthesis (by sulfhydrylation),0.020893129
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Enterococcaceae|g__Enterococcus|s__Enterococcus_faecalis,0.020855565
+PWY0-42: 2-methylcitrate cycle I,0.02079028
+1CMET2-PWY: N10-formyl-tetrahydrofolate biosynthesis,0.020707196
+HEXITOLDEGSUPER-PWY: superpathway of hexitol degradation (bacteria),0.020540318
+PWY-7211: superpathway of pyrimidine deoxyribonucleotides de novo biosynthesis,0.02046162
+PWY-5177: glutaryl-CoA degradation,0.020200139
+THISYN-PWY: superpathway of thiamin diphosphate biosynthesis I,0.01996475
+PWY-5136: fatty acid &beta;-oxidation II (peroxisome),0.019946592
+PWY-5100: pyruvate fermentation to acetate and lactate II,0.019899247
+PWY-5675: nitrate reduction V (assimilatory),0.019787505
+DTDPRHAMSYN-PWY: dTDP-L-rhamnose biosynthesis I,0.019782422
+PWY-3001: superpathway of L-isoleucine biosynthesis I,0.019551639
+FOLSYN-PWY: superpathway of tetrahydrofolate biosynthesis and salvage,0.019474339
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Phascolarctobacterium|s__Phascolarctobacterium_sp_CAG_266,0.019305756
+PWY-6892: thiazole biosynthesis I (E. coli),0.019227916
+PWY-4981: L-proline biosynthesis II (from arginine),0.018943807
+P23-PWY: reductive TCA cycle I,0.018942803
+PWY-6895: superpathway of thiamin diphosphate biosynthesis II,0.018916694
+PWY-7196: superpathway of pyrimidine ribonucleosides salvage,0.018850598
+PWY0-1479: tRNA processing,0.01877201
+REDCITCYC: TCA cycle VIII (helicobacter),0.018768083
+PWY-6703: preQ0 biosynthesis,0.018572038
+PWY-7220: adenosine deoxyribonucleotides de novo biosynthesis II,0.018551808
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_thermophilus,0.018522318
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_caccae,0.01848508
+PWY-7332: superpathway of UDP-N-acetylglucosamine-derived O-antigen building blocks biosynthesis,0.01836825
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Ruminococcus_gnavus,0.018320555
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_citroniae,0.018316278
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_longum,0.018290384
+PWY66-422: D-galactose degradation V (Leloir pathway),0.018248513
+PWY-5392: reductive TCA cycle II,0.01816599
+PWY-6122: 5-aminoimidazole ribonucleotide biosynthesis II,0.018130181
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_pseudocatenulatum,0.018013025
+PWY-5005: biotin biosynthesis II,0.017926978
+PWY-6353: purine nucleotides degradation II (aerobic),0.017920563
+PWY-5188: tetrapyrrole biosynthesis I (from glutamate),0.017697195
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_odontolyticus,0.017567087
+ILEUSYN-PWY: L-isoleucine biosynthesis I (from threonine),0.017346311
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnospiraceae_unclassified|s__Eubacterium_rectale,0.017316382
+COLANSYN-PWY: colanic acid building blocks biosynthesis,0.01720012
+k__Bacteria|p__Verrucomicrobia|c__Verrucomicrobiae|o__Verrucomicrobiales|f__Akkermansiaceae|g__Akkermansia|s__Akkermansia_muciniphila,0.017085291
+PWY-6125: superpathway of guanosine nucleotides de novo biosynthesis II,0.017040005
+PWY-7560: methylerythritol phosphate pathway II,0.016942397
+PWY-5913: TCA cycle VI (obligate autotrophs),0.016701175
+PWY-5104: L-isoleucine biosynthesis IV,0.016593788
+ALLANTOINDEG-PWY: superpathway of allantoin degradation in yeast,0.016319009
+PWY-7663: gondoate biosynthesis (anaerobic),0.016199794
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Faecalibacterium|s__Faecalibacterium_prausnitzii,0.016071618
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_eligens,0.016049676
+PWY-5973: cis-vaccenate biosynthesis,0.016028918
+PPGPPMET-PWY: ppGpp biosynthesis,0.015768122
+PWY-7312: dTDP-D-&beta;-fucofuranose biosynthesis,0.015726062
+PANTOSYN-PWY: pantothenate and coenzyme A biosynthesis I,0.015695382
+HCAMHPDEG-PWY: 3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation to 2-oxopent-4-enoate,0.015658086
+PWY-5838: superpathway of menaquinol-8 biosynthesis I,0.015629455
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_parasanguinis,0.015565827
+PWY0-1415: superpathway of heme biosynthesis from uroporphyrinogen-III,0.0154739255
+PWY-6471: peptidoglycan biosynthesis IV (Enterococcus faecium),0.015459256
+PWY-6147: 6-hydroxymethyl-dihydropterin diphosphate biosynthesis I,0.015313829
+PWY-5747: 2-methylcitrate cycle II,0.0151399225
+PWY-841: superpathway of purine nucleotides de novo biosynthesis I,0.015132292
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Ruminococcus_torques,0.015128306
+ORNARGDEG-PWY: superpathway of L-arginine and L-ornithine degradation,0.015024562
+PWY-6285: superpathway of fatty acids biosynthesis (E. coli),0.014996403
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Eisenbergiella|s__Eisenbergiella_tayi,0.014745711
+HISTSYN-PWY: L-histidine biosynthesis,0.014709566
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Tannerellaceae|g__Parabacteroides|s__Parabacteroides_goldsteinii,0.014524641
+PWY-7328: superpathway of UDP-glucose-derived O-antigen building blocks biosynthesis,0.014315995
+THREOCAT-PWY: superpathway of L-threonine metabolism,0.014284591
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_australis,0.013961102
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_sanguinis,0.01395699
+PWY-1269: CMP-3-deoxy-D-manno-octulosonate biosynthesis I,0.013946411
+PWY-4984: urea cycle,0.013920093
+PWY-6124: inosine-5'-phosphate biosynthesis II,0.013886287
+P185-PWY: formaldehyde assimilation III (dihydroxyacetone cycle),0.013702988
+PWY-6700: queuosine biosynthesis,0.013692994
+FUC-RHAMCAT-PWY: superpathway of fucose and rhamnose degradation,0.013562354
+PWY-5189: tetrapyrrole biosynthesis II (from glycine),0.013562112
+GLYCOLYSIS-E-D: superpathway of glycolysis and Entner-Doudoroff,0.013507553
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Slackia|s__Slackia_isoflavoniconvertens,0.013456931
+ECASYN-PWY: enterobacterial common antigen biosynthesis,0.013393588
+PWY-7269: NAD/NADP-NADH/NADPH mitochondrial interconversion (yeast),0.013282333
+"PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II",0.0131310355
+PWY-7282: 4-amino-2-methyl-5-phosphomethylpyrimidine biosynthesis (yeast),0.013097811
+PWY-7219: adenosine ribonucleotides de novo biosynthesis,0.01284846
+PWY0-1241: ADP-L-glycero-&beta;-D-manno-heptose biosynthesis,0.012828335
+COA-PWY: coenzyme A biosynthesis I,0.012768532
+PWY-5173: superpathway of acetyl-CoA biosynthesis,0.012575623
+PWY-6507: 4-deoxy-L-threo-hex-4-enopyranuronate degradation,0.012571711
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_catenulatum,0.012564391
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_bolteae_CAG_59,0.012534754
+PWY-6415: L-ascorbate biosynthesis V,0.012381793
+PWY-7208: superpathway of pyrimidine nucleobases salvage,0.012259707
+PENTOSE-P-PWY: pentose phosphate pathway,0.012259405
+METHGLYUT-PWY: superpathway of methylglyoxal degradation,0.012238913
+PWY-6731: starch degradation III,0.012191686
+ANAEROFRUCAT-PWY: homolactic fermentation,0.012176672
+PWY0-1061: superpathway of L-alanine biosynthesis,0.012085522
+PWY0-845: superpathway of pyridoxal 5'-phosphate biosynthesis and salvage,0.012006082
+TCA: TCA cycle I (prokaryotic),0.011978818
+PWY-7357: thiamin formation from pyrithiamine and oxythiamine (yeast),0.011954979
+PWY490-3: nitrate reduction VI (assimilatory),0.01195345
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_dispar,0.011943584
+PWY-6123: inosine-5'-phosphate biosynthesis I,0.011930324
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_mitis,0.011927266
+PWY-6876: isopropanol biosynthesis,0.011914219
+GLUCONEO-PWY: gluconeogenesis I,0.0118306475
+PYRIDNUCSAL-PWY: NAD salvage pathway I,0.011823122
+HOMOSER-METSYN-PWY: L-methionine biosynthesis I,0.011777682
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_mutans,0.011754916
+P441-PWY: superpathway of N-acetylneuraminate degradation,0.011630258
+PWY66-367: ketogenesis,0.011493345
+PWY-5855: ubiquinol-7 biosynthesis (prokaryotic),0.011466929
+"PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type",0.011450218
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Anaerotruncus|s__Anaerotruncus_colihominis,0.011340518
+SALVADEHYPOX-PWY: adenosine nucleotides degradation II,0.011282749
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_salivarius,0.011253131
+PWY0-1319: CDP-diacylglycerol biosynthesis II,0.011240527
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_gordonii,0.011173747
+PWY-5862: superpathway of demethylmenaquinol-9 biosynthesis,0.011080843
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_lavalense,0.011068565
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Peptostreptococcaceae|g__Intestinibacter|s__Intestinibacter_bartlettii,0.011048614
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Allisonella|s__Allisonella_histaminiformans,0.011036109
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Eggerthellales|f__Eggerthellaceae|g__Enterorhabdus|s__Enterorhabdus_caecimuris,0.010993387
+PWY-6590: superpathway of Clostridium acetobutylicum acidogenic fermentation,0.010950087
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_sp_CAG_180,0.010847924
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Acidaminococcus|s__Acidaminococcus_intestini,0.010813834
+k__Bacteria|p__Proteobacteria|c__Deltaproteobacteria|o__Desulfovibrionales|f__Desulfovibrionaceae|g__Bilophila|s__Bilophila_wadsworthia,0.0107158115
+COMPLETE-ARO-PWY: superpathway of aromatic amino acid biosynthesis,0.010577612
+PWY0-1533: methylphosphonate degradation I,0.01038807
+PWY-4041: &gamma;-glutamyl cycle,0.010335501
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_parvula,0.010322115
+PWY-5918: superpathay of heme biosynthesis from glutamate,0.010303282
+PWY-5659: GDP-mannose biosynthesis,0.010299013
+"PWY-5138: unsaturated, even numbered fatty acid &beta;-oxidation",0.010169241
+PWY-6690: cinnamate and 3-hydroxycinnamate degradation to 2-oxopent-4-enoate,0.010071686
+LACTOSECAT-PWY: lactose and galactose degradation I,0.009996859
+PWY-7254: TCA cycle VII (acetate-producers),0.009969844
+PWY-7111: pyruvate fermentation to isobutanol (engineered),0.00987258
+PWY-2942: L-lysine biosynthesis III,0.009853062
+PWY0-1277: 3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation,0.009826294
+PWY-6572: chondroitin sulfate degradation I (bacterial),0.009731502
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Harryflintia|s__Harryflintia_acetispora,0.009593684
+PEPTIDOGLYCANSYN-PWY: peptidoglycan biosynthesis I (meso-diaminopimelate containing),0.009559736
+PWY-5121: superpathway of geranylgeranyl diphosphate biosynthesis II (via MEP),0.00933814
+PWY-5367: petroselinate biosynthesis,0.00933481
+PWY-6121: 5-aminoimidazole ribonucleotide biosynthesis I,0.009279404
+PWY-5971: palmitate biosynthesis II (bacteria and plants),0.009161013
+PWY-6470: peptidoglycan biosynthesis V (&beta;-lactam resistance),0.009045173
+GALACT-GLUCUROCAT-PWY: superpathway of hexuronide and hexuronate degradation,0.00894232
+"GLCMANNANAUT-PWY: superpathway of N-acetylglucosamine, N-acetylmannosamine and N-acetylneuraminate degradation",0.008936349
+PWY-5097: L-lysine biosynthesis VI,0.008898268
+PWY-6803: phosphatidylcholine acyl editing,0.008887085
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pasteurellales|f__Pasteurellaceae|g__Haemophilus|s__Haemophilus_parainfluenzae,0.008827545
+PWY-7242: D-fructuronate degradation,0.00879731
+PWY-7446: sulfoglycolysis,0.008787682
+PWY-6519: 8-amino-7-oxononanoate biosynthesis I,0.008740045
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_sp_CAG_471,0.008668877
+PWY-6630: superpathway of L-tyrosine biosynthesis,0.008641358
+PWY66-400: glycolysis VI (metazoan),0.008547447
+GLUCARDEG-PWY: D-glucarate degradation I,0.008481437
+PWY4FS-7: phosphatidylglycerol biosynthesis I (plastidic),0.008441309
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Prevotella|s__Prevotella_sp_CAG_279,0.008404824
+GLUCUROCAT-PWY: superpathway of &beta;-D-glucuronide and D-glucuronate degradation,0.008334619
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_sanguinis,0.008203275
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Fusicatenibacter|s__Fusicatenibacter_saccharivorans,0.008173247
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Odoribacteraceae|g__Butyricimonas|s__Butyricimonas_synergistica,0.0081410045
+PWY0-1338: polymyxin resistance,0.008056572
+PWY0-1297: superpathway of purine deoxyribonucleosides degradation,0.008049192
+PWY-5840: superpathway of menaquinol-7 biosynthesis,0.0080376
+PWY-6545: pyrimidine deoxyribonucleotides de novo biosynthesis III,0.008007402
+k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_145,0.00795684
+PWY-6527: stachyose degradation,0.007907397
+PWY66-398: TCA cycle III (animals),0.00771051
+PWY-7228: superpathway of guanosine nucleotides de novo biosynthesis I,0.007631227
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Prevotella|s__Prevotella_stercorea,0.007621687
+PHOSLIPSYN-PWY: superpathway of phospholipid biosynthesis I (bacteria),0.0075617526
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_infantis,0.0075438498
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_clostridioforme,0.007531151
+POLYAMSYN-PWY: superpathway of polyamine biosynthesis I,0.007526651
+"P461-PWY: hexitol fermentation to lactate, formate, ethanol and acetate",0.007520131
+PWY-6612: superpathway of tetrahydrofolate biosynthesis,0.0074992976
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_fragilis,0.007411794
+PWY-5850: superpathway of menaquinol-6 biosynthesis I,0.007359265
+PWY3O-355: stearate biosynthesis III (fungi),0.007322416
+PWY-6270: isoprene biosynthesis I,0.007298733
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Turicibacter|s__Turicibacter_sanguinis,0.0072820354
+P105-PWY: TCA cycle IV (2-oxoglutarate decarboxylase),0.007188374
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_HMSC035G02,0.007101236
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_bolteae,0.007033884
+PWY-6608: guanosine nucleotides degradation III,0.0070214723
+"ARGDEG-PWY: superpathway of L-arginine, putrescine, and 4-aminobutanoate degradation",0.0069981744
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Sellimonas|s__Sellimonas_intestinalis,0.0069651976
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Barnesiellaceae|g__Coprobacter|s__Coprobacter_fastidiosus,0.0068917847
+P562-PWY: myo-inositol degradation I,0.0068771206
+PWY-5897: superpathway of menaquinol-11 biosynthesis,0.006858609
+PWY-922: mevalonate pathway I,0.0066836756
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacterales|f__Enterobacteriaceae|g__Escherichia|s__Escherichia_coli,0.006669102
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Bacillales|f__Bacillales_unclassified|g__Gemella|s__Gemella_haemolysans,0.0066403626
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Coprococcus|s__Coprococcus_catus,0.006555239
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcus|s__Ruminococcus_callidus,0.006549944
+PWY-6113: superpathway of mycolate biosynthesis,0.006525023
+PYRIDOXSYN-PWY: pyridoxal 5'-phosphate biosynthesis I,0.006437949
+METH-ACETATE-PWY: methanogenesis from acetate,0.0063937963
+PWY-7222: guanosine deoxyribonucleotides de novo biosynthesis II,0.00639236
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_finegoldii,0.0063843024
+PWY-6165: chorismate biosynthesis II (archaea),0.006344403
+PWY4FS-8: phosphatidylglycerol biosynthesis II (non-plastidic),0.006329011
+PWY-6737: starch degradation V,0.0063148555
+PWY-5083: NAD/NADH phosphorylation and dephosphorylation,0.006303815
+GLYOXYLATE-BYPASS: glyoxylate cycle,0.0062842285
+PWY-7221: guanosine ribonucleotides de novo biosynthesis,0.0062772753
+PWY-5022: 4-aminobutanoate degradation V,0.0062081967
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_inulinivorans,0.0061573125
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_aldenense,0.006083673
+"P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I",0.0060703913
+PWY-6385: peptidoglycan biosynthesis III (mycobacteria),0.0060597872
+PWY-6168: flavin biosynthesis III (fungi),0.006008689
+SO4ASSIM-PWY: sulfate reduction I (assimilatory),0.0059993556
+PWY-6284: superpathway of unsaturated fatty acids biosynthesis (E. coli),0.0058817053
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_nordii,0.0058279713
+PWY3DJ-35471: L-ascorbate biosynthesis IV,0.005787695
+k__Bacteria|p__Proteobacteria|c__Betaproteobacteria|o__Burkholderiales|f__Sutterellaceae|g__Turicimonas|s__Turicimonas_muris,0.0057776235
+PWY-1042: glycolysis IV (plant cytosol),0.0057693003
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Catenibacterium|s__Catenibacterium_mitsuokai,0.005668364
+MET-SAM-PWY: superpathway of S-adenosyl-L-methionine biosynthesis,0.0056602377
+PWY-7279: aerobic respiration II (cytochrome c) (yeast),0.005655525
+k__Bacteria|p__Lentisphaerae|c__Lentisphaeria|o__Victivallales|f__Victivallaceae|g__Victivallis|s__Victivallis_vadensis,0.0056547336
+ARG+POLYAMINE-SYN: superpathway of arginine and polyamine biosynthesis,0.005651408
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_massiliensis,0.0056444197
+PWY0-41: allantoin degradation IV (anaerobic),0.0056341593
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_salyersiae,0.0055460664
+PWY-6282: palmitoleate biosynthesis I (from (5Z)-dodec-5-enoate),0.005531439
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcus|s__Ruminococcus_lactaris,0.0054961783
+SULFATE-CYS-PWY: superpathway of sulfate assimilation and cysteine biosynthesis,0.0054915478
+PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage,0.0054078335
+3-HYDROXYPHENYLACETATE-DEGRADATION-PWY: 4-hydroxyphenylacetate degradation,0.005367121
+PWY66-409: superpathway of purine nucleotide salvage,0.0053664795
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_finegoldii,0.005360592
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_atypica,0.005311621
+UBISYN-PWY: superpathway of ubiquinol-8 biosynthesis (prokaryotic),0.0052978313
+PWY-5989: stearate biosynthesis II (bacteria and plants),0.0052712928
+PWY0-781: aspartate superpathway,0.0052231965
+LPSSYN-PWY: superpathway of lipopolysaccharide biosynthesis,0.005171034
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Holdemanella|s__Holdemanella_biformis,0.0050851107
+PWY-5180: toluene degradation I (aerobic) (via o-cresol),0.0050790003
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Pseudoflavonifractor|s__Pseudoflavonifractor_sp_An184,0.005060224
+PWY-5920: superpathway of heme biosynthesis from glycine,0.0050347447
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Peptostreptococcaceae|g__Romboutsia|s__Romboutsia_ilealis,0.0049529136
+FAO-PWY: fatty acid &beta;-oxidation I,0.004933473
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_hallii,0.0048814313
+k__Bacteria|p__Proteobacteria|c__Proteobacteria_unclassified|o__Proteobacteria_unclassified|f__Proteobacteria_unclassified|g__Proteobacteria_unclassified|s__Proteobacteria_bacterium_CAG_139,0.004864981
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Tannerellaceae|g__Parabacteroides|s__Parabacteroides_johnsonii,0.00476949
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_animalis,0.0046783434
+FASYN-ELONG-PWY: fatty acid elongation -- saturated,0.0046056537
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnospira|s__Lachnospira_pectinoschiza,0.004557896
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_Family_XIII_Incertae_Sedis|g__Clostridiales_Family_XIII_Incertae_Sedis_unclassified|s__Eubacterium_sulci,0.004482183
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_graevenitzii,0.00446756
+CATECHOL-ORTHO-CLEAVAGE-PWY: catechol degradation to &beta;-ketoadipate,0.0044600884
+P621-PWY: nylon-6 oligomer degradation,0.004326457
+PWY-5896: superpathway of menaquinol-10 biosynthesis,0.0043262863
+PWY-6163: chorismate biosynthesis from 3-dehydroquinate,0.0042575225
+PWY-6936: seleno-amino acid biosynthesis,0.0042529823
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Dialister|s__Dialister_invisus,0.004063205
+"PWY-7288: fatty acid &beta;-oxidation (peroxisome, yeast)",0.004048545
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Coprococcus|s__Coprococcus_eutactus,0.0039944355
+DENOVOPURINE2-PWY: superpathway of purine nucleotides de novo biosynthesis II,0.003976558
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Paraprevotella|s__Paraprevotella_xylaniphila,0.003969952
+DAPLYSINESYN-PWY: L-lysine biosynthesis I,0.003941622
+URDEGR-PWY: superpathway of allantoin degradation in plants,0.0038338245
+"PWY-7385: 1,3-propanediol biosynthesis (engineered)",0.0038296967
+GLUCARGALACTSUPER-PWY: superpathway of D-glucarate and D-galactarate degradation,0.0038239881
+PWY-6071: superpathway of phenylethylamine degradation,0.0036953336
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Dorea|s__Dorea_sp_CAG_317,0.003678996
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Eisenbergiella|s__Eisenbergiella_massiliensis,0.0036403008
+ORNDEG-PWY: superpathway of ornithine degradation,0.0035924984
+PWY-2723: trehalose degradation V,0.003576222
+PWY-5384: sucrose degradation IV (sucrose phosphorylase),0.0035169898
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_oris,0.0034692874
+NONMEVIPP-PWY: methylerythritol phosphate pathway I,0.0033820292
+PROTOCATECHUATE-ORTHO-CLEAVAGE-PWY: protocatechuate degradation II (ortho-cleavage pathway),0.0032799314
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_intestinalis,0.0032633003
+PWY-5863: superpathway of phylloquinol biosynthesis,0.0031107548
+GLYCOCAT-PWY: glycogen degradation I (bacterial),0.0030722336
+KDO-NAGLIPASYN-PWY: superpathway of (Kdo)2-lipid A biosynthesis,0.0030154758
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Erysipelatoclostridium|s__Erysipelatoclostridium_ramosum,0.0030087528
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcaceae_unclassified|s__Ruminococcaceae_bacterium_D16,0.0029825445
+"PWY-5837: 1,4-dihydroxy-2-naphthoate biosynthesis I",0.0028850157
+ARGSYN-PWY: L-arginine biosynthesis I (via L-ornithine),0.002801225
+PWY-4702: phytate degradation I,0.002768836
+PWY-5347: superpathway of L-methionine biosynthesis (transsulfuration),0.0027307812
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_HPA0247,0.0025281364
+PWY0-1586: peptidoglycan maturation (meso-diaminopimelate containing),0.0024780873
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_sp_CAG_242,0.0024463197
+"PWY-5791: 1,4-dihydroxy-2-naphthoate biosynthesis II (plants)",0.0016582976
+k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_95,0.001639676
 PWY-6435: 4-hydroxybenzoate biosynthesis V,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_faecis,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_unclassified|g__Monoglobus|s__Monoglobus_pectinilyticus,0.0
-"PWY-7039: phosphatidate metabolism, as a signaling molecule",0.0
-PWY-5692: allantoin degradation to glyoxylate II,0.0
-URDEGR-PWY: superpathway of allantoin degradation in plants,0.0
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_HMSC035G02,0.0
-UBISYN-PWY: superpathway of ubiquinol-8 biosynthesis (prokaryotic),0.0
-PWY-5855: ubiquinol-7 biosynthesis (prokaryotic),0.0
-PWY-5856: ubiquinol-9 biosynthesis (prokaryotic),0.0
-PWY-5857: ubiquinol-10 biosynthesis (prokaryotic),0.0
-PWY-6708: ubiquinol-8 biosynthesis (prokaryotic),0.0
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_oris,0.0
-PWY-5182: toluene degradation II (aerobic) (via 4-methylcatechol),0.0
 ENTBACSYN-PWY: enterobactin biosynthesis,0.0
-THREOCAT-PWY: superpathway of L-threonine metabolism,0.0
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_naeslundii,0.0
-PWY-6071: superpathway of phenylethylamine degradation,0.0
-PWYG-321: mycolate biosynthesis,0.0
-PWY0-321: phenylacetate degradation I (aerobic),0.0
-PWY-3801: sucrose degradation II (sucrose synthase),0.0
+PWY-5856: ubiquinol-9 biosynthesis (prokaryotic),0.0
 PWY-7345: superpathway of anaerobic sucrose degradation,0.0
-PWY-4321: L-glutamate degradation IV,0.0
-PWY-5088: L-glutamate degradation VIII (to propanoate),0.0
-PWY-5181: toluene degradation III (aerobic) (via p-cresol),0.0
-URSIN-PWY: ureide biosynthesis,0.0
-PWY-5417: catechol degradation III (ortho-cleavage pathway),0.0
-PWY-5431: aromatic compounds degradation via &beta;-ketoadipate,0.0
-PWY-6185: 4-methylcatechol degradation (ortho cleavage),0.0
-PWY-6182: superpathway of salicylate degradation,0.0
-CATECHOL-ORTHO-CLEAVAGE-PWY: catechol degradation to &beta;-ketoadipate,0.0
 PWY-7165: L-ascorbate biosynthesis VI (engineered pathway),0.0
-AST-PWY: L-arginine degradation II (AST pathway),0.0
-PWY-5920: superpathway of heme biosynthesis from glycine,0.0
-PWY-6690: cinnamate and 3-hydroxycinnamate degradation to 2-oxopent-4-enoate,0.0
-HCAMHPDEG-PWY: 3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation to 2-oxopent-4-enoate,0.0
-PWY-6876: isopropanol biosynthesis,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_eggerthii,0.0
-PWY-7200: superpathway of pyrimidine deoxyribonucleoside salvage,0.0
-PWY-7254: TCA cycle VII (acetate-producers),0.0
-"PWY-7385: 1,3-propanediol biosynthesis (engineered)",0.0
-HOMOSER-METSYN-PWY: L-methionine biosynthesis I,0.0
-k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_coprocola,0.0
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Atopobiaceae|g__Olsenella|s__Olsenella_scatoligenes,0.0
-PWY-6823: molybdenum cofactor biosynthesis,0.0
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Atopobiaceae|g__Atopobium|s__Atopobium_rimae,0.0
-k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Atopobiaceae|g__Atopobium|s__Atopobium_parvulum,0.0
-PWY-7663: gondoate biosynthesis (anaerobic),0.0
-PWY3DJ-35471: L-ascorbate biosynthesis IV,0.0
+PWY-6708: ubiquinol-8 biosynthesis (prokaryotic),0.0
 PWY-7204: pyridoxal 5'-phosphate salvage II (plants),0.0
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Micrococcales|f__Micrococcaceae|g__Rothia|s__Rothia_dentocariosa,0.0
-AEROBACTINSYN-PWY: aerobactin biosynthesis,0.0
-"PWY-7117: C4 photosynthetic carbon assimilation cycle, PEPCK type",0.0
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_dentium,0.0
+PWY-5198: factor 420 biosynthesis,0.0
+PWY-6349: CDP-archaeol biosynthesis,0.0
 PWY-7094: fatty acid salvage,0.0
-LPSSYN-PWY: superpathway of lipopolysaccharide biosynthesis,0.0
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_bifidum,0.0
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_animalis,0.0
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_adolescentis,0.0
-PWY0-1338: polymyxin resistance,0.0
-PWY0-1533: methylphosphonate degradation I,0.0
-k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Aeriscardovia|s__Aeriscardovia_aeriphila,0.0
-PWY0-1277: 3-phenylpropanoate and 3-(3-hydroxyphenyl)propanoate degradation,0.0
-"PWY-5791: 1,4-dihydroxy-2-naphthoate biosynthesis II (plants)",0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacteriaceae_unclassified|s__Eubacteriaceae_bacterium_CHKCI005,0.0
-"PWY-724: superpathway of L-lysine, L-threonine and L-methionine biosynthesis II",0.0
-k__Bacteria|p__Proteobacteria|c__Deltaproteobacteria|o__Desulfovibrionales|f__Desulfovibrionaceae|g__Desulfovibrio|s__Desulfovibrio_piger,0.0
-PWY-5030: L-histidine degradation III,0.0
-k__Bacteria|p__Proteobacteria|c__Deltaproteobacteria|o__Desulfovibrionales|f__Desulfovibrionaceae|g__Desulfovibrionaceae_unclassified|s__Desulfovibrionaceae_bacterium,0.0
-k__Bacteria|p__Proteobacteria|c__Deltaproteobacteria|o__Desulfovibrionales|f__Desulfovibrionaceae|g__Bilophila|s__Bilophila_wadsworthia,0.0
-k__Bacteria|p__Proteobacteria|c__Betaproteobacteria|o__Burkholderiales|f__Sutterellaceae|g__Turicimonas|s__Turicimonas_muris,0.0
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_sp_T11011_6,0.0
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_dispar,0.0
-RUMP-PWY: formaldehyde oxidation I,0.0
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Megasphaera|s__Megasphaera_elsdenii,0.0
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Dialister|s__Dialister_pneumosintes,0.0
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Dialister|s__Dialister_invisus,0.0
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Allisonella|s__Allisonella_histaminiformans,0.0
-PWY0-1479: tRNA processing,0.0
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Selenomonadales|f__Selenomonadaceae|g__Megamonas|s__Megamonas_hypermegale,0.0
+P163-PWY: L-lysine fermentation to acetate and butanoate,0.0
+PWY0-321: phenylacetate degradation I (aerobic),0.0
+GLYCOL-GLYOXDEG-PWY: superpathway of glycol metabolism and degradation,0.0
+PWY-6143: CMP-pseudaminate biosynthesis,0.0
+AEROBACTINSYN-PWY: aerobactin biosynthesis,0.0
+PWY-6823: molybdenum cofactor biosynthesis,0.0
+PWY-5857: ubiquinol-10 biosynthesis (prokaryotic),0.0
+PWY-5181: toluene degradation III (aerobic) (via p-cresol),0.0
+"PWY-6953: dTDP-3-acetamido-3,6-dideoxy-&alpha;-D-galactose biosynthesis",0.0
+PWY-5860: superpathway of demethylmenaquinol-6 biosynthesis I,0.0
+PWY-5705: allantoin degradation to glyoxylate III,0.0
+PWY-5431: aromatic compounds degradation via &beta;-ketoadipate,0.0
+PWY-5692: allantoin degradation to glyoxylate II,0.0
+PWY-6185: 4-methylcatechol degradation (ortho cleavage),0.0
+PWY-5417: catechol degradation III (ortho-cleavage pathway),0.0
+PWY-7286: 7-(3-amino-3-carboxypropyl)-wyosine biosynthesis,0.0
+URSIN-PWY: ureide biosynthesis,0.0
+PWY-5101: L-isoleucine biosynthesis II,0.0
+AST-PWY: L-arginine degradation II (AST pathway),0.0
+PWY-3801: sucrose degradation II (sucrose synthase),0.0
+METHANOGENESIS-PWY: methanogenesis from H2 and CO2,0.0
+PWY-6167: flavin biosynthesis II (archaea),0.0
+"PWY-6837: fatty acid beta-oxidation V (unsaturated, odd number, di-isomerase-dependent)",0.0
+PWY-5182: toluene degradation II (aerobic) (via 4-methylcatechol),0.0
+PWY-5656: mannosylglycerate biosynthesis I,0.0
+PWY-6182: superpathway of salicylate degradation,0.0
+PWY-6629: superpathway of L-tryptophan biosynthesis,0.0
+k__Archaea|p__Euryarchaeota|c__Methanobacteria|o__Methanobacteriales|f__Methanobacteriaceae|g__Methanobrevibacter|s__Methanobrevibacter_smithii,0.0
+TCA-GLYOX-BYPASS: superpathway of glyoxylate bypass and TCA,0.0
 k__Bacteria|p__Firmicutes|c__Negativicutes|o__Selenomonadales|f__Selenomonadaceae|g__Megamonas|s__Megamonas_funiformis,0.0
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Phascolarctobacterium|s__Phascolarctobacterium_succinatutens,0.0
-PWY-6270: isoprene biosynthesis I,0.0
-k__Bacteria|p__Firmicutes|c__Negativicutes|o__Acidaminococcales|f__Acidaminococcaceae|g__Phascolarctobacterium|s__Phascolarctobacterium_sp_CAG_266,0.0
-NONOXIPENT-PWY: pentose phosphate pathway (non-oxidative branch),0.0
-k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_238,0.0
-k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_170,0.0
-k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_145,0.0
-PWY-7560: methylerythritol phosphate pathway II,0.0
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Turicibacter|s__Turicibacter_sanguinis,0.0
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Solobacterium|s__Solobacterium_moorei,0.0
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Massiliomicrobiota|s__Massiliomicrobiota_timonensis,0.0
-P621-PWY: nylon-6 oligomer degradation,0.0
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Faecalitalea|s__Faecalitalea_cylindroides,0.0
-HISDEG-PWY: L-histidine degradation I,0.0
-k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacterales|f__Enterobacteriaceae|g__Klebsiella|s__Klebsiella_quasipneumoniae,0.0
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Erysipelatoclostridium|s__Clostridium_innocuum,0.0
-k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacterales|f__Enterobacteriaceae|g__Klebsiella|s__Klebsiella_variicola,0.0
-1CMET2-PWY: N10-formyl-tetrahydrofolate biosynthesis,0.0
-PWY66-422: D-galactose degradation V (Leloir pathway),0.0
-PWY-6519: 8-amino-7-oxononanoate biosynthesis I,0.0
-PWY-5103: L-isoleucine biosynthesis III,0.0
-PENTOSE-P-PWY: pentose phosphate pathway,0.0
-PWY-5667: CDP-diacylglycerol biosynthesis I,0.0
-PWY-6113: superpathway of mycolate biosynthesis,0.0
-PWY0-1319: CDP-diacylglycerol biosynthesis II,0.0
-PWY0-862: (5Z)-dodec-5-enoate biosynthesis,0.0
-COA-PWY-1: coenzyme A biosynthesis II (mammalian),0.0
-FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli),0.0
-GALACTUROCAT-PWY: D-galacturonate degradation I,0.0
-HSERMETANA-PWY: L-methionine biosynthesis III,0.0
-PWY-5100: pyruvate fermentation to acetate and lactate II,0.0
-PWY66-400: glycolysis VI (metazoan),0.0
-PWY-6277: superpathway of 5-aminoimidazole ribonucleotide biosynthesis,0.0
-PWY-7222: guanosine deoxyribonucleotides de novo biosynthesis II,0.0
-ARO-PWY: chorismate biosynthesis I,0.0
-VALSYN-PWY: L-valine biosynthesis,0.0
-ILEUSYN-PWY: L-isoleucine biosynthesis I (from threonine),0.0
-PWY0-781: aspartate superpathway,0.0
-PWY-1042: glycolysis IV (plant cytosol),0.0
-PWY-6737: starch degradation V,0.0
-UNMAPPED,0.0
-"P4-PWY: superpathway of L-lysine, L-threonine and L-methionine biosynthesis I",0.0
-k__Bacteria|p__Synergistetes|c__Synergistia|o__Synergistales|f__Synergistaceae|g__Cloacibacillus|s__Cloacibacillus_porcorum,0.0
-k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pasteurellales|f__Pasteurellaceae|g__Haemophilus|s__Haemophilus_sp_HMSC71H05,0.0
-PWY-5695: urate biosynthesis/inosine 5'-phosphate degradation,0.0
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Coprobacillus|s__Coprobacillus_cateniformis,0.0
-PWY-5863: superpathway of phylloquinol biosynthesis,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_clostridioforme,0.0
-PWY-5897: superpathway of menaquinol-11 biosynthesis,0.0
-PWY-6897: thiamin salvage II,0.0
-PWY-5899: superpathway of menaquinol-13 biosynthesis,0.0
-POLYAMSYN-PWY: superpathway of polyamine biosynthesis I,0.0
-SULFATE-CYS-PWY: superpathway of sulfate assimilation and cysteine biosynthesis,0.0
-"P125-PWY: superpathway of (R,R)-butanediol biosynthesis",0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_aldenense,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Eisenbergiella|s__Eisenbergiella_tayi,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Dorea|s__Dorea_sp_CAG_317,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Dorea|s__Dorea_longicatena,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_sp_CAG_257,0.0
-PWY-5861: superpathway of demethylmenaquinol-8 biosynthesis,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_producta,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_hydrogenotrophica,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Anaerostipes|s__Anaerostipes_hadrus,0.0
-METHGLYUT-PWY: superpathway of methylglyoxal degradation,0.0
-PWY-6125: superpathway of guanosine nucleotides de novo biosynthesis II,0.0
-PWY-5347: superpathway of L-methionine biosynthesis (transsulfuration),0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_sp_OM08_24,0.0
-P161-PWY: acetylene degradation,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_sp_CAG_274,0.0
-PWY-6531: mannitol cycle,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_unclassified|g__Monoglobus|s__Monoglobus_pectinilyticus,0.0
 k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_sp_CAG_251,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Eubacteriaceae|g__Eubacterium|s__Eubacterium_sp_CAG_180,0.0
-PWY-5918: superpathay of heme biosynthesis from glutamate,0.0
-ORNDEG-PWY: superpathway of ornithine degradation,0.0
-SO4ASSIM-PWY: sulfate reduction I (assimilatory),0.0
-PWY-7664: oleate biosynthesis IV (anaerobic),0.0
-PWY-5173: superpathway of acetyl-CoA biosynthesis,0.0
-k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Catenibacterium|s__Catenibacterium_mitsuokai,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Anaerotignum|s__Anaerotignum_lactatifermentans,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_coccoides,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_hydrogenotrophica,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Blautia|s__Blautia_producta,0.0
 k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_saccharolyticum,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcus|s__Ruminococcus_callidus,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcaceae_unclassified|s__Ruminococcaceae_bacterium_D5,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcaceae_unclassified|s__Ruminococcaceae_bacterium_D16,0.0
-PWY-6859: all-trans-farnesol biosynthesis,0.0
-PWY-7312: dTDP-D-&beta;-fucofuranose biosynthesis,0.0
-GLYCOLYSIS: glycolysis I (from glucose 6-phosphate),0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Ruminococcaceae_unclassified|s__Clostridium_methylpentosum,0.0
-NAGLIPASYN-PWY: lipid IVA biosynthesis,0.0
-PWY-6969: TCA cycle V (2-oxoglutarate:ferredoxin oxidoreductase),0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Pseudoflavonifractor|s__Pseudoflavonifractor_capillosus,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Harryflintia|s__Harryflintia_acetispora,0.0
-PWY-6892: thiazole biosynthesis I (E. coli),0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Oscillospiraceae|g__Oscillibacter|s__Oscillibacter_sp_PC13,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Tyzzerella|s__Tyzzerella_nexilis,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Sellimonas|s__Sellimonas_intestinalis,0.0
-PWY-2723: trehalose degradation V,0.0
-SER-GLYSYN-PWY: superpathway of L-serine and glycine biosynthesis I,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_sp_CAG_309,0.0
-PWY-922: mevalonate pathway I,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_sp_CAG_303,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_sp_CAG_182,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_faecis,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnospira|s__Lachnospira_pectinoschiza,0.0
-PWY0-1298: superpathway of pyrimidine deoxyribonucleosides degradation,0.0
-PWY0-1061: superpathway of L-alanine biosynthesis,0.0
-k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Lachnoclostridium_sp_An138,0.0
 k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Clostridium_scindens,0.0
-PWY-5083: NAD/NADH phosphorylation and dephosphorylation,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Lachnoclostridium|s__Lachnoclostridium_sp_An138,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Roseburia|s__Roseburia_sp_CAG_309,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Lachnospiraceae|g__Tyzzerella|s__Tyzzerella_nexilis,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Ruminococcaceae|g__Anaeromassilibacillus|s__Anaeromassilibacillus_sp_An250,0.0
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Coprobacillus|s__Coprobacillus_cateniformis,0.0
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Dielma|s__Dielma_fastidiosa,0.0
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Erysipelatoclostridium|s__Clostridium_innocuum,0.0
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Erysipelatoclostridium|s__Clostridium_spiroforme,0.0
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Faecalitalea|s__Faecalitalea_cylindroides,0.0
+k__Bacteria|p__Firmicutes|c__Erysipelotrichia|o__Erysipelotrichales|f__Erysipelotrichaceae|g__Massiliomicrobiota|s__Massiliomicrobiota_timonensis,0.0
+k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_170,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiales_Family_XIII_Incertae_Sedis|g__Mogibacterium|s__Mogibacterium_diversum,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_sp_CAG_299,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_sp_CAG_167,0.0
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_coprocola,0.0
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_S6_Spd3,0.0
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Actinomycetales|f__Actinomycetaceae|g__Actinomyces|s__Actinomyces_sp_oral_taxon_181,0.0
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Bifidobacteriales|f__Bifidobacteriaceae|g__Bifidobacterium|s__Bifidobacterium_bifidum,0.0
+k__Bacteria|p__Actinobacteria|c__Actinobacteria|o__Micrococcales|f__Micrococcaceae|g__Rothia|s__Rothia_dentocariosa,0.0
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Atopobiaceae|g__Atopobium|s__Atopobium_parvulum,0.0
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Atopobiaceae|g__Olsenella|s__Olsenella_scatoligenes,0.0
+k__Bacteria|p__Actinobacteria|c__Coriobacteriia|o__Coriobacteriales|f__Coriobacteriaceae|g__Enorma|s__Enorma_massiliensis,0.0
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_clarus,0.0
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_faecis,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Clostridiaceae|g__Clostridium|s__Clostridium_disporicum,0.0
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Bacteroidaceae|g__Bacteroides|s__Bacteroides_sp_CAG_144,0.0
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Paraprevotella|s__Paraprevotella_clara,0.0
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Rikenellaceae|g__Alistipes|s__Alistipes_onderdonkii,0.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Enterococcaceae|g__Enterococcus|s__Enterococcus_faecium,0.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Lactobacillaceae|g__Lactobacillus|s__Lactobacillus_rogosae,0.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Lactococcus|s__Lactococcus_lactis,0.0
+k__Bacteria|p__Firmicutes|c__Bacilli|o__Lactobacillales|f__Streptococcaceae|g__Streptococcus|s__Streptococcus_vestibularis,0.0
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Clostridiales|f__Catabacteriaceae|g__Catabacter|s__Catabacter_hongkongensis,0.0
+k__Bacteria|p__Firmicutes|c__Firmicutes_unclassified|o__Firmicutes_unclassified|f__Firmicutes_unclassified|g__Firmicutes_unclassified|s__Firmicutes_bacterium_CAG_238,0.0
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Selenomonadales|f__Selenomonadaceae|g__Megamonas|s__Megamonas_hypermegale,0.0
+PWY-561: superpathway of glyoxylate cycle and fatty acid degradation,0.0
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Dialister|s__Dialister_pneumosintes,0.0
+METSYN-PWY: L-homoserine and L-methionine biosynthesis,0.0
+PWYG-321: mycolate biosynthesis,0.0
+FERMENTATION-PWY: mixed acid fermentation,0.0
+PWY-7664: oleate biosynthesis IV (anaerobic),0.0
+FASYN-INITIAL-PWY: superpathway of fatty acid biosynthesis initiation (E. coli),0.0
+PWY0-862: (5Z)-dodec-5-enoate biosynthesis,0.0
+"PWY-7388: octanoyl-_acyl-carrier protein_ biosynthesis (mitochondria, yeast)",0.0
+PWY0-1261: anhydromuropeptides recycling,0.0
+PWY-7539: 6-hydroxymethyl-dihydropterin diphosphate biosynthesis III (Chlamydia),0.0
+PWY-5898: superpathway of menaquinol-12 biosynthesis,0.0
+PWY-5899: superpathway of menaquinol-13 biosynthesis,0.0
+PWY-5861: superpathway of demethylmenaquinol-8 biosynthesis,0.0
+PWY4LZ-257: superpathway of fermentation (Chlamydomonas reinhardtii),0.0
+P161-PWY: acetylene degradation,0.0
+GALACTARDEG-PWY: D-galactarate degradation I,0.0
+HEME-BIOSYNTHESIS-II: heme biosynthesis I (aerobic),0.0
+P122-PWY: heterolactic fermentation,0.0
+"GLYCOLYSIS-TCA-GLYOX-BYPASS: superpathway of glycolysis, pyruvate dehydrogenase, TCA, and glyoxylate bypass",0.0
+PWY-5723: Rubisco shunt,0.0
+PWY-5667: CDP-diacylglycerol biosynthesis I,0.0
+COA-PWY-1: coenzyme A biosynthesis II (mammalian),0.0
+TRNA-CHARGING-PWY: tRNA charging,0.0
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacterales|f__Enterobacteriaceae|g__Klebsiella|s__Klebsiella_quasipneumoniae,0.0
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Megasphaera|s__Megasphaera_elsdenii,0.0
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Megasphaera|s__Megasphaera_micronuciformis,0.0
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_infantium,0.0
+k__Bacteria|p__Firmicutes|c__Negativicutes|o__Veillonellales|f__Veillonellaceae|g__Veillonella|s__Veillonella_sp_T11011_6,0.0
+k__Bacteria|p__Fusobacteria|c__Fusobacteriia|o__Fusobacteriales|f__Fusobacteriaceae|g__Fusobacterium|s__Fusobacterium_mortiferum,0.0
+k__Bacteria|p__Proteobacteria|c__Deltaproteobacteria|o__Desulfovibrionales|f__Desulfovibrionaceae|g__Desulfovibrionaceae_unclassified|s__Desulfovibrionaceae_bacterium,0.0
+k__Bacteria|p__Proteobacteria|c__Deltaproteobacteria|o__Desulfovibrionales|f__Desulfovibrionaceae|g__Desulfovibrio|s__Desulfovibrio_piger,0.0
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacterales|f__Enterobacteriaceae|g__Klebsiella|s__Klebsiella_pneumoniae,0.0
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Enterobacterales|f__Enterobacteriaceae|g__Klebsiella|s__Klebsiella_variicola,0.0
+GLYCOGENSYNTH-PWY: glycogen biosynthesis I (from ADP-D-Glucose),0.0
+k__Bacteria|p__Proteobacteria|c__Gammaproteobacteria|o__Pasteurellales|f__Pasteurellaceae|g__Haemophilus|s__Haemophilus_sp_HMSC71H05,0.0
+k__Bacteria|p__Synergistetes|c__Synergistia|o__Synergistales|f__Synergistaceae|g__Fretibacterium|s__Fretibacterium_fastidiosum,0.0
+VALSYN-PWY: L-valine biosynthesis,0.0
+PWY-5686: UMP biosynthesis,0.0
+PWY-6386: UDP-N-acetylmuramoyl-pentapeptide biosynthesis II (lysine-containing),0.0
+PWY-7400: L-arginine biosynthesis IV (archaebacteria),0.0
+PWY-6277: superpathway of 5-aminoimidazole ribonucleotide biosynthesis,0.0
+PWY-6387: UDP-N-acetylmuramoyl-pentapeptide biosynthesis I (meso-diaminopimelate containing),0.0
+"PWY-7409: phospholipid remodeling (phosphatidylethanolamine, yeast)",0.0
