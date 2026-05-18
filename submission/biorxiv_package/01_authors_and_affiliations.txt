@@ -1,0 +1,11 @@
+LastName, FirstName, MiddleInit, AffiliationNumber, Email, ORCID
+
+Velazquez, Alejandro, , 1, alejandro-publius@berkeley.edu, 0009-0007-9798-1958
+Selbrede, Rachel, , 2, , 0009-0006-7046-3192
+
+Affiliations:
+1. University of California, Berkeley, Department of Computer Science, Berkeley, CA, USA.
+2. California State University San Marcos, Department of Molecular and Cell Biology, San Marcos, CA, USA.
+
+Corresponding author:
+Alejandro Velazquez, University of California, Berkeley, Department of Computer Science, Berkeley, CA, USA. Email: alejandro-publius@berkeley.edu. ORCID: 0009-0007-9798-1958.
