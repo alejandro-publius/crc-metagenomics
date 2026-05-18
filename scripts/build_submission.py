@@ -21,8 +21,6 @@ Usage
 
 External tools (optional; the script degrades gracefully if missing):
     pandoc, soffice (LibreOffice), img2pdf, PyPDF2/pypdf
-
-Author: Alejandro Velazquez (UC Berkeley); biological collaboration: Rachel Selbrede.
 """
 from __future__ import annotations
 

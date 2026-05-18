@@ -22,8 +22,6 @@ the headline LODO numbers in baseline_results.csv. The held-out cohorts
 are still drawn from the same curatedMetagenomicData source as the rest
 of the analysis; they are not an independent external dataset.
 
-Authors: Alex Velazquez, Rachel Selbrede
-
 Usage:
     Run from the project root:
         python3 scripts/external_validation.py

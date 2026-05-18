@@ -17,8 +17,6 @@ Every clinical and microbiome paper has a Table 1 showing demographics.
 Reviewers expect it. It's how readers verify that your cohorts are
 comparable and that the populations are described transparently.
 
-Authors: Alex Velazquez, Rachel Selbrede
-
 Usage:
     Run from the project root:
         python3 scripts/generate_table1.py

@@ -10,8 +10,9 @@ hyper-parameters as ``train_baseline.py``, and the same CRC/control subset):
   1. Pooled stratified 5-fold CV (naive baseline; ignores cohort structure)
   2. Standard LODO (no country awareness; same-country leakage allowed)
   3. Country-aware LODO (matches ``train_baseline.py``; reference strategy)
-  4. Stratified GroupKFold by cohort (10 folds; each cohort held out exactly
-     once with class-stratified label balance)
+  4. GroupKFold by cohort (equivalent to LeaveOneGroupOut at n_groups=n_folds;
+     each cohort is held out exactly once, with no extra class stratification
+     and no country-awareness applied)
 
 For each strategy the script records:
   - per-fold AUC

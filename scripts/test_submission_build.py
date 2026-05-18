@@ -12,8 +12,6 @@ The test is marked ``@pytest.mark.integration`` so it does **not** run
 during a default ``pytest`` invocation. Run explicitly with:
 
     pytest scripts/test_submission_build.py -m integration -v
-
-Author: Alejandro Velazquez (UC Berkeley); biological collaboration: Rachel Selbrede.
 """
 from __future__ import annotations
 

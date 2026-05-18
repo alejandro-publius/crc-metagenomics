@@ -28,14 +28,17 @@ from sklearn.metrics import roc_auc_score
 
 def get_lodo_splits(metadata, label_col="label", cohort_col="study_name",
                     country_col=None):
-    """Yield (cohort, train_indices, test_indices) for each LODO fold.
+    """Yield ``(cohort, train_indices, test_indices, excluded_cohorts)`` for
+    each LODO fold.
 
     country_col: if provided, cohorts that share the same country as the test
     cohort are excluded from training. This prevents population-level
     confounding when multiple cohorts share the same geographic origin
     (e.g., two Japanese cohorts: training on one while testing on the other
     would let the model learn country-specific — rather than CRC-specific —
-    microbial signals).
+    microbial signals). ``excluded_cohorts`` is the set of cohorts dropped
+    from the training fold for this reason (empty set when ``country_col``
+    is None or no other cohort shares the test country).
     """
     # Build cohort -> country map (majority country per cohort)
     cohort_country = {}
@@ -93,6 +96,12 @@ def run_lodo_cv(model_fn, X, y, metadata, cohort_col="study_name",
     feature_filter_fn : optional callable(X_train) -> list[col names]
         Applied inside each fold to prevent test-fold leakage.
     country_col : optional column for country-aware LODO (see get_lodo_splits)
+
+    Returns
+    -------
+    results : dict with keys ``cohort, auc, n_train, n_test, n_features,
+        excluded_cohorts`` (each a per-fold list) plus aggregate
+        ``mean_auc`` and ``std_auc`` floats.
     """
     results = {"cohort": [], "auc": [], "n_train": [], "n_test": [],
                "n_features": [], "excluded_cohorts": []}

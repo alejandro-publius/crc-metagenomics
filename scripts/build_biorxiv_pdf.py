@@ -20,8 +20,6 @@ Fallback paths (if pandoc / a LaTeX engine is unavailable):
   message describing how to staple the figures in afterwards.
 
 Output: ``submission/build/biorxiv_single_pdf.pdf``
-
-Author: Alejandro Velazquez (UC Berkeley); biological collaboration: Rachel Selbrede.
 """
 from __future__ import annotations
 

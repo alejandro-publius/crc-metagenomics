@@ -1,7 +1,7 @@
 # Submission Package Manifest
 
-Generated: 2026-05-18T13:48:51+00:00
-Finished:  2026-05-18T13:48:55+00:00
+Generated: 2026-05-18T14:03:53+00:00
+Finished:  2026-05-18T14:03:56+00:00
 
 Master index of everything in the submission package. SHA-256 digests of all final deliverable PDFs and ZIPs are included for integrity tracking.
 
@@ -33,8 +33,8 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `07_pre_submission_qa.md` | 10.7 KB | submission scaffolding |
 | `CRC_Manuscript_Complete.docx` | 58.3 KB | manuscript (Word) |
 | `README.md` | 4.7 KB | bundle README |
-| `SUBMISSION_BUNDLE.zip` | 6.8 MB | final upload archive |
-| `figures.pdf` | 6.5 MB | merged figures PDF |
+| `SUBMISSION_BUNDLE.zip` | 7.0 MB | final upload archive |
+| `figures.pdf` | 6.6 MB | merged figures PDF |
 | `figures/main/Figure1_Forest_Plot.pdf` | 34.8 KB | Figure1_Forest_Plot (PDF) |
 | `figures/main/Figure1_Forest_Plot.png` | 216.6 KB | Figure1_Forest_Plot (PNG) |
 | `figures/main/Figure2_ROC_Curves.pdf` | 25.4 KB | Figure2_ROC_Curves (PDF) |
@@ -59,14 +59,14 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `supplementary/S9_external_validation.csv` | 121.0 B | supplementary table |
 | `supplementary/Supplementary_Tables.docx` | 38.9 KB | supplementary tables (Word) |
 
-**Total bundle size:** 14.8 MB
+**Total bundle size:** 15.1 MB
 
 ## SHA-256 digests (final deliverables)
 
 | File | SHA-256 |
 |---|---|
-| `figures.pdf` | `ff780ffe637116eb540a9ef414623131b3c95164f2e539c269c5754933e6c46a` |
-| `SUBMISSION_BUNDLE.zip` | `ccc24ff6dc3f1637fb1c89d8d6b00f28161a259737dc057e421816b1bfd9083d` |
+| `figures.pdf` | `925eba774ec8dfb175ec051b60290e9d9099ca7b55572753a198853aca013e8f` |
+| `SUBMISSION_BUNDLE.zip` | `d043c175d3ef0495faf0517246dac333f310d1cdf07ed14d0daa3952008266eb` |
 
 ## Warnings during build
 

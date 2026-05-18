@@ -1,0 +1,21 @@
+# Test-time / development-only dependencies.
+#
+# These are NOT runtime requirements for the published library or the
+# pipeline scripts; they exist solely to run the test suite and the
+# coverage report. The runtime dependencies live in `requirements.txt`
+# (and `pyproject.toml` for the packaged library).
+#
+# Install with:
+#     pip install -r requirements-dev.txt
+#
+# Then run the suite with coverage:
+#     pytest --cov=scripts --cov=src --cov-report=term-missing \
+#         tests/ scripts/test_submission_build.py
+#
+# Note: `imbalanced-learn` is only required by the adenoma rebalancing
+# script (`scripts/rebalanced_adenoma_lodo.py`) and by tests that import
+# it; the main CRC LODO pipeline does not need it.
+
+pytest>=8.0
+pytest-cov>=4.1
+imbalanced-learn>=0.12

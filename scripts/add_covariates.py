@@ -12,8 +12,6 @@ residualization and XGBoost. We keep both scripts: this one as a focused
 "add covariates as features" check with a paired t-test, and
 confounder_adjustment.py as the broader four-cell direct/residualize x
 RF/XGB grid. Both use train-fold-only imputation.
-
-Authors: Alex Velazquez, Rachel Selbrede
 """
 
 import pandas as pd

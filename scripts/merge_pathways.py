@@ -1,6 +1,9 @@
 """Concatenate per-cohort pathway CSVs from data/raw/pathway_chunks/
-into a single data/raw/pathway_abundance.csv. Run after the R export
-script and before filter_pathways.py."""
+into a single data/raw/pathway_abundance.csv (full matrix with both
+stratified and unstratified pathway columns). Also writes a sidecar
+data/raw/pathway_unstratified_full.csv that drops the stratified
+(``taxon|pathway``) columns for downstream sensitivity_analysis.py.
+Run after the R export script and before filter_pathways.py."""
 import glob
 import os
 import sys
