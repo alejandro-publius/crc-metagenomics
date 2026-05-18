@@ -227,6 +227,8 @@ def main():
          'description': 'Single-cohort holdout AUC for external validation'},
         {'table': 'S10', 'file': 'S10_delong.csv',
          'description': 'DeLong (1988; Sun and Xu 2014) significance tests on pooled LODO predictions'},
+        {'table': 'S11', 'file': 'S11_methods_comparison.csv',
+         'description': 'Head-to-head methods comparison vs Thomas 2019, Wirbel 2019, and Piccinno 2025 across 14 design / reproducibility axes'},
     ])
     index.to_csv(f'{OUT}/INDEX.csv', index=False)
     print(f'\nWrote {len(index)} supplementary tables to {OUT}/')

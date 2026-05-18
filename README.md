@@ -48,6 +48,24 @@ python3 scripts/verify_results.py        # Smoke-test headline numbers
 
 All scripts use `random_state=42` and produce deterministic results. Total runtime is approximately 45 minutes on a standard workstation.
 
+## Use this as a library
+
+The country-aware LODO loop, per-fold pathway filter, and statistical helpers (DeLong test, cohort-stratified bootstrap CI) are packaged as `crc_lodo_bench` for reuse on other shotgun-metagenomic cohorts.
+
+```bash
+pip install -e .
+```
+
+```python
+from crc_lodo_bench import run_lodo_cv, per_fold_pathway_filter, bootstrap_pooled_ci
+
+filt = per_fold_pathway_filter(pathway_cols, passthrough_cols=species_cols)
+results = run_lodo_cv(make_rf, X, y, metadata, country_col="country", feature_filter_fn=filt)
+ci = bootstrap_pooled_ci(preds["y_true"], preds["y_prob"], preds["cohort"])
+```
+
+See `src/crc_lodo_bench/README.md` for the full API and a runnable example.
+
 ## Methodological contributions
 
 - **Country-aware LODO**: when a cohort is held out as the test fold, all cohorts from the same country are excluded from training. This prevents population-level confounding — without this fix, ThomasAM_2019_c (Japan) achieved AUC=0.999 due to YachidaS_2019 (Japan) in the training set; corrected AUC is 0.836.

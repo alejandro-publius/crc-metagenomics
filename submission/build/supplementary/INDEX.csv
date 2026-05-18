@@ -10,3 +10,4 @@ S8,S8_seed_sensitivity.csv,Species RF LODO at 5 random seeds (per-seed mean/std)
 S8b,S8b_seed_sensitivity_summary.csv,"Seed sensitivity summary (n_seeds, grand mean, across-seed std, min, max, spread)"
 S9,S9_external_validation.csv,Single-cohort holdout AUC for external validation
 S10,S10_delong.csv,DeLong (1988; Sun and Xu 2014) significance tests on pooled LODO predictions
+S11,S11_methods_comparison.csv,"Head-to-head methods comparison vs Thomas 2019, Wirbel 2019, and Piccinno 2025 across 14 design / reproducibility axes"

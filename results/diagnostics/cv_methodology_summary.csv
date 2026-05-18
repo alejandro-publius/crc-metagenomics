@@ -1,0 +1,5 @@
+strategy,n_folds,mean_per_fold_auc,pooled_auc,delong_z_vs_country_aware,delong_p_vs_country_aware
+pooled_5fold,5,0.8329,0.8312,7.7081,0.0
+standard_lodo,10,0.8322,0.8177,7.4049,0.0
+country_aware_lodo,10,0.8075,0.7812,,
+group_kfold_cohort,10,0.8322,0.8177,7.4049,0.0

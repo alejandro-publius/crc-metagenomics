@@ -1,7 +1,7 @@
 # Submission Package Manifest
 
-Generated: 2026-05-18T13:06:17+00:00
-Finished:  2026-05-18T13:06:21+00:00
+Generated: 2026-05-18T13:20:01+00:00
+Finished:  2026-05-18T13:20:05+00:00
 
 Master index of everything in the submission package. SHA-256 digests of all final deliverable PDFs and ZIPs are included for integrity tracking.
 
@@ -33,8 +33,8 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `07_pre_submission_qa.md` | 10.7 KB | submission scaffolding |
 | `CRC_Manuscript_Complete.docx` | 58.2 KB | manuscript (Word) |
 | `README.md` | 4.7 KB | bundle README |
-| `SUBMISSION_BUNDLE.zip` | 5.5 MB | final upload archive |
-| `figures.pdf` | 4.9 MB | merged figures PDF |
+| `SUBMISSION_BUNDLE.zip` | 5.9 MB | final upload archive |
+| `figures.pdf` | 5.4 MB | merged figures PDF |
 | `figures/main/Figure1_Forest_Plot.pdf` | 34.8 KB | Figure1_Forest_Plot (PDF) |
 | `figures/main/Figure1_Forest_Plot.png` | 216.6 KB | Figure1_Forest_Plot (PNG) |
 | `figures/main/Figure2_ROC_Curves.pdf` | 25.4 KB | Figure2_ROC_Curves (PDF) |
@@ -44,8 +44,9 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `figures/main/Figure4_Three_Panel_SHAP.pdf` | 42.2 KB | Figure4_Three_Panel_SHAP (PDF) |
 | `figures/main/Figure4_Three_Panel_SHAP.png` | 385.7 KB | Figure4_Three_Panel_SHAP (PNG) |
 | `manuscript_complete.md` | 57.9 KB | manuscript (Markdown source) |
-| `supplementary/INDEX.csv` | 1.1 KB | supplementary table |
+| `supplementary/INDEX.csv` | 1.2 KB | supplementary table |
 | `supplementary/S10_delong.csv` | 235.0 B | supplementary table |
+| `supplementary/S11_methods_comparison.csv` | 3.4 KB | supplementary table |
 | `supplementary/S1_cohort_overview.csv` | 990.0 B | supplementary table |
 | `supplementary/S2_per_fold_aucs.csv` | 755.0 B | supplementary table |
 | `supplementary/S3_top_shap_features.csv` | 18.4 KB | supplementary table |
@@ -58,14 +59,14 @@ Master index of everything in the submission package. SHA-256 digests of all fin
 | `supplementary/S9_external_validation.csv` | 121.0 B | supplementary table |
 | `supplementary/Supplementary_Tables.docx` | 38.9 KB | supplementary tables (Word) |
 
-**Total bundle size:** 11.9 MB
+**Total bundle size:** 12.7 MB
 
 ## SHA-256 digests (final deliverables)
 
 | File | SHA-256 |
 |---|---|
-| `figures.pdf` | `20dcbbdae43c720ff4033ea501634d1c6d0d9fdf2d7542fe7a282aa02410bfd6` |
-| `SUBMISSION_BUNDLE.zip` | `912fa9ead85a127ce8693c04d07f987cb1af8e81deaec70b306a35d094b6caf8` |
+| `figures.pdf` | `fdb0b935ea5de819f13d9731970517616a1d684a2b504c066d02a3edce499d0c` |
+| `SUBMISSION_BUNDLE.zip` | `e637602c1a804f1d9da41688eed1c6bd641f4236e86795a52dd2da955b92ef28` |
 
 ## Warnings during build
 

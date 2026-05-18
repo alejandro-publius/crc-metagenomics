@@ -1,0 +1,3 @@
+# Power analysis: DeLong test, species RF vs joint RF
+
+At n=1339 pooled samples (674 positives, 665 negatives) the observed standard error of the AUC difference, estimated by the DeLong (Sun & Xu 2014) covariance formula on the paired predictions in `preds_species_rf.csv` and `preds_joint_rf.csv`, is SE(diff)=0.0075. Under a one-sided alpha=0.05 DeLong test we have 95.4% power to detect a 0.025-AUC difference, and 80% power to detect a difference of 0.0186 or greater (90% power at 0.0219). The observed two-sided DeLong p=0.0008 (one-sided p=0.0004) is therefore well-powered, not a chance result.
