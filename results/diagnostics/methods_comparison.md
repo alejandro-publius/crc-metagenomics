@@ -26,7 +26,7 @@ checked against the original source before submission.
 | Statistical comparison | Wilcoxon / DeLong for feature-level; AUC reporting without paired tests across model variants `[verify]` | Within-SIAMCAT bootstrap CIs; DeLong not the headline `[verify]` | DeLong on pooled predictions across models `[verify]` | Both: DeLong on pooled LODO predictions (S10) and paired across-cohort comparisons; bootstrap CIs in S4 |
 | Bootstrap CI iterations | 100 within-cohort bootstrap `[verify]` | 100 bootstrap (SIAMCAT default) `[verify]` | 1000 bootstrap `[verify]` | 10,000 bootstrap iterations per cohort and pooled |
 | Confounder adjustment (age / sex / BMI) | Reported as covariates and tested with PERMANOVA; not folded into the predictor `[verify]` | MaAsLin-style covariate adjustment for biomarker testing; predictor uses raw features `[verify]` | Covariate adjustment in differential-abundance step; predictor variants reported `[verify]` | Yes; two-pronged: direct inclusion of age/sex/BMI in RF and XGB and residualisation of species against age/sex/BMI before LODO (S7) |
-| Batch correction | None applied to the headline model; reported as a robustness check `[verify]` | None in the headline; SIAMCAT offers normalisation but not ComBat for the LODO benchmark `[verify]` | DEBIAS-M reported as a comparator method `[verify]` | ComBat reported as a robustness check (not the headline); per-fold filter + LODO is the primary defence |
+| Batch correction | None applied to the headline model; reported as a robustness check `[verify]` | None in the headline; SIAMCAT offers normalisation but not ComBat for the LODO benchmark `[verify]` | Per-feature processing-bias comparator reported `[verify]` | ComBat reported as a robustness check (not the headline); per-fold filter + LODO is the primary defence |
 | Adenoma analysis | Limited; advanced-adenoma follow-up reported on the Italian cohort `[verify]` | Per-cohort adenoma subset where available; no LODO adenoma headline `[verify]` | Adenoma included in pooled benchmark; cross-cohort generalisation reported `[verify]` | Yes; pooled and LODO (4-cohort) for healthy vs adenoma and adenoma vs CRC, plus a rebalanced LODO that downsamples controls to the adenoma prevalence |
 | Adenoma LODO | No `[verify]` | No `[verify]` | Yes (pooled k-fold; LODO reported as secondary) `[verify]` | Yes (4-cohort adenoma LODO, S6) |
 | Class-rebalanced adenoma analysis | No `[verify]` | No `[verify]` | No `[verify]` | Yes (rebalanced adenoma LODO with prevalence-matched controls) |
@@ -48,8 +48,7 @@ reproducibility check that re-derives 49 headline numbers from the
 saved CSVs on every run. Thomas 2019 and Wirbel 2019 established the
 LODO benchmark but used pooled-training feature filtering and did not
 enforce country-aware splits; Piccinno 2025 expanded the sample size
-roughly three-fold and added DEBIAS-M as a batch-correction comparator
-but still relies on pooled k-fold as its headline. The trade-off is
+roughly three-fold but still relies on pooled k-fold as its headline. The trade-off is
 honest: this work is smaller in raw n than Piccinno 2025, so its
 contribution is methodological tightness and translation-facing
 diagnostics (FIT-matched operating points, base-rate PPV sweep,

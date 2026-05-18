@@ -1,8 +1,8 @@
 # Sanity Check Report — Snapshot 2026-05-18
 
-> Point-in-time snapshot. The current canonical read-only audit is
-> `results/FLETCHER_AUDIT.md`. This file is preserved as a historical
-> record and is not actively maintained.
+> Point-in-time snapshot preserved as a historical record;
+> not actively maintained. The authoritative state is verified by
+> `python3 scripts/verify_results.py` (49 checks).
 
 **Date**: 2026-05-18
 **Status**: PASS — submission-ready

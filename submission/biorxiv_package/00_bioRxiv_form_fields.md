@@ -30,8 +30,9 @@ Research Article
 bioRxiv's structured abstract field is capped at 250 words. The
 manuscript's full abstract is ~330 prose words after stripping inline
 `results/*.csv` file paths, so the version below has been trimmed to
-**249 words** while preserving every headline statistic (pooled AUCs,
-DeLong p-values, CIs, robustness ranges, adenoma results). Paste this:
+**~241 words (whitespace-tokenized)** while preserving every headline
+statistic (pooled AUCs, DeLong p-values, CIs, robustness ranges,
+adenoma results). Paste this:
 
 ```
 Background. Shotgun gut metagenomic classifiers can discriminate colorectal cancer (CRC) cases from controls, but the incremental value of metabolic pathway features beyond species-level taxonomic profiles has not been rigorously tested, and the robustness of cross-cohort classifiers to analytical choices is rarely evaluated systematically.
@@ -43,7 +44,7 @@ Results. Species-only RF reached a per-cohort mean LODO AUC of 0.807 +/- 0.065 a
 Conclusions. At current cross-cohort sample sizes, species-level taxonomic features alone provide superior CRC classification compared to joint species-plus-pathway models; adding pathways increases dimensionality without proportional signal gain.
 ```
 
-Word count: **249 words** (under the 250-word cap).
+Word count: **~241 words** (under the 250-word cap).
 
 If bioRxiv's portal happens to accept >250 words for your account
 (some users see a 300-word soft limit), the full manuscript abstract is

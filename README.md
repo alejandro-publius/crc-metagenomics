@@ -110,7 +110,6 @@ results CSVs:
 - [`results/diagnostics/CLINICAL_TRANSLATION_SUMMARY.md`](results/diagnostics/CLINICAL_TRANSLATION_SUMMARY.md) — sensitivity at fixed specificity, base-rate-adjusted PPV/NPV, and the head-to-head with FIT.
 - [`results/diagnostics/RAW_DATA_PATTERNS.md`](results/diagnostics/RAW_DATA_PATTERNS.md) — pre-modelling exploratory patterns (cohort composition, Bray-Curtis PCoA, alpha diversity, top species, sequencing depth).
 - [`results/CITATION_AUDIT.md`](results/CITATION_AUDIT.md) — audit of every reference in `manuscript/markdown/06_references.md`.
-- [`results/FLETCHER_AUDIT.md`](results/FLETCHER_AUDIT.md) — current canonical read-only repository audit.
 - [`results/decisions_addendum.md`](results/decisions_addendum.md) — decision log for all analytical choices (SMOTE vs class weights, DeLong implementation, per-fold filtering, cohort exclusions, bile-acid pathway group, and more).
 - [`results/baseline_results.md`](results/baseline_results.md) — narrative summary of the species-only RF per-cohort and pooled results.
 

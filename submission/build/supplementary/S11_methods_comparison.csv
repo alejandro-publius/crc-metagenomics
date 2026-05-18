@@ -11,7 +11,7 @@ Biological pathway shortlist,No (data-driven only),No (data-driven only),No (dat
 Statistical comparison,Wilcoxon / DeLong on feature-level; no paired model tests [verify],SIAMCAT bootstrap CIs; DeLong not headline [verify],DeLong on pooled predictions [verify],Both: DeLong (S10) + paired across-cohort + bootstrap CIs (S4)
 Bootstrap CI iterations,100 [verify],100 (SIAMCAT default) [verify],1000 [verify],"10,000"
 Confounder adjustment (age/sex/BMI),Reported as covariates / PERMANOVA; not in predictor [verify],MaAsLin-style covariate adjustment for biomarkers; predictor on raw features [verify],Covariate adjustment in DA step; predictor variants reported [verify],Yes; direct inclusion in RF/XGB + residualisation against age/sex/BMI (S7)
-Batch correction,None for headline; reported as robustness check [verify],None in headline; SIAMCAT normalisation only [verify],DEBIAS-M reported as comparator [verify],ComBat as robustness check only; per-fold filter + country-aware LODO is the primary defence
+Batch correction,None for headline; reported as robustness check [verify],None in headline; SIAMCAT normalisation only [verify],Per-feature processing-bias comparator reported [verify],ComBat as robustness check only; per-fold filter + country-aware LODO is the primary defence
 Adenoma analysis,Limited (Italian cohort follow-up) [verify],Per-cohort adenoma where available; no LODO headline [verify],Yes (pooled benchmark) [verify],Yes (pooled + 4-cohort LODO + rebalanced LODO)
 Adenoma LODO,No [verify],No [verify],Yes (pooled k-fold; LODO secondary) [verify],Yes (S6)
 Class-rebalanced adenoma,No [verify],No [verify],No [verify],Yes (prevalence-matched controls)
