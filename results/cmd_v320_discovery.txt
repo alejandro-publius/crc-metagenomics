@@ -1,0 +1,87 @@
+=== cMD discovery (2026-05-18 22:49:33.99369) ===
+cMD version: 3.20.0 
+
+=== Data types available per cohort ===
+
+FengQ_2015:
+  ✓ relative_abundance ( 1 release(s))
+  ✓ gene_families ( 1 release(s))
+  ✓ pathway_abundance ( 1 release(s))
+  ✓ pathway_coverage ( 1 release(s))
+  ✓ marker_abundance ( 1 release(s))
+  ✓ marker_presence ( 1 release(s))
+
+GuptaA_2019:
+  ✓ relative_abundance ( 1 release(s))
+  ✓ gene_families ( 1 release(s))
+  ✓ pathway_abundance ( 1 release(s))
+  ✓ pathway_coverage ( 1 release(s))
+  ✓ marker_abundance ( 1 release(s))
+  ✓ marker_presence ( 1 release(s))
+
+ThomasAM_2018a:
+  ✓ relative_abundance ( 1 release(s))
+  ✓ gene_families ( 1 release(s))
+  ✓ pathway_abundance ( 1 release(s))
+  ✓ pathway_coverage ( 1 release(s))
+  ✓ marker_abundance ( 1 release(s))
+  ✓ marker_presence ( 1 release(s))
+
+ThomasAM_2018b:
+  ✓ relative_abundance ( 1 release(s))
+  ✓ gene_families ( 1 release(s))
+  ✓ pathway_abundance ( 1 release(s))
+  ✓ pathway_coverage ( 1 release(s))
+  ✓ marker_abundance ( 1 release(s))
+  ✓ marker_presence ( 1 release(s))
+
+ThomasAM_2019_c:
+  ✓ relative_abundance ( 1 release(s))
+  ✓ gene_families ( 1 release(s))
+  ✓ pathway_abundance ( 1 release(s))
+  ✓ pathway_coverage ( 1 release(s))
+  ✓ marker_abundance ( 1 release(s))
+  ✓ marker_presence ( 1 release(s))
+
+VogtmannE_2016:
+  ✓ relative_abundance ( 1 release(s))
+  ✓ gene_families ( 1 release(s))
+  ✓ pathway_abundance ( 1 release(s))
+  ✓ pathway_coverage ( 1 release(s))
+  ✓ marker_abundance ( 1 release(s))
+  ✓ marker_presence ( 1 release(s))
+
+WirbelJ_2018:
+  ✓ relative_abundance ( 1 release(s))
+  ✓ gene_families ( 1 release(s))
+  ✓ pathway_abundance ( 1 release(s))
+  ✓ pathway_coverage ( 1 release(s))
+  ✓ marker_abundance ( 1 release(s))
+  ✓ marker_presence ( 1 release(s))
+
+YachidaS_2019:
+  ✓ relative_abundance ( 2 release(s))
+  ✓ gene_families ( 2 release(s))
+  ✓ pathway_abundance ( 2 release(s))
+  ✓ pathway_coverage ( 2 release(s))
+  ✓ marker_abundance ( 2 release(s))
+  ✓ marker_presence ( 2 release(s))
+
+YuJ_2015:
+  ✓ relative_abundance ( 1 release(s))
+  ✓ gene_families ( 1 release(s))
+  ✓ pathway_abundance ( 1 release(s))
+  ✓ pathway_coverage ( 1 release(s))
+  ✓ marker_abundance ( 1 release(s))
+  ✓ marker_presence ( 1 release(s))
+
+ZellerG_2014:
+  ✓ relative_abundance ( 1 release(s))
+  ✓ gene_families ( 1 release(s))
+  ✓ pathway_abundance ( 1 release(s))
+  ✓ pathway_coverage ( 1 release(s))
+  ✓ marker_abundance ( 1 release(s))
+  ✓ marker_presence ( 1 release(s))
+
+=== TOTAL CRC studies in current sampleMetadata ===
+Total CRC-relevant studies in cMD 3.20.0 :
