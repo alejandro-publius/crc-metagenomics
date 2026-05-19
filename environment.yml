@@ -24,12 +24,15 @@ dependencies:
 
   # --- Tooling for the test suite (not in requirements.lock; dev-only) ---
   - pytest
+  - pytest-cov
 
   # --- R + Bioconductor for end-to-end re-derivation from raw data ---
   # curatedMetagenomicData ships via Bioconductor; bioconductor-* packages on
-  # bioconda pull in the matching R and Bioconductor core.
-  - r-base=4.3
-  - bioconductor-curatedmetagenomicdata
+  # bioconda pull in the matching R and Bioconductor core. R 4.6 and
+  # curatedMetagenomicData 3.19 match data/raw/provenance/sessionInfo.txt
+  # (the snapshot actually used to produce the committed raw data).
+  - r-base=4.6
+  - bioconductor-curatedmetagenomicdata=3.19
   - bioconductor-summarizedexperiment
   - bioconductor-mia
   - r-tidyverse
@@ -39,3 +42,5 @@ dependencies:
   - pip:
       - shap==0.44.1
       - combat==0.3.3
+      - imbalanced-learn==0.12.3
+      - python-docx==1.1.2

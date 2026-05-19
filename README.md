@@ -18,7 +18,7 @@ This result is stable across random seeds (mean per-cohort AUC 0.810 +/- 0.002 a
 - **Cohorts**: 10 (FengQ_2015, GuptaA_2019, ThomasAM_2018a, ThomasAM_2018b, ThomasAM_2019_c, VogtmannE_2016, WirbelJ_2018, YachidaS_2019, YuJ_2015, ZellerG_2014)
 - **Subjects**: 1,522 unique (674 CRC, 183 adenoma, 665 healthy controls); the metadata `study_condition` field uses the value `control` (not `healthy`)
 - **Species features**: 229 (MetaPhlAn, global filter: prevalence >= 10%, mean >= 1e-4; per-sample row-sum renormalization when input is on a percentage scale, then log10(x + 1e-6))
-- **Pathway features**: 551 unstratified candidates (HUMAnN, relative abundance, no transform); 402 to 406 retained per LODO fold after per-fold prevalence (>= 10%) and mean (>= 1e-6) filter computed on training-cohort samples only
+- **Pathway features**: 549 real unstratified MetaCyc candidates (HUMAnN, relative abundance, no transform; the 551 raw columns include 2 HUMAnN housekeeping totals -- `UNMAPPED` and `UNINTEGRATED` -- which are dropped); 402 to 406 retained per LODO fold after per-fold prevalence (>= 10%) and mean (>= 1e-6) filter computed on training-cohort samples only
 - **Excluded**: HanniganGD_2017 (mean depth 6.5M reads vs 9.2M-102M per-cohort means for the other 10 cohorts in the candidate set; 82% species feature sparsity vs 61% mean for the other cohorts)
 
 ## Manuscript
@@ -33,9 +33,19 @@ The complete manuscript is in `manuscript/`:
 See `REPRODUCING.md` for the full step-by-step pipeline. Quick summary:
 
 ```bash
+# Step 0: Clone the repo
+git clone https://github.com/<your-fork>/crc-metagenomics.git
+cd crc-metagenomics
+
 pip install -r requirements.lock
 Rscript scripts/export_data.R
-python3 scripts/preprocessing.py
+python3 scripts/preprocessing.py         # -> data/processed/species_filtered.csv, metadata_clean.csv
+python3 scripts/merge_pathways.py        # -> data/raw/pathway_abundance.csv (required by train_joint.py)
+python3 scripts/validate_pathways.py     # sanity-checks the merged pathway matrix
+python3 scripts/filter_pathways.py       # -> data/processed/pathway_unstratified.csv (used by SHAP / adenoma)
+python3 scripts/add_covariates.py        # appends age/sex/BMI/country onto metadata_clean.csv
+python3 scripts/generate_table1.py       # -> results/table1.csv
+python3 scripts/adenoma_counts.py        # -> results/adenoma_counts_per_cohort.csv
 python3 scripts/train_baseline.py        # Species-only RF LODO
 python3 scripts/train_joint.py           # Joint RF + XGBoost LODO
 python3 scripts/auc_comparison.py        # DeLong tests
@@ -88,7 +98,7 @@ See `src/crc_lodo_bench/README.md` for the full API and a runnable example.
 |------|-------------|
 | `data/processed/species_filtered.csv` | 229 species features (post global filter, log10-transformed) |
 | `data/raw/pathway_abundance.csv` | Merged HUMAnN pathways (38,690 cols; 551 unstratified) -- input to per-fold filtering in train_joint.py |
-| `data/processed/pathway_unstratified.csv` | 403 pathways after the static global filter (used by SHAP / adenoma scripts only) |
+| `data/processed/pathway_unstratified.csv` | 401 pathways after the static global filter (HUMAnN `UNMAPPED` / `UNINTEGRATED` housekeeping totals are dropped; used by SHAP / adenoma scripts only) |
 | `results/preds_species_rf.csv` | Per-sample LODO predictions (species RF) |
 | `results/preds_joint_rf.csv` | Per-sample LODO predictions (joint RF) |
 | `results/preds_joint_xgb.csv` | Per-sample LODO predictions (joint XGBoost) |

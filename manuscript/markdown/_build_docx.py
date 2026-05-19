@@ -1,6 +1,6 @@
 """Build .docx files from the manuscript markdown sources.
 
-Reads:  /Users/alexvintera/Desktop/crc-metagenomics/manuscript/markdown/*.md
+Reads:  <repo>/manuscript/markdown/*.md
 Writes:
   - manuscript_complete.md  (concatenated)
   - CRC_Title_Page.docx
@@ -17,11 +17,16 @@ Writes:
 
 import os
 import re
+from pathlib import Path
+
 from docx import Document
 from docx.shared import Pt
 
-MD_DIR = "/Users/alexvintera/Desktop/crc-metagenomics/manuscript/markdown"
-OUT_DIR = "/Users/alexvintera/Desktop/crc-metagenomics/manuscript"
+# Resolve paths relative to this file so the script works for any collaborator
+# regardless of where the repo is cloned.
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+MD_DIR = str(_REPO_ROOT / "manuscript" / "markdown")
+OUT_DIR = str(_REPO_ROOT / "manuscript")
 
 SECTIONS = {
     "00_title.md": "CRC_Title_Page.docx",

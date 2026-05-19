@@ -150,7 +150,7 @@ Outputs:
 
 | File                                            | Size     | Notes |
 | ----------------------------------------------- | -------- | ----- |
-| `data/raw/metadata.csv`                         | ~150 KB  | 11 cohorts, ~1604 samples |
+| `data/raw/metadata.csv`                         | ~150 KB  | 11 cohorts in raw cMD pull (~1604 samples); 10 cohorts retained after depth filtering (1,522 unique subjects, 1,339 binary case/control predictions) |
 | `data/raw/species_abundance.csv`                | ~4 MB    | sample x species relative abundance |
 | `data/raw/pathway_chunks/*.csv` (11 files)      | ~150 MB total | per-cohort HUMAnN pathway exports |
 
@@ -277,7 +277,7 @@ python3 scripts/seed_sensitivity.py      # ~15-20 min; 5 seeds x full species LO
 
 python3 scripts/sensitivity_analysis.py  # ~30-45 min; 20-cell joint-RF LODO grid (20 x ~2 min)
                                          # outputs: results/sensitivity_thresholds.csv
-                                         # expect:  joint RF mean per-cohort AUC range 0.794-0.812
+                                         # expect:  joint RF mean per-cohort AUC range 0.781-0.835 (full-grid spread 0.055)
                                          # REQUIRES: data/raw/pathway_abundance.csv
 
 python3 scripts/confounder_adjustment.py # ~10-15 min; 4-cell {direct, residualized} x {RF, XGB} LODO
@@ -341,6 +341,42 @@ spread; metadata class counts (CRC=674 / control=665 / adenoma=183) and
 cohort count (10).
 
 If any assertion fails, the script prints `FAIL: <check name>` and exits 1.
+
+---
+
+## Cloud / strain pivot preparation
+
+The current `data/raw/metadata.csv` does **not** carry SRA/ENA accession
+columns, which means there is no sample_id -> SRR/ERR mapping in the repo
+and a strain- or gene-level re-analysis from raw FASTQs is blocked. To
+unblock that path:
+
+1. **Re-run `scripts/export_data.R` after the SRA-column patch.** The
+   `keep_cols` vector now retains `NCBI_accession`, `subject_id`,
+   `study_full_name`, `PMID`, and `DNA_extraction_kit` in addition to the
+   original 9 columns. (See the NOTE at the top of `scripts/export_data.R`.)
+   This step requires R + Bioconductor + network access, exactly like the
+   step 2 export above; budget ~10-15 min and ~2 GB of ExperimentHub
+   download if the cache is cold.
+2. **This will produce `data/raw/metadata.csv` with the `NCBI_accession`
+   column** (per-sample SRR/ERR/DRR accession) alongside the existing
+   sample-level metadata. Verify with
+   `head -1 data/raw/metadata.csv | tr ',' '\n' | grep -i accession`.
+3. **From there, generate `data/raw/sra_manifest.csv`** mapping
+   `sample_id -> NCBI_accession (SRR/ERR/DRR) -> study PRJ (BioProject)
+   accession`. The BioProject accession can be looked up from
+   `study_full_name` / `PMID` via the SRA Entrez API or a one-off curl of
+   `https://www.ebi.ac.uk/ena/browser/api/xml/<SRR_id>`; cache the lookup
+   so subsequent FASTQ pulls do not hammer ENA.
+4. **That manifest is the input to any cloud-based FASTQ download** (e.g.
+   `prefetch` / `fasterq-dump` against the SRR list, `wget` against ENA's
+   FTP paths derived from the SRR prefix, or an AWS Open Data
+   `s3://sra-pub-run-odp/` pull). Without `sra_manifest.csv` the cloud
+   workflow has no input.
+
+`data/raw/sra_manifest.csv` is **not** required for `verify_results.py`
+or any of the existing taxonomic / pathway analyses; it is purely the
+entry point for a future raw-read re-analysis.
 
 ---
 

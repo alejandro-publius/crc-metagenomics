@@ -8,6 +8,13 @@
 # Output: data/raw/species_abundance.csv
 #         data/raw/pathway_chunks/*.csv  (pathway data in per-cohort chunks)
 #         data/raw/metadata.csv
+#
+# NOTE (2026-05-18): The keep_cols vector was extended to include SRA accession
+# (NCBI_accession), subject_id, study_full_name, PMID, and DNA_extraction_kit
+# to unblock raw-FASTQ retrieval and subject-level auditing. After these edits,
+# rerun this script to regenerate data/raw/metadata.csv with the SRA accession
+# columns. Until then, raw FASTQ pull from SRA/ENA is blocked because no
+# sample_id -> SRR/ERR mapping is available anywhere in the repo.
 
 # ── Install / load packages ──────────────────────────────────
 if (!require("BiocManager", quietly = TRUE))
@@ -41,9 +48,21 @@ study_cohorts <- c(
 crc_meta <- crc_meta[crc_meta$study_name %in% study_cohorts, ]
 
 # Keep useful columns
+# NCBI_accession, subject_id, study_full_name, PMID, and DNA_extraction_kit
+# are retained so that (a) we can pull raw FASTQs from SRA/ENA for any
+# strain- or gene-level re-analysis (NCBI_accession is the per-sample SRR/ERR
+# accession; without it, sample_id -> raw-read mapping is impossible), and
+# (b) we can audit subject-vs-sample uniqueness per cohort -- this matters
+# especially for YachidaS_2019, where current subject-level coverage sits at
+# only ~50% and we cannot tell from study_name + sample_id alone whether
+# duplicate subjects are being counted as independent samples. PMID and
+# study_full_name make the per-sample provenance audit self-contained, and
+# DNA_extraction_kit is needed for batch/extraction-protocol confounder checks.
 keep_cols <- c("sample_id", "study_name", "study_condition",
                "age", "gender", "BMI", "country",
-               "sequencing_platform", "number_reads")
+               "sequencing_platform", "number_reads",
+               "NCBI_accession", "subject_id", "study_full_name",
+               "PMID", "DNA_extraction_kit")
 keep_cols <- keep_cols[keep_cols %in% colnames(crc_meta)]
 crc_meta <- crc_meta[, keep_cols]
 

@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
 .DS_Store
+*.egg-info
 *.egg-info/
 .ipynb_checkpoints/
 .pytest_cache/
@@ -10,3 +11,27 @@ data/raw/pathway_chunks/
 data/raw/species_chunks/
 .RData
 .Rhistory
+
+# Coverage / test artifacts
+.coverage
+htmlcov/
+
+# Build / packaging
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+
+# Editor / IDE
+*.swp
+.idea/
+.vscode/
+
+# Type / lint caches
+.mypy_cache/
+.ruff_cache/
+
+# Local Python pin
+.python-version
