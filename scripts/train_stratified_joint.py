@@ -50,9 +50,11 @@ def load_data(prevalence_threshold: float, mean_threshold: float) -> tuple[pd.Da
     print(f"Species features: {len(species_cols)}")
     print(f"Stratified pathway features (raw): {len(pathway_cols)}")
 
-    # Apply same log10 transform as community pathway pipeline for stratified
-    # (stratified abundances are also relative — use log10(x + 1e-6))
-    stratified[pathway_cols] = np.log10(stratified[pathway_cols] + 1e-6).astype(np.float32)
+    # Do NOT log-transform yet — the per-fold filter uses (x > 0).mean() to
+    # compute prevalence, which breaks if zeros are mapped to -6. Filter on raw
+    # values first; the LODO models (RF, XGB) are scale-invariant and don't need
+    # the log transform for prediction.
+    stratified[pathway_cols] = stratified[pathway_cols].astype(np.float32)
 
     # Inner-merge on sample_id; metadata defines the case/control universe
     df = metadata.merge(species, on="sample_id", how="inner").merge(
@@ -60,6 +62,7 @@ def load_data(prevalence_threshold: float, mean_threshold: float) -> tuple[pd.Da
     )
     df = df[df["study_condition"].isin(["CRC", "control"])].copy()
     df["label"] = (df["study_condition"] == "CRC").astype(int)
+    df = df.reset_index(drop=True)  # 0..n-1 positional alignment for X/y/metadata
     print(f"After CRC/control filter + species join: {len(df)} samples")
 
     X = df[species_cols + pathway_cols].astype(np.float32)
@@ -125,19 +128,26 @@ def main():
     pred_rows_rf = []
     pred_rows_xgb = []
 
+    # Save predictions inline via the package option
     print("\nRunning RF...")
     rf_results = run_lodo_cv(
         make_rf_factory(args.seed), X, y, md,
         country_col="country",
         cohort_col="study_name",
         feature_filter_fn=feat_filter,
+        save_predictions_path=str(REPO / "results" / "preds_stratified_joint_rf.csv"),
     )
-    rf_per_cohort = pd.DataFrame(rf_results["per_cohort"])
-    print(f"RF mean per-cohort AUC: {rf_per_cohort['auc'].mean():.4f}")
-    for r in rf_results["per_cohort"]:
-        results_rows.append({"model": "rf", **r})
-    for r in rf_results["predictions"]:
-        pred_rows_rf.append(r)
+    print(f"RF mean per-cohort AUC: {rf_results['mean_auc']:.4f} +/- {rf_results['std_auc']:.4f}")
+    for i, cohort in enumerate(rf_results["cohort"]):
+        results_rows.append({
+            "model": "rf",
+            "cohort": cohort,
+            "auc": rf_results["auc"][i],
+            "n_train": rf_results["n_train"][i],
+            "n_test": rf_results["n_test"][i],
+            "n_features": rf_results["n_features"][i],
+            "excluded_cohorts": ";".join(rf_results["excluded_cohorts"][i]),
+        })
 
     print("\nRunning XGB...")
     xgb_results = run_lodo_cv(
@@ -145,23 +155,27 @@ def main():
         country_col="country",
         cohort_col="study_name",
         feature_filter_fn=feat_filter,
+        save_predictions_path=str(REPO / "results" / "preds_stratified_joint_xgb.csv"),
     )
-    xgb_per_cohort = pd.DataFrame(xgb_results["per_cohort"])
-    print(f"XGB mean per-cohort AUC: {xgb_per_cohort['auc'].mean():.4f}")
-    for r in xgb_results["per_cohort"]:
-        results_rows.append({"model": "xgb", **r})
-    for r in xgb_results["predictions"]:
-        pred_rows_xgb.append(r)
+    print(f"XGB mean per-cohort AUC: {xgb_results['mean_auc']:.4f} +/- {xgb_results['std_auc']:.4f}")
+    for i, cohort in enumerate(xgb_results["cohort"]):
+        results_rows.append({
+            "model": "xgb",
+            "cohort": cohort,
+            "auc": xgb_results["auc"][i],
+            "n_train": xgb_results["n_train"][i],
+            "n_test": xgb_results["n_test"][i],
+            "n_features": xgb_results["n_features"][i],
+            "excluded_cohorts": ";".join(xgb_results["excluded_cohorts"][i]),
+        })
 
     # Save results
     out_dir = REPO / "results"
     pd.DataFrame(results_rows).to_csv(out_dir / "stratified_joint_results.csv", index=False)
-    pd.DataFrame(pred_rows_rf).to_csv(out_dir / "preds_stratified_joint_rf.csv", index=False)
-    pd.DataFrame(pred_rows_xgb).to_csv(out_dir / "preds_stratified_joint_xgb.csv", index=False)
 
     # Pooled AUC
-    rf_preds = pd.DataFrame(pred_rows_rf)
-    xgb_preds = pd.DataFrame(pred_rows_xgb)
+    rf_preds = pd.read_csv(out_dir / "preds_stratified_joint_rf.csv")
+    xgb_preds = pd.read_csv(out_dir / "preds_stratified_joint_xgb.csv")
     pooled_rf = roc_auc_score(rf_preds["y_true"], rf_preds["y_prob"])
     pooled_xgb = roc_auc_score(xgb_preds["y_true"], xgb_preds["y_prob"])
     print(f"\n=== POOLED AUC ===")
