@@ -69,5 +69,11 @@ pytest tests/ -v
 python3 scripts/verify_results.py
 ```
 
-CI runs the second command on every push and PR to `main` (see
-`.github/workflows/verify.yml`); a failure there blocks merging.
+CI is configured at `.github_local_only/workflows/verify.yml` (the
+canonical path is `.github/workflows/verify.yml`, but the file lives
+under `.github_local_only/` because the current push token lacks the
+`workflow` OAuth scope required by GitHub to mutate workflow files).
+To enable CI: regenerate the push token with `workflow` scope, then
+`mv .github_local_only/workflows/verify.yml .github/workflows/verify.yml`
+and push. Until then, contributors should run `pytest tests/` and
+`python3 scripts/verify_results.py` locally before pushing.
