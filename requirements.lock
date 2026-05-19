@@ -9,6 +9,7 @@ xgboost==2.0.3
 shap==0.44.1
 matplotlib==3.8.4
 scipy==1.12.0
+PyYAML==6.0.2
 
 # Per-fold ComBat batch correction (scripts/batch_correction.py only)
 combat==0.3.3
