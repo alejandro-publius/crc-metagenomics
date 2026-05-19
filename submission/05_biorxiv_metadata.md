@@ -51,7 +51,7 @@ soffice --headless --convert-to pdf manuscript/CRC_Manuscript_Complete.docx \
 
 ## Supplementary file
 Bundle `results/supplementary/*.csv` + `manuscript/Supplementary_Tables.docx`
-as a single ZIP. Reference S1-S10 in main text.
+as a single ZIP. Reference S1 through S11 plus S8b in main text.
 
 ## Figures
 Upload as separate high-resolution files

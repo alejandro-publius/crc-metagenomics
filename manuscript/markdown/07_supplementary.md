@@ -18,7 +18,7 @@ Values are mean ± SD unless otherwise indicated. Source: `results/table1.csv`.
 | ZellerG_2014 | FRA | 156 | 53 | 42 | 61 | 63.3 ± 10.9 | 44.2% | 25.3 ± 4.2 |
 | **TOTAL** | — | **1,522** | **674** | **183** | **665** | **62.2 ± 11.4** | **40.1%** | **24.2 ± 4.0** |
 
-HanniganGD_2017 was excluded a priori for low sequencing depth (mean 6.5M reads vs per-cohort means of 9.2M for GuptaA_2019 to 102M for ThomasAM_2018a in the retained 10-cohort set, all others >40M) and 82% species feature sparsity; the exclusion was specified before any classifier training (`scripts/preprocessing.py`, `EXCLUDE_COHORTS`).
+HanniganGD_2017 was excluded a priori for low sequencing depth (median 8.7M reads vs per-cohort medians of 39.4M for ThomasAM_2018b to 83.4M for ThomasAM_2018a in the retained 10-cohort set, all others above 40M; `results/supplementary/S1_cohort_overview.csv`) and 82% species feature sparsity; the exclusion was specified before any classifier training (`scripts/preprocessing.py`, `EXCLUDE_COHORTS`).
 
 ---
 
@@ -28,26 +28,26 @@ Each row reports one country-aware LODO run (10 folds, 1,339 case/control sample
 
 | Prevalence | Mean abundance | Pathways retained (mean) | Total features (mean) | Mean per-cohort AUC | SD across folds |
 |---|---|---|---|---|---|
-| ≥ 0.05 | ≥ 1e-7 | 436.9 | 665.9 | 0.794 | 0.065 |
-| ≥ 0.05 | ≥ 1e-6 | 405.2 | 634.2 | 0.806 | 0.059 |
-| ≥ 0.05 | ≥ 1e-5 | 308.6 | 537.6 | 0.805 | 0.066 |
-| ≥ 0.05 | ≥ 1e-4 | 141.7 | 370.7 | 0.812 | 0.067 |
-| ≥ 0.05 | ≥ 1e-3 | 2.0 | 231.0 | 0.810 | 0.064 |
-| ≥ 0.10 | ≥ 1e-7 | 422.9 | 651.9 | 0.799 | 0.067 |
-| ≥ 0.10 | ≥ 1e-6 | 404.3 | 633.3 | 0.804 | 0.066 |
-| ≥ 0.10 | ≥ 1e-5 | 308.6 | 537.6 | 0.805 | 0.066 |
-| ≥ 0.10 | ≥ 1e-4 | 141.7 | 370.7 | 0.812 | 0.067 |
-| ≥ 0.10 | ≥ 1e-3 | 2.0 | 231.0 | 0.810 | 0.064 |
-| ≥ 0.15 | ≥ 1e-7 | 403.4 | 632.4 | 0.800 | 0.065 |
-| ≥ 0.15 | ≥ 1e-6 | 393.8 | 622.8 | 0.803 | 0.063 |
-| ≥ 0.15 | ≥ 1e-5 | 308.6 | 537.6 | 0.805 | 0.066 |
-| ≥ 0.15 | ≥ 1e-4 | 141.7 | 370.7 | 0.812 | 0.067 |
-| ≥ 0.15 | ≥ 1e-3 | 2.0 | 231.0 | 0.810 | 0.064 |
-| ≥ 0.20 | ≥ 1e-7 | 387.1 | 616.1 | 0.801 | 0.064 |
-| ≥ 0.20 | ≥ 1e-6 | 382.4 | 611.4 | 0.798 | 0.065 |
-| ≥ 0.20 | ≥ 1e-5 | 308.6 | 537.6 | 0.805 | 0.066 |
-| ≥ 0.20 | ≥ 1e-4 | 141.7 | 370.7 | 0.812 | 0.067 |
-| ≥ 0.20 | ≥ 1e-3 | 2.0 | 231.0 | 0.810 | 0.064 |
+| ≥ 0.05 | ≥ 1e-7 | 438.6 | 667.6 | 0.796 | 0.089 |
+| ≥ 0.05 | ≥ 1e-6 | 405.4 | 634.4 | 0.791 | 0.091 |
+| ≥ 0.05 | ≥ 1e-5 | 318.4 | 547.4 | 0.784 | 0.090 |
+| ≥ 0.05 | ≥ 1e-4 | 151.8 | 380.8 | 0.828 | 0.072 |
+| ≥ 0.05 | ≥ 1e-3 | 2.0 | 231.0 | 0.835 | 0.054 |
+| ≥ 0.10 | ≥ 1e-7 | 420.2 | 649.2 | 0.789 | 0.082 |
+| ≥ 0.10 | ≥ 1e-6 | 403.0 | 632.0 | 0.788 | 0.089 |
+| ≥ 0.10 | ≥ 1e-5 | 318.4 | 547.4 | 0.784 | 0.090 |
+| ≥ 0.10 | ≥ 1e-4 | 151.8 | 380.8 | 0.828 | 0.072 |
+| ≥ 0.10 | ≥ 1e-3 | 2.0 | 231.0 | 0.835 | 0.054 |
+| ≥ 0.15 | ≥ 1e-7 | 402.0 | 631.0 | 0.793 | 0.092 |
+| ≥ 0.15 | ≥ 1e-6 | 392.4 | 621.4 | 0.781 | 0.093 |
+| ≥ 0.15 | ≥ 1e-5 | 318.4 | 547.4 | 0.784 | 0.090 |
+| ≥ 0.15 | ≥ 1e-4 | 151.8 | 380.8 | 0.828 | 0.072 |
+| ≥ 0.15 | ≥ 1e-3 | 2.0 | 231.0 | 0.835 | 0.054 |
+| ≥ 0.20 | ≥ 1e-7 | 384.2 | 613.2 | 0.791 | 0.091 |
+| ≥ 0.20 | ≥ 1e-6 | 379.0 | 608.0 | 0.784 | 0.091 |
+| ≥ 0.20 | ≥ 1e-5 | 318.4 | 547.4 | 0.784 | 0.090 |
+| ≥ 0.20 | ≥ 1e-4 | 151.8 | 380.8 | 0.828 | 0.072 |
+| ≥ 0.20 | ≥ 1e-3 | 2.0 | 231.0 | 0.835 | 0.054 |
 
 ---
 

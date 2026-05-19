@@ -39,9 +39,9 @@ Background. Shotgun gut metagenomic classifiers can discriminate colorectal canc
 
 Methods. We assembled 1,522 stool metagenomes from ten publicly available CRC case-control cohorts (674 CRC, 665 controls, 183 adenomas) via curatedMetagenomicData; HanniganGD_2017 was excluded a priori for low sequencing depth. MetaPhlAn species (229 features) and unstratified HUMAnN pathway abundances (402-406 features per fold) were compared under country-aware leave-one-dataset-out (LODO) cross-validation. Three classifiers were tested: species-only Random Forest (RF), joint species-plus-pathway RF, and joint XGBoost. Discrimination was compared with the DeLong test on pooled held-out predictions, complemented by per-cohort paired tests; 95% CIs came from 10,000-iteration cohort-stratified bootstrap.
 
-Results. Species-only RF reached a per-cohort mean LODO AUC of 0.807 +/- 0.065 and a pooled AUC of 0.781 (95% CI 0.757-0.805), significantly outperforming joint RF (0.756, 0.731-0.781; DeLong z = 3.35, p = 0.0008) and joint XGBoost (0.766, 0.740-0.791; z = 2.00, p = 0.046). Results were stable across five seeds (0.807-0.811), a 20-cell pathway-threshold grid (0.794-0.812), and demographic adjustment (0.800-0.814). Cross-cohort adenoma LODO (n = 183) gave near-chance healthy-vs-adenoma AUCs (RF 0.561, XGB 0.579) and moderate adenoma-vs-CRC AUCs (RF 0.671, XGB 0.617).
+Results. Species-only RF reached a per-cohort mean LODO AUC of 0.807 +/- 0.065 and a pooled AUC of 0.781 (95% CI 0.757-0.805), modestly outperforming joint RF (0.756, 0.731-0.781; DeLong z = 3.35, p = 0.0008) and joint XGBoost (0.766, 0.740-0.791; z = 2.00, p = 0.046); the pooled ΔAUC is ≈0.02 and the DeLong signal is concentrated in the YachidaS_2019 fold (n_test = 508). Results were stable across five seeds (0.807-0.811), a 20-cell pathway-threshold grid (0.781-0.835, spread 0.055), and demographic adjustment (0.800-0.814). Cross-cohort adenoma LODO (n = 183, n_folds = 4) gave a null result for healthy-vs-adenoma (RF 0.561, XGB 0.579) and only modest above-chance adenoma-vs-CRC AUCs (RF 0.671, XGB 0.617); these are underpowered and hypothesis-generating.
 
-Conclusions. At current cross-cohort sample sizes, species-level taxonomic features alone provide superior CRC classification compared to joint species-plus-pathway models; adding pathways increases dimensionality without proportional signal gain.
+Conclusions. At current cross-cohort sample sizes, species-level taxonomic features alone marginally outperform joint species-plus-pathway models on pooled CRC discrimination, with the small pooled ΔAUC driven primarily by one large fold; adding pathways increases dimensionality without proportional signal gain.
 ```
 
 Word count: **~241 words** (under the 250-word cap).
@@ -162,7 +162,7 @@ Upload PDFs (vector) where available; PNGs (>=300 DPI) as fallback.
 ## 16. Supplementary materials
 
 Bundle as a single ZIP:
-- All of `results/supplementary/*.csv` (S1-S10).
+- All of `results/supplementary/*.csv` (S1 through S11 plus S8b).
 - `manuscript/Supplementary_Tables.docx`.
 - `manuscript/markdown/07_supplementary.md` (optional, as plain-text
   reference).

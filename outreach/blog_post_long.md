@@ -24,7 +24,7 @@ Then I ran the standard leave-one-dataset-out (LODO) cross-validation: train on 
 
 ## The country-aware LODO discovery — the part I'm proudest of
 
-The first round of results looked great. A species-only Random Forest hit a mean per-cohort AUC north of 0.85, and one specific cohort — ThomasAM_2019_c, a Japanese cohort — came in at AUC 0.998. Near perfect.
+The first round of results looked great. A species-only Random Forest hit per-cohort AUCs around 0.81 on average (pooled AUC about 0.78; see `results/baseline_results.csv` and `results/bootstrap_ci.csv`), and one specific cohort — ThomasAM_2019_c, a Japanese cohort — came in at AUC 0.998. Near perfect.
 
 Anything that looks near-perfect on real biological data should make you nervous.
 
@@ -41,7 +41,7 @@ This sounds like a small fix, but I think it should be standard. Microbiome meta
 
 The other thing I expected to find was that adding functional pathway features — what the bacteria are *doing* metabolically — would improve the model. The biology is compelling: short-chain fatty acid producers, polyamine producers, sulfur metabolism, LPS biosynthesis, all have plausible mechanistic links to colon biology.
 
-So I built joint species-plus-pathway models, with both Random Forest and XGBoost. I tried per-fold filtering. I tried a biologically-curated 84-pathway shortlist hand-selected for CRC-relevant biology. I tried ComBat batch correction. I tried residualizing on age, sex, and BMI.
+So I built joint species-plus-pathway models, with both Random Forest and XGBoost. I tried per-fold filtering. I tried a biologically-curated 86-pathway shortlist (across 9 CRC-relevant functional groups) hand-selected for CRC-relevant biology. I tried ComBat batch correction. I tried residualizing on age, sex, and BMI.
 
 The joint models were consistently a little worse than the species-only model. Pooled AUC 0.756 (joint RF) vs 0.781 (species RF). Even the biologically-curated shortlist barely matched the species baseline.
 

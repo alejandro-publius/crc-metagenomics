@@ -24,9 +24,9 @@ Alejandro Velazquez^1,\*^, Rachel Selbrede^2^
 
 **Methods.** We assembled 1,522 stool metagenomes from ten publicly available CRC case-control cohorts (674 CRC, 665 controls, 183 adenomas) accessed through curatedMetagenomicData. HanniganGD_2017 was excluded a priori for low sequencing depth. MetaPhlAn species (229 features after a 10% prevalence / 1e-4 mean filter and log10(x + 1e-6) transform) and unstratified HUMAnN pathway abundances (551 candidate pathways, refiltered per fold at prevalence ≥ 10% and mean ≥ 1e-6, retaining 402–406 features) were compared under country-aware leave-one-dataset-out (LODO) cross-validation. Three classifiers were evaluated: species-only Random Forest (RF), joint species-plus-pathway RF, and joint XGBoost. Classifier discrimination was compared using the DeLong test (Sun and Xu 2014) on pooled held-out predictions, complemented by per-cohort paired t-tests and Wilcoxon signed-rank tests. 95% confidence intervals were derived from 10,000-iteration cohort-stratified bootstrap resampling.
 
-**Results.** The species-only RF achieved a per-cohort mean LODO AUC of 0.807 ± 0.065 (`results/baseline_results.csv`) and a pooled AUC of 0.781 (95% CI 0.757–0.805; `results/bootstrap_ci.csv`). On pooled discrimination, species-only outperformed the joint RF (pooled AUC 0.756, 95% CI 0.731–0.781; DeLong z = 3.35, p = 0.0008) and the joint XGBoost (pooled AUC 0.766, 95% CI 0.740–0.791; z = 2.00, p = 0.046; `results/delong_results.csv`). Per-cohort paired tests on the same comparisons did not reach significance (t-test p = 0.87 and 0.28; `results/model_comparison.csv`), consistent with limited power at n = 10 folds. Results were stable across five random seeds (mean per-cohort AUC 0.810 ± 0.002, range 0.807–0.811; `results/seed_sensitivity.csv`), a 20-cell pathway-threshold sensitivity grid (0.781–0.835, spread 0.055; `results/sensitivity_thresholds.csv`), and demographic adjustment for age, sex, and BMI (0.800–0.814; `results/confounder_results.csv`). Cross-cohort adenoma LODO across the four adenoma-containing cohorts (n = 183) yielded near-chance discrimination for healthy-vs-adenoma (RF 0.561, XGB 0.579) and moderate discrimination for adenoma-vs-CRC (RF 0.671, XGB 0.617; `results/adenoma_lodo_results.csv`), consistent with a stepwise oral-pathobiont enrichment along the adenoma-carcinoma sequence.
+**Results.** The species-only RF achieved a per-cohort mean LODO AUC of 0.807 ± 0.065 (`results/baseline_results.csv`) and a pooled AUC of 0.781 (95% CI 0.757–0.805; `results/bootstrap_ci.csv`). On pooled discrimination, species-only modestly outperformed the joint RF (pooled AUC 0.756, 95% CI 0.731–0.781; DeLong z = 3.35, p = 0.0008) and the joint XGBoost (pooled AUC 0.766, 95% CI 0.740–0.791; z = 2.00, p = 0.046; `results/delong_results.csv`); the absolute pooled ΔAUC is ≈0.02 and the DeLong signal is concentrated in the YachidaS_2019 fold (n_test = 508). Per-cohort paired tests on the same comparisons did not reach significance (t-test p = 0.87 and 0.28; `results/model_comparison.csv`), consistent with limited power at n = 10 folds. Results were stable across five random seeds (mean per-cohort AUC 0.810 ± 0.002, range 0.807–0.811; `results/seed_sensitivity.csv`), a 20-cell pathway-threshold sensitivity grid (0.781–0.835, spread 0.055; `results/sensitivity_thresholds.csv`), and demographic adjustment for age, sex, and BMI (0.800–0.814; `results/confounder_results.csv`). Cross-cohort adenoma LODO across the four adenoma-containing cohorts (n = 183) gave a null result for healthy-vs-adenoma (RF 0.561, XGB 0.579) and only modest above-chance discrimination for adenoma-vs-CRC (RF 0.671, XGB 0.617; `results/adenoma_lodo_results.csv`); these estimates are underpowered at n_folds = 4 and should be read as hypothesis-generating.
 
-**Conclusions.** At current cross-cohort sample sizes, species-level taxonomic features alone provide superior CRC classification compared to joint species-plus-pathway models; adding pathway features increases dimensionality without proportional signal gain. The findings support parsimonious species-level classifiers for microbiome-based CRC screening and highlight the importance of formal statistical comparison and systematic robustness evaluation in metagenomic classification studies.
+**Conclusions.** At current cross-cohort sample sizes, species-level taxonomic features alone marginally outperform joint species-plus-pathway models on pooled CRC discrimination, with the small pooled ΔAUC driven primarily by one large fold (YachidaS_2019); adding pathway features increases dimensionality without proportional signal gain. The findings support parsimonious species-level classifiers as a defensible default for microbiome-based CRC analyses and highlight the importance of formal statistical comparison and systematic robustness evaluation in metagenomic classification studies.
 
 
 ---
@@ -54,7 +54,7 @@ Here we revisit the Thomas et al. (2019) framework with three objectives. First,
 
 We performed a multi-cohort classification study to evaluate the discriminative capacity of gut metagenomic features for colorectal cancer (CRC) detection, extending the analytical framework of Thomas et al. (2019). Uniformly processed shotgun metagenomic profiles were obtained from the curatedMetagenomicData Bioconductor resource (Pasolli et al. 2017) using the `returnSamples()` function in R. Exact R, Bioconductor, and curatedMetagenomicData versions used for data extraction are recorded in the repository's `session_info.txt`.
 
-Ten cohorts were retained for analysis: FengQ_2015 (Austria), GuptaA_2019 (India), ThomasAM_2018a (Italy), ThomasAM_2018b (Italy), ThomasAM_2019_c (Japan), VogtmannE_2016 (USA), WirbelJ_2018 (Germany), YachidaS_2019 (Japan), YuJ_2015 (China), and ZellerG_2014 (France). HanniganGD_2017 was excluded a priori based on a pre-specified, classifier-blind quality assessment: mean sequencing depth of 6.5M reads (range 17K–21M) was substantially below all other cohorts (per-cohort mean depth in the retained 10-cohort set ranges from 9.2M for GuptaA_2019 to 102M for ThomasAM_2018a; all other retained cohorts >40M) and species feature sparsity was 82% versus a 61% mean across other cohorts. An additional per-sample minimum of 1M reads removed four extreme outliers. The final dataset contained 1,522 unique subjects (674 CRC, 665 healthy controls, 183 adenomas); subject identity was audited to confirm that no individual appeared in more than one cohort. The metadata `study_condition` field uses the value `control` (not `healthy`); we use "control" throughout for samples coded as such. Demographic characteristics (age, sex, BMI) were extracted from sample metadata (Table 1).
+Ten cohorts were retained for analysis: FengQ_2015 (Austria), GuptaA_2019 (India), ThomasAM_2018a (Italy), ThomasAM_2018b (Italy), ThomasAM_2019_c (Japan), VogtmannE_2016 (USA), WirbelJ_2018 (Germany), YachidaS_2019 (Japan), YuJ_2015 (China), and ZellerG_2014 (France). HanniganGD_2017 was excluded a priori based on a pre-specified, classifier-blind quality assessment: median sequencing depth of 8.7M reads was substantially below all other cohorts (per-cohort median depth in the retained 10-cohort set ranges from 39.4M for ThomasAM_2018b to 83.4M for ThomasAM_2018a, with all retained cohorts above 39M; `results/supplementary/S1_cohort_overview.csv`) and species feature sparsity was 82% versus a 61% mean across other cohorts. An additional per-sample minimum of 1M reads removed four extreme outliers. The final dataset contained 1,522 unique subjects (674 CRC, 665 healthy controls, 183 adenomas); subject identity was audited to confirm that no individual appeared in more than one cohort. The metadata `study_condition` field uses the value `control` (not `healthy`); we use "control" throughout for samples coded as such. Demographic characteristics (age, sex, BMI) were extracted from sample metadata (Table 1).
 
 ## Feature extraction and preprocessing
 
@@ -155,12 +155,14 @@ TreeSHAP analysis of the joint RF identified *Gemella morbillorum*, *Parvimonas 
 
 ## Adenoma classification along the adenoma-carcinoma sequence
 
-Cross-cohort LODO across the four adenoma-containing cohorts (FengQ_2015, YachidaS_2019, ZellerG_2014, ThomasAM_2018a; total n = 183) produced markedly different performance for the two stages of the adenoma-carcinoma sequence (Figure 4):
+Cross-cohort LODO across the four adenoma-containing cohorts (FengQ_2015, YachidaS_2019, ZellerG_2014, ThomasAM_2018a; total n = 183) gave the following results (Figure 4):
 
-- **Control vs adenoma (H-vs-A):** mean LODO AUC 0.561 (RF) and 0.579 (XGBoost) — near chance (`results/adenoma_lodo_results.csv`, rows `h_vs_a_rf`, `h_vs_a_xgb`).
-- **Adenoma vs CRC (A-vs-CRC):** mean LODO AUC 0.671 (RF) and 0.617 (XGBoost) — moderate above-chance discrimination (`results/adenoma_lodo_results.csv`, rows `a_vs_crc_rf`, `a_vs_crc_xgb`).
+- **Control vs adenoma (H-vs-A):** mean LODO AUC 0.561 (RF) and 0.579 (XGBoost), a null result indistinguishable from chance (`results/adenoma_lodo_results.csv`, rows `h_vs_a_rf`, `h_vs_a_xgb`).
+- **Adenoma vs CRC (A-vs-CRC):** mean LODO AUC 0.671 (RF) and 0.617 (XGBoost) — modest above-chance discrimination (`results/adenoma_lodo_results.csv`, rows `a_vs_crc_rf`, `a_vs_crc_xgb`).
 
-TreeSHAP rankings parallel this pattern. The H-vs-A classifier (Figure 4A) emphasizes metabolic-pathway and commensal-depletion features (e.g., PWY-5994 palmitate biosynthesis, *Eubacterium eligens*, PANTO-PWY pantothenate biosynthesis, *Collinsella intestinalis*), none of which constitutes a strong, reproducible cross-cohort signal. The CRC-vs-control (Figure 4B) and A-vs-CRC (Figure 4C) classifiers, by contrast, are both dominated by the same four oral pathobionts that top the main CRC analysis (*Peptostreptococcus stomatis*, *Parvimonas micra*, *Gemella morbillorum*, *Fusobacterium nucleatum*). The reordering of top features between the H-vs-A and A-vs-CRC tasks is consistent with a stepwise oral-pathobiont enrichment during malignant transformation and supports treating adenoma and CRC as biologically distinct microbiome states rather than two points on a smooth severity gradient.
+These adenoma estimates are underpowered: n = 183 adenoma samples across 4 heterogeneous cohorts (n_folds = 4) provides limited resolving power for cross-cohort discrimination at effect sizes below AUC ≈ 0.65, so the H-vs-A AUC of 0.561 should be read as "no detectable cross-cohort signal at this sample size" rather than as positive evidence of biological equivalence between adenoma and control microbiomes.
+
+TreeSHAP rankings parallel this pattern. The H-vs-A classifier (Figure 4A) emphasizes metabolic-pathway and commensal-depletion features (e.g., PWY-5994 palmitate biosynthesis, *Eubacterium eligens*, PANTO-PWY pantothenate biosynthesis, *Collinsella intestinalis*), none of which constitutes a strong, reproducible cross-cohort signal. The CRC-vs-control (Figure 4B) and A-vs-CRC (Figure 4C) classifiers, by contrast, are both dominated by the same four oral pathobionts that top the main CRC analysis (*Peptostreptococcus stomatis*, *Parvimonas micra*, *Gemella morbillorum*, *Fusobacterium nucleatum*). The reordering of top features between the H-vs-A and A-vs-CRC tasks is consistent with prior literature suggesting stepwise oral-pathobiont enrichment along the adenoma-carcinoma sequence; this descriptive pattern should not be over-interpreted given the H-vs-A null result and the limited per-cohort sample sizes.
 
 ## Figure legends
 
@@ -177,11 +179,11 @@ TreeSHAP rankings parallel this pattern. The H-vs-A classifier (Figure 4A) empha
 
 # Discussion
 
-We re-evaluated the Thomas et al. (2019) multi-cohort CRC classification framework on an expanded set of 10 curatedMetagenomicData cohorts (1,522 subjects; 1,339 case/control samples), applying country-aware LODO, per-fold pathway filtering, formal DeLong-based classifier comparison, and a systematic robustness battery. Our central finding is that **species-level taxonomic features alone provide better cross-cohort CRC classification than joint species-plus-pathway models** at current sample sizes: pooled DeLong z = 3.35, p = 0.0008 versus the joint Random Forest, and z = 2.00, p = 0.046 versus the joint XGBoost (`results/delong_results.csv`). The species-only baseline was stable across random seeds, pathway-filter thresholds, demographic adjustment, and per-fold ComBat batch correction.
+We re-evaluated the Thomas et al. (2019) multi-cohort CRC classification framework on an expanded set of 10 curatedMetagenomicData cohorts (1,522 subjects; 1,339 case/control samples), applying country-aware LODO, per-fold pathway filtering, formal DeLong-based classifier comparison, and a systematic robustness battery. Our central finding is that **species-level taxonomic features alone modestly outperform joint species-plus-pathway models on pooled cross-cohort CRC discrimination** at current sample sizes: pooled DeLong z = 3.35, p = 0.0008 versus the joint Random Forest, and z = 2.00, p = 0.046 versus the joint XGBoost (`results/delong_results.csv`). The pooled ΔAUC is small (≈0.02) and the DeLong signal is concentrated in the YachidaS_2019 fold (n_test = 508), so the substantive claim is non-improvement of pathways rather than a large absolute species advantage. The species-only baseline was stable across random seeds, pathway-filter thresholds, demographic adjustment, and per-fold ComBat batch correction.
 
 ## Negative result on pathways is consistent with over-parameterization
 
-The joint species-plus-pathway model adds roughly 400 community-level pathway features to the 229 retained species without improving per-fold AUC and significantly degrades pooled discrimination relative to the species-only baseline (DeLong z = 3.35, p = 0.0008 for joint RF; z = 2.00, p = 0.046 for joint XGBoost; n = 1,339; `results/delong_results.csv`). This pattern is consistent with the curse of dimensionality acting on a fixed-n problem: nearly tripling the feature count without a proportional gain in independent signal dilutes the probability that the most informative taxa are sampled at each split (`max_features = 'sqrt'` in Random Forest; `colsample_bytree = 0.8` in XGBoost). Pathway features are also highly correlated with the taxa that encode the corresponding genes — the four oral pathobionts that top the species SHAP rankings (*Fusobacterium nucleatum*, *Parvimonas micra*, *Peptostreptococcus stomatis*, *Gemella morbillorum*) collectively contribute to a wide swathe of unstratified pathways — so much of the apparent "functional" signal is already captured by the taxonomic features. The biologically-guided shortlist (~66 retained features per fold drawn from 9 CRC-relevant functional groups; mean LODO AUC 0.817; `results/bio_pathway_results.csv`) shows the same pattern: no rescue of the joint model. Strain- or gene-level features were not evaluated because curatedMetagenomicData does not distribute them at the depth required for a 10-cohort pooled analysis. This is consistent with the broader high-dimensional / low-sample-size literature (Bellman 1961; Trunk 1979): at n ≈ 1,300 across heterogeneous cohorts, parsimony wins. The result should be read as a statement about the current sample-size regime — and the granularity of features available from standard pipelines — rather than as a categorical claim that functional features can never help; with substantially larger pooled datasets (Piccinno et al. 2025), the noise contribution of additional features may diminish.
+The joint species-plus-pathway model adds roughly 400 community-level pathway features to the 229 retained species without improving per-fold AUC and significantly degrades pooled discrimination relative to the species-only baseline (DeLong z = 3.35, p = 0.0008 for joint RF; z = 2.00, p = 0.046 for joint XGBoost; n = 1,339; `results/delong_results.csv`). Adding ~400 pathway features to 229 species features doubled the feature space without improving cross-cohort signal, consistent with diminishing-returns regimes in high-dimensional biomedical classifiers. Mechanistically, nearly tripling the feature count without a proportional gain in independent signal dilutes the probability that the most informative taxa are sampled at each split (`max_features = 'sqrt'` in Random Forest; `colsample_bytree = 0.8` in XGBoost). Pathway features are also highly correlated with the taxa that encode the corresponding genes — the four oral pathobionts that top the species SHAP rankings (*Fusobacterium nucleatum*, *Parvimonas micra*, *Peptostreptococcus stomatis*, *Gemella morbillorum*) collectively contribute to a wide swathe of unstratified pathways — so much of the apparent "functional" signal is already captured by the taxonomic features. The biologically-guided shortlist (~66 retained features per fold drawn from 9 CRC-relevant functional groups; mean LODO AUC 0.817; `results/bio_pathway_results.csv`) shows the same pattern: no rescue of the joint model. Strain- or gene-level features were not evaluated because curatedMetagenomicData does not distribute them at the depth required for a 10-cohort pooled analysis. The result should be read as a statement about the current sample-size regime — and the granularity of features available from standard pipelines — rather than as a categorical claim that functional features can never help; with substantially larger pooled datasets (Piccinno et al. 2025), the noise contribution of additional features may diminish.
 
 TreeSHAP rankings on the species Random Forest agree closely with permutation-importance rankings on the same model: 16 of the top 20 species by TreeSHAP also appear in the top 20 by permutation importance (`results/diagnostics/permutation_vs_shap_correlation.csv`). Three of the four oral-pathobiont species (*Fusobacterium nucleatum*, *Peptostreptococcus stomatis*, *Gemella morbillorum*) retain top-four rank under both measures; *Parvimonas micra* ranks 2 by TreeSHAP and 12 by permutation, indicating lower individual model dependence but consistent inclusion in the top-importance band. Per-cohort SHAP rank does not correlate with cohort median sequencing depth for *F. nucleatum* (Spearman ρ = −0.19, p = 0.59, n = 10 cohorts; `results/diagnostics/depth_confound_shap.csv`). Two of the top 20 species show nominal depth-rank correlations before correction (*Eubacterium eligens* ρ = +0.65, p = 0.04; *Parabacteroides distasonis* ρ = −0.72, p = 0.02), but neither survives Bonferroni correction across the 20 tests and neither is one of the four oral-pathobiont features driving the headline signature. The oral-pathobiont signature is therefore not an artifact of TreeSHAP's bias toward high-cardinality features nor of cohort-level read depth.
 
@@ -195,9 +197,9 @@ Overall HUMAnN unstratified pathway abundances sit at an intermediate granularit
 
 The top SHAP features for the CRC-vs-control classifier are dominated by taxa more typical of the oral cavity than of the colon: *Fusobacterium nucleatum*, *Peptostreptococcus stomatis*, *Parvimonas micra*, *Gemella morbillorum*, *Solobacterium moorei*, and *Streptococcus salivarius*. *F. nucleatum* in particular has been mechanistically linked to CRC through FadA-mediated adhesion to E-cadherin, β-catenin signalling, and tumour-permissive immune modulation; the other taxa form part of a co-occurring oral consortium repeatedly observed in CRC tumours and stool. The same oral-bacterial taxa have been repeatedly observed in upper-gastrointestinal cancers and Barrett's esophagus, consistent with a broader pattern in which oral pathobionts colonise transformed gastrointestinal epithelium across anatomical sites. Their reproducibility across cohorts on three continents — at top SHAP ranks in both Random Forest and XGBoost despite very different splitting criteria — is the most convincing single observation in this analysis. It is also the feature signature that is most strongly associated with the moderate adenoma-vs-CRC performance, consistent with oral-pathobiont colonisation being more prevalent at the carcinoma stage than at the adenoma stage.
 
-## A stepwise model of microbiome change along the adenoma-carcinoma sequence
+## Cross-cohort adenoma classification: a null result and its interpretation
 
-The adenoma LODO results provide a coherent stage-specific picture. **Control vs adenoma** classification was near chance (RF 0.561, XGBoost 0.579; `results/adenoma_lodo_results.csv`), with TreeSHAP highlighting weak, heterogeneous metabolic and commensal-depletion features. **Adenoma vs CRC** classification was moderate (RF 0.671, XGBoost 0.617; `results/adenoma_lodo_results.csv`), with TreeSHAP dominated by the same oral-pathobiont signature observed in CRC-vs-control. This pattern is consistent with a model in which (i) the microbiome of early-stage adenoma is largely indistinguishable from healthy controls by global stool composition, and (ii) the oral-pathobiont enrichment is more prevalent at the carcinoma stage than at the adenoma stage in this cross-sectional sample. Such a model has clinical implications: stool metagenomic screens are unlikely to detect early adenomas at useful sensitivity, but may have value in distinguishing advanced lesions from carcinoma and in monitoring post-resection recurrence. It also reinforces that adenoma and CRC are biologically distinct microbiome states rather than two points on a smooth severity gradient.
+The adenoma LODO results are dominated by a single methodological constraint: n = 183 adenoma samples spread across 4 heterogeneous cohorts is underpowered for cross-cohort discrimination at effect sizes below AUC ≈ 0.65. **Control vs adenoma** classification was indistinguishable from chance (RF 0.561, XGBoost 0.579; `results/adenoma_lodo_results.csv`); we report this as a null result rather than a positive characterization of the adenoma microbiome. **Adenoma vs CRC** classification reached modest above-chance performance (RF 0.671, XGBoost 0.617; `results/adenoma_lodo_results.csv`), with TreeSHAP dominated by the same oral-pathobiont signature observed in CRC-vs-control. Taken together, the two adenoma comparisons are consistent with prior literature suggesting that the diagnostic oral-pathobiont signature is more prevalent at the carcinoma stage than at the adenoma stage, but the H-vs-A null prevents us from making any positive claim about adenoma-specific microbiome composition from this dataset. The clinical reading is correspondingly conservative: shotgun stool metagenomics at current sample sizes does not appear to recover a cross-cohort signal for adenoma detection, and any future evaluation will require substantially larger and more uniformly phenotyped adenoma cohorts before the question can be answered properly.
 
 ## Adenoma analysis: class-balance robustness
 
@@ -219,54 +221,50 @@ The 10 cohorts in this meta-analysis are geographically concentrated in Europe, 
 
 ## Position relative to current non-invasive screening
 
-The Fecal Immunochemical Test (FIT) remains the established non-invasive primary screening modality for colorectal cancer, with published per-test sensitivity of approximately 79% and specificity of approximately 94% (Imperiale et al. 2014). At population CRC prevalence of approximately 5%, FIT's positive predictive value is therefore considerably higher than a microbiome-based classifier operating at the AUC observed here (see `results/diagnostics/fit_vs_microbiome.csv`). The current data do not support a clinical role as a replacement for FIT. A complementary role — such as stratification of FIT-negative individuals at elevated baseline risk, or as a longitudinal monitoring substrate where serial sampling could in principle offset the per-test discrimination gap — is hypothetical and would require dedicated prospective evaluation in screening-age populations before any deployment claim can be made.
+The Fecal Immunochemical Test (FIT) remains the established non-invasive primary screening modality for colorectal cancer, with published per-test sensitivity of approximately 74% and specificity of approximately 94% (Imperiale et al. 2014). At population CRC prevalence of approximately 5%, FIT's positive predictive value is therefore considerably higher than a microbiome-based classifier operating at the AUC observed here (see `results/diagnostics/fit_vs_microbiome.csv`). The current data do not support a clinical role as a replacement for FIT. A complementary role — such as stratification of FIT-negative individuals at elevated baseline risk, or as a longitudinal monitoring substrate where serial sampling could in principle offset the per-test discrimination gap — is hypothetical and would require dedicated prospective evaluation in screening-age populations before any deployment claim can be made.
 
 ## Conclusion
 
-A species-only Random Forest classifier, trained under country-aware LODO across 10 curatedMetagenomicData cohorts (n = 1,339), outperforms joint species-plus-pathway Random Forest and XGBoost models on pooled discrimination (DeLong p = 0.0008 vs joint RF; p = 0.046 vs joint XGBoost), though per-cohort paired tests at n = 10 folds do not reach significance. This pattern is robust to random-seed variation, pathway-filter thresholds, demographic adjustment, and ComBat batch correction. The adenoma analysis supports a stepwise model in which the diagnostic oral-pathobiont signature emerges at or near malignant transformation rather than at the adenoma stage. All code, processed data, per-sample predictions, and decision logs are publicly available to enable replication and extension.
+A species-only Random Forest classifier, trained under country-aware LODO across 10 curatedMetagenomicData cohorts (n = 1,339), outperforms joint species-plus-pathway Random Forest and XGBoost models on pooled discrimination (DeLong p = 0.0008 vs joint RF; p = 0.046 vs joint XGBoost), though per-cohort paired tests at n = 10 folds do not reach significance. This pattern is robust to random-seed variation, pathway-filter thresholds, demographic adjustment, and ComBat batch correction. The cross-cohort adenoma analysis (n = 183 across 4 cohorts) returned a null result for healthy-vs-adenoma discrimination and only modest above-chance performance for adenoma-vs-CRC; both findings are underpowered and consistent with prior literature suggesting that oral-pathobiont enrichment is more prominent at the carcinoma stage. All code, processed data, per-sample predictions, and decision logs are publicly available to enable replication and extension.
 
 
 ---
 
 # References
 
-1. Bellman, R. *Adaptive Control Processes: A Guided Tour*. Princeton University Press (1961).
+1. Chen, T. & Guestrin, C. XGBoost: a scalable tree boosting system. In *Proc. 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining* 785–794 (ACM, 2016). https://doi.org/10.1145/2939672.2939785
 
-2. Chen, T. & Guestrin, C. XGBoost: a scalable tree boosting system. In *Proc. 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining* 785–794 (ACM, 2016). https://doi.org/10.1145/2939672.2939785
+2. DeLong, E.R., DeLong, D.M. & Clarke-Pearson, D.L. Comparing the areas under two or more correlated receiver operating characteristic curves: a nonparametric approach. *Biometrics* **44**, 837–845 (1988). https://doi.org/10.2307/2531595
 
-3. DeLong, E.R., DeLong, D.M. & Clarke-Pearson, D.L. Comparing the areas under two or more correlated receiver operating characteristic curves: a nonparametric approach. *Biometrics* **44**, 837–845 (1988). https://doi.org/10.2307/2531595
+3. Franzosa, E.A., McIver, L.J., Rahnavard, G. et al. Species-level functional profiling of metagenomes and metatranscriptomes. *Nat. Methods* **15**, 962–968 (2018). https://doi.org/10.1038/s41592-018-0176-y
 
-4. Franzosa, E.A., McIver, L.J., Rahnavard, G. et al. Species-level functional profiling of metagenomes and metatranscriptomes. *Nat. Methods* **15**, 962–968 (2018). https://doi.org/10.1038/s41592-018-0176-y
+4. Imperiale, T.F., Ransohoff, D.F., Itzkowitz, S.H. et al. Multitarget stool DNA testing for colorectal-cancer screening. *N. Engl. J. Med.* **370**, 1287–1297 (2014). https://doi.org/10.1056/NEJMoa1311194
 
-5. Imperiale, T.F., Ransohoff, D.F., Itzkowitz, S.H. et al. Multitarget stool DNA testing for colorectal-cancer screening. *N. Engl. J. Med.* **370**, 1287–1297 (2014). https://doi.org/10.1056/NEJMoa1311194
+5. Johnson, W.E., Li, C. & Rabinovic, A. Adjusting batch effects in microarray expression data using empirical Bayes methods. *Biostatistics* **8**, 118–127 (2007). https://doi.org/10.1093/biostatistics/kxj037
 
-6. Johnson, W.E., Li, C. & Rabinovic, A. Adjusting batch effects in microarray expression data using empirical Bayes methods. *Biostatistics* **8**, 118–127 (2007). https://doi.org/10.1093/biostatistics/kxj037
+6. Lundberg, S.M. & Lee, S.-I. A unified approach to interpreting model predictions. In *Advances in Neural Information Processing Systems 30 (NeurIPS)*, 4766–4777 (2017).
 
-7. Lundberg, S.M. & Lee, S.-I. A unified approach to interpreting model predictions. In *Advances in Neural Information Processing Systems 30 (NeurIPS)*, 4766–4777 (2017).
+7. Pasolli, E., Schiffer, L., Manghi, P. et al. Accessible, curated metagenomic data through ExperimentHub. *Nat. Methods* **14**, 1023–1024 (2017). https://doi.org/10.1038/nmeth.4468
 
-8. Pasolli, E., Schiffer, L., Manghi, P. et al. Accessible, curated metagenomic data through ExperimentHub. *Nat. Methods* **14**, 1023–1024 (2017). https://doi.org/10.1038/nmeth.4468
+8. Pedregosa, F. et al. Scikit-learn: machine learning in Python. *J. Mach. Learn. Res.* **12**, 2825–2830 (2011).
 
-9. Pedregosa, F. et al. Scikit-learn: machine learning in Python. *J. Mach. Learn. Res.* **12**, 2825–2830 (2011).
+9. Piccinno, G. et al. Pooled analysis of 3,741 stool metagenomes from 18 cohorts for cross-stage and strain-level reproducible microbial biomarkers of colorectal cancer. *Nat. Med.* **31**, 2416–2429 (2025). https://doi.org/10.1038/s41591-025-03693-9
 
-10. Piccinno, G. et al. Pooled analysis of 3,741 stool metagenomes from 18 cohorts for cross-stage and strain-level reproducible microbial biomarkers of colorectal cancer. *Nat. Med.* **31**, 2416–2429 (2025). https://doi.org/10.1038/s41591-025-03693-9
+10. Sun, X. & Xu, W. Fast implementation of DeLong's algorithm for comparing the areas under correlated receiver operating characteristic curves. *IEEE Signal Process. Lett.* **21**, 1389–1393 (2014). https://doi.org/10.1109/LSP.2014.2337313
 
-11. Sun, X. & Xu, W. Fast implementation of DeLong's algorithm for comparing the areas under correlated receiver operating characteristic curves. *IEEE Signal Process. Lett.* **21**, 1389–1393 (2014). https://doi.org/10.1109/LSP.2014.2337313
+11. Sun, Y. et al. Optimizing metagenome analysis for early detection of colorectal cancer: benchmarking bioinformatics approaches and advancing cross-cohort prediction. *bioRxiv* (2025). https://doi.org/10.1101/2025.02.22.639690
 
-12. Sun, Y. et al. Optimizing metagenome analysis for early detection of colorectal cancer: benchmarking bioinformatics approaches and advancing cross-cohort prediction. *bioRxiv* (2025). https://doi.org/10.1101/2025.02.22.639690
+12. Sung, H. et al. Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. *CA Cancer J. Clin.* **71**, 209–249 (2021). https://doi.org/10.3322/caac.21660
 
-13. Sung, H. et al. Global cancer statistics 2020: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. *CA Cancer J. Clin.* **71**, 209–249 (2021). https://doi.org/10.3322/caac.21660
+13. Thomas, A.M. et al. Metagenomic analysis of colorectal cancer datasets identifies cross-cohort microbial diagnostic signatures and a link with choline degradation. *Nat. Med.* **25**, 667–678 (2019). https://doi.org/10.1038/s41591-019-0405-7
 
-14. Thomas, A.M. et al. Metagenomic analysis of colorectal cancer datasets identifies cross-cohort microbial diagnostic signatures and a link with choline degradation. *Nat. Med.* **25**, 667–678 (2019). https://doi.org/10.1038/s41591-019-0405-7
+14. Truong, D.T., Franzosa, E.A., Tickle, T.L. et al. MetaPhlAn2 for enhanced metagenomic taxonomic profiling. *Nat. Methods* **12**, 902–903 (2015). https://doi.org/10.1038/nmeth.3589
 
-15. Trunk, G.V. A problem of dimensionality: a simple example. *IEEE Trans. Pattern Anal. Mach. Intell.* **PAMI-1**, 306–307 (1979). https://doi.org/10.1109/TPAMI.1979.4766926
+15. Wirbel, J. et al. Meta-analysis of fecal metagenomes reveals global microbial signatures that are specific for colorectal cancer. *Nat. Med.* **25**, 679–689 (2019). https://doi.org/10.1038/s41591-019-0406-6
 
-16. Truong, D.T., Franzosa, E.A., Tickle, T.L. et al. MetaPhlAn2 for enhanced metagenomic taxonomic profiling. *Nat. Methods* **12**, 902–903 (2015). https://doi.org/10.1038/nmeth.3589
+16. Xi, Y. & Xu, P. Global colorectal cancer burden in 2020 and projections to 2040. *Transl. Oncol.* **14**, 101174 (2021). https://doi.org/10.1016/j.tranon.2021.101174
 
-17. Wirbel, J. et al. Meta-analysis of fecal metagenomes reveals global microbial signatures that are specific for colorectal cancer. *Nat. Med.* **25**, 679–689 (2019). https://doi.org/10.1038/s41591-019-0406-6
-
-18. Xi, Y. & Xu, P. Global colorectal cancer burden in 2020 and projections to 2040. *Transl. Oncol.* **14**, 101174 (2021). https://doi.org/10.1016/j.tranon.2021.101174
-
-19. Yachida, S. et al. Metagenomic and metabolomic analyses reveal distinct stage-specific phenotypes of the gut microbiota in colorectal cancer. *Nat. Med.* **25**, 968–976 (2019). https://doi.org/10.1038/s41591-019-0458-7
+17. Yachida, S. et al. Metagenomic and metabolomic analyses reveal distinct stage-specific phenotypes of the gut microbiota in colorectal cancer. *Nat. Med.* **25**, 968–976 (2019). https://doi.org/10.1038/s41591-019-0458-7
 
 
 ---
@@ -291,7 +289,7 @@ Values are mean ± SD unless otherwise indicated. Source: `results/table1.csv`.
 | ZellerG_2014 | FRA | 156 | 53 | 42 | 61 | 63.3 ± 10.9 | 44.2% | 25.3 ± 4.2 |
 | **TOTAL** | — | **1,522** | **674** | **183** | **665** | **62.2 ± 11.4** | **40.1%** | **24.2 ± 4.0** |
 
-HanniganGD_2017 was excluded a priori for low sequencing depth (mean 6.5M reads vs per-cohort means of 9.2M for GuptaA_2019 to 102M for ThomasAM_2018a in the retained 10-cohort set, all others >40M) and 82% species feature sparsity; the exclusion was specified before any classifier training (`scripts/preprocessing.py`, `EXCLUDE_COHORTS`).
+HanniganGD_2017 was excluded a priori for low sequencing depth (median 8.7M reads vs per-cohort medians of 39.4M for ThomasAM_2018b to 83.4M for ThomasAM_2018a in the retained 10-cohort set, all others above 40M; `results/supplementary/S1_cohort_overview.csv`) and 82% species feature sparsity; the exclusion was specified before any classifier training (`scripts/preprocessing.py`, `EXCLUDE_COHORTS`).
 
 ---
 
@@ -301,26 +299,26 @@ Each row reports one country-aware LODO run (10 folds, 1,339 case/control sample
 
 | Prevalence | Mean abundance | Pathways retained (mean) | Total features (mean) | Mean per-cohort AUC | SD across folds |
 |---|---|---|---|---|---|
-| ≥ 0.05 | ≥ 1e-7 | 436.9 | 665.9 | 0.794 | 0.065 |
-| ≥ 0.05 | ≥ 1e-6 | 405.2 | 634.2 | 0.806 | 0.059 |
-| ≥ 0.05 | ≥ 1e-5 | 308.6 | 537.6 | 0.805 | 0.066 |
-| ≥ 0.05 | ≥ 1e-4 | 141.7 | 370.7 | 0.812 | 0.067 |
-| ≥ 0.05 | ≥ 1e-3 | 2.0 | 231.0 | 0.810 | 0.064 |
-| ≥ 0.10 | ≥ 1e-7 | 422.9 | 651.9 | 0.799 | 0.067 |
-| ≥ 0.10 | ≥ 1e-6 | 404.3 | 633.3 | 0.804 | 0.066 |
-| ≥ 0.10 | ≥ 1e-5 | 308.6 | 537.6 | 0.805 | 0.066 |
-| ≥ 0.10 | ≥ 1e-4 | 141.7 | 370.7 | 0.812 | 0.067 |
-| ≥ 0.10 | ≥ 1e-3 | 2.0 | 231.0 | 0.810 | 0.064 |
-| ≥ 0.15 | ≥ 1e-7 | 403.4 | 632.4 | 0.800 | 0.065 |
-| ≥ 0.15 | ≥ 1e-6 | 393.8 | 622.8 | 0.803 | 0.063 |
-| ≥ 0.15 | ≥ 1e-5 | 308.6 | 537.6 | 0.805 | 0.066 |
-| ≥ 0.15 | ≥ 1e-4 | 141.7 | 370.7 | 0.812 | 0.067 |
-| ≥ 0.15 | ≥ 1e-3 | 2.0 | 231.0 | 0.810 | 0.064 |
-| ≥ 0.20 | ≥ 1e-7 | 387.1 | 616.1 | 0.801 | 0.064 |
-| ≥ 0.20 | ≥ 1e-6 | 382.4 | 611.4 | 0.798 | 0.065 |
-| ≥ 0.20 | ≥ 1e-5 | 308.6 | 537.6 | 0.805 | 0.066 |
-| ≥ 0.20 | ≥ 1e-4 | 141.7 | 370.7 | 0.812 | 0.067 |
-| ≥ 0.20 | ≥ 1e-3 | 2.0 | 231.0 | 0.810 | 0.064 |
+| ≥ 0.05 | ≥ 1e-7 | 438.6 | 667.6 | 0.796 | 0.089 |
+| ≥ 0.05 | ≥ 1e-6 | 405.4 | 634.4 | 0.791 | 0.091 |
+| ≥ 0.05 | ≥ 1e-5 | 318.4 | 547.4 | 0.784 | 0.090 |
+| ≥ 0.05 | ≥ 1e-4 | 151.8 | 380.8 | 0.828 | 0.072 |
+| ≥ 0.05 | ≥ 1e-3 | 2.0 | 231.0 | 0.835 | 0.054 |
+| ≥ 0.10 | ≥ 1e-7 | 420.2 | 649.2 | 0.789 | 0.082 |
+| ≥ 0.10 | ≥ 1e-6 | 403.0 | 632.0 | 0.788 | 0.089 |
+| ≥ 0.10 | ≥ 1e-5 | 318.4 | 547.4 | 0.784 | 0.090 |
+| ≥ 0.10 | ≥ 1e-4 | 151.8 | 380.8 | 0.828 | 0.072 |
+| ≥ 0.10 | ≥ 1e-3 | 2.0 | 231.0 | 0.835 | 0.054 |
+| ≥ 0.15 | ≥ 1e-7 | 402.0 | 631.0 | 0.793 | 0.092 |
+| ≥ 0.15 | ≥ 1e-6 | 392.4 | 621.4 | 0.781 | 0.093 |
+| ≥ 0.15 | ≥ 1e-5 | 318.4 | 547.4 | 0.784 | 0.090 |
+| ≥ 0.15 | ≥ 1e-4 | 151.8 | 380.8 | 0.828 | 0.072 |
+| ≥ 0.15 | ≥ 1e-3 | 2.0 | 231.0 | 0.835 | 0.054 |
+| ≥ 0.20 | ≥ 1e-7 | 384.2 | 613.2 | 0.791 | 0.091 |
+| ≥ 0.20 | ≥ 1e-6 | 379.0 | 608.0 | 0.784 | 0.091 |
+| ≥ 0.20 | ≥ 1e-5 | 318.4 | 547.4 | 0.784 | 0.090 |
+| ≥ 0.20 | ≥ 1e-4 | 151.8 | 380.8 | 0.828 | 0.072 |
+| ≥ 0.20 | ≥ 1e-3 | 2.0 | 231.0 | 0.835 | 0.054 |
 
 ---
 

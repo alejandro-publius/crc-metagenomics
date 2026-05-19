@@ -95,8 +95,8 @@ HanniganGD_2017 excluded a priori for low sequencing depth.
 
 - **Dimensionality:** joining ~400 pathways to 229 species nearly triples feature count. Under RF `max_features='sqrt'` and XGB `colsample_bytree=0.8`, informative-species sampling probability falls.
 - **Redundancy:** unstratified pathway abundance is collinear with the species that encode the genes. The four oral pathobionts dominating species SHAP already drive most pathway signal.
-- Biologically-guided 84-pathway shortlist mean LODO AUC **0.817** — matches but does not beat the 0.807 species baseline.
-- Consistent with high-dim / low-sample literature (Bellman 1961; Trunk 1979) at n ~ 1,300.
+- Biologically-guided 86-pathway shortlist across 9 CRC-relevant functional groups: mean LODO AUC **0.817** — matches but does not beat the 0.807 species baseline.
+- Diminishing-returns regime at n ~ 1,300: doubling the feature space did not improve cross-cohort signal.
 - Not a categorical claim — Piccinno et al. 2025 (~3,700 metagenomes) reach AUC ~0.85; calculus may shift at scale.
 
 ---
@@ -104,10 +104,10 @@ HanniganGD_2017 excluded a priori for low sequencing depth.
 ## Adenoma progression — stepwise model
 
 - LODO across 4 adenoma-containing cohorts (FengQ_2015, ZellerG_2014, ThomasAM_2018a, YachidaS_2019; n_adenoma = 183).
-- **Healthy vs Adenoma:** RF 0.561, XGB 0.579 — near chance.
-- **Adenoma vs CRC:** RF 0.671, XGB 0.617 — moderate.
-- Stepwise interpretation: early adenoma microbiome ≈ control by global stool composition; oral-pathobiont enrichment colonises at / near malignant transformation.
-- Clinical reading: stool metagenomics unlikely to detect early adenoma at useful sensitivity; potentially valuable for distinguishing advanced lesions from carcinoma and for post-resection monitoring.
+- **Healthy vs Adenoma:** RF 0.561, XGB 0.579 — null result (n = 183 across 4 cohorts is underpowered at AUC < 0.65).
+- **Adenoma vs CRC:** RF 0.671, XGB 0.617 — modest above-chance.
+- Consistent with prior literature suggesting the oral-pathobiont signature becomes prominent at the carcinoma stage; the H-vs-A null prevents positive claims about adenoma-specific microbiome composition here.
+- Clinical reading: shotgun stool metagenomics at current sample sizes does not appear to recover a cross-cohort signal for adenoma detection.
 
 ![bg right:38% fit](../figures/fig3_adenoma.png)
 
@@ -132,10 +132,10 @@ HanniganGD_2017 excluded a priori for low sequencing depth.
 ## Sensitivity analyses — the headline is robust
 
 - **Random seeds** (5 seeds {0,1,2,42,100}): per-cohort AUC **0.810 ± 0.002**.
-- **Pathway filter grid** (4 prevalence × 5 mean = 20 cells): per-cohort AUC **0.794–0.812**, spread 0.018.
+- **Pathway filter grid** (4 prevalence × 5 mean = 20 cells): per-cohort AUC **0.781–0.835**, spread 0.055.
 - **Demographic adjustment** (age, sex, BMI; direct + residualized × RF + XGB): per-cohort AUC **0.800–0.814** vs 0.807 unadjusted.
 - **ComBat batch correction** (per-fold, fit on training cohorts): per-cohort AUC **0.815**.
-- **External validation** (train on 8, test on YuJ_2015 + ZellerG_2014 pooled): AUC **0.833** (combined).
+- **External validation** (train on 8, test on YuJ_2015 + ZellerG_2014 pooled): AUC **0.829** (combined).
 - Headline does not move under any single perturbation.
 
 ---
@@ -156,7 +156,7 @@ HanniganGD_2017 excluded a priori for low sequencing depth.
 1. Species-only RF is the right default for cross-cohort CRC classification at current sample sizes (pooled LODO AUC **0.781 [0.757, 0.805]**, n = 1,339).
 2. Adding HUMAnN unstratified pathways **significantly degrades** pooled performance (DeLong z = 3.35, p = 0.0008).
 3. **Country-aware LODO** is essential; naive LODO inflates ThomasAM_2019_c from 0.836 to 0.998.
-4. Four **oral pathobionts** (*F. nucleatum*, *P. stomatis*, *P. micra*, *G. morbillorum*) drive the signal and emerge near malignant transformation, not at the adenoma stage.
+4. Four **oral pathobionts** (*F. nucleatum*, *P. stomatis*, *P. micra*, *G. morbillorum*) top the CRC SHAP rankings; cross-cohort H-vs-A is a null result, consistent with prior literature suggesting the signature is more prominent at the carcinoma stage.
 
 ---
 

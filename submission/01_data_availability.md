@@ -11,7 +11,7 @@ are recorded in the `curatedMetagenomicData` metadata table.
 
 Pre-processed feature matrices (MetaPhlAn relative abundance, HUMAnN
 unstratified pathway abundance), per-sample classifier predictions, and
-all derived results tables (S1-S10) are deposited alongside the analysis
+all derived results tables (S1 through S11 plus S8b) are deposited alongside the analysis
 code at the project repository (see Code Availability).
 
 The HanniganGD_2017 cohort was pre-specified as excluded based on
@@ -33,7 +33,7 @@ All analysis code is publicly available at
 - `REPRODUCING.md` — step-by-step reproduction protocol with expected
   outputs.
 - `requirements.lock` — pinned Python dependency versions.
-- `scripts/verify_results.py` — 38 automated checks confirming that all
+- `scripts/verify_results.py` — 49 automated checks confirming that all
   reported numbers match the deposited result files.
 
 Exact versions of all dependencies are pinned in `requirements.lock`.

@@ -70,7 +70,7 @@ qrencode -o conference/qr.png -s 12 -m 2 "$(head -1 conference/qr_code_target_ur
 - Country-aware LODO impact: ThomasAM_2019_c **0.998 -> 0.836** with YachidaS_2019 excluded.
 - Adenoma LODO (4 cohorts, n = 183): H-vs-A RF 0.561 / XGB 0.579; A-vs-CRC RF 0.671 / XGB 0.617.
 - Top SHAP species (CRC RF): *G. morbillorum*, *P. micra*, *P. stomatis*, *F. nucleatum*, *S. moorei*.
-- Sensitivity: 5 random seeds 0.810 ± 0.002; 20-cell pathway grid 0.794-0.812; demographic 0.800-0.814; ComBat 0.815; external validation (YuJ_2015 + ZellerG_2014 pooled) 0.833.
+- Sensitivity: 5 random seeds 0.810 ± 0.002; 20-cell pathway grid 0.781-0.835 (spread 0.055); demographic 0.800-0.814; ComBat 0.815; external validation (YuJ_2015 + ZellerG_2014 pooled) 0.829.
 
 Sources of truth: `results/baseline_results.csv`, `results/bootstrap_ci.csv`, `results/delong_results.csv`, `results/adenoma_lodo_results.csv`, `results/shap_crc_features.csv`, `results/seed_sensitivity.csv`, `results/sensitivity_thresholds.csv`, `results/confounder_results.csv`, `results/combat_results.csv`, `results/external_validation.csv`, `results/table1.csv`.
 

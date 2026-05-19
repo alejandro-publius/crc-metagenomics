@@ -87,7 +87,7 @@ Callout box: "Without country-aware LODO, ThomasAM_2019_c AUC = 0.998. With coun
 **Header:** Adding HUMAnN pathways does NOT improve performance
 
 **Poster text:**
-> Joining 402-406 per-fold pathway features to the 229 species features did not improve pooled LODO classification. The joint RF achieved pooled AUC 0.756 (95% CI 0.731-0.781), and the joint XGBoost achieved 0.766 (0.740-0.791) — both lower than the species-only baseline of 0.781. DeLong testing on the 1,339-sample pooled predictions confirmed that species-only significantly outperforms joint RF (z = 3.35, p = 0.0008) and joint XGBoost (z = 2.00, p = 0.046). Per-cohort paired tests (n = 10 folds) did not reach significance (t = 0.87 and 0.28), consistent with limited fold-level power. The effect is driven by the largest fold (YachidaS_2019, n = 508), where species RF reaches 0.708 versus 0.669 (joint RF) and 0.694 (joint XGBoost). Result is stable across 5 random seeds (per-cohort AUC 0.810 +/- 0.002) and a 20-cell pathway-filter sensitivity grid (per-cohort AUC 0.794-0.812).
+> Joining 402-406 per-fold pathway features to the 229 species features did not improve pooled LODO classification. The joint RF achieved pooled AUC 0.756 (95% CI 0.731-0.781), and the joint XGBoost achieved 0.766 (0.740-0.791) — both lower than the species-only baseline of 0.781. DeLong testing on the 1,339-sample pooled predictions confirmed that species-only significantly outperforms joint RF (z = 3.35, p = 0.0008) and joint XGBoost (z = 2.00, p = 0.046). Per-cohort paired tests (n = 10 folds) did not reach significance (t = 0.87 and 0.28), consistent with limited fold-level power. The effect is driven by the largest fold (YachidaS_2019, n = 508), where species RF reaches 0.708 versus 0.669 (joint RF) and 0.694 (joint XGBoost). Result is stable across 5 random seeds (per-cohort AUC 0.810 +/- 0.002) and a 20-cell pathway-filter sensitivity grid (per-cohort AUC 0.781-0.835, spread 0.055).
 
 **Figure:** `figures/diagnostics/roc_pr_pooled.png` (pooled ROC and PR curves for the three classifiers).
 
@@ -103,10 +103,10 @@ Callout: "Parsimony wins at n ~ 1,300. Pathways nearly triple feature dimensiona
 ---
 
 ### Panel 5 — Adenoma progression + SHAP biology
-**Header:** Oral pathobionts emerge near malignant transformation
+**Header:** Cross-cohort adenoma detection: a null result; oral-pathobiont signature dominates CRC contrasts
 
 **Poster text:**
-> Cross-cohort adenoma LODO across the four adenoma-containing cohorts (FengQ_2015, ZellerG_2014, ThomasAM_2018a, YachidaS_2019; n_adenoma = 183) yielded near-chance discrimination for healthy-vs-adenoma (RF 0.561, XGB 0.579) and moderate discrimination for adenoma-vs-CRC (RF 0.671, XGB 0.617). TreeSHAP analysis of the CRC-vs-control RF identified four oral pathobionts as the top discriminative features: *Gemella morbillorum*, *Parvimonas micra*, *Peptostreptococcus stomatis*, and *Fusobacterium nucleatum*. The same oral-pathobiont signature dominates the adenoma-vs-CRC SHAP ranking but is weak in healthy-vs-adenoma, supporting a stepwise model in which the CRC-defining oral consortium colonises at or near the transition to invasive carcinoma rather than at the adenoma stage.
+> Cross-cohort adenoma LODO across the four adenoma-containing cohorts (FengQ_2015, ZellerG_2014, ThomasAM_2018a, YachidaS_2019; n_adenoma = 183) returned a null result for healthy-vs-adenoma (RF 0.561, XGB 0.579) and only modest above-chance discrimination for adenoma-vs-CRC (RF 0.671, XGB 0.617); n = 183 across 4 cohorts is underpowered at AUC < 0.65, so the H-vs-A AUC should be read as "no detectable cross-cohort signal at this sample size" rather than as a positive biological claim. TreeSHAP analysis of the CRC-vs-control RF identified four oral pathobionts as the top discriminative features: *Gemella morbillorum*, *Parvimonas micra*, *Peptostreptococcus stomatis*, and *Fusobacterium nucleatum*. The same oral-pathobiont signature dominates the adenoma-vs-CRC SHAP ranking but is weak in healthy-vs-adenoma, consistent with prior literature suggesting the oral consortium becomes more prominent at the carcinoma stage; we do not claim a positive characterization of adenoma microbiome composition from this dataset.
 
 **Figures:**
 - `figures/fig3_adenoma.png` (left half of panel): stage-stratified AUC bar chart for the four LODO tasks.
@@ -129,7 +129,7 @@ Callout: "Parsimony wins at n ~ 1,300. Pathways nearly triple feature dimensiona
 **Header:** Why pathways don't help, and what the signature means
 
 **Poster text:**
-> Two explanations for the negative pathway result. (1) Dimensionality: joining ~400 pathways to 229 species nearly triples feature count, and under RF `max_features='sqrt'` the probability of sampling the most informative species at each split decreases as the candidate pool grows. (2) Redundancy: at the unstratified pathway level, the oral pathobionts that top the species SHAP ranking already contribute to most of the pathway signal, so functional features are largely collinear with species. The biologically-guided 84-pathway shortlist (mean LODO AUC 0.817) matches but does not exceed the species baseline (0.807), confirming the redundancy hypothesis. The oral-pathobiont signature is reproducible across RF and XGBoost despite different splitting criteria, across cohorts on three continents, and across the adenoma-carcinoma transition — the most robust observation in this analysis. *F. nucleatum* has known mechanistic ties to CRC via FadA / E-cadherin / beta-catenin signalling.
+> Two explanations for the negative pathway result. (1) Dimensionality: joining ~400 pathways to 229 species nearly triples feature count, and under RF `max_features='sqrt'` the probability of sampling the most informative species at each split decreases as the candidate pool grows. (2) Redundancy: at the unstratified pathway level, the oral pathobionts that top the species SHAP ranking already contribute to most of the pathway signal, so functional features are largely collinear with species. The biologically-guided 86-pathway shortlist across 9 CRC-relevant functional groups (mean LODO AUC 0.817) matches but does not exceed the species baseline (0.807), confirming the redundancy hypothesis. The oral-pathobiont signature is reproducible across RF and XGBoost despite different splitting criteria, across cohorts on three continents, and across the adenoma-carcinoma transition — the most robust observation in this analysis. *F. nucleatum* has known mechanistic ties to CRC via FadA / E-cadherin / beta-catenin signalling.
 
 ---
 
@@ -148,7 +148,7 @@ Callout: "Parsimony wins at n ~ 1,300. Pathways nearly triple feature dimensiona
 > 1. Species-only Random Forest is the right default for cross-cohort CRC classification at current sample sizes (pooled LODO AUC 0.781 [0.757, 0.805], n = 1,339).
 > 2. Adding HUMAnN unstratified pathway features significantly degrades pooled performance (DeLong z = 3.35, p = 0.0008 against species-only).
 > 3. Country-aware LODO is essential: naive LODO inflates ThomasAM_2019_c from 0.836 to 0.998.
-> 4. Four oral pathobionts (*F. nucleatum*, *P. stomatis*, *P. micra*, *G. morbillorum*) drive the CRC signal and emerge at or near malignant transformation rather than at the adenoma stage.
+> 4. Four oral pathobionts (*F. nucleatum*, *P. stomatis*, *P. micra*, *G. morbillorum*) top the CRC SHAP rankings; cross-cohort healthy-vs-adenoma is a null result (n = 183 across 4 cohorts is underpowered), consistent with prior literature suggesting the signature is more prominent at the carcinoma stage.
 > 5. All code, per-sample predictions, decision logs, and figures are public (QR code, bottom).
 
 ---

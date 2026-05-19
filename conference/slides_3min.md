@@ -38,7 +38,7 @@ footer: 'Velazquez & Selbrede | github.com/alejandro-publius/crc-metagenomics'
 
 - **Species-only RF** is the right default for cross-cohort CRC classification at n ~ 1,300.
 - **Country-aware LODO** is essential (inflates ThomasAM_2019_c from 0.836 to 0.998 if same-country cohort kept in training).
-- Four **oral pathobionts** (*F. nucleatum*, *P. stomatis*, *P. micra*, *G. morbillorum*) drive the signal; emerge near malignant transformation, not at adenoma stage.
+- Four **oral pathobionts** (*F. nucleatum*, *P. stomatis*, *P. micra*, *G. morbillorum*) top the CRC SHAP rankings; cross-cohort healthy-vs-adenoma is a null result (n = 183 across 4 cohorts is underpowered), consistent with prior literature suggesting the signature is more prominent at the carcinoma stage.
 
 **Code, data, predictions, decision logs:** github.com/alejandro-publius/crc-metagenomics
 

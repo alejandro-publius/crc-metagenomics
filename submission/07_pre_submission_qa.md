@@ -22,7 +22,7 @@ The diagnostics subgroup analysis (`results/diagnostics/subgroup_auc.csv`) and t
 
 Piccinno et al. (2025) report pooled AUC ~0.85 across 18 cohorts and ~3,700 metagenomes. Our pooled AUC of 0.781 (n=1,339) is a clean methodological story but is not the highest number in the field. A reviewer may interpret this as "you ran fewer cohorts and got lower AUC than the current best paper".
 
-The defense is that our central claim is the *negative finding on pathways* and the *country-aware LODO design choice*, not absolute AUC. The headline number is correctly conservative because country-aware LODO removes the country-pair confound that inflated ThomasAM_2019_c from 0.999 to 0.836 (`results/decisions_addendum.md` "Country-aware LODO").
+The defense is that our central claim is the *negative finding on pathways* and the *country-aware LODO design choice*, not absolute AUC. The headline number is correctly conservative because country-aware LODO removes the country-pair confound that inflated ThomasAM_2019_c from 0.998 to 0.836 (`results/decisions_addendum.md` "Country-aware LODO").
 
 **Disposition: DEFEND.** Make sure the Abstract and Discussion frame "0.781 pooled" alongside "country-aware LODO removes the population-level confound that would otherwise inflate per-cohort AUCs to implausible levels". Cite Piccinno for context without claiming to beat it.
 
@@ -72,7 +72,7 @@ The species prevalence (>=10%) and mean (>=1e-4) filter is computed once across 
 
 The argument that this is a mild and defensible leakage is correct (MetaPhlAn is a fixed reference database; only 229 species are retained; it matches the Thomas et al. 2019 reference standard). But it remains a leakage of *some* information from test folds into the feature set, and a strict reviewer will not be satisfied.
 
-**Disposition: DEFEND.** The Methods are already transparent. If a reviewer demands per-fold species filtering as a sensitivity analysis, this is one script change; expect AUC delta well within the per-fold pathway-filter range (`results/sensitivity_thresholds.csv` shows the joint RF AUC spans only 0.018 across a 20-cell filter grid, 0.794-0.812).
+**Disposition: DEFEND.** The Methods are already transparent. If a reviewer demands per-fold species filtering as a sensitivity analysis, this is one script change; expect AUC delta well within the per-fold pathway-filter range (`results/sensitivity_thresholds.csv` shows the joint RF AUC spans 0.055 across a 20-cell filter grid, 0.781-0.835).
 
 ---
 

@@ -30,7 +30,7 @@
 ## Files present and consistent
 - `manuscript/` — 10 .docx + markdown source aligned to ground-truth numbers
 - `results/` — 30+ CSVs, all parseable
-- `results/supplementary/` — S1-S10 + INDEX
+- `results/supplementary/` — S1 through S11 + S8b + INDEX
 - `results/diagnostics/` — calibration, confusion, ROC/PR, subgroup
 - `figures/` and `manuscript/figures/` — all PNG ≥ 300 DPI, PDF vector
 - `submission/` — cover letter, ethics, contributions, checklist, bioRxiv metadata, reviewer responses, pre-submission QA, build bundle ZIP

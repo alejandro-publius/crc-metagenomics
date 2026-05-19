@@ -335,7 +335,7 @@ def make_figure(per_cohort_11, base_10_df, joint_10_df, out_fig):
                  "11-cohort (HanniganGD_2017 included)", fontsize=12)
     fig.tight_layout()
     out_fig.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_fig, dpi=150, bbox_inches="tight")
+    fig.savefig(out_fig, dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"Saved figure: {out_fig}")
 

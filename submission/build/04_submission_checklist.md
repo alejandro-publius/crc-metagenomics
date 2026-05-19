@@ -22,7 +22,7 @@ Internal checklist before submission to any journal. Update each item to
 
 ## Tables
 - [ ] Table 1 — Cohort overview — `manuscript/CRC_Table1.docx` (source `results/table1.csv`)
-- [ ] Supplementary Tables S1-S10 — `results/supplementary/` (see `INDEX.csv`)
+- [ ] Supplementary Tables S1 through S11 (plus S8b) — `results/supplementary/` (see `INDEX.csv`)
 
 ## Statistics reporting
 - [ ] Exact p-values reported (not p < 0.05)

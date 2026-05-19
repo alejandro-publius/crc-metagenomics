@@ -119,14 +119,15 @@ HanniganGD_2017 subsequently excluded (see below). Final dataset:
 10 cohorts, 1522 samples (674 CRC, 665 control, 183 adenoma).
 
 ## HanniganGD_2017 exclusion
-DECISION: Excluded from all analyses. Justification: mean sequencing
-depth of 6.5M reads (range 17K-21M) is substantially below all other
-cohorts (per-cohort mean depth in the retained 10-cohort set ranges
-from 9.2M for GuptaA_2019 to 102M for ThomasAM_2018a; all others are
-above 40M). Feature sparsity confirms degraded profiling: 82% zero-valued
-species features vs 61% mean for the other cohorts. Both metrics were
-assessed before model training; the exclusion is pre-specified and
-independent of classification results. Applied in preprocessing.py via
+DECISION: Excluded from all analyses. Justification: median sequencing
+depth of 8.7M reads was substantially below all other cohorts (per-cohort
+median depth in the retained 10-cohort set ranges from 39.4M for
+ThomasAM_2018b to 83.4M for ThomasAM_2018a; all retained cohorts >39M;
+verified medians in `results/supplementary/S1_cohort_overview.csv`).
+Feature sparsity confirms degraded profiling: 82% zero-valued species
+features vs 61% mean for the other cohorts. Both metrics were assessed
+before model training; the exclusion is pre-specified and independent
+of classification results. Applied in preprocessing.py via
 the EXCLUDE_COHORTS constant. A per-sample minimum of 1M reads is also
 applied to catch individual extreme outliers across all cohorts
 (removed 4 additional samples).
@@ -140,8 +141,9 @@ cohorts share geographic origin.
 Affected fold pairs:
 - ThomasAM_2019_c (JPN) <-> YachidaS_2019 (JPN): each excluded from
   the other's training fold. Without this fix, ThomasAM_2019_c achieved
-  AUC=0.999 (inflated by Japan-specific microbiome signal from YachidaS_2019
-  in the training set). With the fix: AUC=0.836, biologically plausible.
+  AUC=0.998 (inflated by Japan-specific microbiome signal from YachidaS_2019
+  in the training set; canonical CSV value 0.9981). With the fix: AUC=0.836,
+  biologically plausible.
 - ThomasAM_2018a (ITA) <-> ThomasAM_2018b (ITA): each excluded from
   the other's training fold.
 

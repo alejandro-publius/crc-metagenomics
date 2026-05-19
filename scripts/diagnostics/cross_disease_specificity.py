@@ -562,7 +562,7 @@ def make_figure(train_crc, train_ctrl, ext_preds, youden):
                           "(Rscript / curatedMetagenomicData not run)",
                 ha="center", va="center", fontsize=11)
         ax.set_axis_off()
-        fig.savefig(OUT_FIG, dpi=160, bbox_inches="tight")
+        fig.savefig(OUT_FIG, dpi=300, bbox_inches="tight")
         plt.close(fig)
         return
 
@@ -597,7 +597,7 @@ def make_figure(train_crc, train_ctrl, ext_preds, youden):
     ax.legend(loc="upper right", fontsize=8)
     ax.grid(axis="y", linestyle=":", alpha=0.5)
     fig.tight_layout()
-    fig.savefig(OUT_FIG, dpi=160, bbox_inches="tight")
+    fig.savefig(OUT_FIG, dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"[write] {OUT_FIG}")
 

@@ -38,12 +38,14 @@ TreeSHAP analysis of the joint RF identified *Gemella morbillorum*, *Parvimonas 
 
 ## Adenoma classification along the adenoma-carcinoma sequence
 
-Cross-cohort LODO across the four adenoma-containing cohorts (FengQ_2015, YachidaS_2019, ZellerG_2014, ThomasAM_2018a; total n = 183) produced markedly different performance for the two stages of the adenoma-carcinoma sequence (Figure 4):
+Cross-cohort LODO across the four adenoma-containing cohorts (FengQ_2015, YachidaS_2019, ZellerG_2014, ThomasAM_2018a; total n = 183) gave the following results (Figure 4):
 
-- **Control vs adenoma (H-vs-A):** mean LODO AUC 0.561 (RF) and 0.579 (XGBoost) — near chance (`results/adenoma_lodo_results.csv`, rows `h_vs_a_rf`, `h_vs_a_xgb`).
-- **Adenoma vs CRC (A-vs-CRC):** mean LODO AUC 0.671 (RF) and 0.617 (XGBoost) — moderate above-chance discrimination (`results/adenoma_lodo_results.csv`, rows `a_vs_crc_rf`, `a_vs_crc_xgb`).
+- **Control vs adenoma (H-vs-A):** mean LODO AUC 0.561 (RF) and 0.579 (XGBoost), a null result indistinguishable from chance (`results/adenoma_lodo_results.csv`, rows `h_vs_a_rf`, `h_vs_a_xgb`).
+- **Adenoma vs CRC (A-vs-CRC):** mean LODO AUC 0.671 (RF) and 0.617 (XGBoost) — modest above-chance discrimination (`results/adenoma_lodo_results.csv`, rows `a_vs_crc_rf`, `a_vs_crc_xgb`).
 
-TreeSHAP rankings parallel this pattern. The H-vs-A classifier (Figure 4A) emphasizes metabolic-pathway and commensal-depletion features (e.g., PWY-5994 palmitate biosynthesis, *Eubacterium eligens*, PANTO-PWY pantothenate biosynthesis, *Collinsella intestinalis*), none of which constitutes a strong, reproducible cross-cohort signal. The CRC-vs-control (Figure 4B) and A-vs-CRC (Figure 4C) classifiers, by contrast, are both dominated by the same four oral pathobionts that top the main CRC analysis (*Peptostreptococcus stomatis*, *Parvimonas micra*, *Gemella morbillorum*, *Fusobacterium nucleatum*). The reordering of top features between the H-vs-A and A-vs-CRC tasks is consistent with a stepwise oral-pathobiont enrichment during malignant transformation and supports treating adenoma and CRC as biologically distinct microbiome states rather than two points on a smooth severity gradient.
+These adenoma estimates are underpowered: n = 183 adenoma samples across 4 heterogeneous cohorts (n_folds = 4) provides limited resolving power for cross-cohort discrimination at effect sizes below AUC ≈ 0.65, so the H-vs-A AUC of 0.561 should be read as "no detectable cross-cohort signal at this sample size" rather than as positive evidence of biological equivalence between adenoma and control microbiomes.
+
+TreeSHAP rankings parallel this pattern. The H-vs-A classifier (Figure 4A) emphasizes metabolic-pathway and commensal-depletion features (e.g., PWY-5994 palmitate biosynthesis, *Eubacterium eligens*, PANTO-PWY pantothenate biosynthesis, *Collinsella intestinalis*), none of which constitutes a strong, reproducible cross-cohort signal. The CRC-vs-control (Figure 4B) and A-vs-CRC (Figure 4C) classifiers, by contrast, are both dominated by the same four oral pathobionts that top the main CRC analysis (*Peptostreptococcus stomatis*, *Parvimonas micra*, *Gemella morbillorum*, *Fusobacterium nucleatum*). The reordering of top features between the H-vs-A and A-vs-CRC tasks is consistent with prior literature suggesting stepwise oral-pathobiont enrichment along the adenoma-carcinoma sequence; this descriptive pattern should not be over-interpreted given the H-vs-A null result and the limited per-cohort sample sizes.
 
 ## Figure legends
 

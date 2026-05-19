@@ -1,16 +1,16 @@
 disease_cohort,study_name,group,n_samples,mean_crc_prob,median_crc_prob,pct_above_youden_threshold,interpretation_label,source
 training_CRC,10-cohort_pool,CRC,674,0.6026620220410681,0.6033688415182148,73.88724035608308,reference (positives),LODO held-out (results/preds_species_rf.csv)
 training_control,10-cohort_pool,control,665,0.4325716979925827,0.4257515816434333,30.22556390977444,reference (negatives),LODO held-out (results/preds_species_rf.csv)
-IBD,NielsenHB_2014,IBD,148,0.43222662292992,0.39960334632690725,30.405405405405407,CRC-specific (non-CRC disease scores near control),Denmark/Spain IBD cohort
+IBD,NielsenHB_2014,IBD,148,0.43222662292992,0.3996033463269073,30.405405405405407,CRC-specific (non-CRC disease scores near control),Denmark/Spain IBD cohort
 IBD,NielsenHB_2014,NielsenHB_2014_control,248,0.3362731166765434,0.3258142631986697,6.451612903225806,cohort-internal control,Denmark/Spain IBD cohort
-IBD,HMP_2019_ibdmdb,HMP_2019_ibdmdb_control,27,0.4139493983028711,0.43689292569163457,29.629629629629626,cohort-internal control,IBDMDB longitudinal cohort (first sample per subject only)
-IBD,HMP_2019_ibdmdb,IBD,103,0.4325923881295211,0.4392967230552946,28.155339805825243,CRC-specific (non-CRC disease scores near control),IBDMDB longitudinal cohort (first sample per subject only)
-T2D,KarlssonFH_2013,KarlssonFH_2013_control,43,0.30620716098919115,0.28770990153271725,4.651162790697675,cohort-internal control,Swedish T2D + IGT cohort
-T2D,KarlssonFH_2013,T2D,102,0.3385900722183311,0.32191375250514775,10.784313725490197,CRC-specific (non-CRC disease scores near control),Swedish T2D + IGT cohort
-T2D,QinJ_2012,QinJ_2012_control,174,0.41105807842692355,0.40728416154464997,27.586206896551722,cohort-internal control,Chinese T2D cohort
-T2D,QinJ_2012,T2D,170,0.4905848027298629,0.4812748904600097,49.411764705882355,generic-dysbiosis-like (scores comparable to CRC),Chinese T2D cohort
+IBD,HMP_2019_ibdmdb,HMP_2019_ibdmdb_control,27,0.4139493983028711,0.4368929256916346,29.629629629629626,cohort-internal control,IBDMDB longitudinal cohort (first sample per subject only)
+IBD,HMP_2019_ibdmdb,IBD,103,0.4325923881295211,0.43929672305529455,28.155339805825243,CRC-specific (non-CRC disease scores near control),IBDMDB longitudinal cohort (first sample per subject only)
+T2D,KarlssonFH_2013,KarlssonFH_2013_control,43,0.3062071609891911,0.28770990153271725,4.651162790697675,cohort-internal control,Swedish T2D + IGT cohort
+T2D,KarlssonFH_2013,T2D,102,0.3385900722183311,0.3219137525051477,10.784313725490197,CRC-specific (non-CRC disease scores near control),Swedish T2D + IGT cohort
+T2D,QinJ_2012,QinJ_2012_control,174,0.41105807842692343,0.40728416154464997,27.586206896551722,cohort-internal control,Chinese T2D cohort
+T2D,QinJ_2012,T2D,170,0.490584802729863,0.48127489046000976,49.411764705882355,generic-dysbiosis-like (scores comparable to CRC),Chinese T2D cohort
 cirrhosis,QinN_2014,QinN_2014_control,114,0.3814744156155338,0.37654557155333546,13.157894736842104,cohort-internal control,Chinese cirrhosis cohort
-cirrhosis,QinN_2014,cirrhosis,123,0.5365697618028868,0.5382277927073239,65.04065040650406,generic-dysbiosis-like (scores comparable to CRC),Chinese cirrhosis cohort
+cirrhosis,QinN_2014,cirrhosis,123,0.5365697618028868,0.538227792707324,65.04065040650406,generic-dysbiosis-like (scores comparable to CRC),Chinese cirrhosis cohort
 obesity,LeChatelierE_2013,lean_control,95,0.37129424365828745,0.3505628682660098,10.526315789473683,cohort-internal control,BMI-based split (>=30 obese vs <25 lean)
 obesity,LeChatelierE_2013,obesity,169,0.3792556949966692,0.3671625246320941,13.017751479289942,CRC-specific (non-CRC disease scores near control),BMI-based split (>=30 obese vs <25 lean)
-healthy,HMP_2012,healthy,147,0.42927735851216453,0.42045782746349153,22.448979591836736,CRC-specific (non-CRC disease scores near control),USA healthy baseline (HMP1)
+healthy,HMP_2012,healthy,147,0.42927735851216453,0.4204578274634916,22.448979591836736,CRC-specific (non-CRC disease scores near control),USA healthy baseline (HMP1)

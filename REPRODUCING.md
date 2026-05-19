@@ -15,8 +15,9 @@ All scripts use `random_state=42` and produce deterministic results. Total runti
 ### 1. Data export (R)
 
 ```bash
-Rscript scripts/export_data.R          # pulls curatedMetagenomicData and writes 11 cohorts (~1604 samples) to data/raw/
-                                       # HanniganGD_2017 is dropped at the preprocessing step below, leaving 10 cohorts (1,522 samples)
+Rscript scripts/export_data.R          # pulls curatedMetagenomicData; 11 cohorts in the raw cMD pull (~1604 samples) -> data/raw/
+                                       # 10 cohorts retained after depth filtering at preprocessing (HanniganGD_2017 dropped for low depth);
+                                       # final analysis set: 1,522 unique subjects with 1,339 binary case/control predictions
 Rscript scripts/audit_subject_ids.R    # verifies no duplicated subject IDs across cohorts
 ```
 
@@ -104,7 +105,7 @@ python3 scripts/seed_sensitivity.py      # seeds {0,1,2,42,100}; expect spread <
                                          # outputs: results/seed_sensitivity.csv
 
 python3 scripts/sensitivity_analysis.py  # 4x5 prevalence/mean grid (country-aware, per-fold filter)
-                                         # expect: joint RF mean per-cohort AUC range 0.781-0.835
+                                         # expect: joint RF mean per-cohort AUC range 0.781-0.835 (full-grid spread 0.055)
                                          # outputs: results/sensitivity_thresholds.csv
 
 python3 scripts/confounder_adjustment.py # direct inclusion + residualization of age, sex, BMI (country-aware)
@@ -135,6 +136,12 @@ bash scripts/run_robustness.sh           # chains bootstrap_ci + seed_sensitivit
 python3 scripts/generate_figures.py          # legacy / draft figures into figures/
 python3 scripts/figure1_forest_plot.py       # Figure 1: forest plot of per-cohort + pooled CIs
 python3 scripts/figure5_shap_three_panel.py  # Figure 4: three-panel SHAP (H-vs-A, CRC-vs-control, A-vs-CRC)
+python3 scripts/figure2_roc_curves.py        # Figure 2: headline pooled ROC curves
+                                             # (Species RF / Joint RF / Joint XGB; AUCs sourced from
+                                             # results/bootstrap_ci.csv pooled rows)
+                                             # outputs: manuscript/figures/Figure2_ROC_Curves.{png,pdf}
+python3 scripts/figure3_shap_importance.py   # Figure 3: top-15 mean |SHAP| bars for joint RF vs joint XGB
+                                             # outputs: manuscript/figures/Figure3_SHAP_Importance.{png,pdf}
 ```
 
 ### 9. Verification
@@ -206,7 +213,7 @@ script and by `tests/test_lodo_cv.py`); it is not invoked directly.
 
 When a cohort is held out as the test fold, all training-set cohorts from the same country are excluded. Affected pairs:
 
-- **ThomasAM_2019_c (JPN) ↔ YachidaS_2019 (JPN)**: without this fix ThomasAM_2019_c achieves AUC=0.999 due to geographic signal leakage. With fix: AUC=0.836.
+- **ThomasAM_2019_c (JPN) ↔ YachidaS_2019 (JPN)**: without this fix ThomasAM_2019_c achieves AUC=0.998 due to geographic signal leakage. With fix: AUC=0.836.
 - **ThomasAM_2018a (ITA) ↔ ThomasAM_2018b (ITA)**: each excluded from the other's training fold.
 
 ## Key design decisions

@@ -22,7 +22,7 @@ First release accompanying the manuscript submission. Version pinned in
   `scripts/lodo_cv.py`: when a cohort is held out as the test fold, all
   cohorts from the same country are dropped from training. This corrects a
   population-confounding artefact that previously inflated ThomasAM_2019_c
-  AUC to 0.999 (due to YachidaS_2019 in training); the corrected AUC is
+  AUC to 0.998 (due to YachidaS_2019 in training); the corrected AUC is
   0.836.
 - Per-fold pathway filtering: the prevalence (>= 10%) and mean (>= 1e-6)
   filters for HUMAnN unstratified pathways are now computed on the training
@@ -47,8 +47,8 @@ First release accompanying the manuscript submission. Version pinned in
 - Seed sensitivity (5 seeds) producing both per-seed (S8) and across-seed
   summary (S8b) supplementary tables.
 - 4x5 prevalence-by-mean filter grid via per-fold filtering, range
-  0.773-0.811 across the full grid (0.773-0.789 across the 16 non-degenerate
-  cells).
+  0.781-0.835 across the full 20-cell grid (spread 0.055; see
+  `results/sensitivity_thresholds.csv`).
 - Age/sex/BMI confounder adjustment (direct + residualized) with per-fold
   imputation from training cohorts only.
 - 10,000-replicate cohort-stratified pooled bootstrap CIs
@@ -92,7 +92,7 @@ First release accompanying the manuscript submission. Version pinned in
   specificity floors. At 90% spec: species RF 49.9%, joint RF 40.5%,
   joint XGB 42.4%. At 95% spec: 39.8% / 31.0% / 33.2%.
 - `fit_comparison.py`: head-to-head with FIT (Imperiale 2014); at FIT's
-  94% specificity, species RF sensitivity is 42% vs FIT 79%; positions
+  94% specificity, species RF sensitivity is 42% vs FIT 74%; positions
   this work as complementary (FIT-negative stratification), not a FIT
   replacement.
 - `per_cohort_ppv.py`, `per_cohort_sens_spec.py`: per-cohort PPV at 5%
@@ -226,9 +226,10 @@ First release accompanying the manuscript submission. Version pinned in
   supplementary tables.
 
 ### Removed
-- HanniganGD_2017 was excluded by pre-specified criteria (mean sequencing
-  depth 6.5M reads vs 40-102M for the retained cohorts; 82% species-feature
-  sparsity). The exclusion was decided before any LODO AUCs were computed
+- HanniganGD_2017 was excluded by pre-specified criteria (median sequencing
+  depth 8.7M reads vs 39.4-83.4M for the retained cohorts; 82% species-feature
+  sparsity; see `results/supplementary/S1_cohort_overview.csv`). The
+  exclusion was decided before any LODO AUCs were computed
   and is documented in `results/decisions_addendum.md`. A sensitivity
   analysis with HanniganGD_2017 included is provided
   (`scripts/sensitivity_with_hannigan.py`) and confirms the headline

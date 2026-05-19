@@ -15,7 +15,9 @@ country-aware leave-one-dataset-out validation"*, for consideration at
 worldwide, and a non-invasive, microbiome-based screening assay has been
 proposed by multiple groups as a complement to colonoscopy. However,
 published cross-cohort estimates of microbiome classifier performance
-remain inconsistent because (i) most studies pool 5-7 cohorts and report
+remain inconsistent because (i) prior multi-cohort analyses span a wide
+range of designs — Thomas et al. (2019) pooled 5 cohorts, Wirbel et al.
+(2019) pooled 8, and Piccinno et al. (2025) pooled 18 — and most report
 single-cohort holdouts without geographic confound control, and (ii)
 many studies have advocated pathway-level features without rigorous
 per-fold filtering, allowing test-fold leakage to inflate estimated
@@ -61,8 +63,8 @@ generalization. Our study addresses both gaps.
    malignant transformation rather than at the adenoma stage.
 
 5. **Comprehensive sensitivity analyses** including (i) per-fold filter
-   threshold sweep across a 4 × 5 grid showing AUC spread of 0.018
-   (`results/sensitivity_thresholds.csv`), (ii) seed sensitivity across
+   threshold sweep across a 4 × 5 grid showing AUC range 0.781-0.835
+   (spread 0.055; `results/sensitivity_thresholds.csv`), (ii) seed sensitivity across
    five random seeds (mean 0.810 ± 0.002;
    `results/seed_sensitivity.csv`), (iii) age/sex/BMI confounder
    adjustment via direct inclusion and residualization (range
