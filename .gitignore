@@ -35,3 +35,6 @@ venv/
 
 # Local Python pin
 .python-version
+
+# Stratified pathway raw pull (169MB; regen via scripts/export_data_stratified.R)
+data/raw/pathway_stratified_v320.csv
