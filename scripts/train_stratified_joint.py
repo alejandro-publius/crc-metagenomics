@@ -44,6 +44,12 @@ def load_data(prevalence_threshold: float, mean_threshold: float) -> tuple[pd.Da
     if "study_name" in stratified.columns:
         stratified = stratified.drop(columns=["study_name"])
 
+    # Sanitize stratified column names: HUMAnN includes [], <> which XGBoost rejects
+    def _sanitize(c: str) -> str:
+        return (c.replace("[", "(").replace("]", ")")
+                 .replace("<", ".lt.").replace(">", ".gt."))
+    stratified = stratified.rename(columns=_sanitize)
+
     species_cols = [c for c in species.columns if c not in ("sample_id",)]
     pathway_cols = [c for c in stratified.columns if c not in ("sample_id",)]
 
