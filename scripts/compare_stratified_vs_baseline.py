@@ -56,8 +56,9 @@ def main():
             d = preds[new]
             ci = bootstrap_pooled_ci(d["y_true"].values, d["y_prob"].values,
                                       d["cohort"].values, n_boot=10000)
-            print(f"  {new}: pooled AUC {ci['auc']:.4f} [{ci['ci_lo']:.4f}, {ci['ci_hi']:.4f}] "
-                  f"(n={int(ci['n'])}, kept={int(ci['n_boot_kept'])}/10000)")
+            print(f"  {new}: pooled AUC {ci['auc']:.4f} [{ci.get('ci_low', ci.get('ci_lo')):.4f}, "
+                  f"{ci.get('ci_high', ci.get('ci_hi')):.4f}] "
+                  f"(n={int(ci.get('n', len(d)))}, kept={int(ci.get('n_boot_kept', 10000))}/10000)")
 
         print("\n=== Pairwise DeLong tests ===")
         comparisons = [

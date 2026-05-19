@@ -1,0 +1,6 @@
+model,desc,n_samples,pooled_auc
+species_rf,species-only RF,1339,0.7812275495861314
+joint_rf,joint community-pathway RF,1339,0.7560830860534125
+joint_xgb,joint community-pathway XGB,1339,0.7659824635773409
+stratified_joint_rf,joint stratified-pathway RF,1339,0.734822962450637
+stratified_joint_xgb,joint stratified-pathway XGB,1339,0.7691305414872494
