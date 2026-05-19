@@ -15,7 +15,6 @@ Alejandro Velazquez^1,\*^, Rachel Selbrede^2^
 **Display items:** Figures 4; Tables 1; Supplementary Tables 2.
 **Code and data:** https://github.com/alejandro-publius/crc-metagenomics
 
-
 ---
 
 # Abstract
@@ -27,7 +26,6 @@ Alejandro Velazquez^1,\*^, Rachel Selbrede^2^
 **Results.** The species-only RF achieved a per-cohort mean LODO AUC of 0.807 ± 0.065 (`results/baseline_results.csv`) and a pooled AUC of 0.781 (95% CI 0.757–0.805; `results/bootstrap_ci.csv`). On pooled discrimination, species-only modestly outperformed the joint RF (pooled AUC 0.756, 95% CI 0.731–0.781; DeLong z = 3.35, p = 0.0008) and the joint XGBoost (pooled AUC 0.766, 95% CI 0.740–0.791; z = 2.00, p = 0.046; `results/delong_results.csv`); the absolute pooled ΔAUC is ≈0.02 and the DeLong signal is concentrated in the YachidaS_2019 fold (n_test = 508). Per-cohort paired tests on the same comparisons did not reach significance (t-test p = 0.87 and 0.28; `results/model_comparison.csv`), consistent with limited power at n = 10 folds. Results were stable across five random seeds (mean per-cohort AUC 0.810 ± 0.002, range 0.807–0.811; `results/seed_sensitivity.csv`), a 20-cell pathway-threshold sensitivity grid (0.781–0.835, spread 0.055; `results/sensitivity_thresholds.csv`), and demographic adjustment for age, sex, and BMI (0.800–0.814; `results/confounder_results.csv`). Cross-cohort adenoma LODO across the four adenoma-containing cohorts (n = 183) gave a null result for healthy-vs-adenoma (RF 0.561, XGB 0.579) and only modest above-chance discrimination for adenoma-vs-CRC (RF 0.671, XGB 0.617; `results/adenoma_lodo_results.csv`); these estimates are underpowered at n_folds = 4 and should be read as hypothesis-generating.
 
 **Conclusions.** At current cross-cohort sample sizes, species-level taxonomic features alone marginally outperform joint species-plus-pathway models on pooled CRC discrimination, with the small pooled ΔAUC driven primarily by one large fold (YachidaS_2019); adding pathway features increases dimensionality without proportional signal gain. The findings support parsimonious species-level classifiers as a defensible default for microbiome-based CRC analyses and highlight the importance of formal statistical comparison and systematic robustness evaluation in metagenomic classification studies.
-
 
 ---
 
@@ -44,7 +42,6 @@ First, the contribution of functional pathway features relative to species-level
 Recent benchmarking efforts have evaluated bioinformatics workflows for CRC detection across multiple cohorts (Sun et al. 2025), and several groups have proposed processing-bias corrections to improve cross-study generalization of microbiome prediction models. What is still missing is a focused, end-to-end re-evaluation of the Thomas et al. (2019) framework with per-fold feature filtering, formal statistical classifier comparison via the DeLong test, and a systematic robustness battery, performed on an expanded modern cohort set.
 
 Here we revisit the Thomas et al. (2019) framework with three objectives. First, we test whether the addition of unstratified HUMAnN pathway features to MetaPhlAn species-level profiles improves classification performance, using the DeLong test (DeLong et al. 1988; Sun and Xu 2014) on pooled LODO predictions for formal sample-level comparison and per-cohort paired t-tests / Wilcoxon signed-rank tests for fold-level comparison. Second, we implement per-fold pathway filtering and a country-aware LODO design to eliminate two distinct sources of information leakage: from held-out cohorts into feature selection, and from same-country cohorts into the training fold. Third, we conduct a systematic robustness battery comprising 20-cell filter-threshold sensitivity analysis, demographic confounder assessment (age, sex, BMI), random-seed stability, 10,000-iteration cohort-stratified bootstrap confidence intervals, per-fold ComBat batch correction, and a biologically-guided pathway shortlist. We additionally extend the framework to cross-cohort adenoma classification across the four adenoma-containing cohorts. All code, processed data, per-sample predictions, and decision logs are publicly available to enable end-to-end reproducibility.
-
 
 ---
 
@@ -112,7 +109,6 @@ All classification and statistical analyses were implemented in Python with scik
 
 All metagenomic data are publicly available through curatedMetagenomicData via Bioconductor. Retrieval used `returnSamples()` with the ten study identifiers listed above, filtering for samples annotated as CRC, adenoma, or control. No novel sequencing data were generated. The complete analysis pipeline is deposited at https://github.com/alejandro-publius/crc-metagenomics. The repository contains all classification and robustness scripts; per-sample LODO predictions in long format; SHAP feature-importance tables; processed feature matrices; the decision log (`results/decisions_addendum.md`); pinned Python dependencies (`requirements.lock`); and R session information (`session_info.txt`). Trained model objects are not deposited; all reported results can be reproduced from the deposited scripts and publicly available inputs in approximately 45 minutes on a standard workstation.
 
-
 ---
 
 # Results
@@ -136,6 +132,17 @@ Per-cohort paired comparisons (n = 10 folds) did not reach significance for eith
 The DeLong test on the same pooled held-out predictions (n = 1,339) clearly detected the difference: species RF significantly outperformed the joint RF (ΔAUC = 0.025; z = 3.35; **p = 0.0008**; `results/delong_results.csv`, row 1) and the joint XGBoost (ΔAUC = 0.015; z = 2.00; **p = 0.046**; `results/delong_results.csv`, row 2). The two joint models did not differ significantly from one another (z = 1.30; p = 0.19; `results/delong_results.csv`, row 3). Most of the DeLong signal arises from the YachidaS_2019 fold (n_test = 508), where species RF reaches 0.708 versus 0.669 (joint RF) and 0.694 (joint XGBoost) (Figure 2; Supplementary Table S2).
 
 Together, the per-cohort and DeLong analyses agree that pathways add no benefit on average; DeLong further detects a small but statistically significant *degradation* at the sample level, driven primarily by the largest fold.
+
+## Species-stratified pathway features do not improve over species alone either
+
+To address the possibility that the community-level pathway features are too coarse to capture the joint species-plus-function signal, we re-ran the joint model using HUMAnN species-stratified pathway abundances (per-species, per-pathway) pulled from curatedMetagenomicData 3.20 (`scripts/export_data_stratified.R`). This raises the candidate pathway feature space from ~400 community-level pathways to ~12,000-31,000 stratified pathways per cohort (union: 38,672 features), and yields 9,500-9,950 features per fold after the per-fold prevalence ≥ 5% / mean ≥ 1e-7 filter (`results/stratified_joint_results.csv`, `n_features` column minus 229 species). Under the identical country-aware LODO, RF, and XGBoost configuration:
+
+- **Joint stratified RF:** per-cohort mean AUC **0.771 ± 0.073** and pooled **0.735 (95% CI 0.708–0.761; 10,000 cohort-stratified bootstrap; `results/stratified_vs_baseline_comparison.csv`)**.
+- **Joint stratified XGBoost:** per-cohort mean AUC **0.800 ± 0.057** and pooled **0.769 (95% CI 0.744–0.794)**.
+
+DeLong tests on the pooled held-out predictions (`results/delong_stratified_vs_baseline.csv`): species RF significantly outperforms joint stratified RF (ΔAUC = -0.046; z = 5.49; **p < 0.0001**), and joint community-pathway RF significantly outperforms joint stratified RF (ΔAUC = -0.021; z = 3.02; **p = 0.003**). The XGBoost comparisons are not significant (species vs stratified XGB p = 0.13; community-joint XGB vs stratified XGB p = 0.62).
+
+Together with the community-level pathway result, this triples the feature-resolution coverage of the negative finding: across three independent feature regimes (species alone, species + community pathway, species + species-stratified pathway), adding pathway features at any granularity tested does not improve cross-cohort CRC discrimination. The RF degradation worsens monotonically with feature count (0.781 → 0.756 → 0.735 pooled AUC), consistent with the curse of dimensionality at n = 1,339; XGBoost's `tree_method='hist'` handles the wider feature space without further degradation but does not improve either. This rules out "the community-pathway aggregation was masking the signal" as an explanation for the joint model's underperformance.
 
 ## Filter-threshold sensitivity
 
@@ -174,7 +181,6 @@ TreeSHAP rankings parallel this pattern. The H-vs-A classifier (Figure 4A) empha
 
 **Figure 4.** Three-panel TreeSHAP comparison across the adenoma-carcinoma sequence under country-aware LODO across the four adenoma-containing cohorts (n = 183 adenomas). (A) Control vs adenoma (H-vs-A; RF mean LODO AUC 0.561). (B) CRC vs control (reference panel). (C) Adenoma vs CRC (A-vs-CRC; RF mean LODO AUC 0.671). The oral-pathobiont signature (*Peptostreptococcus stomatis*, *Parvimonas micra*, *Gemella morbillorum*, *Fusobacterium nucleatum*) dominates the two panels involving CRC samples and is largely absent from the H-vs-A panel.
 
-
 ---
 
 # Discussion
@@ -191,7 +197,7 @@ The joint XGBoost model exhibits a notably larger reliability term in the Brier 
 
 ## Granularity of functional features
 
-Overall HUMAnN unstratified pathway abundances sit at an intermediate granularity between species composition and gene-level functional content: each feature is a community-level relative abundance for one MetaCyc pathway, summed across all contributing taxa. Two refinements at finer granularities were tested. First, a *biologically-guided pathway shortlist* (`scripts/bio_pathway_shortlist.py`) restricted candidate pathways to nine CRC-relevant functional groups — butyrate / short-chain fatty acid production, fermentation, lipopolysaccharide and inflammation pathways, polyamine synthesis, tryptophan metabolism, folate and one-carbon metabolism, sulfur and methionine metabolism, glycan / mucin degradation, and bile-acid metabolism (BSH-mediated deconjugation and 7alpha-dehydroxylation / bai operon) — selected from the published CRC microbiome literature before any model fitting. Second, *species-stratified pathways* (`scripts/stratified_pathway_pilot.py`, `results/stratified_pathway_pilot.csv`) decompose each pathway abundance into per-taxon contributions, producing >4,000 columns at the cost of substantial sparsity and redundancy. Neither refinement rescued the joint model. We interpret this as evidence that, at the current dataset size, taxonomic composition already captures most of the discriminative signal accessible from shotgun metagenomics through standard MetaPhlAn / HUMAnN profiling. Genuinely additive functional information would, on this evidence, require strain- or gene-level resolution — and corresponding sample sizes — beyond the scope of this work.
+Overall HUMAnN unstratified pathway abundances sit at an intermediate granularity between species composition and gene-level functional content: each feature is a community-level relative abundance for one MetaCyc pathway, summed across all contributing taxa. Three refinements at finer granularities were tested. First, a *biologically-guided pathway shortlist* (`scripts/bio_pathway_shortlist.py`) restricted candidate pathways to nine CRC-relevant functional groups — butyrate / short-chain fatty acid production, fermentation, lipopolysaccharide and inflammation pathways, polyamine synthesis, tryptophan metabolism, folate and one-carbon metabolism, sulfur and methionine metabolism, glycan / mucin degradation, and bile-acid metabolism (BSH-mediated deconjugation and 7alpha-dehydroxylation / bai operon) — selected from the published CRC microbiome literature before any model fitting. Second, a *species-stratified pathway pilot* on a smaller deeper-filtered matrix (`scripts/stratified_pathway_pilot.py`, `results/stratified_pathway_pilot.csv`) tested the same direction at ~4,000 columns. Third, *full species-stratified pathways across all 10 cohorts* (`scripts/train_stratified_joint.py`, `results/stratified_joint_results.csv`) pulled the complete HUMAnN species-stratified abundance set from curatedMetagenomicData 3.20 (38,672 candidate features; 9,500-9,950 retained per fold after the prevalence ≥ 5% / mean ≥ 1e-7 per-fold filter). None of the three refinements rescued the joint model. The full 10-cohort stratified analysis produced a pooled AUC of 0.735 (RF; 95% CI 0.708-0.761) and 0.769 (XGBoost; 95% CI 0.744-0.794) — DeLong significantly worse than species-only for RF (z = 5.49, p < 0.0001) and indistinguishable for XGBoost (z = 1.53, p = 0.13; `results/delong_stratified_vs_baseline.csv`). The monotonic RF degradation across three feature-resolution regimes (species 0.781 → +community pathway 0.756 → +stratified pathway 0.735 pooled AUC) is the empirical signature of the curse of dimensionality at n = 1,339 and rules out "community-pathway aggregation was masking the signal" as an explanation for the negative joint result. We interpret this as evidence that, at the current dataset size, taxonomic composition already captures most of the discriminative signal accessible from shotgun metagenomics through standard MetaPhlAn / HUMAnN profiling. Genuinely additive functional information would, on this evidence, require gene-level resolution and substantially larger sample sizes than the curatedMetagenomicData 10-cohort subset provides.
 
 ## Biology of the CRC-enriched oral-pathobiont signature
 
@@ -226,7 +232,6 @@ The Fecal Immunochemical Test (FIT) remains the established non-invasive primary
 ## Conclusion
 
 A species-only Random Forest classifier, trained under country-aware LODO across 10 curatedMetagenomicData cohorts (n = 1,339), outperforms joint species-plus-pathway Random Forest and XGBoost models on pooled discrimination (DeLong p = 0.0008 vs joint RF; p = 0.046 vs joint XGBoost), though per-cohort paired tests at n = 10 folds do not reach significance. This pattern is robust to random-seed variation, pathway-filter thresholds, demographic adjustment, and ComBat batch correction. The cross-cohort adenoma analysis (n = 183 across 4 cohorts) returned a null result for healthy-vs-adenoma discrimination and only modest above-chance performance for adenoma-vs-CRC; both findings are underpowered and consistent with prior literature suggesting that oral-pathobiont enrichment is more prominent at the carcinoma stage. All code, processed data, per-sample predictions, and decision logs are publicly available to enable replication and extension.
-
 
 ---
 
@@ -265,7 +270,6 @@ A species-only Random Forest classifier, trained under country-aware LODO across
 16. Xi, Y. & Xu, P. Global colorectal cancer burden in 2020 and projections to 2040. *Transl. Oncol.* **14**, 101174 (2021). https://doi.org/10.1016/j.tranon.2021.101174
 
 17. Yachida, S. et al. Metagenomic and metabolomic analyses reveal distinct stage-specific phenotypes of the gut microbiota in colorectal cancer. *Nat. Med.* **25**, 968–976 (2019). https://doi.org/10.1038/s41591-019-0458-7
-
 
 ---
 

@@ -20,6 +20,17 @@ The DeLong test on the same pooled held-out predictions (n = 1,339) clearly dete
 
 Together, the per-cohort and DeLong analyses agree that pathways add no benefit on average; DeLong further detects a small but statistically significant *degradation* at the sample level, driven primarily by the largest fold.
 
+## Species-stratified pathway features do not improve over species alone either
+
+To address the possibility that the community-level pathway features are too coarse to capture the joint species-plus-function signal, we re-ran the joint model using HUMAnN species-stratified pathway abundances (per-species, per-pathway) pulled from curatedMetagenomicData 3.20 (`scripts/export_data_stratified.R`). This raises the candidate pathway feature space from ~400 community-level pathways to ~12,000-31,000 stratified pathways per cohort (union: 38,672 features), and yields 9,500-9,950 features per fold after the per-fold prevalence ≥ 5% / mean ≥ 1e-7 filter (`results/stratified_joint_results.csv`, `n_features` column minus 229 species). Under the identical country-aware LODO, RF, and XGBoost configuration:
+
+- **Joint stratified RF:** per-cohort mean AUC **0.771 ± 0.073** and pooled **0.735 (95% CI 0.708–0.761; 10,000 cohort-stratified bootstrap; `results/stratified_vs_baseline_comparison.csv`)**.
+- **Joint stratified XGBoost:** per-cohort mean AUC **0.800 ± 0.057** and pooled **0.769 (95% CI 0.744–0.794)**.
+
+DeLong tests on the pooled held-out predictions (`results/delong_stratified_vs_baseline.csv`): species RF significantly outperforms joint stratified RF (ΔAUC = -0.046; z = 5.49; **p < 0.0001**), and joint community-pathway RF significantly outperforms joint stratified RF (ΔAUC = -0.021; z = 3.02; **p = 0.003**). The XGBoost comparisons are not significant (species vs stratified XGB p = 0.13; community-joint XGB vs stratified XGB p = 0.62).
+
+Together with the community-level pathway result, this triples the feature-resolution coverage of the negative finding: across three independent feature regimes (species alone, species + community pathway, species + species-stratified pathway), adding pathway features at any granularity tested does not improve cross-cohort CRC discrimination. The RF degradation worsens monotonically with feature count (0.781 → 0.756 → 0.735 pooled AUC), consistent with the curse of dimensionality at n = 1,339; XGBoost's `tree_method='hist'` handles the wider feature space without further degradation but does not improve either. This rules out "the community-pathway aggregation was masking the signal" as an explanation for the joint model's underperformance.
+
 ## Filter-threshold sensitivity
 
 Across a 20-cell grid of prevalence cutoffs {0.05, 0.10, 0.15, 0.20} × mean-abundance cutoffs {1e-7, 1e-6, 1e-5, 1e-4, 1e-3}, the joint RF per-cohort mean AUC ranged from **0.781 to 0.835** (full-grid spread 0.055; `results/sensitivity_thresholds.csv`). The default thresholds (prevalence ≥ 10%, mean ≥ 1e-6) sit near the middle of the observed range, and qualitative conclusions are insensitive to the specific cutoffs chosen (Supplementary Table S1). The 1e-3 mean column retains only two pathways and effectively reduces the joint model to a near-species-only configuration.
