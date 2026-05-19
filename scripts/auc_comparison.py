@@ -1,7 +1,26 @@
 """Paired statistical comparison of model AUCs across LODO folds.
+
 Reads results CSVs (no hardcoded values) and reports paired t-test,
 Wilcoxon signed-rank, bootstrap 95% CIs on per-cohort AUC differences,
-and DeLong tests on pooled LODO ROC curves."""
+and DeLong tests on pooled LODO ROC curves.
+
+Methodological caveat for the pooled DeLong test
+------------------------------------------------
+The DeLong covariance estimator (Sun & Xu 2014) assumes the two
+prediction vectors come from i.i.d. samples of a single population.
+Pooled LODO held-out predictions only partly satisfy this: every sample
+gets exactly one held-out score per model on the same training-fold
+schedule (so the predictions are properly paired sample-by-sample), but
+samples from different cohorts are scored by classifiers trained on
+different fold-specific training sets, which technically violates the
+single-population assumption. To make the assumption violation visible
+rather than hidden, this script also computes a Stouffer-Z meta-
+analysis over per-fold DeLong z-statistics (each fold's DeLong test
+runs on samples scored by the *same* training set, so its single-
+population assumption is satisfied exactly). Both the pooled and the
+meta-analytic results are saved; the per-fold meta-analysis is the
+preferred sensitivity check.
+"""
 import os
 
 import numpy as np
@@ -141,6 +160,7 @@ def main():
         assert (preds[k]['sample_id'].values == ref).all(), f'{k} sample order mismatch'
         assert (preds[k]['y_true'].values == preds['species_rf']['y_true'].values).all(), f'{k} y_true mismatch'
     y_true = preds['species_rf']['y_true'].values
+    cohort = preds['species_rf']['cohort'].values
     n_total = len(y_true)
     n_pos = int(y_true.sum())
     print(f'  Pooled n={n_total} (CRC={n_pos}, control={n_total - n_pos})')
@@ -155,6 +175,51 @@ def main():
     print('\nNote: DeLong is run on pooled LODO predictions (each sample contributes')
     print('its single held-out cohort prediction). This tests overall classifier')
     print('performance and complements the per-cohort paired tests above.')
+    print('Methodological caveat: pooled LODO predictions are not i.i.d. samples')
+    print('from one population (each sample is scored under a different LODO')
+    print('training fold). The per-fold DeLong + Stouffer-Z meta-analysis below')
+    print('avoids this assumption violation.')
+
+    print('\n=== Per-fold DeLong + Stouffer-Z meta-analysis ===')
+    meta_rows = []
+    perfold_rows = []
+    for a, b in [('species_rf', 'joint_rf'), ('species_rf', 'joint_xgb'), ('joint_xgb', 'joint_rf')]:
+        fold_zs = []
+        fold_weights = []  # sqrt(n_fold) Stouffer weights
+        n_skipped = 0
+        for c in sorted(set(cohort)):
+            mask = cohort == c
+            yt_c = y_true[mask]
+            if len(np.unique(yt_c)) < 2:
+                n_skipped += 1
+                continue
+            pa = preds[a]['y_prob'].values[mask]
+            pb = preds[b]['y_prob'].values[mask]
+            au_a_c, au_b_c, z_c, p_c = delong_roc_test(yt_c, pa, pb)
+            fold_zs.append(z_c)
+            fold_weights.append(np.sqrt(int(mask.sum())))
+            perfold_rows.append({
+                'model_a': a, 'model_b': b, 'cohort': c,
+                'auc_a': au_a_c, 'auc_b': au_b_c,
+                'auc_diff': au_a_c - au_b_c,
+                'z': z_c, 'p_value': p_c, 'n_fold': int(mask.sum()),
+            })
+        fold_zs = np.asarray(fold_zs, dtype=float)
+        fold_weights = np.asarray(fold_weights, dtype=float)
+        z_meta = float(np.sum(fold_weights * fold_zs)
+                       / np.sqrt(np.sum(fold_weights ** 2)))
+        p_meta = float(2.0 * (1.0 - norm.cdf(abs(z_meta))))
+        print(f'  {a:12s} vs {b:12s}  Stouffer z={z_meta:+.3f}  p={p_meta:.4f}  '
+              f'(folds used={len(fold_zs)}, skipped={n_skipped})')
+        meta_rows.append({
+            'model_a': a, 'model_b': b,
+            'z_stouffer': z_meta, 'p_stouffer': p_meta,
+            'n_folds': len(fold_zs), 'n_folds_skipped': n_skipped,
+        })
+    pd.DataFrame(perfold_rows).to_csv('results/delong_per_fold.csv', index=False)
+    pd.DataFrame(meta_rows).to_csv('results/delong_stouffer_meta.csv', index=False)
+    print('Saved results/delong_per_fold.csv')
+    print('Saved results/delong_stouffer_meta.csv')
 
 
 if __name__ == '__main__':

@@ -10,6 +10,19 @@ structure (each fold's contribution is bounded by its true sample size)
 and avoids cohort-imbalanced resamples that an i.i.d. pooled bootstrap
 can produce.
 
+The default CI estimator is the percentile method (matches the
+published study). The functions also return ``n_boot_kept`` so callers
+can verify how many resamples were dropped because they happened to
+land on a single-class subset. With the actual prediction CSVs in this
+repository no iterations are dropped (kept == n_boot), but the column
+is still emitted so a future re-run with imbalanced cohorts surfaces
+the bias loudly rather than silently shifting the quoted CIs.
+
+For skewed/bounded statistics like AUC the bias-corrected accelerated
+(BCa) method of Efron (1987) is a more principled choice; the
+``crc_lodo_bench.stats.bootstrap_pooled_ci`` helper in the installable
+package exposes ``method='bca'`` for that purpose.
+
 Usage:
     python3 scripts/bootstrap_ci.py
 """
@@ -21,8 +34,14 @@ from sklearn.metrics import roc_auc_score
 N_BOOT = 10000
 SEED = 42
 
-def bootstrap_auc_iid(y_true, y_prob, n_boot=N_BOOT, seed=SEED):
-    """I.i.d. bootstrap (used for per-cohort CIs)."""
+def bootstrap_auc_iid(y_true, y_prob, n_boot=N_BOOT, seed=SEED, return_kept=False):
+    """I.i.d. bootstrap (used for per-cohort CIs).
+
+    Returns ``(lo, hi)`` or ``(lo, hi, n_kept)`` when ``return_kept`` is
+    True. Single-class resamples are silently dropped because
+    ``roc_auc_score`` is undefined on them; ``n_kept`` exposes how many
+    iterations survived so the caller can see the dropping rate.
+    """
     rng = np.random.RandomState(seed)
     n = len(y_true)
     aucs = []
@@ -34,10 +53,17 @@ def bootstrap_auc_iid(y_true, y_prob, n_boot=N_BOOT, seed=SEED):
             continue
         aucs.append(roc_auc_score(yt, yp))
     aucs = np.array(aucs)
-    return np.percentile(aucs, 2.5), np.percentile(aucs, 97.5)
+    lo, hi = np.percentile(aucs, 2.5), np.percentile(aucs, 97.5)
+    if return_kept:
+        return lo, hi, len(aucs)
+    return lo, hi
 
-def bootstrap_auc_stratified(df, n_boot=N_BOOT, seed=SEED):
-    """Cohort-stratified bootstrap on the pooled prediction frame."""
+def bootstrap_auc_stratified(df, n_boot=N_BOOT, seed=SEED, return_kept=False):
+    """Cohort-stratified bootstrap on the pooled prediction frame.
+
+    Returns ``(lo, hi)`` or ``(lo, hi, n_kept)`` when ``return_kept`` is
+    True. See :func:`bootstrap_auc_iid` for the meaning of ``n_kept``.
+    """
     rng = np.random.RandomState(seed)
     cohort_to_idx = {c: np.where(df['cohort'].values == c)[0] for c in df['cohort'].unique()}
     y_true = df['y_true'].values
@@ -54,7 +80,10 @@ def bootstrap_auc_stratified(df, n_boot=N_BOOT, seed=SEED):
             continue
         aucs.append(roc_auc_score(yt, yp))
     aucs = np.array(aucs)
-    return np.percentile(aucs, 2.5), np.percentile(aucs, 97.5)
+    lo, hi = np.percentile(aucs, 2.5), np.percentile(aucs, 97.5)
+    if return_kept:
+        return lo, hi, len(aucs)
+    return lo, hi
 
 def process_preds(path, label):
     df = pd.read_csv(path)
@@ -66,18 +95,23 @@ def process_preds(path, label):
         yt = sub['y_true'].values
         yp = sub['y_prob'].values
         auc = roc_auc_score(yt, yp)
-        lo, hi = bootstrap_auc_iid(yt, yp)
-        print(f'  {cohort:25s}  AUC={auc:.3f}  [{lo:.3f}, {hi:.3f}]')
+        lo, hi, n_kept = bootstrap_auc_iid(yt, yp, return_kept=True)
+        drop_note = '' if n_kept == N_BOOT else f'  (kept {n_kept}/{N_BOOT})'
+        print(f'  {cohort:25s}  AUC={auc:.3f}  [{lo:.3f}, {hi:.3f}]{drop_note}')
         rows.append({'model': label, 'cohort': cohort, 'auc': auc,
-                     'ci_lo': lo, 'ci_hi': hi, 'n': len(sub)})
+                     'ci_lo': lo, 'ci_hi': hi, 'n': len(sub),
+                     'n_boot_kept': n_kept})
 
     yt_all = df['y_true'].values
     yp_all = df['y_prob'].values
     auc_all = roc_auc_score(yt_all, yp_all)
-    lo, hi = bootstrap_auc_stratified(df)
-    print(f'  {"pooled (stratified)":25s}  AUC={auc_all:.3f}  [{lo:.3f}, {hi:.3f}]')
+    lo, hi, n_kept = bootstrap_auc_stratified(df, return_kept=True)
+    drop_note = '' if n_kept == N_BOOT else f'  (kept {n_kept}/{N_BOOT})'
+    print(f'  {"pooled (stratified)":25s}  AUC={auc_all:.3f}  '
+          f'[{lo:.3f}, {hi:.3f}]{drop_note}')
     rows.append({'model': label, 'cohort': 'pooled', 'auc': auc_all,
-                 'ci_lo': lo, 'ci_hi': hi, 'n': len(df)})
+                 'ci_lo': lo, 'ci_hi': hi, 'n': len(df),
+                 'n_boot_kept': n_kept})
     return rows
 
 def main():

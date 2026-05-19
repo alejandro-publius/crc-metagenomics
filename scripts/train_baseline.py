@@ -20,11 +20,66 @@ sys.path.insert(0, os.path.dirname(__file__))
 from lodo_cv import run_lodo_cv  # noqa: E402
 
 
+SPECIES_PATH = "data/processed/species_filtered.csv"
+METADATA_PATH = "data/processed/metadata_clean.csv"
+
+
+def _read_csv_with_hint(path: str, *, hint: str) -> pd.DataFrame:
+    """Read CSV with a friendly error if the file is missing or unreadable."""
+    if not os.path.isfile(path):
+        raise FileNotFoundError(
+            f"Required input not found: {path}\n"
+            f"  Hint: {hint}"
+        )
+    try:
+        df = pd.read_csv(path)
+    except pd.errors.EmptyDataError as e:
+        raise pd.errors.EmptyDataError(
+            f"{path} is empty or unreadable. Re-run the preprocessing "
+            f"step that produces it."
+        ) from e
+    except pd.errors.ParserError as e:
+        raise pd.errors.ParserError(
+            f"{path} appears truncated or corrupt: {e}. Re-generate it "
+            f"with the upstream script."
+        ) from e
+    if len(df) == 0:
+        raise ValueError(f"{path} has 0 rows; nothing to train on.")
+    return df
+
+
 def main():
-    sp = pd.read_csv('data/processed/species_filtered.csv')
-    md = pd.read_csv('data/processed/metadata_clean.csv')
+    sp = _read_csv_with_hint(
+        SPECIES_PATH,
+        hint="run `python3 scripts/preprocessing.py` first to generate "
+             "data/processed/species_filtered.csv from the curatedMetagenomicData export.",
+    )
+    md = _read_csv_with_hint(
+        METADATA_PATH,
+        hint="run `python3 scripts/preprocessing.py` first to generate "
+             "data/processed/metadata_clean.csv from the curatedMetagenomicData export.",
+    )
+
+    if "sample_id" not in sp.columns or "sample_id" not in md.columns:
+        raise KeyError(
+            "Both species and metadata inputs must have a 'sample_id' column; "
+            "check the preprocessing step."
+        )
+    if not md["sample_id"].is_unique:
+        n_dup = int(md["sample_id"].duplicated().sum())
+        raise ValueError(
+            f"metadata_clean.csv has {n_dup} duplicate sample_id(s); "
+            f"LODO requires unique IDs."
+        )
+    if "label" not in md.columns:
+        raise KeyError("metadata_clean.csv must have a 'label' column.")
+
     mg = md.merge(sp, on='sample_id', how='inner')
     fc = [c for c in sp.columns if c != 'sample_id']
+    if len(fc) == 0:
+        raise ValueError(
+            f"{SPECIES_PATH} has no feature columns beyond 'sample_id'."
+        )
     mask = mg['label'].isin([0, 1])
     X = mg.loc[mask, fc].reset_index(drop=True)
     y = mg.loc[mask, 'label'].reset_index(drop=True)
@@ -32,6 +87,11 @@ def main():
     if 'country' in mg.columns:
         meta_cols.append('country')
     meta = mg.loc[mask, meta_cols].reset_index(drop=True)
+    if len(X) == 0:
+        raise ValueError(
+            "After restricting to label in {0, 1} there are 0 samples. "
+            "Inspect metadata['label'] upstream."
+        )
     print(f'Samples: {len(X)} (CRC={int(y.sum())}, control={int((y==0).sum())})')
     print(f'Features: {X.shape[1]}')
     def make_rf():

@@ -1,0 +1,4 @@
+model_a,model_b,z_stouffer,p_stouffer,n_folds,n_folds_skipped
+species_rf,joint_rf,2.705840304707038,0.006813180109107142,10,0
+species_rf,joint_xgb,1.8139663384544202,0.06968290831571555,10,0
+joint_xgb,joint_rf,0.6532729606698718,0.5135803209740173,10,0

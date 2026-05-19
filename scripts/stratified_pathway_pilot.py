@@ -23,8 +23,10 @@ Outputs:
                                                  n_features, mean_auc
 
 Usage:
-    python3 scripts/stratified_pathway_pilot.py
+    python3 scripts/stratified_pathway_pilot.py \
+        [--prevalence-threshold 0.10] [--mean-threshold 1e-6]
 """
+import argparse
 import gc
 import os
 import re
@@ -42,9 +44,24 @@ warnings.filterwarnings("ignore", category=UserWarning)
 sys.path.insert(0, os.path.dirname(__file__))
 from lodo_cv import get_lodo_splits  # noqa: E402
 
-PREVALENCE_THRESHOLD = 0.10
-MEAN_THRESHOLD = 1e-6
+DEFAULT_PREVALENCE_THRESHOLD = 0.10
+DEFAULT_MEAN_THRESHOLD = 1e-6
 RANDOM_STATE = 42
+
+
+def parse_args(argv=None):
+    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    p.add_argument("--prevalence-threshold", type=float,
+                   default=DEFAULT_PREVALENCE_THRESHOLD,
+                   help=("Minimum fraction of train-fold samples in which a "
+                         "pathway must be non-zero to be retained "
+                         f"(default {DEFAULT_PREVALENCE_THRESHOLD})."))
+    p.add_argument("--mean-threshold", type=float,
+                   default=DEFAULT_MEAN_THRESHOLD,
+                   help=("Minimum train-fold mean abundance for a pathway "
+                         "to be retained "
+                         f"(default {DEFAULT_MEAN_THRESHOLD})."))
+    return p.parse_args(argv)
 
 
 def sanitize(c):
@@ -122,13 +139,15 @@ def load_data():
     return X, y, meta, sp_sane, unstrat_sane, strat_sane
 
 
-def per_fold_pathway_filter(X_train_pw, pw_cols):
+def per_fold_pathway_filter(X_train_pw, pw_cols,
+                            prevalence_threshold=DEFAULT_PREVALENCE_THRESHOLD,
+                            mean_threshold=DEFAULT_MEAN_THRESHOLD):
     """Train-fold prevalence/mean filter, mirrors train_joint.py."""
     Xpw = X_train_pw[pw_cols]
     prev = (Xpw > 0).mean(axis=0)
     ma = Xpw.mean(axis=0)
     keep = [c for c in pw_cols
-            if prev[c] >= PREVALENCE_THRESHOLD and ma[c] >= MEAN_THRESHOLD]
+            if prev[c] >= prevalence_threshold and ma[c] >= mean_threshold]
     return keep
 
 
@@ -140,10 +159,12 @@ def make_rf():
 
 
 def make_xgb():
+    # tree_method='hist' keeps wall time per fold sane on wide feature
+    # matrices (stratified pathway columns can be 35k+ wide).
     return XGBClassifier(
         n_estimators=500, max_depth=6, learning_rate=0.1,
         subsample=0.8, colsample_bytree=0.8, random_state=RANDOM_STATE,
-        eval_metric="logloss", n_jobs=-1,
+        eval_metric="logloss", n_jobs=-1, tree_method="hist",
     )
 
 
@@ -185,7 +206,13 @@ def run_one_feature_set(name, model_name, feature_builder, X, y, meta,
     return rows
 
 
-def main():
+def main(argv=None):
+    args = parse_args(argv)
+    prevalence_threshold = args.prevalence_threshold
+    mean_threshold = args.mean_threshold
+    print(f"Filter thresholds: prevalence>={prevalence_threshold}, "
+          f"mean>={mean_threshold}")
+
     X, y, meta, sp_cols, unstrat_cols, strat_cols = load_data()
     country_col = "country" if "country" in meta.columns else None
     print(f"country-aware LODO: {country_col is not None}")
@@ -195,18 +222,34 @@ def main():
         return X_tr[sp_cols], X_te[sp_cols], len(sp_cols)
 
     def fb_unstrat_joint(X_tr, X_te):
-        keep = per_fold_pathway_filter(X_tr, unstrat_cols)
+        keep = per_fold_pathway_filter(
+            X_tr, unstrat_cols,
+            prevalence_threshold=prevalence_threshold,
+            mean_threshold=mean_threshold,
+        )
         cols = sp_cols + keep
         return X_tr[cols], X_te[cols], len(cols)
 
     def fb_strat_joint(X_tr, X_te):
-        keep = per_fold_pathway_filter(X_tr, strat_cols)
+        keep = per_fold_pathway_filter(
+            X_tr, strat_cols,
+            prevalence_threshold=prevalence_threshold,
+            mean_threshold=mean_threshold,
+        )
         cols = sp_cols + keep
         return X_tr[cols], X_te[cols], len(cols)
 
     def fb_all(X_tr, X_te):
-        keep_u = per_fold_pathway_filter(X_tr, unstrat_cols)
-        keep_s = per_fold_pathway_filter(X_tr, strat_cols)
+        keep_u = per_fold_pathway_filter(
+            X_tr, unstrat_cols,
+            prevalence_threshold=prevalence_threshold,
+            mean_threshold=mean_threshold,
+        )
+        keep_s = per_fold_pathway_filter(
+            X_tr, strat_cols,
+            prevalence_threshold=prevalence_threshold,
+            mean_threshold=mean_threshold,
+        )
         cols = sp_cols + keep_u + keep_s
         return X_tr[cols], X_te[cols], len(cols)
 

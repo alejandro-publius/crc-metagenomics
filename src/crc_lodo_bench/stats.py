@@ -3,10 +3,19 @@
 Two public helpers are exposed:
 
 - :func:`delong_test`: two-tailed DeLong test for paired ROC AUCs on a
-  shared set of samples (Sun and Xu, 2014 fast algorithm).
-- :func:`bootstrap_pooled_ci`: cohort-stratified bootstrap 95% CI on a
+  shared set of samples (Sun and Xu, 2014 fast algorithm). NOTE: the
+  DeLong covariance estimator assumes the two prediction vectors are
+  scored on i.i.d. samples from a single population. When applied to
+  pooled LODO predictions (where each sample's score is conditional on
+  a different held-out training fold) this assumption is approximate;
+  treat the resulting p-value as descriptive and corroborate with
+  per-fold paired t-tests or the cohort-stratified bootstrap.
+- :func:`bootstrap_pooled_ci`: cohort-stratified bootstrap CI on a
   pooled AUC over LODO held-out predictions. Stratifying by cohort
-  preserves the LODO sample-size structure across resamples.
+  preserves the LODO sample-size structure across resamples. Supports
+  both the percentile method (default, matches the published study) and
+  the bias-corrected accelerated (BCa) method of Efron (1987) for
+  skewed AUC distributions.
 
 Both functions are vendored from the equivalent routines used in the
 crc-metagenomics study (``scripts/auc_comparison.py`` and
@@ -125,6 +134,50 @@ def delong_test(
 # ---------------------------------------------------------------------------
 
 
+def _bca_endpoints(
+    point: float,
+    boots: np.ndarray,
+    jackknife: np.ndarray,
+    alpha: float,
+) -> tuple[float, float]:
+    """Bias-corrected accelerated (BCa) CI endpoints (Efron, 1987).
+
+    ``point`` is the original-sample statistic. ``boots`` is the array
+    of bootstrap replicates. ``jackknife`` is the array of leave-one-out
+    jackknife replicates of the statistic (used to estimate skewness).
+    The returned (lo, hi) are the BCa-adjusted percentile endpoints at
+    a two-sided ``alpha``.
+    """
+    boots = np.asarray(boots, dtype=float)
+    # z0: bias correction from the proportion of bootstrap replicates
+    # strictly less than the point estimate.
+    frac_less = float(np.mean(boots < point))
+    # Guard against degenerate 0/1 fractions which would push z0 to
+    # +/- infinity; clip just inside the open unit interval.
+    eps = 1.0 / (10.0 * len(boots))
+    frac_less = float(np.clip(frac_less, eps, 1.0 - eps))
+    z0 = float(norm.ppf(frac_less))
+
+    # Acceleration constant a-hat from jackknife replicates.
+    jk = np.asarray(jackknife, dtype=float)
+    jk_mean = float(np.mean(jk))
+    num = float(np.sum((jk_mean - jk) ** 3))
+    den = 6.0 * (float(np.sum((jk_mean - jk) ** 2)) ** 1.5)
+    a_hat = 0.0 if den == 0.0 else num / den
+
+    z_lo = norm.ppf(alpha / 2.0)
+    z_hi = norm.ppf(1.0 - alpha / 2.0)
+    alpha_lo = float(norm.cdf(z0 + (z0 + z_lo) / (1.0 - a_hat * (z0 + z_lo))))
+    alpha_hi = float(norm.cdf(z0 + (z0 + z_hi) / (1.0 - a_hat * (z0 + z_hi))))
+    # Clip into [0, 1] in case the corrected endpoints push past either
+    # tail of the bootstrap distribution.
+    alpha_lo = float(np.clip(alpha_lo, 0.0, 1.0))
+    alpha_hi = float(np.clip(alpha_hi, 0.0, 1.0))
+    lo = float(np.percentile(boots, 100.0 * alpha_lo))
+    hi = float(np.percentile(boots, 100.0 * alpha_hi))
+    return lo, hi
+
+
 def bootstrap_pooled_ci(
     y_true: np.ndarray,
     y_prob: np.ndarray,
@@ -133,6 +186,7 @@ def bootstrap_pooled_ci(
     n_boot: int = 10_000,
     seed: int = 42,
     alpha: float = 0.05,
+    method: str = "percentile",
 ) -> dict[str, float]:
     """Cohort-stratified bootstrap CI for a pooled AUC.
 
@@ -160,15 +214,28 @@ def bootstrap_pooled_ci(
     alpha
         Two-sided CI level; the returned CI covers
         ``[alpha/2, 1 - alpha/2]``. Default 0.05 -> 95% CI.
+    method
+        Either ``"percentile"`` (default; matches the published study)
+        or ``"bca"`` for the bias-corrected accelerated (BCa) intervals
+        of Efron (1987). BCa is generally preferred for skewed bounded
+        statistics like AUC; the percentile default is preserved for
+        backwards compatibility with manuscript figures.
 
     Returns
     -------
     result : dict
-        Keys: ``auc, ci_low, ci_high, n_boot_kept, alpha, n``. ``auc``
-        is the point estimate on the full pooled data. ``n_boot_kept``
-        is the number of bootstrap iterations in which both classes
-        were present (single-class iterations are dropped).
+        Keys: ``auc, ci_low, ci_high, n_boot_kept, alpha, n, method``.
+        ``auc`` is the point estimate on the full pooled data.
+        ``n_boot_kept`` is the number of bootstrap iterations in which
+        both classes were present (single-class iterations are dropped).
+        ``method`` echoes the chosen CI method.
     """
+    if method not in {"percentile", "bca"}:
+        raise ValueError(
+            f"bootstrap_pooled_ci: method must be 'percentile' or 'bca', "
+            f"got {method!r}"
+        )
+
     y_true = np.asarray(y_true).astype(int)
     y_prob = np.asarray(y_prob, dtype=float)
     cohort = np.asarray(cohort)
@@ -204,8 +271,27 @@ def bootstrap_pooled_ci(
         )
 
     aucs_arr = np.asarray(aucs)
-    lo = float(np.percentile(aucs_arr, 100 * (alpha / 2.0)))
-    hi = float(np.percentile(aucs_arr, 100 * (1 - alpha / 2.0)))
+    if method == "percentile":
+        lo = float(np.percentile(aucs_arr, 100 * (alpha / 2.0)))
+        hi = float(np.percentile(aucs_arr, 100 * (1 - alpha / 2.0)))
+    else:
+        # BCa: build leave-one-out jackknife replicates of the pooled AUC.
+        # We jackknife on the original samples (not on cohorts); cohort
+        # stratification only governs how the bootstrap replicates are
+        # drawn, not how skewness is estimated.
+        n = len(y_true)
+        jk = np.empty(n, dtype=float)
+        for k in range(n):
+            mask = np.ones(n, dtype=bool)
+            mask[k] = False
+            yt_k = y_true[mask]
+            yp_k = y_prob[mask]
+            if len(np.unique(yt_k)) < 2:
+                jk[k] = point
+            else:
+                jk[k] = float(roc_auc_score(yt_k, yp_k))
+        lo, hi = _bca_endpoints(point, aucs_arr, jk, alpha)
+
     return {
         "auc": point,
         "ci_low": lo,
@@ -213,6 +299,7 @@ def bootstrap_pooled_ci(
         "n_boot_kept": len(aucs),
         "alpha": float(alpha),
         "n": int(len(y_true)),
+        "method": method,
     }
 
 

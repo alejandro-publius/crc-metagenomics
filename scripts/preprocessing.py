@@ -9,7 +9,19 @@ modelling-ready files to `data/processed/`. Steps:
 3. Align species and metadata on `sample_id`.
 4. Filter species features: keep columns with prevalence >=10% AND mean
    abundance >=1e-4.
-5. Conditional row-sum renormalisation followed by `log10(x + 1e-6)`.
+5. Row-sum renormalisation followed by `log10(x + 1e-6)`. The
+   renormalisation policy is controlled by `--data-type`:
+
+   - ``relab`` (relative abundance, e.g. MetaPhlAn fractions or
+     percentages): always divide by the per-row sum, then log.
+   - ``rpk`` (HUMAnN-style reads-per-kilobase; row sums in thousands):
+     do NOT divide by the row sum -- absolute magnitudes carry signal.
+   - ``auto`` (default for backward compatibility): use the legacy
+     heuristic ``if rs.mean() > 1.5: divide``. In ``auto`` mode we also
+     ASSERT that no row sum exceeds 100 -- if it does, the input looks
+     like RPK / counts and silently dividing would destroy signal, so
+     we fail loudly and tell the user to pass ``--data-type`` explicitly.
+
 6. Map `study_condition` -> `label` (`CRC`->1, `control`->0,
    `adenoma`->-1; adenoma rows are excluded from binary LODO via the
    downstream `label.isin([0, 1])` mask).
@@ -18,6 +30,7 @@ Outputs:
 - `data/processed/species_filtered.csv`
 - `data/processed/metadata_clean.csv`
 """
+import argparse
 import os
 
 import numpy as np
@@ -35,7 +48,69 @@ MIN_READS = 1_000_000
 # independent of classification results.
 EXCLUDE_COHORTS = ['HanniganGD_2017']
 
-def main():
+# Sanity bound for ``auto`` mode: any row sum above this strongly implies
+# the input is NOT a relative-abundance table (relab maxes at 1 or 100).
+AUTO_MAX_ROW_SUM = 100.0
+
+
+def parse_args(argv=None):
+    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    p.add_argument(
+        "--data-type",
+        choices=["relab", "rpk", "auto"],
+        default="auto",
+        help=(
+            "How to renormalise the feature matrix before log-transform. "
+            "'relab' always divides by the row sum (relative abundance / "
+            "percentages). 'rpk' skips renormalisation (HUMAnN RPK or any "
+            "count-like matrix where row magnitudes matter). 'auto' "
+            "(default) preserves legacy behaviour: divide iff mean row "
+            "sum > 1.5 AND no row sum exceeds 100; otherwise raise. "
+            "Pick explicitly when the table is gene/strain RPK to avoid "
+            "the heuristic firing the wrong way."
+        ),
+    )
+    return p.parse_args(argv)
+
+
+def renormalise(X, data_type):
+    """Apply the configured renormalisation policy to the species frame.
+
+    Mutates a copy and returns it.
+    """
+    X = X.copy()
+    rs = X.sum(axis=1)
+
+    if data_type == "relab":
+        X = X.div(rs.replace(0, np.nan), axis=0).fillna(0.0)
+    elif data_type == "rpk":
+        # Absolute magnitudes carry signal; do not divide.
+        pass
+    elif data_type == "auto":
+        max_rs = float(rs.max())
+        if max_rs > AUTO_MAX_ROW_SUM:
+            raise ValueError(
+                f"preprocessing.py: --data-type=auto saw a row sum of "
+                f"{max_rs:.2f} (> {AUTO_MAX_ROW_SUM}). This looks like "
+                f"an RPK / count table, not a relative-abundance table, "
+                f"and the legacy 'divide if mean>1.5' heuristic would "
+                f"silently destroy the signal. Re-run with "
+                f"--data-type=rpk (no renormalisation) or "
+                f"--data-type=relab (force-divide) to be explicit."
+            )
+        # Legacy heuristic preserved for backward compatibility on the
+        # existing 10-cohort MetaPhlAn species table.
+        if rs.mean() > 1.5:
+            X = X.div(rs.replace(0, np.nan), axis=0).fillna(0.0)
+    else:  # pragma: no cover -- argparse choices guard this.
+        raise ValueError(f"Unknown --data-type {data_type!r}")
+
+    return X
+
+
+def main(argv=None):
+    args = parse_args(argv)
+
     species = pd.read_csv('data/raw/species_abundance.csv')
     metadata = pd.read_csv('data/raw/metadata.csv')
 
@@ -72,9 +147,8 @@ def main():
     X = X[keep].copy()
 
     # ── 5. Normalize and log-transform ────────────────────────────────────────
-    rs = X.sum(axis=1)
-    if rs.mean() > 1.5:
-        X = X.div(rs, axis=0)
+    print(f'Renormalisation policy: --data-type={args.data_type}')
+    X = renormalise(X, args.data_type)
     X = np.log10(X + 1e-6)
     X.insert(0, 'sample_id', sid)
 

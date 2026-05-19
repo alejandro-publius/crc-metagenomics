@@ -48,8 +48,16 @@ def brier_decomposition(y_true: np.ndarray, y_prob: np.ndarray, n_bins: int = 10
     """Murphy (1973) decomposition of the Brier score.
 
     Returns (reliability, resolution, uncertainty). The identity
-    brier = reliability - resolution + uncertainty holds up to bin-mean
-    discretization error.
+    ``brier = reliability - resolution + uncertainty`` holds up to a
+    bin-mean discretization residual. The residual comes from the fact
+    that the within-bin sum of squared deviations between forecasts and
+    outcomes is not exactly equal to the squared deviation between the
+    bin's mean forecast and mean outcome times the bin count; with
+    n_bins=10 and the pooled LODO predictions in this repo the residual
+    is on the order of 1e-3 in Brier units, which is documented in the
+    accompanying note. Use a calibration-curve overlay (see the figure
+    written by this script) rather than the three scalars alone for
+    inferential statements about miscalibration.
     """
     edges = np.linspace(0.0, 1.0, n_bins + 1)
     bin_idx = np.clip(np.digitize(y_prob, edges, right=True) - 1, 0, n_bins - 1)
@@ -105,12 +113,20 @@ def main() -> None:
             y_true, y_prob, N_BINS
         )
 
+        # Residual = brier - (reliability - resolution + uncertainty).
+        # Under Murphy's identity this should be ~0; any non-zero value
+        # is the within-bin discretization error documented in
+        # ``brier_decomposition``. We surface it so a future regression
+        # (e.g. wrong bin-count or off-by-one in digitize) is loud
+        # instead of silently shifting the decomposition.
+        residual = brier - (reliability - resolution + uncertainty)
         rows.append({
             "model": key,
             "brier": round(brier, 4),
             "reliability": round(reliability, 4),
             "resolution": round(resolution, 4),
             "uncertainty": round(uncertainty, 4),
+            "residual": round(residual, 4),
         })
 
         mean_pred, frac_pos, counts = reliability_points(y_true, y_prob, N_BINS)
@@ -181,7 +197,8 @@ def main() -> None:
     plt.close(fig)
 
     out = pd.DataFrame(rows, columns=[
-        "model", "brier", "reliability", "resolution", "uncertainty"
+        "model", "brier", "reliability", "resolution", "uncertainty",
+        "residual",
     ])
     out.to_csv(OUT_CSV, index=False)
     print(f"Wrote {OUT_CSV}")

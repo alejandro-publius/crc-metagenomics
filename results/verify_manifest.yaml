@@ -1,0 +1,87 @@
+# Canonical expected values for scripts/verify_results.py.
+#
+# Edit this file (not verify_results.py) when the headline numbers shift.
+# Tolerances are absolute (|actual - expected| <= tol) unless noted.
+
+dataset:
+  n_samples_binary: 1339        # CRC + control rows after preprocessing
+  n_cohorts: 10
+  n_crc: 674
+  n_control: 665
+  n_adenoma: 183
+  study_conditions: [CRC, control, adenoma]
+  excluded_cohorts: [HanniganGD_2017]
+  required_cohorts: [YachidaS_2019]
+
+lodo:
+  fold_count: 10
+  baseline_species_rf_mean_auc:
+    value: 0.807
+    tol: 0.005
+  joint_rf_mean_auc:
+    value: 0.804
+    tol: 0.005
+  joint_xgb_mean_auc:
+    value: 0.797
+    tol: 0.005
+
+joint_features:
+  species_count: 229
+  pathway_per_fold_min: 400
+  pathway_per_fold_max: 410
+
+prediction_files:
+  - path: results/preds_species_rf.csv
+    expected_n: 1339
+  - path: results/preds_joint_rf.csv
+    expected_n: 1339
+  - path: results/preds_joint_xgb.csv
+    expected_n: 1339
+
+delong:
+  species_rf_vs_joint_rf:
+    z: 3.352
+    z_tol: 0.05
+    p: 0.0008
+    p_tol: 0.001
+  species_rf_vs_joint_xgb:
+    z: 1.996
+    z_tol: 0.05
+    p: 0.046
+    p_tol: 0.01
+
+bootstrap_species_rf_pooled:
+  auc:
+    value: 0.781
+    tol: 0.005
+  ci_lo:
+    value: 0.757
+    tol: 0.010
+  ci_hi:
+    value: 0.805
+    tol: 0.010
+
+adenoma:
+  tasks: [h_vs_a_rf, h_vs_a_xgb, a_vs_crc_rf, a_vs_crc_xgb]
+  n_folds_per_task: 4
+  h_vs_a_rf_mean_auc:
+    value: 0.561
+    tol: 0.01
+  a_vs_crc_rf_mean_auc:
+    value: 0.671
+    tol: 0.01
+
+seed_sensitivity:
+  n_rows: 5
+  spread_max: 0.005
+  grand_mean:
+    value: 0.810
+    tol: 0.005
+
+confounder:
+  methods: [direct_rf, direct_xgb, residualized_rf, residualized_xgb]
+  auc_range_max: 0.015
+
+sensitivity_grid:
+  n_cells: 20
+  spread_max: 0.060

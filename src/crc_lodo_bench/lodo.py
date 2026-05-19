@@ -15,16 +15,184 @@ on the Python path, so we fall back to the vendored copy in
 below. The vendored implementation is intentionally byte-identical to
 the canonical one as of v0.1.0; see the attribution comment on each
 function.
+
+Edge-case validation wrappers
+-----------------------------
+Both exports are wrapped in :func:`_validate_lodo_inputs` so the same
+defensive checks fire regardless of which backend (canonical or
+vendored) is dispatched to. The validation layer catches:
+
+  * NaN labels in ``label_col`` (raises ``ValueError``)
+  * Duplicate ``sample_id`` (raises ``ValueError``)
+  * Misaligned ``X`` / ``y`` / ``metadata`` indices (raises ``ValueError``)
+  * Empty feature matrix at entry (raises ``ValueError``)
+  * Missing ``country_col`` when requested (raises ``KeyError``)
+  * Cohorts smaller than ``min_samples_per_cohort`` (warns)
+  * Cohorts with a single label class (warns and skips)
+  * NaN values in the ``country_col`` (warns)
+  * Extreme per-fold class imbalance (warns)
+  * Empty surviving feature set after ``feature_filter_fn`` (raises)
 """
 from __future__ import annotations
 
 import os
 import sys
+import warnings
 from typing import Any, Callable, Iterator, Optional, Sequence
 
 import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_auc_score
+
+
+# ---------------------------------------------------------------------------
+# Defensive validation helpers
+# ---------------------------------------------------------------------------
+
+DEFAULT_MIN_SAMPLES_PER_COHORT = 10
+DEFAULT_MIN_MINORITY_FRACTION = 0.10
+
+
+def _validate_lodo_inputs(
+    metadata: pd.DataFrame,
+    *,
+    label_col: str = "label",
+    cohort_col: str = "study_name",
+    country_col: Optional[str] = None,
+    X: Optional[pd.DataFrame] = None,
+    y: Optional[pd.Series] = None,
+    min_samples_per_cohort: int = DEFAULT_MIN_SAMPLES_PER_COHORT,
+) -> None:
+    """Validate LODO inputs before dispatching to the backend.
+
+    Raises ``ValueError`` / ``KeyError`` for hard failures and emits
+    ``UserWarning`` for soft (recoverable) issues. Intentionally
+    side-effect free apart from raising / warning.
+    """
+    if not isinstance(metadata, pd.DataFrame):
+        raise TypeError(
+            f"metadata must be a pandas DataFrame, got {type(metadata).__name__}"
+        )
+    if cohort_col not in metadata.columns:
+        raise KeyError(
+            f"cohort_col {cohort_col!r} not found in metadata columns "
+            f"(have: {list(metadata.columns)[:8]}...)"
+        )
+    if label_col not in metadata.columns:
+        raise KeyError(
+            f"label_col {label_col!r} not found in metadata columns "
+            f"(have: {list(metadata.columns)[:8]}...)"
+        )
+
+    # NaN labels: refuse silently mis-classifying these rows as 0.
+    if metadata[label_col].isna().any():
+        n_nan = int(metadata[label_col].isna().sum())
+        raise ValueError(
+            f"metadata[{label_col!r}] has {n_nan} NaN value(s); LODO refuses "
+            f"to silently treat NaN as 0 or drop without explicit upstream "
+            f"handling. Pre-filter your metadata before calling run_lodo_cv."
+        )
+
+    # Duplicate sample_ids: silently produces wrong joins / predictions.
+    if "sample_id" in metadata.columns:
+        if metadata["sample_id"].isna().any():
+            n_nan = int(metadata["sample_id"].isna().sum())
+            raise ValueError(
+                f"metadata['sample_id'] has {n_nan} NaN value(s); cannot "
+                f"identify samples uniquely."
+            )
+        if not metadata["sample_id"].is_unique:
+            dups = metadata["sample_id"][metadata["sample_id"].duplicated()]
+            sample = list(dups.unique())[:5]
+            raise ValueError(
+                f"metadata['sample_id'] is not unique: "
+                f"{metadata['sample_id'].duplicated().sum()} duplicate(s) "
+                f"(e.g. {sample}). LODO requires unique sample_ids."
+            )
+
+    # country_col handling.
+    if country_col is not None:
+        if country_col not in metadata.columns:
+            raise KeyError(
+                f"country_col {country_col!r} not found in metadata columns. "
+                f"Either pass country_col=None to disable country-aware "
+                f"exclusion, or add the column upstream."
+            )
+        if metadata[country_col].isna().any():
+            n_nan = int(metadata[country_col].isna().sum())
+            warnings.warn(
+                f"country_col {country_col!r} has {n_nan} NaN value(s); the "
+                f"affected rows will be treated as country=NaN and may share "
+                f"a country group with each other unexpectedly. Consider "
+                f"filling these upstream.",
+                UserWarning,
+                stacklevel=3,
+            )
+
+    # X / y / metadata alignment when X and y are provided (run_lodo_cv path).
+    if X is not None and y is not None:
+        if not isinstance(X, pd.DataFrame):
+            raise TypeError(
+                f"X must be a pandas DataFrame, got {type(X).__name__}"
+            )
+        if X.shape[1] == 0:
+            raise ValueError(
+                "X has 0 feature columns; nothing to train on. Check upstream "
+                "filtering / column selection."
+            )
+        if len(X) != len(metadata) or len(y) != len(metadata):
+            raise ValueError(
+                f"X / y / metadata length mismatch: "
+                f"len(X)={len(X)}, len(y)={len(y)}, len(metadata)={len(metadata)}. "
+                f"All three must be aligned and indexed identically before "
+                f"calling run_lodo_cv."
+            )
+        if not (X.index.equals(metadata.index) and pd.Index(y.index).equals(metadata.index)):
+            raise ValueError(
+                "X, y, and metadata must share an identical index "
+                "(reset_index(drop=True) on all three before calling). "
+                "Mismatched indices cause silent join errors."
+            )
+
+    # Per-cohort soft checks: single-class folds and small cohorts.
+    valid = metadata[metadata[label_col].isin([0, 1])]
+    if len(valid) == 0:
+        raise ValueError(
+            f"metadata[{label_col!r}] contains no values in {{0, 1}}; "
+            f"nothing to split."
+        )
+
+    for cohort, sub in valid.groupby(cohort_col):
+        n = len(sub)
+        if n < min_samples_per_cohort:
+            warnings.warn(
+                f"cohort {cohort!r} has only {n} sample(s) (< "
+                f"min_samples_per_cohort={min_samples_per_cohort}); "
+                f"per-fold AUC will be unstable.",
+                UserWarning,
+                stacklevel=3,
+            )
+        classes = sub[label_col].unique()
+        if len(classes) < 2:
+            warnings.warn(
+                f"cohort {cohort!r} has only one label class "
+                f"({sorted(classes)}); this fold will be skipped by the "
+                f"LODO loop (roc_auc_score is undefined for a single class).",
+                UserWarning,
+                stacklevel=3,
+            )
+            continue
+        # Class imbalance warning.
+        minority = float(min((sub[label_col] == 0).mean(),
+                             (sub[label_col] == 1).mean()))
+        if minority < DEFAULT_MIN_MINORITY_FRACTION:
+            warnings.warn(
+                f"cohort {cohort!r} has minority class fraction "
+                f"{minority:.2%} (< {DEFAULT_MIN_MINORITY_FRACTION:.0%}); "
+                f"model may overfit the majority class on this fold.",
+                UserWarning,
+                stacklevel=3,
+            )
 
 
 def _try_import_canonical() -> tuple[Optional[Callable], Optional[Callable]]:
@@ -103,7 +271,7 @@ def _vendored_get_lodo_splits(
     if country_col is not None and country_col in metadata.columns:
         cohort_country = (
             metadata.groupby(cohort_col)[country_col]
-            .agg(lambda x: x.mode().iloc[0])
+            .agg(lambda x: x.mode().iloc[0] if not x.mode().empty else None)
             .to_dict()
         )
 
@@ -116,7 +284,7 @@ def _vendored_get_lodo_splits(
             test_country = cohort_country.get(cohort)
             same_country = {
                 c for c, ct in cohort_country.items()
-                if ct == test_country and c != cohort
+                if ct == test_country and c != cohort and ct is not None
             }
             train_mask = (
                 (metadata[cohort_col] != cohort)
@@ -173,6 +341,8 @@ def _vendored_run_lodo_cv(
         ``feature_filter_fn(X_train) -> list[col_names]``. This is the
         recommended way to prevent test-fold leakage when the feature
         filter (prevalence / mean abundance / variance) depends on data.
+        When ``None``, all columns in ``X`` are used as features
+        (intentional: callers may pre-filter globally upstream).
     country_col
         Forwarded to :func:`get_lodo_splits` for country-aware LODO.
 
@@ -201,11 +371,22 @@ def _vendored_run_lodo_cv(
 
         if feature_filter_fn is not None:
             kept = feature_filter_fn(X_tr)
+            if len(kept) == 0:
+                raise ValueError(
+                    f"feature_filter_fn returned 0 surviving features for "
+                    f"fold {cohort!r}; cannot fit a model with no features. "
+                    f"Loosen thresholds or check input feature columns."
+                )
             X_tr = X_tr[kept]
             X_te = X_te[kept]
             n_feat = len(kept)
         else:
             n_feat = X_tr.shape[1]
+
+        if n_feat == 0:
+            raise ValueError(
+                f"fold {cohort!r}: feature matrix has 0 columns; cannot fit."
+            )
 
         model = model_fn()
         model.fit(X_tr, y.iloc[train_idx])
@@ -264,8 +445,104 @@ def _vendored_run_lodo_cv(
 # Resolve canonical vs vendored exports at import time.
 _canonical_splits, _canonical_run = _try_import_canonical()
 
-get_lodo_splits = _canonical_splits or _vendored_get_lodo_splits
-run_lodo_cv = _canonical_run or _vendored_run_lodo_cv
+_backend_get_lodo_splits = _canonical_splits or _vendored_get_lodo_splits
+_backend_run_lodo_cv = _canonical_run or _vendored_run_lodo_cv
 
 
-__all__ = ["get_lodo_splits", "run_lodo_cv"]
+def get_lodo_splits(
+    metadata: pd.DataFrame,
+    label_col: str = "label",
+    cohort_col: str = "study_name",
+    country_col: Optional[str] = None,
+    *,
+    min_samples_per_cohort: int = DEFAULT_MIN_SAMPLES_PER_COHORT,
+) -> Iterator[tuple[Any, list, list, set]]:
+    """Validate inputs, then dispatch to the backend split generator.
+
+    The validation layer (see module docstring) runs once at entry; the
+    yielded fold tuples are produced by the canonical backend
+    (``scripts/lodo_cv.py`` when available, vendored copy otherwise).
+    """
+    _validate_lodo_inputs(
+        metadata,
+        label_col=label_col,
+        cohort_col=cohort_col,
+        country_col=country_col,
+        min_samples_per_cohort=min_samples_per_cohort,
+    )
+    yield from _backend_get_lodo_splits(
+        metadata,
+        label_col=label_col,
+        cohort_col=cohort_col,
+        country_col=country_col,
+    )
+
+
+def run_lodo_cv(
+    model_fn: Callable[[], Any],
+    X: pd.DataFrame,
+    y: pd.Series,
+    metadata: pd.DataFrame,
+    cohort_col: str = "study_name",
+    save_predictions_path: Optional[str] = None,
+    feature_filter_fn: Optional[Callable[[pd.DataFrame], Sequence[str]]] = None,
+    country_col: Optional[str] = None,
+    *,
+    min_samples_per_cohort: int = DEFAULT_MIN_SAMPLES_PER_COHORT,
+) -> dict:
+    """Validate inputs, then dispatch to the backend LODO loop.
+
+    Defensive checks fire before the backend executes (see module
+    docstring for the full list). After dispatch, ``feature_filter_fn``
+    outputs are also checked per fold for emptiness (handled inside the
+    vendored backend; the canonical backend will raise a less helpful
+    error in that edge case, but the entry-level checks catch most
+    upstream problems first).
+    """
+    _validate_lodo_inputs(
+        metadata,
+        label_col="label",
+        cohort_col=cohort_col,
+        country_col=country_col,
+        X=X,
+        y=y,
+        min_samples_per_cohort=min_samples_per_cohort,
+    )
+
+    # Wrap feature_filter_fn so a 0-feature result raises with a clear
+    # message regardless of which backend dispatches.
+    if feature_filter_fn is not None:
+        original_filter = feature_filter_fn
+
+        def _checked_filter(X_train: pd.DataFrame) -> Sequence[str]:
+            kept = original_filter(X_train)
+            if len(kept) == 0:
+                raise ValueError(
+                    "feature_filter_fn returned 0 surviving features; "
+                    "cannot fit a model with no features. Loosen thresholds "
+                    "or check input feature columns."
+                )
+            return kept
+
+        wrapped_filter: Optional[Callable] = _checked_filter
+    else:
+        wrapped_filter = None
+
+    return _backend_run_lodo_cv(
+        model_fn,
+        X,
+        y,
+        metadata,
+        cohort_col=cohort_col,
+        save_predictions_path=save_predictions_path,
+        feature_filter_fn=wrapped_filter,
+        country_col=country_col,
+    )
+
+
+__all__ = [
+    "get_lodo_splits",
+    "run_lodo_cv",
+    "DEFAULT_MIN_SAMPLES_PER_COHORT",
+    "DEFAULT_MIN_MINORITY_FRACTION",
+]
