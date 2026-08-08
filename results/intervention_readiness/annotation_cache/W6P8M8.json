@@ -1,0 +1,364 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI0003ECEF10"
+    },
+    "inactiveReason": {
+      "deletedReason": "Not part of a reference proteome",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "W6P8M8",
+    "uniProtkbId": "W6P8M8_9BACE"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2026-01-28",
+    "oldestCrossRefCreated": "2014-02-11",
+    "sequence": {
+      "crc64": "6E8ED659A5C1C2EB",
+      "length": 524,
+      "md5": "B90E887C7DA04CEE4681FD98FD367D1C",
+      "molWeight": 58596,
+      "value": "MVRKFDFLVIGSGIAGMSFALKVAHKGKVALICKSGLEEANTYFAQGGVASVTNLLVDNFDKHIEDTMIAGDWISSRDAVEKVVREAPAQIEELIKWGVDFDKNEKGEFDLHREGGHSEFRILHHKDNTGAEIQDSLIKAVQRHPNITVIENQFAIEILTQHHLGVTVTRQTPDIKCYGAYILDPKTGKVDTYLAKVTLMATGGGGGAVYKTTTNPLVATGDGIAMVYRAKGTVKDMEFVQFHPTALYHPGDRPSFLITEAMRGYGGVLRTMDGKEFMQKYDPRLSLAPRDIVARAIDNEMKNRGDDHVYLDVTHKDPEETKKHFPNIYEKCLSLGIDITKDYIPVAPAAHYLCGGILVDLDGQSSIERLYAVGECSCTGLHGGNRLASNSLIEAVVYADAAAKHSLQAVDQYSYNEDIPEWNDEGTRSPEEMVLITQSMKEVNQIMSTYVGIVRSDLRLKRAWDRLDIIYEETESLFKRSVASREICELRNMVNVGYLIMRQAMERKESRGLHYTIDYPHVKK"
+    },
+    "sequenceFeatures": [
+      {
+        "database": "Pfam",
+        "databaseId": "PF00890",
+        "interproGroup": {
+          "id": "IPR003953",
+          "name": "FAD-dependent oxidoreductase 2, FAD-binding domain"
+        },
+        "locations": [
+          {
+            "end": 392,
+            "start": 6
+          }
+        ]
+      },
+      {
+        "database": "FunFam",
+        "databaseId": "G3DSA:3.90.700.10:FF:000002",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 361,
+            "start": 247
+          }
+        ]
+      },
+      {
+        "database": "NCBIfam",
+        "databaseId": "TIGR00551",
+        "interproGroup": {
+          "id": "IPR005288",
+          "name": "L-aspartate oxidase"
+        },
+        "locations": [
+          {
+            "end": 520,
+            "start": 4
+          }
+        ]
+      },
+      {
+        "database": "PIRSR",
+        "databaseId": "PIRSR000238-1",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 33,
+            "start": 3
+          }
+        ]
+      },
+      {
+        "database": "SUPFAM",
+        "databaseId": "SSF46977",
+        "interproGroup": {
+          "id": "IPR037099",
+          "name": "Fumarate reductase/succinate dehydrogenase flavoprotein-like, C-terminal domain superfamily"
+        },
+        "locations": [
+          {
+            "end": 522,
+            "start": 427
+          }
+        ]
+      },
+      {
+        "database": "SUPFAM",
+        "databaseId": "SSF56425",
+        "interproGroup": {
+          "id": "IPR027477",
+          "name": "Succinate dehydrogenase/fumarate reductase flavoprotein, catalytic domain superfamily"
+        },
+        "locations": [
+          {
+            "end": 352,
+            "start": 237
+          }
+        ]
+      },
+      {
+        "database": "PIRSF",
+        "databaseId": "PIRSF000171",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 522,
+            "start": 3
+          }
+        ]
+      },
+      {
+        "database": "Pfam",
+        "databaseId": "PF02910",
+        "interproGroup": {
+          "id": "IPR015939",
+          "name": "Fumarate reductase/succinate dehydrogenase flavoprotein-like, C-terminal"
+        },
+        "locations": [
+          {
+            "end": 521,
+            "start": 441
+          }
+        ]
+      },
+      {
+        "database": "Gene3D",
+        "databaseId": "G3DSA:1.20.58.100",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 524,
+            "start": 427
+          }
+        ]
+      },
+      {
+        "database": "Gene3D",
+        "databaseId": "G3DSA:3.50.50.60",
+        "interproGroup": {
+          "id": "IPR036188",
+          "name": "FAD/NAD(P)-binding domain superfamily"
+        },
+        "locations": [
+          {
+            "end": 404,
+            "start": 6
+          }
+        ]
+      },
+      {
+        "database": "SUPFAM",
+        "databaseId": "SSF51905",
+        "interproGroup": {
+          "id": "IPR036188",
+          "name": "FAD/NAD(P)-binding domain superfamily"
+        },
+        "locations": [
+          {
+            "end": 423,
+            "start": 3
+          }
+        ]
+      },
+      {
+        "database": "Gene3D",
+        "databaseId": "G3DSA:3.90.700.10",
+        "interproGroup": {
+          "id": "IPR027477",
+          "name": "Succinate dehydrogenase/fumarate reductase flavoprotein, catalytic domain superfamily"
+        },
+        "locations": [
+          {
+            "end": 361,
+            "start": 247
+          }
+        ]
+      },
+      {
+        "database": "PRINTS",
+        "databaseId": "PR00368",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 26,
+            "start": 7
+          },
+          {
+            "end": 377,
+            "start": 355
+          }
+        ]
+      },
+      {
+        "database": "PRINTS",
+        "databaseId": "PR00411",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 377,
+            "start": 370
+          },
+          {
+            "end": 28,
+            "start": 6
+          }
+        ]
+      },
+      {
+        "database": "FunFam",
+        "databaseId": "G3DSA:1.20.58.100:FF:000002",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 524,
+            "start": 426
+          }
+        ]
+      },
+      {
+        "database": "PIRSR",
+        "databaseId": "PIRSR000171-1",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 521,
+            "start": 2
+          }
+        ]
+      },
+      {
+        "database": "NCBIfam",
+        "databaseId": "NF006567",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 522,
+            "start": 3
+          }
+        ]
+      },
+      {
+        "database": "PANTHER",
+        "databaseId": "PTHR42716",
+        "interproGroup": {
+          "id": "IPR005288",
+          "name": "L-aspartate oxidase"
+        },
+        "locations": [
+          {
+            "end": 523,
+            "start": 2
+          }
+        ]
+      },
+      {
+        "database": "PIRSR",
+        "databaseId": "PIRSR630664-50",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 521,
+            "start": 5
+          }
+        ]
+      }
+    ],
+    "uniParcCrossReferences": [
+      {
+        "active": false,
+        "created": "2014-04-16",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "BN890_36360",
+        "id": "W6P8M8",
+        "lastUpdated": "2026-01-28",
+        "organism": {
+          "scientificName": "Bacteroides xylanisolvens SD CC 1b",
+          "taxonId": 702447
+        },
+        "proteinName": "L-aspartate oxidase",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2014-10-13",
+        "database": "RefSeq",
+        "id": "WP_032812317",
+        "lastUpdated": "2021-01-04",
+        "ncbiGi": "696232545",
+        "organism": {
+          "scientificName": "Bacteroides xylanisolvens",
+          "taxonId": 371601
+        },
+        "proteinName": "L-aspartate oxidase",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2014-02-11",
+        "database": "EMBLWGS",
+        "geneName": "BN890_36360",
+        "id": "CDM06034",
+        "lastUpdated": "2026-01-10",
+        "ncbiGi": "584445798",
+        "organism": {
+          "scientificName": "Bacteroides xylanisolvens SD CC 1b",
+          "taxonId": 702447
+        },
+        "proteinName": "L-aspartate oxidase",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000019380"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|702447.11.peg.3619",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides xylanisolvens SD CC 1b",
+          "taxonId": 702447
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "geneName": "nadB",
+        "id": "ENSB:r7zTu0RzPZuZVXH",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides xylanisolvens SD CC 1b",
+          "taxonId": 702447
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2014-07-18",
+        "database": "EnsemblBacteria",
+        "id": "CDM06034",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Bacteroides xylanisolvens SD CC 1b",
+          "taxonId": 702447
+        },
+        "versionI": 1
+      }
+    ],
+    "uniParcId": "UPI0003ECEF10"
+  }
+}

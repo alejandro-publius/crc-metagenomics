@@ -1,0 +1,933 @@
+{
+  "annotationScore": 3.0,
+  "comments": [
+    {
+      "commentType": "FUNCTION",
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000255",
+              "id": "MF_00059",
+              "source": "HAMAP-Rule"
+            }
+          ],
+          "value": "DNA-dependent RNA polymerase catalyzes the transcription of DNA into RNA using the four ribonucleoside triphosphates as substrates"
+        }
+      ]
+    },
+    {
+      "commentType": "CATALYTIC ACTIVITY",
+      "reaction": {
+        "ecNumber": "2.7.7.6",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000255",
+            "id": "MF_00059",
+            "source": "HAMAP-Rule"
+          }
+        ],
+        "name": "RNA(n) + a ribonucleoside 5'-triphosphate = RNA(n+1) + diphosphate",
+        "reactionCrossReferences": [
+          {
+            "database": "Rhea",
+            "id": "RHEA:21248"
+          },
+          {
+            "database": "Rhea",
+            "id": "RHEA-COMP:14527"
+          },
+          {
+            "database": "Rhea",
+            "id": "RHEA-COMP:17342"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:33019"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:61557"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:140395"
+          }
+        ]
+      }
+    },
+    {
+      "commentType": "SUBUNIT",
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000255",
+              "id": "MF_00059",
+              "source": "HAMAP-Rule"
+            }
+          ],
+          "value": "Homodimer. The RNAP catalytic core consists of 2 alpha, 1 beta, 1 beta' and 1 omega subunit. When a sigma factor is associated with the core the holoenzyme is formed, which can initiate transcription"
+        }
+      ]
+    },
+    {
+      "commentType": "DOMAIN",
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000255",
+              "id": "MF_00059",
+              "source": "HAMAP-Rule"
+            }
+          ],
+          "value": "The N-terminal domain is essential for RNAP assembly and basal transcription, whereas the C-terminal domain is involved in interaction with transcriptional regulators and with upstream promoter elements"
+        }
+      ]
+    },
+    {
+      "commentType": "SIMILARITY",
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000255",
+              "id": "MF_00059",
+              "source": "HAMAP-Rule"
+            }
+          ],
+          "value": "Belongs to the RNA polymerase alpha chain family"
+        }
+      ]
+    }
+  ],
+  "entryAudit": {
+    "entryVersion": 125,
+    "firstPublicDate": "2004-02-02",
+    "lastAnnotationUpdateDate": "2026-01-28",
+    "lastSequenceUpdateDate": "2003-06-01",
+    "sequenceVersion": 1
+  },
+  "entryType": "UniProtKB reviewed (Swiss-Prot)",
+  "extraAttributes": {
+    "countByCommentType": {
+      "CATALYTIC ACTIVITY": 1,
+      "DOMAIN": 1,
+      "FUNCTION": 1,
+      "SIMILARITY": 1,
+      "SUBUNIT": 1
+    },
+    "countByFeatureType": {
+      "Chain": 1,
+      "Region": 2
+    },
+    "uniParcId": "UPI000005B474"
+  },
+  "features": [
+    {
+      "description": "DNA-directed RNA polymerase subunit alpha",
+      "featureId": "PRO_0000175266",
+      "location": {
+        "end": {
+          "modifier": "EXACT",
+          "value": 330
+        },
+        "start": {
+          "modifier": "EXACT",
+          "value": 1
+        }
+      },
+      "type": "Chain"
+    },
+    {
+      "description": "Alpha N-terminal domain (alpha-NTD)",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000255",
+          "id": "MF_00059",
+          "source": "HAMAP-Rule"
+        }
+      ],
+      "location": {
+        "end": {
+          "modifier": "EXACT",
+          "value": 232
+        },
+        "start": {
+          "modifier": "EXACT",
+          "value": 1
+        }
+      },
+      "type": "Region"
+    },
+    {
+      "description": "Alpha C-terminal domain (alpha-CTD)",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000255",
+          "id": "MF_00059",
+          "source": "HAMAP-Rule"
+        }
+      ],
+      "location": {
+        "end": {
+          "modifier": "EXACT",
+          "value": 330
+        },
+        "start": {
+          "modifier": "EXACT",
+          "value": 248
+        }
+      },
+      "type": "Region"
+    }
+  ],
+  "genes": [
+    {
+      "geneName": {
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000255",
+            "id": "MF_00059",
+            "source": "HAMAP-Rule"
+          }
+        ],
+        "value": "rpoA"
+      },
+      "orderedLocusNames": [
+        {
+          "value": "BT_2701"
+        }
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "category": "Cellular component",
+      "id": "KW-0240",
+      "name": "DNA-directed RNA polymerase"
+    },
+    {
+      "category": "Molecular function",
+      "id": "KW-0548",
+      "name": "Nucleotidyltransferase"
+    },
+    {
+      "category": "Technical term",
+      "id": "KW-1185",
+      "name": "Reference proteome"
+    },
+    {
+      "category": "Biological process",
+      "id": "KW-0804",
+      "name": "Transcription"
+    },
+    {
+      "category": "Molecular function",
+      "id": "KW-0808",
+      "name": "Transferase"
+    }
+  ],
+  "organism": {
+    "lineage": [
+      "Bacteria",
+      "Pseudomonadati",
+      "Bacteroidota",
+      "Bacteroidia",
+      "Bacteroidales",
+      "Bacteroidaceae",
+      "Bacteroides"
+    ],
+    "scientificName": "Bacteroides thetaiotaomicron (strain ATCC 29148 / DSM 2079 / JCM 5827 / CCUG 10774 / NCTC 10582 / VPI-5482 / E50)",
+    "taxonId": 226186
+  },
+  "primaryAccession": "Q8A4A2",
+  "proteinDescription": {
+    "alternativeNames": [
+      {
+        "fullName": {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000255",
+              "id": "MF_00059",
+              "source": "HAMAP-Rule"
+            }
+          ],
+          "value": "RNA polymerase subunit alpha"
+        }
+      },
+      {
+        "fullName": {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000255",
+              "id": "MF_00059",
+              "source": "HAMAP-Rule"
+            }
+          ],
+          "value": "Transcriptase subunit alpha"
+        }
+      }
+    ],
+    "recommendedName": {
+      "ecNumbers": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000255",
+              "id": "MF_00059",
+              "source": "HAMAP-Rule"
+            }
+          ],
+          "value": "2.7.7.6"
+        }
+      ],
+      "fullName": {
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000255",
+            "id": "MF_00059",
+            "source": "HAMAP-Rule"
+          }
+        ],
+        "value": "DNA-directed RNA polymerase subunit alpha"
+      },
+      "shortNames": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000255",
+              "id": "MF_00059",
+              "source": "HAMAP-Rule"
+            }
+          ],
+          "value": "RNAP subunit alpha"
+        }
+      ]
+    }
+  },
+  "proteinExistence": "3: Inferred from homology",
+  "references": [
+    {
+      "citation": {
+        "authors": [
+          "Xu J.",
+          "Bjursell M.K.",
+          "Himrod J.",
+          "Deng S.",
+          "Carmichael L.K.",
+          "Chiang H.C.",
+          "Hooper L.V.",
+          "Gordon J.I."
+        ],
+        "citationCrossReferences": [
+          {
+            "database": "PubMed",
+            "id": "12663928"
+          },
+          {
+            "database": "DOI",
+            "id": "10.1126/science.1080029"
+          }
+        ],
+        "citationType": "journal article",
+        "firstPage": "2074",
+        "id": "12663928",
+        "journal": "Science",
+        "lastPage": "2076",
+        "publicationDate": "2003",
+        "title": "A genomic view of the human-Bacteroides thetaiotaomicron symbiosis.",
+        "volume": "299"
+      },
+      "referenceComments": [
+        {
+          "type": "STRAIN",
+          "value": "ATCC 29148 / DSM 2079 / JCM 5827 / CCUG 10774 / NCTC 10582 / VPI-5482 / E50"
+        }
+      ],
+      "referenceNumber": 1,
+      "referencePositions": [
+        "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+      ]
+    }
+  ],
+  "sequence": {
+    "crc64": "B1EAC209643C57E4",
+    "length": 330,
+    "md5": "A4A2A30D0BA859CA852F6C745E04D92D",
+    "molWeight": 37449,
+    "value": "MAILAFQKPDKVLMLEADSRFGKFEFRPLEPGFGITVGNALRRILLSSLEGFAITTIRIDGVEHEFSSVPGVKEDVTNIILNLKQVRFKQVVEEFESEKVSITVENSSEFKAGDIGKYLTGFEVLNPELVICHLDSKATMQIDITINKGRGYVPADENREYCTDVNVIPIDSIYTPIRNVKYAVENFRVEQKTDYEKLVLEISTDGSIHPKEALKEAAKILIYHFMLFSDEKITLESNDTDGNEEFDEEVLHMRQLLKTKLVDMDLSVRALNCLKAADVETLGDLVQFNKTDLLKFRNFGKKSLTELDDLLESLNLSFGTDISKYKLDKE"
+  },
+  "uniProtKBCrossReferences": [
+    {
+      "database": "EMBL",
+      "id": "AE015928",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAO77807.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "RefSeq",
+      "id": "WP_008762051.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "NC_004663.1"
+        }
+      ]
+    },
+    {
+      "database": "AlphaFoldDB",
+      "id": "Q8A4A2",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "SMR",
+      "id": "Q8A4A2",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "FunCoup",
+      "id": "Q8A4A2",
+      "properties": [
+        {
+          "key": "Number of interactors",
+          "value": "492"
+        }
+      ]
+    },
+    {
+      "database": "STRING",
+      "id": "226186.BT_2701",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "PaxDb",
+      "id": "226186-BT_2701",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "EnsemblBacteria",
+      "id": "AAO77807",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAO77807"
+        },
+        {
+          "key": "GeneId",
+          "value": "BT_2701"
+        }
+      ]
+    },
+    {
+      "database": "GeneID",
+      "id": "60923871",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "KEGG",
+      "id": "bth:BT_2701",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "PATRIC",
+      "id": "fig|226186.12.peg.2743",
+      "properties": [
+        {
+          "key": "GeneDesignation",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "eggNOG",
+      "id": "COG0202",
+      "properties": [
+        {
+          "key": "ToxonomicScope",
+          "value": "Bacteria"
+        }
+      ]
+    },
+    {
+      "database": "HOGENOM",
+      "id": "CLU_053084_0_1_10",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "InParanoid",
+      "id": "Q8A4A2",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "OrthoDB",
+      "id": "9805706at2",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "Proteomes",
+      "id": "UP000001414",
+      "properties": [
+        {
+          "key": "Component",
+          "value": "Chromosome"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0005737",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "C:cytoplasm"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IBA:GO_Central"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0000428",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "C:DNA-directed RNA polymerase complex"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IEA:UniProtKB-KW"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0003677",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "F:DNA binding"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IEA:UniProtKB-UniRule"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0003899",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "F:DNA-directed RNA polymerase activity"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IEA:UniProtKB-UniRule"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0046983",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "F:protein dimerization activity"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IEA:InterPro"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0006351",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "P:DNA-templated transcription"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IEA:UniProtKB-UniRule"
+        }
+      ]
+    },
+    {
+      "database": "CDD",
+      "id": "cd06928",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RNAP_alpha_NTD"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "FunFam",
+      "id": "1.10.150.20:FF:000020",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "DNA-directed RNA polymerase subunit alpha"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "FunFam",
+      "id": "2.170.120.12:FF:000001",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "DNA-directed RNA polymerase subunit alpha"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Gene3D",
+      "id": "1.10.150.20",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "5' to 3' exonuclease, C-terminal subdomain"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Gene3D",
+      "id": "2.170.120.12",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "DNA-directed RNA polymerase, insert domain"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Gene3D",
+      "id": "3.30.1360.10",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RNA polymerase, RBP11-like subunit"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "HAMAP",
+      "id": "MF_00059",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RNApol_bact_RpoA"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR011262",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "DNA-dir_RNA_pol_insert"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR011263",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "DNA-dir_RNA_pol_RpoA/D/Rpb3"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR011773",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "DNA-dir_RpoA"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR036603",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RBP11-like"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR011260",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RNAP_asu_C"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR036643",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RNApol_insert_sf"
+        }
+      ]
+    },
+    {
+      "database": "NCBIfam",
+      "id": "NF003513",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "PRK05182.1-2"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "NCBIfam",
+      "id": "NF003516",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "PRK05182.2-2"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "NCBIfam",
+      "id": "NF003519",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "PRK05182.2-5"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "NCBIfam",
+      "id": "TIGR02027",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "rpoA"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Pfam",
+      "id": "PF01000",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RNA_pol_A_bac"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Pfam",
+      "id": "PF03118",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RNA_pol_A_CTD"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Pfam",
+      "id": "PF01193",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RNA_pol_L"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "SMART",
+      "id": "SM00662",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RPOLD"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "SUPFAM",
+      "id": "SSF47789",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "C-terminal domain of RNA polymerase alpha subunit"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "SUPFAM",
+      "id": "SSF56553",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Insert subdomain of RNA polymerase alpha subunit"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "SUPFAM",
+      "id": "SSF55257",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "RBP11-like subunits of RNA polymerase"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "uniProtkbId": "RPOA_BACTN"
+}

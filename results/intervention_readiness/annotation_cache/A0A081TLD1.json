@@ -1,0 +1,316 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI0002F0CF39"
+    },
+    "inactiveReason": {
+      "deletedReason": "Deleted from sequence source (EMBL)",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "A0A081TLD1",
+    "uniProtkbId": "A0A081TLD1_BACFG"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2026-03-20",
+    "oldestCrossRefCreated": "2013-03-18",
+    "sequence": {
+      "crc64": "8C3AF41D09B094DC",
+      "length": 61,
+      "md5": "77455E007B51868F38F38538C463F859",
+      "molWeight": 6579,
+      "value": "MPFKLRAAPPAANPAVRVQSYALKAVSDRGLTRTISANRRNMPPLAGEVVQVPKYPCLFAA"
+    },
+    "uniParcCrossReferences": [
+      {
+        "active": false,
+        "created": "2014-10-29",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "IB64_22800",
+        "id": "A0A081TLD1",
+        "lastUpdated": "2019-07-03",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2019-11-13",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "EC80_0206980",
+        "id": "A0A5E8KD34",
+        "lastUpdated": "2022-08-03",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-01-20",
+        "database": "RefSeq",
+        "id": "WP_032535932",
+        "lastUpdated": "2026-03-16",
+        "organism": {
+          "scientificName": "Butyricimonas paravirosa",
+          "taxonId": 1472417
+        },
+        "proteinName": "hypothetical protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2014-10-10",
+        "database": "RefSeq",
+        "id": "WP_032535932",
+        "lastUpdated": "2017-05-08",
+        "ncbiGi": "695338541",
+        "organism": {
+          "scientificName": "Bacteroides",
+          "taxonId": 816
+        },
+        "proteinName": "hypothetical protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2013-03-19",
+        "database": "SEED",
+        "id": "fig|457387.3.peg.4956",
+        "lastUpdated": "2013-03-19",
+        "organism": {
+          "scientificName": "Bacteroides sp. 1_1_30",
+          "taxonId": 457387
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|457387.3.peg.4956",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides sp. 1_1_30",
+          "taxonId": 457387
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|457389.4.peg.2054",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides sp. 3_1_13",
+          "taxonId": 457389
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|817.51.peg.1453",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|817.52.peg.2918",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|817.56.peg.4753",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2026-03-19",
+        "database": "EMBLWGS",
+        "geneName": "NXX36_07315",
+        "id": "MCS2535836",
+        "lastUpdated": "2026-03-19",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2026-03-20",
+        "database": "EMBLWGS",
+        "geneName": "NXY31_15080",
+        "id": "MCS2405813",
+        "lastUpdated": "2026-03-20",
+        "organism": {
+          "scientificName": "Bacteroides salyersiae",
+          "taxonId": 291644
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-03-18",
+        "database": "PATRIC",
+        "id": "55738811",
+        "lastUpdated": "2014-07-08",
+        "organism": {
+          "scientificName": "Bacteroides sp. 1_1_30",
+          "taxonId": 457387
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2014-07-24",
+        "database": "EMBLWGS",
+        "geneName": "IB64_22800",
+        "id": "KER46596",
+        "lastUpdated": "2019-05-31",
+        "ncbiGi": "663451055",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "hypothetical protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2014-10-30",
+        "database": "EnsemblBacteria",
+        "id": "KER46596",
+        "lastUpdated": "2020-05-29",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2015-07-25",
+        "database": "EMBLWGS",
+        "geneName": "EC81_0214045",
+        "id": "KER73382",
+        "lastUpdated": "2019-05-31",
+        "ncbiGi": "663478713",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "hypothetical protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2015-07-25",
+        "database": "EMBLWGS",
+        "geneName": "EC80_0206980",
+        "id": "KER76153",
+        "lastUpdated": "2019-05-31",
+        "ncbiGi": "663481567",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "hypothetical protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2016-03-10",
+        "database": "EnsemblBacteria",
+        "id": "KER73382",
+        "lastUpdated": "2020-05-29",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2016-03-10",
+        "database": "EnsemblBacteria",
+        "id": "KER76153",
+        "lastUpdated": "2020-05-29",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2021-11-22",
+        "database": "EMBLWGS",
+        "geneName": "EC81_0214045",
+        "id": "KER73382",
+        "lastUpdated": "2022-03-29",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2021-11-22",
+        "database": "EMBLWGS",
+        "geneName": "EC80_0206980",
+        "id": "KER76153",
+        "lastUpdated": "2022-03-29",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      }
+    ],
+    "uniParcId": "UPI0002F0CF39"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "analysis_layer": "known_target_cross_population_association",
+  "important_boundary": "Passing this layer means recurring human association only; it does not establish causality, safety, editability, or treatment efficacy.",
+  "n_cohort_target_rows": 40,
+  "n_registered_targets": 4,
+  "registry": "research/intervention_readiness/known_target_registry.csv",
+  "scores": "results/mechanism_panel/sample_scores.csv",
+  "thresholds": {
+    "min_crc_enriched_fraction": 0.7,
+    "min_evaluable_cohorts": 5,
+    "min_median_auc": 0.55
+  }
+}

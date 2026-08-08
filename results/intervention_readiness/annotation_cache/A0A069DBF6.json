@@ -1,0 +1,480 @@
+{
+  "annotationScore": 1.0,
+  "comments": [
+    {
+      "commentType": "SIMILARITY",
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000256",
+              "id": "ARBA00007557",
+              "source": "ARBA"
+            }
+          ],
+          "value": "Belongs to the ETF beta-subunit/FixA family"
+        }
+      ]
+    },
+    {
+      "commentType": "CAUTION",
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "GAK37599.1",
+              "source": "EMBL"
+            }
+          ],
+          "value": "The sequence shown here is derived from an EMBL/GenBank/DDBJ whole genome shotgun (WGS) entry which is preliminary data"
+        }
+      ]
+    }
+  ],
+  "entryAudit": {
+    "entryVersion": 20,
+    "firstPublicDate": "2014-10-01",
+    "lastAnnotationUpdateDate": "2025-06-18",
+    "lastSequenceUpdateDate": "2014-10-01",
+    "sequenceVersion": 1
+  },
+  "entryType": "UniProtKB unreviewed (TrEMBL)",
+  "extraAttributes": {
+    "countByCommentType": {
+      "CAUTION": 1,
+      "SIMILARITY": 1
+    },
+    "countByFeatureType": {
+      "Domain": 1
+    },
+    "uniParcId": "UPI00040D4F52"
+  },
+  "features": [
+    {
+      "description": "Electron transfer flavoprotein alpha/beta-subunit N-terminal",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000259",
+          "id": "SM00893",
+          "source": "SMART"
+        }
+      ],
+      "location": {
+        "end": {
+          "modifier": "EXACT",
+          "value": 245
+        },
+        "start": {
+          "modifier": "EXACT",
+          "value": 52
+        }
+      },
+      "type": "Domain"
+    }
+  ],
+  "genes": [
+    {
+      "orfNames": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "GAK37599.1",
+              "source": "EMBL"
+            }
+          ],
+          "value": "JCM15093_2862"
+        }
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "category": "Biological process",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000256",
+          "id": "ARBA00022982",
+          "source": "ARBA"
+        }
+      ],
+      "id": "KW-0249",
+      "name": "Electron transport"
+    },
+    {
+      "category": "Technical term",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000313",
+          "id": "UP000027601",
+          "source": "Proteomes"
+        }
+      ],
+      "id": "KW-1185",
+      "name": "Reference proteome"
+    },
+    {
+      "category": "Biological process",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000256",
+          "id": "ARBA00022982",
+          "source": "ARBA"
+        }
+      ],
+      "id": "KW-0813",
+      "name": "Transport"
+    }
+  ],
+  "organism": {
+    "evidences": [
+      {
+        "evidenceCode": "ECO:0000313",
+        "id": "GAK37599.1",
+        "source": "EMBL"
+      },
+      {
+        "evidenceCode": "ECO:0000313",
+        "id": "UP000027601",
+        "source": "Proteomes"
+      }
+    ],
+    "lineage": [
+      "Bacteria",
+      "Pseudomonadati",
+      "Bacteroidota",
+      "Bacteroidia",
+      "Bacteroidales",
+      "Bacteroidaceae",
+      "Bacteroides"
+    ],
+    "scientificName": "Bacteroides graminisolvens DSM 19988 = JCM 15093",
+    "taxonId": 1121097
+  },
+  "primaryAccession": "A0A069DBF6",
+  "proteinDescription": {
+    "recommendedName": {
+      "fullName": {
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000256",
+            "id": "ARBA00040635",
+            "source": "ARBA"
+          }
+        ],
+        "value": "Protein FixA"
+      }
+    }
+  },
+  "proteinExistence": "3: Inferred from homology",
+  "references": [
+    {
+      "citation": {
+        "authors": [
+          "Inoue J.",
+          "Oshima K.",
+          "Suda W.",
+          "Sakamoto M.",
+          "Iino T.",
+          "Noda S.",
+          "Hongoh Y.",
+          "Hattori M.",
+          "Ohkuma M."
+        ],
+        "citationCrossReferences": [
+          {
+            "database": "PubMed",
+            "id": "25736980"
+          }
+        ],
+        "citationType": "journal article",
+        "firstPage": "44",
+        "id": "25736980",
+        "journal": "Microbes Environ.",
+        "lastPage": "50",
+        "publicationDate": "2015",
+        "title": "Distribution and evolution of nitrogen fixation genes in the phylum bacteroidetes.",
+        "volume": "30"
+      },
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000313",
+          "id": "GAK37599.1",
+          "source": "EMBL"
+        },
+        {
+          "evidenceCode": "ECO:0000313",
+          "id": "UP000027601",
+          "source": "Proteomes"
+        }
+      ],
+      "referenceComments": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "GAK37599.1",
+              "source": "EMBL"
+            },
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "UP000027601",
+              "source": "Proteomes"
+            }
+          ],
+          "type": "STRAIN",
+          "value": "JCM 15093"
+        }
+      ],
+      "referenceNumber": 1,
+      "referencePositions": [
+        "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+      ]
+    }
+  ],
+  "sequence": {
+    "crc64": "FCE01171D299FF89",
+    "length": 316,
+    "md5": "7F8C68E29F2F26C17268657067124063",
+    "molWeight": 34239,
+    "value": "MCIFKAYFFAESTDCVNLQDNTNTYNMSLKIVVLAKQVPDTRNVGKDAMKADGTINRAALPAIFNPEDLNALEQALRLKDAHPGSTVTILTMGPGRAADIIREGLFRGADNGYLLTDRAFAGADTLATSYALATAIKKIGTCDIIIGGRQAIDGDTAQVGPQVAEKLGMPQITYAEEILKVTDKTITVKRHIDGGVETVTGPLPMVITVTGSAAPCRPRNARLVQKYKHAKTITEKQQGNLDYTELYDKRDYLNLVEWSVADVQGDLAQCGLSGSPTKVKAIQNIVFQAKENKTIGSNDREIEELIVELLANHTIG"
+  },
+  "uniProtKBCrossReferences": [
+    {
+      "database": "EMBL",
+      "id": "BAJS01000024",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "GAK37599.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "AlphaFoldDB",
+      "id": "A0A069DBF6",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "STRING",
+      "id": "1121097.GCA_000428125_02868",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "eggNOG",
+      "id": "COG2086",
+      "properties": [
+        {
+          "key": "ToxonomicScope",
+          "value": "Bacteria"
+        }
+      ]
+    },
+    {
+      "database": "Proteomes",
+      "id": "UP000027601",
+      "properties": [
+        {
+          "key": "Component",
+          "value": "Unassembled WGS sequence"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0009055",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "F:electron transfer activity"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IEA:InterPro"
+        }
+      ]
+    },
+    {
+      "database": "CDD",
+      "id": "cd01714",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "ETF_beta"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Gene3D",
+      "id": "3.40.50.620",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "HUPs"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR000049",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "ET-Flavoprotein_bsu_CS"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR014730",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "ETF_a/b_N"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR012255",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "ETF_b"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR033948",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "ETF_beta_N"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR014729",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Rossmann-like_a/b/a_fold"
+        }
+      ]
+    },
+    {
+      "database": "PANTHER",
+      "id": "PTHR21294",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "ELECTRON TRANSFER FLAVOPROTEIN BETA-SUBUNIT"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "PANTHER",
+      "id": "PTHR21294:SF17",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "PROTEIN FIXA"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Pfam",
+      "id": "PF01012",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "ETF"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "SMART",
+      "id": "SM00893",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "ETF"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "SUPFAM",
+      "id": "SSF52402",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Adenine nucleotide alpha hydrolases-like"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "PROSITE",
+      "id": "PS01065",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "ETF_BETA"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "uniProtkbId": "A0A069DBF6_9BACE"
+}

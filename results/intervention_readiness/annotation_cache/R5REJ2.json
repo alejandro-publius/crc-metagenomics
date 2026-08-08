@@ -1,0 +1,606 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI0002808CBC"
+    },
+    "inactiveReason": {
+      "deletedReason": "Not part of a reference proteome",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "R5REJ2",
+    "uniProtkbId": "R5REJ2_BACFG"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2026-01-12",
+    "oldestCrossRefCreated": "2012-10-20",
+    "sequence": {
+      "crc64": "9F29BEFC198487F7",
+      "length": 300,
+      "md5": "BC08DAC8D244E7CDB0CB5537B3963330",
+      "molWeight": 34164,
+      "value": "MNPAPTWTRDFFIPYTQLGMKRIAIQGTLGSYHDIAAHKYFEGEEIELICCANFEDVFAAIRKDSQTIGMLAIENTIAGSLLHNNELLRQSGTQIIGEYKLRISHSFVCLPEEDWNDITEVNSHPIALMQCREFLNQHPRIKVVEAEDTALSAEIIKRENLKGHAAICSHAAAERYGMKVLQEGIETNKHNFTRFLVVADPWQVDEIRKQNTVLNKANIVFTLPHSEGSLSQVLSILSFYNINLTKIQSLPIIGREWEYQFYVDVAFNDYLRYKQSITAITPLTKELKILGEYAEGKSNV"
+    },
+    "sequenceFeatures": [
+      {
+        "database": "PANTHER",
+        "databaseId": "PTHR21022",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 294,
+            "start": 22
+          }
+        ]
+      },
+      {
+        "database": "SUPFAM",
+        "databaseId": "SSF55021",
+        "interproGroup": {
+          "id": "IPR045865",
+          "name": "ACT-like domain"
+        },
+        "locations": [
+          {
+            "end": 293,
+            "start": 215
+          }
+        ]
+      },
+      {
+        "database": "CDD",
+        "databaseId": "cd13631",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 199,
+            "start": 20
+          }
+        ]
+      },
+      {
+        "database": "Gene3D",
+        "databaseId": "G3DSA:3.30.70.260",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 295,
+            "start": 212
+          }
+        ]
+      },
+      {
+        "database": "Gene3D",
+        "databaseId": "G3DSA:3.40.190.10",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 196,
+            "start": 23
+          },
+          {
+            "end": 189,
+            "start": 104
+          }
+        ]
+      },
+      {
+        "database": "PROSITE",
+        "databaseId": "PS51671",
+        "interproGroup": {
+          "id": "IPR002912",
+          "name": "ACT domain"
+        },
+        "locations": [
+          {
+            "alignment": "77M",
+            "end": 294,
+            "start": 218
+          }
+        ]
+      },
+      {
+        "database": "FunFam",
+        "databaseId": "G3DSA:3.30.70.260:FF:000048",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 295,
+            "start": 210
+          }
+        ]
+      },
+      {
+        "database": "SUPFAM",
+        "databaseId": "SSF53850",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 202,
+            "start": 22
+          }
+        ]
+      },
+      {
+        "database": "PROSITE",
+        "databaseId": "PS51171",
+        "interproGroup": {
+          "id": "IPR001086",
+          "name": "Prephenate dehydratase"
+        },
+        "locations": [
+          {
+            "alignment": "21M2D49M1D46M1D63M",
+            "end": 200,
+            "start": 22
+          }
+        ]
+      },
+      {
+        "database": "Pfam",
+        "databaseId": "PF00800",
+        "interproGroup": {
+          "id": "IPR001086",
+          "name": "Prephenate dehydratase"
+        },
+        "locations": [
+          {
+            "end": 200,
+            "start": 23
+          }
+        ]
+      },
+      {
+        "database": "PIRSR",
+        "databaseId": "PIRSR001500-2",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 293,
+            "start": 21
+          }
+        ]
+      },
+      {
+        "database": "PIRSF",
+        "databaseId": "PIRSF001500",
+        "interproGroup": {
+          "id": "IPR008242",
+          "name": "Bifunctional P-protein, chorismate mutase/prephenate dehydratase"
+        },
+        "locations": [
+          {
+            "end": 294,
+            "start": 21
+          }
+        ]
+      },
+      {
+        "database": "CDD",
+        "databaseId": "cd04905",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 293,
+            "start": 216
+          }
+        ]
+      }
+    ],
+    "uniParcCrossReferences": [
+      {
+        "active": false,
+        "created": "2012-11-28",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "HMPREF1203_02099",
+        "id": "K1G8J6",
+        "lastUpdated": "2018-12-05",
+        "organism": {
+          "scientificName": "Bacteroides fragilis HMW 610",
+          "taxonId": 1073386
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-07-24",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "BN707_03306",
+        "id": "R5REJ2",
+        "lastUpdated": "2024-03-27",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "proteinName": "prephenate dehydratase",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2012-11-22",
+        "database": "RefSeq",
+        "id": "ZP_17257882",
+        "lastUpdated": "2013-07-18",
+        "ncbiGi": "423278968",
+        "organism": {
+          "scientificName": "Bacteroides fragilis HMW 610",
+          "taxonId": 1073386
+        },
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-07-19",
+        "database": "RefSeq",
+        "id": "WP_005808630",
+        "lastUpdated": "2015-08-27",
+        "ncbiGi": "492320487",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "proteinName": "prephenate dehydratase",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2012-10-20",
+        "database": "EMBLWGS",
+        "geneName": "HMPREF1203_02099",
+        "id": "EKA90564",
+        "lastUpdated": "2026-01-10",
+        "ncbiGi": "404585960",
+        "organism": {
+          "scientificName": "Bacteroides fragilis HMW 610",
+          "taxonId": 1073386
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000005807"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2013-06-05",
+        "database": "EMBLWGS",
+        "geneName": "BN707_03306",
+        "id": "CCZ39635",
+        "lastUpdated": "2026-01-10",
+        "ncbiGi": "524166727",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000018103"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2021-10-02",
+        "database": "EMBL_CON",
+        "geneName": "HMPREF1203_02099",
+        "id": "EKA90564",
+        "lastUpdated": "2023-12-22",
+        "organism": {
+          "scientificName": "Bacteroides fragilis HMW 610",
+          "taxonId": 1073386
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000005807"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-10-15",
+        "database": "EMBL",
+        "geneName": "BFGS084_00079",
+        "id": "WMI92713",
+        "lastUpdated": "2024-07-17",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "Prephenate dehydratase",
+        "proteomes": [
+          {
+            "component": "Chromosome",
+            "id": "UP001232515"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-07-29",
+        "database": "EMBLWGS",
+        "geneName": "F030043B2_26820",
+        "id": "GAA6243640",
+        "lastUpdated": "2026-01-12",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "Prephenate dehydratase",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001600960"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2013-03-19",
+        "database": "SEED",
+        "id": "fig|1073386.3.peg.2200",
+        "lastUpdated": "2013-03-19",
+        "organism": {
+          "scientificName": "Bacteroides fragilis HMW 610",
+          "taxonId": 1073386
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2013-03-19",
+        "database": "SEED",
+        "id": "fig|457424.5.peg.3698",
+        "lastUpdated": "2013-03-19",
+        "organism": {
+          "scientificName": "Bacteroides fragilis 3_1_12",
+          "taxonId": 457424
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|1073386.3.peg.2200",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides fragilis HMW 610",
+          "taxonId": 1073386
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|1263047.3.peg.3683",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|1450439.3.peg.3385",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides sp. UW",
+          "taxonId": 1450439
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|457424.5.peg.3698",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides fragilis 3_1_12",
+          "taxonId": 457424
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "geneName": "pheA",
+        "id": "ENSB:0WrGlAS9xRtNsl_",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis 3_1_12",
+          "taxonId": 457424
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "geneName": "pheA",
+        "id": "ENSB:1VhZ_NbCK2jPzUU",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "geneName": "pheA",
+        "id": "ENSB:EuKMbV_HW8Za3Je",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "geneName": "pheA",
+        "id": "ENSB:Mz9frck3UfwRCyg",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "geneName": "pheA",
+        "id": "ENSB:NKDNZzknfaF-sjS",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "geneName": "pheA",
+        "id": "ENSB:SGRqQ8rEyu64jay",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "geneName": "pheA",
+        "id": "ENSB:iy2exWNgSA5LVhI",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "geneName": "pheA",
+        "id": "ENSB:jQKxZXJSbgI2V3A",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides sp. PHL 2737",
+          "taxonId": 2162637
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "geneName": "pheA",
+        "id": "ENSB:wdtYfb3JqPoaMnr",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-01-21",
+        "database": "EnsemblBacteria",
+        "id": "EKA90564",
+        "lastUpdated": "2013-01-21",
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-03-18",
+        "database": "PATRIC",
+        "id": "100352871",
+        "lastUpdated": "2014-07-08",
+        "organism": {
+          "scientificName": "Bacteroides fragilis HMW 610",
+          "taxonId": 1073386
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-03-18",
+        "database": "PATRIC",
+        "id": "27026242",
+        "lastUpdated": "2014-07-08",
+        "organism": {
+          "scientificName": "Bacteroides fragilis 3_1_12",
+          "taxonId": 457424
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-09-08",
+        "database": "EnsemblBacteria",
+        "id": "EKA90564",
+        "lastUpdated": "2020-05-29",
+        "organism": {
+          "scientificName": "Bacteroides fragilis HMW 610",
+          "taxonId": 1073386
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2020-09-21",
+        "database": "EnsemblBacteria",
+        "id": "CCZ39635",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "versionI": 1
+      }
+    ],
+    "uniParcId": "UPI0002808CBC"
+  }
+}

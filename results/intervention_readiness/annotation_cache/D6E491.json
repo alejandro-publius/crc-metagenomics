@@ -1,0 +1,312 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI0001CD2DF3"
+    },
+    "inactiveReason": {
+      "deletedReason": "Excluded proteome",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "D6E491",
+    "uniProtkbId": "D6E491_9FIRM"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2026-03-31",
+    "oldestCrossRefCreated": "2010-03-25",
+    "sequence": {
+      "crc64": "D1964C00A39AD5CB",
+      "length": 628,
+      "md5": "F3908C1F5043C5AD7EEB37EC2C74EA79",
+      "molWeight": 72391,
+      "value": "MRKNEKITALYERLSRDDFGKDDDQQRESNSISNQKAMLEEFAARQGFTNIVHFTDDGISGTCFDRPGFLAMMKEVEAGNVEYLCIKDMSRMGRDYLKVGQIMEILRQRGVRLIAINDGVDSARGDDDFTPFRNIMNEYYARDTSRKIRSTFQSKGKSGKHLTGTVIYGYLWNEARDQWLVDPEAAEVVKRIFAMTIEGYGPYQIASKLKSEKVLIPSAYLAQHGEGVNKNKTFKDVYGWGSSTICNILEKREYLGHTINFKTRKHFKDKKSHYVPEDEWTIFENTHEAIIDQQTFDLVQKIRGNVRRYPDGWGEAAPLTGLLYCADCGGKMYVHRTNNGKSISQYTCSQYTKVPCGTLCKTQHRINEDVVLSLVSEMLKSIAEYAKHDRAEFVRVVQEAQSSQQTTEVRKQRTRLATAKQRVSELEVLLCKIYEDNILGKLSDSRYATLDAQYEKEQTELTAEISALEKAVKSYEKHEKDADRFIDLIDKYENFDKLTIAMLNEFIEKILVHERDRKGSIQTTQEVEIYFNFVGRFVPPAFGEVELIPEELEEIRKREERKDRLHQNYLKRKASGAQKRYEDKIKEKKKAEIEAKKAAIRAEDIAKGVFVPVSQLPTREPQKGVQTA"
+    },
+    "sequenceFeatures": [
+      {
+        "database": "Pfam",
+        "databaseId": "PF13408",
+        "interproGroup": {
+          "id": "IPR025827",
+          "name": "Recombinase zinc beta ribbon domain"
+        },
+        "locations": [
+          {
+            "end": 380,
+            "start": 318
+          }
+        ]
+      },
+      {
+        "database": "Pfam",
+        "databaseId": "PF07508",
+        "interproGroup": {
+          "id": "IPR011109",
+          "name": "DNA-binding recombinase domain"
+        },
+        "locations": [
+          {
+            "end": 303,
+            "start": 183
+          }
+        ]
+      },
+      {
+        "database": "Gene3D",
+        "databaseId": "G3DSA:3.40.50.1390",
+        "interproGroup": {
+          "id": "IPR036162",
+          "name": "Resolvase-like, N-terminal catalytic domain superfamily"
+        },
+        "locations": [
+          {
+            "end": 123,
+            "start": 2
+          }
+        ]
+      },
+      {
+        "database": "PROSITE",
+        "databaseId": "PS51737",
+        "interproGroup": {
+          "id": "IPR011109",
+          "name": "DNA-binding recombinase domain"
+        },
+        "locations": [
+          {
+            "alignment": "8M2I34M14I4M3I25M1I5M2D9M12I26M",
+            "end": 309,
+            "start": 167
+          }
+        ]
+      },
+      {
+        "database": "Pfam",
+        "databaseId": "PF00239",
+        "interproGroup": {
+          "id": "IPR006119",
+          "name": "Resolvase, N-terminal catalytic domain"
+        },
+        "locations": [
+          {
+            "end": 160,
+            "start": 9
+          }
+        ]
+      },
+      {
+        "database": "Gene3D",
+        "databaseId": "G3DSA:3.90.1750.20",
+        "interproGroup": {
+          "id": "IPR038109",
+          "name": "DNA-binding recombinase domain superfamily"
+        },
+        "locations": [
+          {
+            "end": 329,
+            "start": 145
+          }
+        ]
+      },
+      {
+        "database": "PANTHER",
+        "databaseId": "PTHR30461",
+        "interproGroup": {
+          "id": "IPR050639",
+          "name": "Site-specific recombinase resolvase"
+        },
+        "locations": [
+          {
+            "end": 513,
+            "start": 9
+          }
+        ]
+      },
+      {
+        "database": "SUPFAM",
+        "databaseId": "SSF53041",
+        "interproGroup": {
+          "id": "IPR036162",
+          "name": "Resolvase-like, N-terminal catalytic domain superfamily"
+        },
+        "locations": [
+          {
+            "end": 161,
+            "start": 8
+          }
+        ]
+      },
+      {
+        "database": "CDD",
+        "databaseId": "cd03770",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 151,
+            "start": 8
+          }
+        ]
+      },
+      {
+        "database": "SMART",
+        "databaseId": "SM00857",
+        "interproGroup": {
+          "id": "IPR006119",
+          "name": "Resolvase, N-terminal catalytic domain"
+        },
+        "locations": [
+          {
+            "end": 161,
+            "start": 8
+          }
+        ]
+      },
+      {
+        "database": "Pfam",
+        "databaseId": "PF14287",
+        "interproGroup": {
+          "id": "IPR025378",
+          "name": "Domain of unknown function DUF4368"
+        },
+        "locations": [
+          {
+            "end": 537,
+            "start": 472
+          }
+        ]
+      }
+    ],
+    "uniParcCrossReferences": [
+      {
+        "active": false,
+        "created": "2010-07-13",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "EUR_10910",
+        "id": "D6E491",
+        "lastUpdated": "2023-06-28",
+        "organism": {
+          "scientificName": "Agathobacter rectalis DSM 17629",
+          "taxonId": 657318
+        },
+        "proteinName": "Site-specific recombinases, DNA invertase Pin homologs",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-04-16",
+        "database": "RefSeq",
+        "geneName": "EUR_10910",
+        "id": "YP_007772345",
+        "lastUpdated": "2015-04-30",
+        "ncbiGi": "479141171",
+        "organism": {
+          "scientificName": "Agathobacter rectalis DSM 17629",
+          "taxonId": 657318
+        },
+        "proteinName": "Site-specific recombinases, DNA invertase Pin homologs",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-07-19",
+        "database": "RefSeq",
+        "id": "WP_015516230",
+        "lastUpdated": "2015-04-30",
+        "ncbiGi": "505329128",
+        "organism": {
+          "scientificName": "Agathobacter rectalis",
+          "taxonId": 39491
+        },
+        "proteinName": "Site-specific recombinases, DNA invertase Pin homologs",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2021-07-26",
+        "database": "RefSeq",
+        "id": "WP_015516230",
+        "lastUpdated": "2021-09-06",
+        "organism": {
+          "scientificName": "Agathobacter rectalis",
+          "taxonId": 39491
+        },
+        "proteinName": "DUF4368 domain-containing protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2024-02-05",
+        "database": "RefSeq",
+        "id": "WP_015516230",
+        "lastUpdated": "2024-03-04",
+        "organism": {
+          "scientificName": "Agathobacter rectalis",
+          "taxonId": 39491
+        },
+        "proteinName": "recombinase family protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2010-03-25",
+        "database": "EMBL",
+        "geneName": "EUR_10910",
+        "id": "CBK90231",
+        "lastUpdated": "2024-07-17",
+        "ncbiGi": "291524644",
+        "organism": {
+          "scientificName": "Agathobacter rectalis DSM 17629",
+          "taxonId": 657318
+        },
+        "proteinName": "Site-specific recombinases, DNA invertase Pin homologs",
+        "proteomes": [
+          {
+            "component": "Chromosome",
+            "id": "UP000007057"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "id": "ENSB:SAsFvtfWjUT4s1Z",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Agathobacter rectalis DSM 17629",
+          "taxonId": 657318
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2025-09-30",
+        "database": "EPO",
+        "id": "WO2025US19716_21333",
+        "lastUpdated": "2026-03-31",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-01-21",
+        "database": "EnsemblBacteria",
+        "id": "CBK90231",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Agathobacter rectalis DSM 17629",
+          "taxonId": 657318
+        },
+        "versionI": 1
+      }
+    ],
+    "uniParcId": "UPI0001CD2DF3"
+  }
+}

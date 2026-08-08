@@ -1,0 +1,109 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI000210F066"
+    },
+    "inactiveReason": {
+      "deletedReason": "Not part of a reference proteome",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "F7YJA4",
+    "uniProtkbId": "F7YJA4_VIBA7"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2024-07-17",
+    "oldestCrossRefCreated": "2011-06-13",
+    "sequence": {
+      "crc64": "BD8C5266F7B457C1",
+      "length": 51,
+      "md5": "F38185F048719CFBBCC3E101F46EC73E",
+      "molWeight": 5550,
+      "value": "MVRELGLERRETVRSLSAVGVGRLKGAAPSTRGPEWTNRWCSGCHANGIAR"
+    },
+    "uniParcCrossReferences": [
+      {
+        "active": false,
+        "created": "2011-09-21",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "VAA_04278",
+        "id": "F7YJA4",
+        "lastUpdated": "2023-11-08",
+        "organism": {
+          "scientificName": "Vibrio anguillarum (strain ATCC 68554 / 775)",
+          "taxonId": 882102
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2011-06-16",
+        "database": "RefSeq",
+        "geneName": "VAA_04278",
+        "id": "YP_004567445",
+        "lastUpdated": "2015-04-30",
+        "ncbiGi": "336125397",
+        "organism": {
+          "scientificName": "Vibrio anguillarum (strain ATCC 68554 / 775)",
+          "taxonId": 882102
+        },
+        "proteinName": "hypothetical protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-07-19",
+        "database": "RefSeq",
+        "id": "WP_013857963",
+        "lastUpdated": "2015-04-30",
+        "ncbiGi": "503623887",
+        "organism": {
+          "scientificName": "Vibrio anguillarum",
+          "taxonId": 55601
+        },
+        "proteinName": "hypothetical protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2011-06-13",
+        "database": "EMBL",
+        "geneName": "VAA_04278",
+        "id": "AEH34403",
+        "lastUpdated": "2024-07-17",
+        "ncbiGi": "335343120",
+        "organism": {
+          "scientificName": "Vibrio anguillarum (strain ATCC 68554 / 775)",
+          "taxonId": 882102
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Chromosome I",
+            "id": "UP000006800"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-01-21",
+        "database": "EnsemblBacteria",
+        "id": "AEH34403",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Vibrio anguillarum (strain ATCC 68554 / 775)",
+          "taxonId": 882102
+        },
+        "versionI": 1
+      }
+    ],
+    "uniParcId": "UPI000210F066"
+  }
+}

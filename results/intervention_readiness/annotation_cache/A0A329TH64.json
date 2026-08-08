@@ -1,0 +1,127 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI000DCC14A1"
+    },
+    "inactiveReason": {
+      "deletedReason": "Not part of a reference proteome",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "A0A329TH64",
+    "uniProtkbId": "A0A329TH64_9FIRM"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2026-01-28",
+    "oldestCrossRefCreated": "2018-07-10",
+    "sequence": {
+      "crc64": "EEF8720A9A2F141D",
+      "length": 83,
+      "md5": "FFC6EFDDCD113A54BFF454B2C3F00807",
+      "molWeight": 9598,
+      "value": "MCHKLLSPFLSLPGFFHRKIPQKISRIGREWIEYKSIFLSLYFYIPSDFRASRGLIIVLHECGFQSSGVPERDFLKSVFGTAS"
+    },
+    "uniParcCrossReferences": [
+      {
+        "active": false,
+        "created": "2018-10-10",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "C3706_10320",
+        "id": "A0A329TH64",
+        "lastUpdated": "2024-03-27",
+        "organism": {
+          "scientificName": "Faecalibacterium prausnitzii",
+          "taxonId": 853
+        },
+        "proteinName": "Ovule protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2024-11-27",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "C4N27_11725",
+        "id": "A0AAX1QHQ0",
+        "lastUpdated": "2026-01-28",
+        "organism": {
+          "scientificName": "Faecalibacterium prausnitzii",
+          "taxonId": 853
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2020-01-09",
+        "database": "RefSeq",
+        "id": "WP_158396331",
+        "lastUpdated": "2020-09-08",
+        "organism": {
+          "scientificName": "Faecalibacterium prausnitzii",
+          "taxonId": 853
+        },
+        "proteinName": "hypothetical protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2018-07-10",
+        "database": "EMBLWGS",
+        "geneName": "C4N27_11725",
+        "id": "RAW48308",
+        "lastUpdated": "2026-01-12",
+        "organism": {
+          "scientificName": "Faecalibacterium prausnitzii",
+          "taxonId": 853
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000250997"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2018-07-12",
+        "database": "EMBL",
+        "geneName": "C3706_10320",
+        "id": "AXA83273",
+        "lastUpdated": "2024-07-17",
+        "organism": {
+          "scientificName": "Faecalibacterium prausnitzii",
+          "taxonId": 853
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Chromosome",
+            "id": "UP000250664"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2020-09-21",
+        "database": "EnsemblBacteria",
+        "id": "AXA83273",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Faecalibacterium prausnitzii",
+          "taxonId": 853
+        },
+        "versionI": 1
+      }
+    ],
+    "uniParcId": "UPI000DCC14A1"
+  }
+}

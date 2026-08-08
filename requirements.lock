@@ -3,6 +3,7 @@
 
 # Core scientific stack (used by the main pipeline + verify_results)
 certifi==2024.2.2
+requests==2.32.3
 pandas==2.2.3
 numpy==1.26.4
 scikit-learn==1.4.2
