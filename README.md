@@ -10,6 +10,18 @@ mechanisms, correction strategies, and label-free risk signals are evaluated
 without letting a held-out cohort choose its own features. A completely
 separate 200-sample shotgun cohort provides the untouched final validation.
 
+## Active intervention-readiness extension
+
+The next study layer asks a different, constructive question: **which CRC-linked
+microbial mechanisms or strain-selective genomic addresses are credible enough
+to justify precision microbiome-editing experiments?** It preserves the
+portability benchmark while adding a frozen known-target registry, cross-fitted
+gene-family discovery, explicit evidence gates, and candidate dossiers. The
+protocol and complete work-package definition are in
+`manuscript/intervention_readiness/00_study_protocol.md` and
+`research/intervention_readiness/BUILD_PLAN.md`. Internal nominations are
+research leads, not causal genes, CRISPR guides, or treatment recommendations.
+
 ## Current answer
 
 Species-only RF achieves a pooled LODO AUC of **0.781** (95% bootstrap CI: 0.757 to 0.805; 10,000 cohort-stratified resamples on n = 1,339 pooled held-out predictions), significantly outperforming:

@@ -1,0 +1,13 @@
+{
+  "status": "implemented_not_completed",
+  "attempted_at": "2026-08-08",
+  "script": "scripts/export_intervention_candidate_stratified.R",
+  "blocking_condition": "available memory was exhausted while loading the first approximately three-million-feature curatedMetagenomicData gene-family object",
+  "partial_output_retained": false,
+  "scientific_impact": "taxonomic source and parent-strain independence remain unknown for all internal address nominations",
+  "safe_next_routes": [
+    "rerun one cohort at a time on a higher-memory machine and append auditable per-cohort outputs",
+    "obtain a source format that supports row-level access without deserializing the full SummarizedExperiment",
+    "perform targeted raw-read or assembly searches after freezing the target sequences"
+  ]
+}

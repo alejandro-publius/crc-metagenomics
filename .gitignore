@@ -44,6 +44,7 @@ data/interim/gene_family_scan/
 data/interim/independent_profiler/
 data/raw/gene_families_selected.*
 data/raw/mechanism_panel.*
+data/raw/intervention_candidates_stratified.csv.gz
 
 # Rebuilt by scripts/build_research_catalog.py.
 data/derived/*.sqlite
