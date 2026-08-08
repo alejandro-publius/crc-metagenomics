@@ -178,16 +178,19 @@ qualitative conclusion is not contingent on the specific curated
 groups included.
 
 ## Batch correction (ComBat)
-DECISION: Documented. batch_correction.py applies per-fold ComBat on
-species features under country-aware LODO. ComBat is fit jointly on
-the train and test feature matrices using only batch labels (study_name);
-class labels (CRC vs control) are never seen by ComBat, so this preserves
-the LODO no-leakage guarantee while keeping train and test in the same
-corrected feature space. 10-cohort result: mean per-cohort AUC 0.815
-with ComBat vs 0.807 without (delta +0.008), indicating residual batch
-effects in this curatedMetagenomicData subset are modest relative to
-the cross-cohort biological signal. Requires `pip install combat`
-(canonical PyPI package providing combat.pycombat.pycombat).
+DECISION: The original `batch_correction.py` result is explicitly transductive.
+ComBat is fit jointly on train and held-out feature matrices using batch labels;
+although cancer labels are hidden, the held-out feature distribution informs
+the transformation. Its mean per-cohort AUC of 0.815 versus 0.807 is therefore
+an upper-bound robustness check, not a strict inductive gain.
+
+The replacement `species_aware_correction.py` reports deployment settings
+separately and propagates each species correction factor to species-resolved
+pathways. Strict source-only correction gives mean AUC 0.814 for species and
+0.773 for species plus stratified pathways, versus 0.771 uncorrected. Explicit
+unlabeled-target adaptation gives 0.777 for the stratified representation.
+Neither correction rescues the functional representation, and the target
+distribution is never used in the source-only cells.
 
 ## Package pinning
 DECISION: requirements.lock pins exact versions of all Python dependencies.

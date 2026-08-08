@@ -1,10 +1,11 @@
-"""Per-fold ComBat batch correction on species features under LODO CV.
+"""Transductive per-fold ComBat pilot on species features under LODO CV.
 
 Applies ComBat (Johnson et al. 2007) to correct for study-level batch
 effects within each LODO fold. ComBat is fit jointly on the train and
-test feature matrices using only batch labels (study_name); class labels
-(CRC vs control) are never seen by ComBat, so this preserves the LODO
-no-leakage guarantee. Both train and test end up in the same corrected
+test feature matrices using batch labels (study_name). Although cancer labels
+are not used, the held-out cohort's feature distribution participates in the
+transformation. This is therefore an unlabeled target-adaptation experiment,
+not a strictly inductive LODO evaluation. Both train and test end up in the same corrected
 feature space, which is required for the trained classifier to make
 sensible predictions on the held-out cohort. Earlier versions of this
 script applied ComBat only to training data and tested on uncorrected
@@ -46,7 +47,7 @@ def run_lodo_cv_combat():
 
     print('=== Species RF with per-fold ComBat (country-aware LODO) ===')
     print('ComBat is fit jointly on train+test with batch=study_name; class')
-    print('labels are not used by ComBat, so LODO is preserved.')
+    print('labels are not used, but target features are used: transductive setting.')
     results = {"cohort": [], "auc": []}
     for cohort, train_idx, test_idx, excluded in get_lodo_splits(
             meta, country_col=country_col):

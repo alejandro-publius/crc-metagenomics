@@ -90,7 +90,7 @@ See `src/crc_lodo_bench/README.md` for the full API and a runnable example.
 - Confounder assessment (direct inclusion + residualization of age, sex, BMI; per-cohort AUC 0.800 to 0.814 across the four cells)
 - Random seed stability (5 seeds {0, 1, 2, 42, 100}; per-cohort AUC 0.810 +/- 0.002, range 0.807 to 0.811)
 - Bootstrap confidence intervals (10,000 resamples; cohort-stratified for the pooled CI)
-- Per-fold ComBat batch correction (mean per-cohort AUC 0.815, vs uncorrected 0.807)
+- Strict source-only species-aware correction (species mean AUC 0.814; corrected stratified functions 0.773 vs 0.771 uncorrected) plus a separately labeled unlabeled-target adaptation pilot (0.777). The earlier joint train/test ComBat result of 0.815 is retained only as a transductive upper bound.
 - Biologically-guided pathway feature subset (mean per-cohort AUC 0.817)
 - Adenoma classification LODO (4 cohorts, 183 adenoma samples)
 

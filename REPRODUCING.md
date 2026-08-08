@@ -113,9 +113,16 @@ python3 scripts/confounder_adjustment.py # direct inclusion + residualization of
                                          # outputs: results/confounder_results.csv, covariate_comparison.csv
 
 python3 scripts/batch_correction.py      # per-fold ComBat on species features (country-aware LODO)
-                                         # requires: pip install combat
-                                         # expect: mean per-cohort AUC ~0.815 (vs uncorrected ~0.807)
+                                         # requires: pip install combat; transductive because
+                                         # held-out feature distribution enters ComBat
+                                         # expect: mean per-cohort AUC ~0.815 upper bound
                                          # outputs: results/combat_results.csv
+
+python3 scripts/species_aware_correction.py  # propagates training-study species offsets to
+                                             # species-resolved pathways; reports strict
+                                             # source-only and unlabeled-target settings separately
+                                             # expect: stratified source-only ~0.773,
+                                             # target-adaptive ~0.777 vs uncorrected ~0.771
 
 python3 scripts/external_validation.py   # placeholder external-cohort validation hook
                                          # outputs: results/external_validation.csv
