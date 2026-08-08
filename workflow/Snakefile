@@ -1,0 +1,77 @@
+"""Reproducibility and learning workflow for committed project artifacts."""
+
+from pathlib import Path
+
+
+TEST_FILES = sorted(str(path) for path in Path("tests").glob("test_*.py"))
+
+
+rule all:
+    input:
+        "data/derived/crc_research.sqlite",
+        "results/workflow_sanity.ok",
+        "results/workflow_verify.ok",
+        "results/workflow_tests.ok",
+
+
+rule research_catalog:
+    input:
+        schema="learning/sql/schema.sql",
+        metadata="data/processed/metadata_clean.csv",
+        baseline="results/baseline_results.csv",
+        joint="results/joint_results.csv",
+        species_preds="results/preds_species_rf.csv",
+        joint_rf_preds="results/preds_joint_rf.csv",
+        joint_xgb_preds="results/preds_joint_xgb.csv",
+        gene_results="results/gene_family_lodo_results.csv",
+        gene_preds="results/preds_gene_family_elastic_net.csv",
+    output:
+        "data/derived/crc_research.sqlite",
+    log:
+        "logs/workflow_catalog.log",
+    shell:
+        "python3 scripts/build_research_catalog.py --output {output} "
+        "> {log} 2>&1"
+
+
+rule sanity_check:
+    input:
+        "data/processed/species_filtered.csv",
+        "data/processed/pathway_unstratified.csv",
+        "data/processed/metadata_clean.csv",
+    output:
+        touch("results/workflow_sanity.ok"),
+    log:
+        "logs/workflow_sanity.log",
+    shell:
+        "python3 scripts/sanity_check.py > {log} 2>&1"
+
+
+rule verify_results:
+    input:
+        "results/verify_manifest.yaml",
+        "results/baseline_results.csv",
+        "results/joint_results.csv",
+        "results/delong_results.csv",
+        "results/bootstrap_ci.csv",
+        "data/processed/metadata_clean.csv",
+    output:
+        touch("results/workflow_verify.ok"),
+    log:
+        "logs/workflow_verify.log",
+    shell:
+        "python3 scripts/verify_results.py --manifest {input[0]} "
+        "> {log} 2>&1"
+
+
+rule fast_tests:
+    input:
+        TEST_FILES,
+        "scripts/build_research_catalog.py",
+        "learning/sql/schema.sql",
+    output:
+        touch("results/workflow_tests.ok"),
+    log:
+        "logs/workflow_tests.log",
+    shell:
+        "python3 -m pytest tests/ -q -m 'not slow' > {log} 2>&1"

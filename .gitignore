@@ -38,3 +38,16 @@ venv/
 
 # Stratified pathway raw pull (169MB; regen via scripts/export_data_stratified.R)
 data/raw/pathway_stratified_v320.csv
+
+# Gene-family scans and selected matrices are regenerated from cMD.
+data/interim/gene_family_scan/
+data/raw/gene_families_selected.*
+
+# Rebuilt by scripts/build_research_catalog.py.
+data/derived/*.sqlite
+data/derived/*.sqlite.tmp
+
+# Snakemake runtime state and completion markers.
+.snakemake/
+results/workflow_*.ok
+logs/workflow_*.log
