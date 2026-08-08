@@ -15,11 +15,13 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import ssl
 import time
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 import pandas as pd
+import certifi
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,6 +29,7 @@ OUT = ROOT / "results" / "external_cohort"
 API_ROOT = "https://gmrepo.humangut.info/api"
 PROJECT = "PRJNA763023"
 GMREPO_METHOD_DOI = "10.1093/nar/gkaf1190"
+TLS_CONTEXT = ssl.create_default_context(cafile=certifi.where())
 
 
 def post_json(path: str, payload: dict, retries: int = 5) -> dict:
@@ -43,7 +46,7 @@ def post_json(path: str, payload: dict, retries: int = 5) -> dict:
     )
     for attempt in range(retries):
         try:
-            with urlopen(request, timeout=60) as response:
+            with urlopen(request, timeout=60, context=TLS_CONTEXT) as response:
                 return json.load(response)
         except (HTTPError, URLError, TimeoutError, json.JSONDecodeError):
             if attempt == retries - 1:
