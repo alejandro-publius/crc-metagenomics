@@ -8,6 +8,12 @@
   "n_crc": 100,
   "n_control": 100,
   "label_rule": "M_O_/M_Y_=CRC; M_HO_/M_HY_=control, as defined by the publication",
-  "status": "manifest_frozen_profiles_pending",
+  "profile_source": "GMrepo v3 MetaPhlAn 4.1.0 public profiles",
+  "profile_payload_sha256": "3787453d1be41d879f480d4c2cca19d0c74d41158e88b14dcb2f24ac146c9e27",
+  "feature_overlap": "147/229 locked species",
+  "auc": 0.7981,
+  "auc_95_ci": [0.7369, 0.8550025],
+  "average_precision": 0.7812013789734237,
+  "status": "completed_untouched_external_evaluation",
   "important_correction": "The earlier scout's claim of a 110-sample Wu cohort was incorrect; the accession is a different published study with 200 public WGS runs."
 }

@@ -1,0 +1,21 @@
+{
+  "status": "completed_without_external_outcome_labels",
+  "external_labels_accessed": false,
+  "model": "species_rf",
+  "historical_model_mean_estimate": 0.8074773985892569,
+  "unlabeled_risk_estimate": 0.8397729526514932,
+  "features": {
+    "historical_auc": 0.8074773985892569,
+    "n_target": 200.0,
+    "mean_probability": 0.5376674661804016,
+    "sd_probability": 0.16621702331926252,
+    "mean_confidence": 0.2622107238337314,
+    "mean_entropy": 0.9097640227163035,
+    "fraction_extreme": 0.015,
+    "species_mean_shift": 0.4660735765072889,
+    "species_max_shift": 2.4298189935758043,
+    "species_prevalence_shift": 0.19989834687295152,
+    "domain_classifier_auc": 1.0
+  },
+  "interpretation": "Prospective estimate from the internally developed risk model; not a confidence interval and not used to alter external scoring."
+}

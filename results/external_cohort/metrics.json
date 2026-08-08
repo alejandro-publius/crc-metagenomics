@@ -1,0 +1,11 @@
+{
+  "n": 200,
+  "n_crc": 100,
+  "n_control": 100,
+  "auc": 0.7981,
+  "average_precision": 0.7812013789734237,
+  "profile_format": "gmrepo",
+  "feature_overlap": 147,
+  "retained_features": 229,
+  "interpretation": "untouched external evaluation"
+}

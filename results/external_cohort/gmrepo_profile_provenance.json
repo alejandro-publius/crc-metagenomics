@@ -1,0 +1,13 @@
+{
+  "status": "all_profiles_fetched",
+  "project": "PRJNA763023",
+  "run_count": 200,
+  "profile_source": "GMrepo v3 public API",
+  "profile_method": "MetaPhlAn 4.1.0, default settings; species abundances normalized to 100%",
+  "profile_method_doi": "10.1093/nar/gkaf1190",
+  "api_root": "https://gmrepo.humangut.info/api",
+  "retrieved_utc": "2026-08-08T21:24:49.000453+00:00",
+  "canonical_api_payload_sha256": "2bdaa9cc625e9c18d2786b1f46fc9d1097e087299231b1e5023560420e31307b",
+  "manifest_run_set_matched_exactly": true,
+  "all_qc_status_good": true
+}
