@@ -1,5 +1,15 @@
 # External Validation Cohort Scouting Memo
 
+> **Superseded status (live verification, 2026-08-08):** This speculative memo
+> contains incorrect accession descriptions and must not be used to plan
+> compute. Live NCBI/ENA and publication checks found that PRJNA763023 is the
+> Yang et al. 2021 young-onset CRC study, with 200 public WGS runs suitable for
+> a frozen external cohort (100 CRC, 100 controls), not the claimed 110-sample
+> Wu cohort. PRJEB57847 exposes only 13 public runs, not ~120. The
+> verified manifest, sources, label rules, and executable scoring path are in
+> `results/external_cohort/`. Candidate claims below remain only as an audit of
+> the earlier scout and are not evidence.
+
 **Date:** 2026-05-18
 **Status:** Read-only research; no analysis runs performed.
 **Goal:** Identify shotgun-metagenomic CRC cohorts NOT in curatedMetagenomicData (cMD) suitable for external validation of the project's 229-species random-forest baseline trained on 1,522 samples across 10 cMD cohorts.

@@ -1,0 +1,13 @@
+{
+  "snapshot_date": "2026-08-08",
+  "project": "PRJNA763023",
+  "publication": "https://doi.org/10.1038/s41467-021-27112-y",
+  "registry": "ENA Portal API",
+  "registry_query": "study_accession=\"PRJNA763023\" AND library_strategy=\"WGS\"",
+  "n_public_wgs_runs": 200,
+  "n_crc": 100,
+  "n_control": 100,
+  "label_rule": "M_O_/M_Y_=CRC; M_HO_/M_HY_=control, as defined by the publication",
+  "status": "manifest_frozen_profiles_pending",
+  "important_correction": "The earlier scout's claim of a 110-sample Wu cohort was incorrect; the accession is a different published study with 200 public WGS runs."
+}
