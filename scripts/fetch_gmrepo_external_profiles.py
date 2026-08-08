@@ -63,12 +63,16 @@ def fetch_run(run_accession: str) -> dict:
         raise ValueError(f"GMrepo returned the wrong run for {run_accession}")
     if int(run.get("QCStatus", 0)) != 1:
         raise ValueError(f"GMrepo QC failed for {run_accession}: {run.get('QCMessage')}")
-    species = payload.get("species", [])
+    species = post_json(
+        "getRelativeAbundanceByRunID",
+        {"loaded_uid": run.get("loaded_uid"), "taxon_level": "species"},
+    )
     if not species:
         raise ValueError(f"GMrepo returned no species for {run_accession}")
     total = sum(float(row["relative_abundance"]) for row in species)
     if not 99.9 <= total <= 100.1:
         raise ValueError(f"Species abundances sum to {total:.6f} for {run_accession}")
+    payload["species"] = species
     return payload
 
 
