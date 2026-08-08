@@ -1,0 +1,18 @@
+{
+  "status": "completed_bounded_pilot",
+  "scope": "direct targeted protein recovery; not a full independent functional profile",
+  "selection": "first lexical single-accession control and CRC in two prespecified cohorts",
+  "cohorts": 2,
+  "samples": 4,
+  "reads_requested_per_sample": 250000,
+  "panel_accessions": 47,
+  "samples_with_any_hit": 2,
+  "minimum_protein_identity_percent": 90,
+  "minimum_alignment_amino_acids": 30,
+  "limitations": [
+    "The read cap estimates technical recoverability, not absence.",
+    "Four samples cannot estimate clinical discrimination.",
+    "Short targeted matches do not by themselves establish a complete operon.",
+    "A full independent profiler and external cohort remain required for confirmation."
+  ]
+}
