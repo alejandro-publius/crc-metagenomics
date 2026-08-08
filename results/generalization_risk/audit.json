@@ -1,0 +1,11 @@
+{
+  "status": "completed_internal_pilot",
+  "unit": "model x target cohort",
+  "n_cohorts": 10,
+  "n_models": 12,
+  "n_observations": 120,
+  "outer_split": "leave-one-entire-target-cohort-out",
+  "features_require_target_labels": false,
+  "cohort_level_one_sided_wilcoxon_risk_better_p": 0.9677734375,
+  "interpretation_boundary": "Internal method-development evidence only; an untouched external cohort is required before claiming prospective risk prediction."
+}
