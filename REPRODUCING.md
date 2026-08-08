@@ -179,6 +179,22 @@ a cross-cohort gene-family baseline, not evidence that gene families improve
 CRC classification. Its large fold-to-fold spread motivates explicit study of
 cohort transferability and failure modes.
 
+## Frozen mechanism-panel extension
+
+The mechanism panel is selected from experimental evidence before outcome
+modeling, mapped through UniProtKB to UniRef90, and checksum-frozen. Rebuild the
+mapping only when intentionally updating its source snapshot:
+
+```bash
+python3 scripts/build_mechanism_panel.py
+Rscript scripts/export_mechanism_panel.R
+python3 scripts/train_mechanism_panel.py
+```
+
+Expected result: mechanism-only mean LODO AUC approximately 0.569; parent
+species approximately 0.656; combined approximately 0.655. See
+`results/mechanism_panel/README.md` for interpretation and mapping limitations.
+
 For a small pipeline check before the full scan:
 
 ```bash

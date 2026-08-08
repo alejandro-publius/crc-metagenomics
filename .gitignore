@@ -42,6 +42,7 @@ data/raw/pathway_stratified_v320.csv
 # Gene-family scans and selected matrices are regenerated from cMD.
 data/interim/gene_family_scan/
 data/raw/gene_families_selected.*
+data/raw/mechanism_panel.*
 
 # Rebuilt by scripts/build_research_catalog.py.
 data/derived/*.sqlite
