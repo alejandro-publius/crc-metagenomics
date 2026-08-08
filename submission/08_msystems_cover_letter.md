@@ -10,6 +10,7 @@ All source data are public. Code, derived tables, per-sample predictions, bootst
 
 Sincerely,
 
-Alejandro Velazquez, corresponding author  
-University of California, Berkeley  
+Alejandro Velazquez, corresponding author
+
+University of California, Berkeley
 alejandro-publius@berkeley.edu

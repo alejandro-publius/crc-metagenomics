@@ -1,9 +1,12 @@
 # Biological detail does not guarantee portability of colorectal cancer metagenomic classifiers
 
-**Running title:** Portability of CRC metagenomic classifiers  
-**Authors:** Alejandro Velazquez (affiliation 1; corresponding author) and Rachel Selbrede (affiliation 2)  
-**Affiliations:** 1. University of California, Berkeley, Berkeley, California, USA; 2. California State University San Marcos, San Marcos, California, USA  
-**Corresponding author:** Alejandro Velazquez, alejandro-publius@berkeley.edu  
+**Running title:** Portability of CRC metagenomic classifiers
+
+**Authors:** Alejandro Velazquez (affiliation 1; corresponding author) and Rachel Selbrede (affiliation 2)
+
+**Affiliations:** 1. University of California, Berkeley, Berkeley, California, USA; 2. California State University San Marcos, San Marcos, California, USA
+
+**Corresponding author:** Alejandro Velazquez, alejandro-publius@berkeley.edu
 **Keywords:** colorectal cancer; gut microbiome; metagenomics; machine learning; external validation; dataset shift; reproducibility
 
 ## Abstract

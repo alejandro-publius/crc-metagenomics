@@ -5,7 +5,7 @@
     {
       "path": ".zenodo.json",
       "bytes": 1368,
-      "sha256": "34a07a7793f63ca7dede27142a480201721854d07cd35b0dc2e7949aa4b46c30"
+      "sha256": "a3b20f2972363327226cef5d7dd1a9ba8d0891cad3b12fe04426c4185e06bd4a"
     },
     {
       "path": "CITATION.cff",
@@ -64,13 +64,13 @@
     },
     {
       "path": "manuscript/generalization_risk/manuscript.md",
-      "bytes": 25728,
-      "sha256": "0c71cf2b6588258dac064557b4600f94aae36a926493707954793ead555e4b0d"
+      "bytes": 25723,
+      "sha256": "f2ce5b4afdaf60a85c629ead12d815c633cfd227dd7f8ce9a24cdc3affc69516"
     },
     {
       "path": "manuscript/generalization_risk/coauthor_approval.md",
-      "bytes": 1167,
-      "sha256": "af0f7bd102e2b87dcfe21813c6adf719d24a7b64c09c66fb8482ba7cbce73dd0"
+      "bytes": 1165,
+      "sha256": "1665f043bab87d56cec43f6e38c27aa6accc8c9cc511f42ce78d9d646430f3c4"
     },
     {
       "path": "manuscript/generalization_risk/03_external_profile_adapter.md",
@@ -99,8 +99,8 @@
     },
     {
       "path": "submission/08_msystems_cover_letter.md",
-      "bytes": 1972,
-      "sha256": "ae6c3a20e94af60d878c56a23edaf696d5b91b33d5083b52158e4fe3f28bb50f"
+      "bytes": 1969,
+      "sha256": "c2ff1d470fd272da8e6e981be0de5af5d3cb16b94c8b955c79f9b178a2df934d"
     },
     {
       "path": "results/portability_summary.csv",

@@ -25,5 +25,5 @@ Submission must remain blocked until both authors complete this record.
 
 ## Final approval
 
-Alejandro Velazquez: ____________________  Date: __________  
+Alejandro Velazquez: ____________________  Date: __________
 Rachel Selbrede: ________________________  Date: __________
