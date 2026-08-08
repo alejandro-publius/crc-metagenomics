@@ -5,6 +5,27 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-rc1] - 2026-08-08
+
+Release candidate for coauthor review and archival DOI minting.
+
+### Added
+
+- Exact 200-run PRJNA763023 external manifest and GMrepo v3 MetaPhlAn 4.1.0
+  profiles, with API payload checksum and locked taxonomy mapping.
+- Untouched external species evaluation: AUC 0.798 (95% CI 0.737-0.855),
+  average precision 0.781, plus older/younger subgroup estimates.
+- Label-free external risk estimate, profile-coverage audit, 10,000 bootstrap
+  replicates, and two final portability figures.
+- New mSystems-oriented manuscript, coauthor approval record, cover letter,
+  and reproducible release-candidate builder.
+
+### Changed
+
+- Reframed the primary contribution from species-versus-pathway accuracy to a
+  prospective study of cross-cohort portability and failure prediction.
+- Updated citation and Zenodo metadata for the generalization-risk study.
+
 ## [1.0.0] - 2026-05-18
 
 First release accompanying the manuscript submission. Version pinned in

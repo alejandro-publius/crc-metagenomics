@@ -1,0 +1,246 @@
+{
+  "version": "2.0.0-rc1",
+  "status": "release_candidate_pending_coauthor_approval_and_doi",
+  "files": [
+    {
+      "path": ".zenodo.json",
+      "bytes": 1368,
+      "sha256": "34a07a7793f63ca7dede27142a480201721854d07cd35b0dc2e7949aa4b46c30"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 1351,
+      "sha256": "8c528a5250e23817c31d06e241b6546d07c9168031f4d9c2d953d71a1afe428b"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 14800,
+      "sha256": "27c238369c6498d97fbd87d29055168cf5126a3a0c19e9b4fc89c18da70c2a02"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1096,
+      "sha256": "6f37a58270706eb442b585be8c3cbd2ef08ab45e0dc58040847b127e66ef3096"
+    },
+    {
+      "path": "README.md",
+      "bytes": 12350,
+      "sha256": "f2ce638677fe689b82d6091d298e2557f014e92c2ae66d83d32abbb23140a660"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "bytes": 25752,
+      "sha256": "a536d99a20ce2d3bbcc0aef303b2fb44973648a384856a1cdcb39d64afc06109"
+    },
+    {
+      "path": "REPRODUCING.md",
+      "bytes": 16074,
+      "sha256": "00b3e276fb03288d19336d9d9d10458e307e041d2fb98200aa22f08a9e23b7d0"
+    },
+    {
+      "path": "environment.yml",
+      "bytes": 1402,
+      "sha256": "4fa7686cf7b63a8475cfb4ceb5d7a7a5adc1cfdd0445f287d385dfa5bc44b341"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 2024,
+      "sha256": "89e9d7b6f4a4eabcadf313fbc123aa2abfda577a1ce1cac6b7ffca2637d4b6da"
+    },
+    {
+      "path": "requirements.lock",
+      "bytes": 937,
+      "sha256": "534bc03937e095c7a28155ae3ffe7556e9560c5c6e827d086ee509f6f486d477"
+    },
+    {
+      "path": "manuscript/generalization_risk/Generalization_Risk_Manuscript.docx",
+      "bytes": 474629,
+      "sha256": "f5f4cb2953eb70a654589e2693a8ff7d37b8807469fa4bbae76b0988cf3595af"
+    },
+    {
+      "path": "manuscript/generalization_risk/Generalization_Risk_Manuscript.pdf",
+      "bytes": 498196,
+      "sha256": "8d658c432d1fad41a051c9e98bfe73b32d4522ead43883741d6a1792402f63ca"
+    },
+    {
+      "path": "manuscript/generalization_risk/manuscript.md",
+      "bytes": 25728,
+      "sha256": "0c71cf2b6588258dac064557b4600f94aae36a926493707954793ead555e4b0d"
+    },
+    {
+      "path": "manuscript/generalization_risk/coauthor_approval.md",
+      "bytes": 1167,
+      "sha256": "af0f7bd102e2b87dcfe21813c6adf719d24a7b64c09c66fb8482ba7cbce73dd0"
+    },
+    {
+      "path": "manuscript/generalization_risk/03_external_profile_adapter.md",
+      "bytes": 1970,
+      "sha256": "1b71c6fc7f155123da204b939335aa1e73e97eb8eafa2001e30dbf864937458e"
+    },
+    {
+      "path": "manuscript/generalization_risk/figures/PortabilityLandscape.png",
+      "bytes": 191245,
+      "sha256": "ceb312d63bc81bf2c878999650c5ae96164036ed1255c0ed5ddb196c0ab8acf5"
+    },
+    {
+      "path": "manuscript/generalization_risk/figures/PortabilityLandscape.pdf",
+      "bytes": 29687,
+      "sha256": "b9353872f22981bca6dddf6bc7d70eb77e9e65267d4f9a2d2c15b1a0713e054c"
+    },
+    {
+      "path": "manuscript/generalization_risk/figures/GeneralizationRisk.png",
+      "bytes": 269014,
+      "sha256": "e98986d86b45f586184b5b3f9ec870188d692f9d8b5b55e4d88d557fa0576cdc"
+    },
+    {
+      "path": "manuscript/generalization_risk/figures/GeneralizationRisk.pdf",
+      "bytes": 35684,
+      "sha256": "c04598eab98cc703be4b16d6d04c62b5955c98faf2226b68b1819609a83aa384"
+    },
+    {
+      "path": "submission/08_msystems_cover_letter.md",
+      "bytes": 1972,
+      "sha256": "ae6c3a20e94af60d878c56a23edaf696d5b91b33d5083b52158e4fe3f28bb50f"
+    },
+    {
+      "path": "results/portability_summary.csv",
+      "bytes": 616,
+      "sha256": "0954df9185641568e7e2a4d46da10fc40b8a5164d52d183a5b886e2cff7a88eb"
+    },
+    {
+      "path": "results/external_cohort/manifest.csv",
+      "bytes": 54685,
+      "sha256": "4d02818613e88c471af09dc9c84b8afba178fbdef331ebd84bb4026167facae9"
+    },
+    {
+      "path": "results/external_cohort/audit.json",
+      "bytes": 918,
+      "sha256": "464ad6c58195af742e21901685abf85509ad1958769d12e749627a151eeb8a42"
+    },
+    {
+      "path": "results/external_cohort/gmrepo_species_long.csv.gz",
+      "bytes": 222949,
+      "sha256": "4d81485c19e2b02dcc1543f93a40c75adf60a9c3bec52c0ca893602bff5ce079"
+    },
+    {
+      "path": "results/external_cohort/gmrepo_profile_metadata.csv",
+      "bytes": 12449,
+      "sha256": "5aeed45f05936edf2873e4283477a65ea852b27fe2b18d97ef1985e13cb75ba8"
+    },
+    {
+      "path": "results/external_cohort/gmrepo_profile_provenance.json",
+      "bytes": 556,
+      "sha256": "4a67c0ccd0e101bf8ea97e08f01b34e8d9caa7e50ac40fcd3f4ea102b2ac2ecf"
+    },
+    {
+      "path": "results/external_cohort/predictions.csv",
+      "bytes": 10835,
+      "sha256": "a4c5623ad3fe612ef9e1b86a36bae3984bfe64f471c7fc2922a0dcdf4d3343fb"
+    },
+    {
+      "path": "results/external_cohort/metrics.json",
+      "bytes": 248,
+      "sha256": "f42e16ce2dbe4f7996c40f28ac3f46621998ae04b9763f532d68fb013477838c"
+    },
+    {
+      "path": "results/external_cohort/uncertainty_metrics.csv",
+      "bytes": 561,
+      "sha256": "9ce323e03618aa29cf915b1ccb2fdae0569efcac408c19da2262635c28516559"
+    },
+    {
+      "path": "results/external_cohort/age_comparison.json",
+      "bytes": 246,
+      "sha256": "769fe5ccdb00325c03cc19d3311006eb511684ef02118586223ac3b8a3b6786b"
+    },
+    {
+      "path": "results/external_cohort/profile_coverage.csv",
+      "bytes": 7421,
+      "sha256": "2a5e02abbcb511864cb7931cc451b7aa792e37b32d86b8f25424520bd5fd6b11"
+    },
+    {
+      "path": "results/external_cohort/profile_coverage_summary.json",
+      "bytes": 361,
+      "sha256": "ff6826175caf8450509e7a7df62d39b8eb4079823831ff515adb2262ec94bc0f"
+    },
+    {
+      "path": "results/external_cohort/bootstrap_replicates.csv.gz",
+      "bytes": 405420,
+      "sha256": "d56e591ca8db5e6aa67e562e62b50da18a109ff07a0606299e86f6ed61bcfa00"
+    },
+    {
+      "path": "results/generalization_risk/observations.csv",
+      "bytes": 25755,
+      "sha256": "adcf2f7ab2d20f83c9772c2a11eaf6fa9a3a8d021d0f3a631a0075a5ec143410"
+    },
+    {
+      "path": "results/generalization_risk/outer_cohort_predictions.csv",
+      "bytes": 10223,
+      "sha256": "226c187fd190b039a4714b6222dcf30190ba1a3818c1c840570cd5fed38ba7af"
+    },
+    {
+      "path": "results/generalization_risk/metrics.csv",
+      "bytes": 188,
+      "sha256": "3a4746cb45c57ed33b00bef269da40143153542964ee30f2f625c2d5f4fcbe25"
+    },
+    {
+      "path": "results/generalization_risk/external_risk_estimate.json",
+      "bytes": 843,
+      "sha256": "c77cb252269e2d39e804445a5ce56fb47cd1f93bbba6162159e4d4bf402725a4"
+    },
+    {
+      "path": "results/mechanism_panel/freeze.json",
+      "bytes": 325,
+      "sha256": "f8e6062fb9bbbb48b793c20619179dd8ff2a0f40d9fc4aa92604185b86ca7e65"
+    },
+    {
+      "path": "results/mechanism_panel/frozen_manifest.csv",
+      "bytes": 11146,
+      "sha256": "17b98b1c55685a5260261fd50614971166754ef9c09bb512d0b7675f06c9eb7b"
+    },
+    {
+      "path": "results/mechanism_panel/lodo_results.csv",
+      "bytes": 2077,
+      "sha256": "18ed52334799e0e89dc043d175844d9debddcfbfeec88a3c8b7ebc9dc4fc5580"
+    },
+    {
+      "path": "results/species_aware_correction/lodo_results.csv",
+      "bytes": 2290,
+      "sha256": "b83c28d133f8eb122746416ce09fc453165c443b3153f26a3dcd320b62aa7ca2"
+    },
+    {
+      "path": "results/gene_family_lodo_results.csv",
+      "bytes": 565,
+      "sha256": "18ac1b590cbc454bf31f1d0a7b4f0be4b023ae38ae8fe3e7fb77cb37e7cf9f79"
+    },
+    {
+      "path": "scripts/fetch_gmrepo_external_profiles.py",
+      "bytes": 6356,
+      "sha256": "59a21f7903dc6ff542ae93f5d8b4701064b4c16297a19c4564e33c594eada7c2"
+    },
+    {
+      "path": "scripts/score_external_species.py",
+      "bytes": 5540,
+      "sha256": "2a37be76e5d7e260d31b25b919041dc819886d6d573efa5decad964c76712559"
+    },
+    {
+      "path": "scripts/external_uncertainty.py",
+      "bytes": 5940,
+      "sha256": "de9aec6225088bbaa22a933e12bc92055fd9aa61f7bc5112f722227e08b73bfc"
+    },
+    {
+      "path": "scripts/external_generalization_risk.py",
+      "bytes": 4922,
+      "sha256": "41ea1629c505beb82301ccb0f6e3c354ffd3ef9577d10e2f9ef58b0f37d27949"
+    },
+    {
+      "path": "scripts/figure_portability_landscape.py",
+      "bytes": 4489,
+      "sha256": "54086e0ceb762acba665ffdf1a8cdc6bc67d4d8b30a83acbb70ac7557c18accf"
+    },
+    {
+      "path": "scripts/figure_generalization_risk.py",
+      "bytes": 2757,
+      "sha256": "af79a0a3ee7997cd20d7e22a5e21f23b55bb98a1850db4e6f98b3002def988db"
+    }
+  ]
+}
