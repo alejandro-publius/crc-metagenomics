@@ -124,8 +124,17 @@ python3 scripts/species_aware_correction.py  # propagates training-study species
                                              # expect: stratified source-only ~0.773,
                                              # target-adaptive ~0.777 vs uncorrected ~0.771
 
-python3 scripts/external_validation.py   # placeholder external-cohort validation hook
-                                         # outputs: results/external_validation.csv
+python3 scripts/generalization_risk.py       # outer leave-one-cohort-out estimate of target
+                                             # AUC using label-free confidence + species shift
+                                             # expect: risk MAE ~0.094 vs historical mean ~0.062
+
+python3 scripts/prepare_external_cohort.py   # freeze the verified 200-run PRJNA763023
+                                             # WGS manifest and labels from ENA
+
+# After MetaPhlAn profiling and table merge:
+python3 scripts/score_external_species.py merged_metaphlan_table.tsv
+                                             # locked 229-species harmonization + RF scoring
+                                             # no AUC exists until all profiles are supplied
 ```
 
 One-shot wrapper that re-runs the full robustness battery in sequence:
@@ -201,6 +210,17 @@ python3 scripts/train_mechanism_panel.py
 Expected result: mechanism-only mean LODO AUC approximately 0.569; parent
 species approximately 0.656; combined approximately 0.655. See
 `results/mechanism_panel/README.md` for interpretation and mapping limitations.
+
+An independent bounded recovery pilot bypasses the HUMAnN tables and aligns a
+fixed number of raw reads directly to the frozen UniProt proteins:
+
+```bash
+Rscript scripts/export_accession_manifest.R
+python3 scripts/run_independent_profiler.py --max-reads 250000
+```
+
+DIAMOND and the NCBI SRA Toolkit are required. The four-sample pilot tests
+technical recoverability only; it is not powered for case/control inference.
 
 For a small pipeline check before the full scan:
 

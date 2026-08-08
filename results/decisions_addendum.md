@@ -232,3 +232,39 @@ groups are included. The bile-acid group itself contributes only two
 pathways at the unstratified MetaCyc level visible in this HUMAnN
 output, reflecting that bai/BSH genes typically appear in stratified
 gene-family tables rather than as MetaCyc community pathways.
+
+## Label-free generalization-risk primary analysis
+
+DECISION (2026-08-08): The risk-estimation unit is model x target cohort, but
+the outer split and inference unit are the entire cohort. Inputs available
+before target labels are target sample count, prediction-distribution summaries,
+species mean/prevalence shift, and source-vs-target domain-classifier AUC. The
+primary fixed estimator is ridge regression with alpha=10. It is compared with
+the same model's historical mean AUC, recomputed inside every outer fold.
+Target labels are used only to evaluate estimates. The unfavorable primary
+result (MAE 0.094 versus 0.062 for historical mean) is retained without
+post-result tuning. Ten cohorts, not 120 model-cohort rows, define the number of
+independent deployment environments.
+
+## External cohort frozen before scoring
+
+DECISION (2026-08-08): PRJNA763023 is the sole primary external cohort. Live
+ENA records and the linked publication identify 200 public paired-end WGS runs:
+50 older-onset CRC, 50 younger-onset CRC, and 50 matched controls for each age
+group. Labels are frozen solely from the published prefixes (`M_O_`, `M_Y_`,
+`M_HO_`, `M_HY_`). The earlier scouting memo's description of this accession as
+a 110-sample cohort from a different study is superseded. The 229-species
+feature order, renormalization, log transform, RF parameters, and score outputs
+are frozen in `scripts/score_external_species.py` before profiles or external
+AUC exist. Pipeline changes after scoring must report both original and revised
+results.
+
+## Independent raw-read mechanism pilot
+
+DECISION (2026-08-08): The pilot contains the first lexical single-accession
+CRC and control sample in each of two fixed cohorts. It examines the first
+250,000 reads per sample and calls only DIAMOND matches with at least 90% protein
+identity across at least 30 amino acids. This is an independence and technical
+recoverability check because it bypasses the HUMAnN/UniRef abundance tables.
+Four samples cannot estimate disease association, non-detection cannot establish
+absence, and short matches cannot establish a complete operon.

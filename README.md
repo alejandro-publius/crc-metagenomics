@@ -1,14 +1,35 @@
-# Species-level taxonomic features alone outperform joint species-plus-pathway models for colorectal cancer detection
+# Stress-testing portable colorectal-cancer metagenomic biomarkers
 
 **Alejandro Velazquez and Rachel Selbrede**
 
-A rigorous multi-cohort re-evaluation of the Thomas et al. (2019) CRC classification framework, demonstrating that species-only Random Forest classifiers significantly outperform joint species-plus-pathway models under leave-one-dataset-out (LODO) cross-validation across 10 independent cohorts.
+A reproducible study of a practical question: **which stool-metagenomic CRC
+signals survive transfer to a new study, and can failure be anticipated before
+target labels arrive?** Ten development cohorts are treated as distinct
+deployment environments. Taxa, broad pathways, gene families, prespecified
+mechanisms, correction strategies, and label-free risk signals are evaluated
+without letting a held-out cohort choose its own features. A completely
+separate 200-sample shotgun cohort is frozen for the final validation.
 
-## Key finding
+## Current answer
 
 Species-only RF achieves a pooled LODO AUC of **0.781** (95% bootstrap CI: 0.757 to 0.805; 10,000 cohort-stratified resamples on n = 1,339 pooled held-out predictions), significantly outperforming:
 - Joint species+pathway RF: AUC 0.756 (DeLong z = 3.35, p = 0.0008)
 - Joint species+pathway XGBoost: AUC 0.766 (DeLong z = 2.00, p = 0.046)
+
+Adding complexity has not produced a portable improvement:
+
+- leakage-safe gene families average 0.693 per-cohort AUC;
+- a frozen mechanism panel averages 0.569 and adds no value beyond its parent species;
+- strict species-aware pathway correction reaches 0.773 versus 0.771 uncorrected;
+- a label-free generalization-risk model is worse than historical model
+  performance (MAE 0.094 versus 0.062), an important negative result rather
+  than a tuned success claim.
+
+The working conclusion is therefore not merely "species beat pathways." It is
+that increasingly specific biological and corrective representations fail to
+transfer reliably across studies, while simple taxonomic history remains the
+strongest predeployment guide tested so far. The external result remains
+sealed until all 200 frozen PRJNA763023 samples are profiled.
 
 This result is stable across random seeds (mean per-cohort AUC 0.810 +/- 0.002 across 5 seeds), filter thresholds (joint RF per-cohort AUC 0.781 to 0.835 across a 4x5 prevalence-by-mean grid; spread 0.055), and confounder adjustments (age, sex, BMI; mean per-cohort AUC 0.800 to 0.814 across direct/residualized x RF/XGB cells, vs unadjusted species-RF baseline 0.807).
 
@@ -23,7 +44,12 @@ This result is stable across random seeds (mean per-cohort AUC 0.810 +/- 0.002 a
 
 ## Manuscript
 
-The complete manuscript is in `manuscript/`:
+The current study blueprint and draft are in
+`manuscript/generalization_risk/`. The older species-versus-pathway manuscript
+is retained under `manuscript/markdown/` as a provenance snapshot, not the
+submission target.
+
+Older generated files in `manuscript/` include:
 - `CRC_Manuscript_Complete.docx` (single merged document)
 - Individual section files (Title Page, Abstract, Introduction, Methods, Results, Discussion, References, Table 1, Supplementary Tables)
 - `figures/` (Figures 1 to 4 in PNG 300 DPI and PDF). Figure 1 = forest plot of per-cohort and pooled LODO AUCs; Figure 2 = ROC curves; Figure 3 = TreeSHAP top-species importance for CRC; Figure 4 = three-panel TreeSHAP across the adenoma-carcinoma sequence (healthy-vs-adenoma | CRC-vs-healthy | adenoma-vs-CRC)
@@ -111,6 +137,9 @@ See `src/crc_lodo_bench/README.md` for the full API and a runnable example.
 | `results/bio_pathway_results.csv` | Biologically-guided pathway LODO results |
 | `results/gene_family_lodo_results.csv` | Fold-specific UniRef90 elastic-net LODO results |
 | `results/mechanism_panel/` | Frozen mechanism mapping, coverage, scores, predictions, and results |
+| `results/independent_profiler/` | High-stringency raw-read recovery pilot for the frozen mechanisms |
+| `results/generalization_risk/` | Label-free target-performance estimates under outer cohort holdout |
+| `results/external_cohort/` | Frozen 200-run external manifest and executable locked scorer |
 | `results/adenoma_lodo_results.csv` | Adenoma cross-cohort LODO results |
 | `results/decisions_addendum.md` | Decision log for all analytical choices |
 
