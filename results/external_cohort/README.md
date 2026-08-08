@@ -22,11 +22,20 @@ Reproduce the manifest:
 python3 scripts/prepare_external_cohort.py
 ```
 
-After profiling every manifest FASTQ with one pinned MetaPhlAn database and
-merging the profiles, score the untouched cohort with:
+The pre-score implementation record in
+[`03_external_profile_adapter.md`](../../manuscript/generalization_risk/03_external_profile_adapter.md)
+documents why the public GMrepo v3 MetaPhlAn 4.1.0 profiles are used instead of
+recalculating roughly 2.15 trillion bases locally. Fetch and verify all profiles:
 
 ```bash
-python3 scripts/score_external_species.py merged_metaphlan_table.tsv
+python3 scripts/fetch_gmrepo_external_profiles.py
+```
+
+Then score the untouched cohort with:
+
+```bash
+python3 scripts/score_external_species.py \
+  results/external_cohort/gmrepo_species_long.csv.gz --format gmrepo
 ```
 
 The scorer exactly reindexes to the 229 training species, renormalizes across
