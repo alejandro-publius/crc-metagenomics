@@ -80,6 +80,7 @@ See `src/crc_lodo_bench/README.md` for the full API and a runnable example.
 
 - **Country-aware LODO**: when a cohort is held out as the test fold, all cohorts from the same country are excluded from training. This prevents population-level confounding — without this fix, ThomasAM_2019_c (Japan) achieved AUC=0.999 due to YachidaS_2019 (Japan) in the training set; corrected AUC is 0.836.
 - **Biologically-guided pathway shortlist**: 86 unique CRC-relevant pathways selected by keyword matching across 9 biological groups (butyrate/SCFA, fermentation, LPS/inflammation, polyamine, tryptophan, folate/one-carbon, sulfur/methionine, glycan/mucin, bile-acid metabolism). Mean per-cohort LODO AUC 0.817, comparable to the species-only baseline (0.807).
+- **Gene-family transfer benchmark**: leakage-safe, fold-specific screening of unstratified UniRef90 gene families followed by sparse elastic-net LODO modeling. Mean per-cohort AUC is 0.693 (range 0.570 to 0.812), below the species-only baseline and notably heterogeneous across cohorts. This is a baseline for investigating transfer failure, not a claim that gene families improve accuracy.
 
 ## Robustness battery
 
@@ -107,6 +108,7 @@ See `src/crc_lodo_bench/README.md` for the full API and a runnable example.
 | `results/shap_crc_features.csv` | SHAP values (RF) |
 | `results/shap_crc_xgb.csv` | SHAP values (XGBoost) |
 | `results/bio_pathway_results.csv` | Biologically-guided pathway LODO results |
+| `results/gene_family_lodo_results.csv` | Fold-specific UniRef90 elastic-net LODO results |
 | `results/adenoma_lodo_results.csv` | Adenoma cross-cohort LODO results |
 | `results/decisions_addendum.md` | Decision log for all analytical choices |
 

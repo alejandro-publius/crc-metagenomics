@@ -151,6 +151,46 @@ python3 scripts/verify_results.py            # 49 smoke-test assertions against 
 pytest tests/ -v                             # unit tests for scripts/lodo_cv.py
 ```
 
+## Gene-family extension
+
+Gene-family tables contain millions of UniRef90 rows, so they should not be
+merged into a single wide CSV. The preparation workflow uses compact cohort
+summaries and creates a separate feature manifest for every country-aware LODO
+fold. The held-out cohort therefore cannot influence that fold's prevalence
+filter or ranking.
+
+```bash
+# Pass 1: scan unstratified gene families for all 10 cohorts.
+Rscript scripts/scan_gene_families.R
+
+# Pass 2: create training-fold-only manifests (5% prevalence, at least two
+# training cohorts, at most 5,000 genes per fold by default).
+python3 scripts/select_gene_family_manifests.py
+
+# Pass 3: export the selected union as a sparse matrix and fit the
+# fold-specific sparse elastic-net baseline.
+Rscript scripts/export_selected_gene_families.R
+python3 scripts/train_gene_family_lodo.py
+```
+
+Expected benchmark: mean per-cohort AUC approximately 0.693 (fold range
+0.570 to 0.812), below the species-only mean of approximately 0.807. This is
+a cross-cohort gene-family baseline, not evidence that gene families improve
+CRC classification. Its large fold-to-fold spread motivates explicit study of
+cohort transferability and failure modes.
+
+For a small pipeline check before the full scan:
+
+```bash
+Rscript scripts/scan_gene_families.R --cohort GuptaA_2019
+```
+
+The scan outputs under `data/interim/gene_family_scan/` are derived data and
+are intentionally gitignored. Auditable fold manifests are written to
+`results/gene_family_manifests/`. Selection is label-independent; a later
+modeling stage must still fit all scaling, imputation, and supervised feature
+selection on training samples only.
+
 ## Optional diagnostics
 
 The `scripts/diagnostics/` directory contains 12 standalone, idempotent
