@@ -1,0 +1,8 @@
+{
+  "n_initial_gene_families": 6755,
+  "n_internal_nominations": 16,
+  "n_parent_adjustment_pass": 4,
+  "n_taxonomic_address_pass": 0,
+  "primary_finding": "No internally recurring gene-family nomination passed the full parent-independence plus taxonomic-address sequence of gates.",
+  "sensitivity_result": "No candidate has a majority carrier even at a 50% threshold; the primary threshold was frozen at 80%."
+}

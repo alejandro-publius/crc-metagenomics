@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "0_taxonomic_addresses": true,
+    "16_internal_nominations": true,
+    "20_atlas_entries": true,
+    "20_candidate_dossiers": true,
+    "4_parent_adjustment_pass": true,
+    "6755_gene_families": true,
+    "carrier_range_13_5_to_42_5_percent": true,
+    "no_experiment_ready_claim": true,
+    "no_majority_carrier_at_50_percent": true,
+    "parent_fraction_at_most_19_6_percent": true
+  },
+  "claim_boundary": "Verification confirms saved computational claims only; it is not biological or coauthor approval.",
+  "n_checks": 10,
+  "status": "pass"
+}

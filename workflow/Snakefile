@@ -12,6 +12,7 @@ rule all:
         "results/workflow_sanity.ok",
         "results/workflow_verify.ok",
         "results/workflow_tests.ok",
+        "results/intervention_readiness/verification.json",
 
 
 rule research_catalog:
@@ -75,3 +76,18 @@ rule fast_tests:
         "logs/workflow_tests.log",
     shell:
         "python3 -m pytest tests/ -q -m 'not slow' > {log} 2>&1"
+
+
+rule verify_intervention_readiness:
+    input:
+        "results/intervention_readiness/discovery_audit.json",
+        "results/intervention_readiness/parent_adjustment_summary.csv",
+        "results/intervention_readiness/candidate_taxon_summary.csv",
+        "results/intervention_readiness/readiness_atlas.csv",
+        "results/intervention_readiness/taxonomic_gate_threshold_sensitivity.csv",
+    output:
+        "results/intervention_readiness/verification.json",
+    log:
+        "logs/workflow_intervention_verify.log",
+    shell:
+        "python3 scripts/verify_intervention_readiness.py > {log} 2>&1"

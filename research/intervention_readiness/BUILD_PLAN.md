@@ -29,18 +29,29 @@ unsupported therapeutic claims.
 - Existing and reusable: ten internal cohorts, country-aware holdout framework,
   6,755-gene sparse matrix, frozen mechanism panel, raw-read pilot, external
   species validation, packaging, tests, and release workflow.
-- Work package 1: protocol and thresholds are written; coauthor approval is
-  still required.
+- Work package 1: protocol and thresholds are written. Alejandro reported
+  Rachel's approval to continue the direction; direct final signoff remains
+  required before submission.
 - Work package 2: computationally complete. All four frozen benchmarks are
   retained, including the mechanism the current assay cannot measure.
 - Work package 3: internally complete. The locked cross-fitted screen evaluated
   6,755 families and produced 16 internal nominations.
-- Work package 4: automated UniProt/UniParc provenance is complete; ten of the
-  sixteen sequences remain uncharacterized and manual biological review is
-  pending. Taxon-resolved export and source attribution are implemented.
-- Work packages 5–9: pending. These contain the central conservation,
-  specificity, delivery, and external gene-level evidence gates.
-- Work package 10: a provisional explicit-gate atlas and twenty evidence
-  dossiers are generated. None is labeled experiment-ready while mandatory
-  gates remain unknown.
-- Work packages 11–12: pending until the evidence gates are complete.
+- Work package 4: complete. Automated UniProt/UniParc provenance and the
+  ten-cohort taxon-resolved export are complete. All four parent-adjustment
+  survivors failed the frozen taxonomic-address gate.
+- Work packages 5–7: not triggered for de novo candidates under the sequential
+  stopping rule. No mixed-carrier family advances to conservation, guide
+  specificity, or editing design. Required-gene integrity for known benchmarks
+  remains pending.
+- Work package 8: structured causality and editability review of known
+  benchmarks remains pending.
+- Work package 9: no de novo candidate qualifies for external confirmation;
+  whether to validate the methodological failure in an untouched cohort is a
+  manuscript-design decision.
+- Work package 10: complete for the current evidence. The atlas records four
+  mixed-source rejections, nine parent-adjustment rejections, and three
+  unresolved parent mappings, plus four known benchmarks.
+- Work package 11: working manuscript, lay summary, and first main figure are
+  drafted. Coauthor biological review and revision remain.
+- Work package 12: pending final tests, clean rerun, direct coauthor signoff,
+  journal formatting, and archival release.

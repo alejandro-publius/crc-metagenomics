@@ -1,0 +1,5 @@
+stage,label,gate,n_candidates,fraction_of_previous,fraction_of_initial
+1,Gene families evaluated,entered leakage-safe screen,6755,1.0,1.0
+2,Cross-population nominations,passed internal recurrence gate,16,0.0023686158401184307,0.0023686158401184307
+3,Signal beyond parent-species proxy,passed parent-species adjustment gate,4,0.25,0.0005921539600296077
+4,Taxonomically resolved addresses,passed prespecified 80% dominant-carrier gate,0,0.0,0.0

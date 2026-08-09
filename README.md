@@ -22,6 +22,15 @@ protocol and complete work-package definition are in
 `research/intervention_readiness/BUILD_PLAN.md`. Internal nominations are
 research leads, not causal genes, CRISPR guides, or treatment recommendations.
 
+The completed discovery funnel evaluated **6,755** UniRef90 families, retained
+**16** cross-population nominations, and found **4** that added held-out signal
+beyond an annotated parent-species proxy. Taxon-resolved HUMAnN evidence then
+showed that all four were distributed across multiple organisms: their largest
+carrier contributed only **13.5–42.5%**, so **0** passed the frozen 80%
+taxonomic-address gate. This turns the extension into a concrete safety result:
+a recurring metagenomic biomarker and its database representative label are not
+enough to nominate a precision microbiome-editing target.
+
 ## Current answer
 
 Species-only RF achieves a pooled LODO AUC of **0.781** (95% bootstrap CI: 0.757 to 0.805; 10,000 cohort-stratified resamples on n = 1,339 pooled held-out predictions), significantly outperforming:
