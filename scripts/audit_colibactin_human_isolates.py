@@ -4,11 +4,12 @@ from __future__ import annotations
 
 import argparse
 import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import pandas as pd
 
-from audit_published_colibactin_guides import audit_panel
+from audit_published_colibactin_guides import audit_panel, fetch_fasta
 
 
 GROUP_COLUMNS = [
@@ -17,6 +18,34 @@ GROUP_COLUMNS = [
     "target_gene",
     "benchmark_role",
 ]
+
+
+def fetch_missing_fastas(genomes: pd.DataFrame, fasta_dir: Path, workers: int) -> None:
+    fasta_dir.mkdir(parents=True, exist_ok=True)
+    missing = []
+    for genome in genomes.itertuples(index=False):
+        destination = fasta_dir / f"{genome.accession}.fasta"
+        if not destination.exists() or not destination.read_bytes().startswith(b">"):
+            missing.append((genome.accession, genome.download_url, destination))
+    if not missing:
+        return
+
+    def fetch(specification: tuple[str, str, Path]) -> str:
+        accession, url, destination = specification
+        fetch_fasta(accession, url, destination)
+        return accession
+
+    completed = 0
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = [executor.submit(fetch, specification) for specification in missing]
+        for future in as_completed(futures):
+            future.result()
+            completed += 1
+            if completed % 10 == 0 or completed == len(missing):
+                print(
+                    f"downloaded {completed}/{len(missing)} missing assemblies",
+                    flush=True,
+                )
 
 
 def _coverage_summary(detail: pd.DataFrame, groups: list[str]) -> pd.DataFrame:
@@ -76,6 +105,7 @@ def main() -> None:
         type=Path,
         default=Path("data/interim/colibactin_human_isolate_panel"),
     )
+    parser.add_argument("--download-workers", type=int, default=6)
     args = parser.parse_args()
 
     research = Path("research/intervention_readiness")
@@ -83,6 +113,7 @@ def main() -> None:
     guides = pd.read_csv(research / "published_colibactin_guides.csv")
     panel = pd.read_csv(research / "colibactin_human_isolate_panel.csv")
     genomes = panel.rename(columns={"wgs_accession": "accession"})
+    fetch_missing_fastas(genomes, args.fasta_dir, args.download_workers)
     detail, _ = audit_panel(guides, genomes, args.fasta_dir)
     metadata = genomes[
         [

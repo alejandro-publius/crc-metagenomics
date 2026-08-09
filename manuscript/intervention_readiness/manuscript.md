@@ -23,7 +23,10 @@ taxon-resolved analysis, required one carrier to account for at least 80% of
 stratified abundance. Separately, two published colibactin CRISPRi spacers were
 audited for exact PAM-compatible sites in a frozen seven-genome pks-positive
 reference panel, then screened for conservative PAM-compatible near matches in
-ten common gut bacterial references and GRCh38.p14.
+ten common gut bacterial references and GRCh38.p14. Before expanded
+conservation results were inspected, all 97 human-host entries in a published
+pks-positive population table and stricter overall and subgroup gates were
+frozen.
 
 **Results:** Sixteen of 6,755 families (0.24%) passed the internal recurrence
 screen. Four of sixteen added a median held-out AUC of at least 0.02 beyond
@@ -41,11 +44,14 @@ sequence safety gates are incomplete.
 
 Both in-vivo-tested colibactin spacers retained exactly one PAM-compatible
 target site in all seven genomes of a frozen pks-positive reference panel. In
-the protected-reference pilot, primary guide `sgclbB_4387` had no flagged near
-matches, whereas secondary guide `sgclbC_2313` retained five GRCh38 sites with
-three or four mismatches and an exact PAM-proximal seed. The primary guide was
-therefore prioritized, but the small panels do not establish safety or coverage
-across human pks-positive isolates.
+the 97-human-isolate panel, `sgclbB_4387` covered 96 isolates and was unique in
+95, while `sgclbC_2313` covered and was unique in all 97; both passed the
+predeclared conservation gate. In the protected-reference pilot, primary guide
+`sgclbB_4387` had no flagged near matches, whereas secondary guide
+`sgclbC_2313` retained five GRCh38 sites with three or four mismatches and an
+exact PAM-proximal seed. The primary guide was therefore prioritized as the
+cleaner current lead, while its one missing and one duplicated human-isolate
+result and the secondary guide's flags prevent an experiment-ready claim.
 
 **Conclusions:** Cross-population recurrence and parent-species-adjusted
 prediction did not identify an editable microbial address. Taxon-resolved
@@ -53,7 +59,9 @@ carrier analysis prevented four apparently strain-informative biomarkers from
 being promoted to conservation, guide-specificity, or laboratory design. The
 reproducible attrition framework is the primary contribution. The independent
 positive-control track prioritizes published `sgclbB_4387` over `sgclbC_2313`
-for broader validation but does not establish an experiment-ready target.
+as the cleaner default, while the opposing conservation and specificity
+rankings support redesigning a secondary guide. The study does not establish an
+experiment-ready target.
 
 ## Introduction
 
@@ -152,6 +160,20 @@ least 80% genome coverage and at least 80% of genomes to contain exactly one
 PAM-compatible site. This conservation analysis did not assess near matches or
 patient-level pks diversity.
 
+### Expanded human-isolate conservation audit
+
+Before downloading or searching any expanded-panel genome, we froze every
+human-host entry in Supplementary Table S1 of Watanabe et al., whose table
+reports 109 pks-positive *E. coli* strains [16]. This retained 97 isolates from
+Japan: 62 fecal commensals and 35 blood- or urine-derived extraintestinal
+clinical isolates. Exact source rows, WGS accessions, retrieval URLs, and the
+source-spreadsheet checksum were retained. A guide passed only with at least
+90% exact-site coverage, at least 90% unique-site coverage, and at least 80%
+coverage within both the fecal-commensal and extraintestinal-clinical groups.
+All missing and duplicated sites were preserved. The paper reports that pks
+carriage did not guarantee colibactin production, so this audit measures
+spacer/PAM conservation rather than functional toxin production.
+
 ### Protected-reference specificity pilot
 
 After the conservation result and before scanning any protected reference, we
@@ -208,8 +230,19 @@ Both reported guides passed the frozen pilot. `sgclbB_4387` and
 genomes (7/7 coverage and 7/7 unique-site coverage for each guide). The sites
 were found in the expected NC101 genes and conserved across the six additional
 references. The atlas therefore records a reference-panel conservation pass
-for colibactin while leaving broader human-isolate conservation and specificity
-open.
+for colibactin while leaving expanded human-isolate conservation and
+specificity open at that stage.
+
+### Both guides passed the expanded human-isolate conservation gate
+
+Primary `sgclbB_4387` had an exact PAM-compatible target in 96/97 isolates
+(99.0%) and exactly one site in 95/97 (97.9%). It covered all 62 fecal
+commensals and 34/35 extraintestinal clinical isolates. Fecal strain JML024 had
+two exact sites in its draft assembly, while urine isolate UPEC79 had none.
+Secondary `sgclbC_2313` covered and was unique in all 97 isolates, including
+both source groups. Both guides passed the predeclared gate. The exceptions
+were retained as unresolved sequence or draft-assembly differences rather than
+removed post hoc (Figure 2A).
 
 ### Protected-reference screening separated the primary and secondary guides
 
@@ -220,8 +253,9 @@ three mismatches and three with four mismatches, all preserving the exact
 PAM-proximal eight-base seed. It therefore did not pass. This sequence-level
 ranking independently favors the primary guide and is directionally consistent
 with the preprint's RNA-sequencing result, in which `sgclbC_2313` changed more
-genes than `sgclbB_4387` [11]. The human-reference matches do not demonstrate
-editing or exposure of human cells by a bacteria-delivered CRISPRi system.
+genes than `sgclbB_4387` [11] (Figure 2B). The human-reference matches do not
+demonstrate editing or exposure of human cells by a bacteria-delivered CRISPRi
+system.
 
 ### Four internally recurring families added information beyond annotated parent species
 
@@ -280,12 +314,15 @@ The constructive next target is therefore not one of the de novo gene-family
 addresses. Colibactin is the rational positive-control benchmark for the next
 sequence-safety work because its causal and preliminary delivery evidence is
 strongest. Its two published guides passed a small reference-panel conservation
-pilot, while the protected-reference screen separated them: the primary `clbB`
-guide passed and the secondary `clbC` guide retained five human-reference
-flags. The next sequence work therefore prioritizes `sgclbB_4387`, while
-representative human-isolate coverage and platform-specific safety remain
-unresolved. That priority comes from independent experimental literature and a
-frozen sequence screen, not from forcing weak stool abundance AUC to pass.
+pilot and the larger 97-human-isolate gate. Their rankings then diverged. The
+secondary `clbC` site was perfectly conserved in the expanded panel but
+retained five human-reference flags; the primary `clbB` guide passed the
+protected-reference pilot but had one absent and one duplicated target in the
+human-isolate assemblies. We therefore prioritize `sgclbB_4387` as the cleaner
+current default while treating its coverage as non-universal and recommending
+redesign, rather than reuse, of the secondary guide. That priority comes from
+independent experimental literature and frozen sequence screens, not from
+forcing weak stool abundance AUC to pass.
 
 ### Limitations
 
@@ -294,14 +331,16 @@ or tumor tissue. HUMAnN strata are computational assignments and do not prove
 physical gene location. UniRef90 families combine homologs and are not
 nucleotide guide sequences. No de novo candidate advanced to conservation or
 off-target analysis because none passed the preceding address gate. The
-colibactin positive-control conservation panel contained only seven genomes,
-several from mice, and was not designed to represent human pks-positive strain
-diversity. The specificity pilot used one assembly for each of ten protected
-bacterial taxa and one human reference; it does not cover strain or human
-variation, insertions or deletions, alternative PAMs, delivery exposure, or
-platform-specific off-target activity. The five `sgclbC_2313` human-reference
-flags are sequence motifs, not evidence that bacteria-delivered dCas9 reaches
-or perturbs human cells.
+expanded colibactin panel improves on the original seven genomes but is a
+single published Japanese collection dominated by phylogroup B2 and largely
+represented by short-read draft assemblies. It does not establish global
+pks-positive diversity, and the JML024 duplicate and UPEC79 absence may reflect
+real biology or assembly limitations. The specificity pilot used one assembly
+for each of ten protected bacterial taxa and one human reference; it does not
+cover strain or human variation, insertions or deletions, alternative PAMs,
+delivery exposure, or platform-specific off-target activity. The five
+`sgclbC_2313` human-reference flags are sequence motifs, not evidence that
+bacteria-delivered dCas9 reaches or perturbs human cells.
 There is no untouched external gene-level confirmation dataset in the present
 analysis. The 80% rule is a prespecified triage threshold, not a universal
 biological constant; however, no candidate had a majority carrier at 50%.
@@ -317,8 +356,10 @@ labels directly into microbial editing targets and provides a reproducible
 framework for rejecting unsafe or uninterpretable candidates early.
 It also prioritizes colibactin as a literature-supported positive-control
 benchmark and `sgclbB_4387` as its cleaner published guide after frozen
-conservation and protected-reference pilots. Neither is an approved or fully
-validated treatment target.
+reference, 97-human-isolate, and protected-reference audits. Its coverage was
+not universal, and the more conserved `sgclbC_2313` guide retained specificity
+flags; this tradeoff supports a cleaner primary plus a redesigned secondary,
+not a treatment claim. Neither is an approved or fully validated target.
 
 ## References
 
@@ -367,3 +408,6 @@ validated treatment target.
 15. Cui L, et al. A CRISPRi screen in *E. coli* reveals sequence-specific
     toxicity of dCas9. *Nature Communications*. 2018.
     https://www.nature.com/articles/s41467-018-04209-5
+16. Watanabe H, et al. Insights into the acquisition of the pks island and
+    production of colibactin in the *Escherichia coli* population. *Microbial
+    Genomics*. 2021. https://pmc.ncbi.nlm.nih.gov/articles/PMC8209727/

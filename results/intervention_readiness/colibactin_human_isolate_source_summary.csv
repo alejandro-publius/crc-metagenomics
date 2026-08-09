@@ -1,0 +1,5 @@
+target_id,guide_id,target_gene,benchmark_role,source_group,n_genomes,n_genomes_covered,n_genomes_unique_site,coverage_fraction,unique_site_fraction,source_coverage_gate
+colibactin,sgclbB_4387,clbB,primary,extraintestinal_clinical,35,34,34,0.9714285714285714,0.9714285714285714,pass
+colibactin,sgclbB_4387,clbB,primary,fecal_commensal,62,62,61,1.0,0.9838709677419355,pass
+colibactin,sgclbC_2313,clbC,secondary,extraintestinal_clinical,35,35,35,1.0,1.0,pass
+colibactin,sgclbC_2313,clbC,secondary,fecal_commensal,62,62,62,1.0,1.0,pass

@@ -2,7 +2,7 @@
 
 - **Candidate ID:** `colibactin`
 - **Class:** effector_benchmark
-- **Current atlas status:** literature_priority_primary_guide_human_isolate_validation_pending
+- **Current atlas status:** literature_priority_primary_guide_global_and_platform_validation_pending
 
 ## Why it is in the atlas
 
@@ -17,7 +17,7 @@
 | Taxon-resolved carrier | not_applicable_effector_benchmark |
 | Biological function or harmful-clade link | human_signature_plus_animal_targeted_perturbation |
 | Assay representation of required mechanism | partial_multigene_representation |
-| Sequence conservation | reference_panel_pass_human_diversity_pending |
+| Sequence conservation | human_isolate_panel_pass_global_diversity_pending |
 | Specificity against protected organisms/human sequence | primary_guide_pilot_pass_secondary_guide_flagged |
 | Editing and delivery feasibility | targeted_in_vivo_crispri_preprint |
 | External gene-level confirmation | not_yet_assessed |
@@ -34,7 +34,7 @@ Not applicable to this benchmark-level association result.
 
 ## Sequence-conservation detail
 
-2/2 published guides passed exact-site coverage and uniqueness in a frozen 7-genome pks-positive reference panel; broader human-isolate diversity remains pending.
+2/2 published guides passed exact-site coverage and uniqueness in a frozen 7-genome pks-positive reference panel; the expanded human-isolate gate was evaluated separately. Expanded audit: 2/2 guides passed the frozen 97-human-isolate panel (sgclbB_4387: 96/97 covered and 95/97 unique-site; sgclbC_2313: 97/97 covered and 97/97 unique-site). Global pks-positive diversity and assembly-independent confirmation remain pending.
 
 ## Protected-reference specificity detail
 

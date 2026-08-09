@@ -21,7 +21,12 @@
   benchmark remains incomplete for comprehensive conservation and specificity.
 - The two published colibactin spacers each retained exactly one PAM-compatible
   target site in all seven genomes of a literature-defined pks-positive pilot
-  panel. This is a reference-panel pass, not a human-diversity or safety pass.
+  panel.
+- An expanded panel was frozen before scanning by retaining all 97 human-host
+  entries in a published 109-strain pks-positive population table. Primary
+  `sgclbB_4387` covered 96/97 and was unique in 95/97; secondary
+  `sgclbC_2313` covered and was unique in 97/97. Both passed the predeclared
+  overall and fecal-versus-clinical subgroup conservation gates.
 - In a frozen panel of ten common gut bacterial references plus GRCh38.p14,
   primary guide `sgclbB_4387` had no flagged near matches. Secondary guide
   `sgclbC_2313` had five GRCh38 sites with three or four mismatches and an exact
@@ -54,10 +59,10 @@ treated as the organism carrying a gene family in a metagenome.
 
 1. Obtain direct biological review of the mechanism-integrity summaries,
    mixed-carrier interpretation, and stopping rule.
-2. Extend the completed colibactin pilots to a frozen human-isolate panel and
-   platform-specific safety analysis, prioritizing `sgclbB_4387` and retaining
-   the unfavorable `sgclbC_2313` result; do not revive rejected de novo
-   addresses.
+2. Extend the completed colibactin pilots beyond the single-country 97-isolate
+   panel and into platform-specific assessment. Carry `sgclbB_4387` as the
+   cleaner current lead, redesign rather than quietly reuse the flagged
+   `sgclbC_2313` backup, and do not revive rejected de novo addresses.
 3. Decide whether an untouched gene-level cohort is needed to validate the
    methodological finding. No discovery candidate advances to guide design
    under the current sequential gates.

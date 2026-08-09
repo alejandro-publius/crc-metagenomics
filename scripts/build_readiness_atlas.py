@@ -24,6 +24,7 @@ def build_atlas(
     mechanism_integrity: pd.DataFrame | None = None,
     guide_conservation: pd.DataFrame | None = None,
     guide_specificity: pd.DataFrame | None = None,
+    human_isolate_conservation: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     parent_lookup = (
         parent_adjustment.set_index("gene_id")
@@ -46,6 +47,11 @@ def build_atlas(
     specificity_lookup = (
         guide_specificity.groupby("target_id")
         if guide_specificity is not None
+        else None
+    )
+    human_conservation_lookup = (
+        human_isolate_conservation.groupby("target_id")
+        if human_isolate_conservation is not None
         else None
     )
     known_rows: list[dict[str, object]] = []
@@ -75,6 +81,43 @@ def build_atlas(
                 f"{n_pass}/{n_guides} published guides passed exact-site coverage "
                 f"and uniqueness in a frozen {n_genomes}-genome pks-positive "
                 "reference panel; broader human-isolate diversity remains pending."
+            )
+        if (
+            human_conservation_lookup is not None
+            and row.target_id in human_conservation_lookup.groups
+        ):
+            target_human = human_conservation_lookup.get_group(row.target_id)
+            n_human_guides = int(target_human["guide_id"].nunique())
+            n_human_pass = int(
+                target_human["human_isolate_conservation_gate"].eq("pass").sum()
+            )
+            n_human_genomes = int(target_human["n_genomes"].max())
+            if n_human_guides > 0 and n_human_pass == n_human_guides:
+                conservation_status = (
+                    "human_isolate_panel_pass_global_diversity_pending"
+                )
+            else:
+                conservation_status = "human_isolate_panel_not_passed"
+            guide_details = []
+            for guide in target_human.sort_values(
+                ["benchmark_role", "guide_id"]
+            ).itertuples(index=False):
+                guide_details.append(
+                    f"{guide.guide_id}: {int(guide.n_genomes_covered)}/"
+                    f"{int(guide.n_genomes)} covered and "
+                    f"{int(guide.n_genomes_unique_site)}/"
+                    f"{int(guide.n_genomes)} unique-site"
+                )
+            conservation_detail = conservation_detail.replace(
+                "broader human-isolate diversity remains pending.",
+                "the expanded human-isolate gate was evaluated separately.",
+            )
+            conservation_detail = (
+                f"{conservation_detail} Expanded audit: {n_human_pass}/"
+                f"{n_human_guides} guides passed the frozen {n_human_genomes}-"
+                f"human-isolate panel ({'; '.join(guide_details)}). Global "
+                "pks-positive diversity and assembly-independent confirmation "
+                "remain pending."
             )
         specificity_status = row.specificity_status
         specificity_detail = "No frozen protected-reference result is available."
@@ -112,6 +155,25 @@ def build_atlas(
             )
         if row.editability_evidence_status == "targeted_in_vivo_crispri_preprint":
             if (
+                conservation_status
+                == "human_isolate_panel_pass_global_diversity_pending"
+                and specificity_status
+                == "primary_guide_pilot_pass_secondary_guide_flagged"
+            ):
+                known_atlas_status = (
+                    "literature_priority_primary_guide_global_and_platform_"
+                    "validation_pending"
+                )
+            elif (
+                conservation_status
+                == "human_isolate_panel_pass_global_diversity_pending"
+                and specificity_status
+                == "protected_reference_pilot_pass_broader_scope_pending"
+            ):
+                known_atlas_status = (
+                    "literature_priority_global_and_platform_validation_pending"
+                )
+            elif (
                 conservation_status == "reference_panel_pass_human_diversity_pending"
                 and specificity_status
                 == "protected_reference_pilot_pass_broader_scope_pending"
@@ -376,6 +438,14 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--human-isolate-conservation",
+        type=Path,
+        default=Path(
+            "results/intervention_readiness/"
+            "colibactin_human_isolate_conservation_summary.csv"
+        ),
+    )
+    parser.add_argument(
         "--discovered",
         type=Path,
         default=Path("results/intervention_readiness/candidate_annotations.csv"),
@@ -412,6 +482,7 @@ def main() -> None:
     mechanism_integrity = pd.read_csv(args.mechanism_integrity)
     guide_conservation = pd.read_csv(args.guide_conservation)
     guide_specificity = pd.read_csv(args.guide_specificity)
+    human_isolate_conservation = pd.read_csv(args.human_isolate_conservation)
     atlas = build_atlas(
         known,
         discovered,
@@ -420,6 +491,7 @@ def main() -> None:
         mechanism_integrity,
         guide_conservation,
         guide_specificity,
+        human_isolate_conservation,
     )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     atlas.to_csv(args.output_dir / "readiness_atlas.csv", index=False)

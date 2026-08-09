@@ -123,6 +123,23 @@ rule colibactin_reference_conservation:
         "python3 {input.script} > {log} 2>&1"
 
 
+rule colibactin_human_isolate_conservation:
+    input:
+        guides="research/intervention_readiness/published_colibactin_guides.csv",
+        genomes="research/intervention_readiness/colibactin_human_isolate_panel.csv",
+        protocol="research/intervention_readiness/colibactin_human_isolate_protocol.md",
+        script="scripts/audit_colibactin_human_isolates.py",
+    output:
+        detail="results/intervention_readiness/colibactin_human_isolate_conservation_detail.csv",
+        summary="results/intervention_readiness/colibactin_human_isolate_conservation_summary.csv",
+        source="results/intervention_readiness/colibactin_human_isolate_source_summary.csv",
+        audit="results/intervention_readiness/colibactin_human_isolate_conservation_audit.json",
+    log:
+        "logs/workflow_colibactin_human_isolate_conservation.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
 rule protected_reference_selection:
     input:
         references="research/intervention_readiness/protected_reference_panel.csv",
@@ -166,6 +183,9 @@ rule verify_intervention_readiness:
         "results/intervention_readiness/colibactin_guide_conservation_summary.csv",
         "results/intervention_readiness/colibactin_specificity_pilot_summary.csv",
         "results/intervention_readiness/colibactin_protected_reference_detail.csv",
+        "results/intervention_readiness/colibactin_human_isolate_conservation_summary.csv",
+        "results/intervention_readiness/colibactin_human_isolate_source_summary.csv",
+        "results/intervention_readiness/colibactin_human_isolate_conservation_detail.csv",
     output:
         "results/intervention_readiness/verification.json",
     log:

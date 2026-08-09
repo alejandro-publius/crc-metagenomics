@@ -252,3 +252,96 @@ def test_primary_guide_can_advance_when_secondary_guide_is_flagged():
         atlas.loc["colibactin", "atlas_status"]
         == "literature_priority_primary_guide_human_isolate_validation_pending"
     )
+
+
+def test_human_isolate_panel_records_conservation_specificity_tradeoff():
+    known = pd.DataFrame(
+        [
+            {
+                "target_id": "colibactin",
+                "display_name": "Colibactin",
+                "n_crc_enriched_cohorts": 9,
+                "n_cohorts_evaluable": 10,
+                "median_association_auc": 0.54,
+                "cross_population_gate": "not_passed",
+                "causal_evidence_status": (
+                    "human_signature_plus_animal_targeted_perturbation"
+                ),
+                "conservation_status": "not_yet_assessed",
+                "specificity_status": "not_yet_assessed",
+                "editability_evidence_status": "targeted_in_vivo_crispri_preprint",
+            }
+        ]
+    )
+    conservation = pd.DataFrame(
+        [
+            {
+                "target_id": "colibactin",
+                "guide_id": guide,
+                "n_genomes": 7,
+                "pilot_conservation_gate": "pass",
+            }
+            for guide in ["primary", "secondary"]
+        ]
+    )
+    specificity = pd.DataFrame(
+        [
+            {
+                "target_id": "colibactin",
+                "guide_id": "primary",
+                "benchmark_role": "primary",
+                "n_references": 11,
+                "n_flagged_sites": 0,
+                "protected_reference_pilot_gate": "pass",
+            },
+            {
+                "target_id": "colibactin",
+                "guide_id": "secondary",
+                "benchmark_role": "secondary",
+                "n_references": 11,
+                "n_flagged_sites": 5,
+                "protected_reference_pilot_gate": "not_passed",
+            },
+        ]
+    )
+    human = pd.DataFrame(
+        [
+            {
+                "target_id": "colibactin",
+                "guide_id": "primary",
+                "benchmark_role": "primary",
+                "n_genomes": 97,
+                "n_genomes_covered": 96,
+                "n_genomes_unique_site": 95,
+                "human_isolate_conservation_gate": "pass",
+            },
+            {
+                "target_id": "colibactin",
+                "guide_id": "secondary",
+                "benchmark_role": "secondary",
+                "n_genomes": 97,
+                "n_genomes_covered": 97,
+                "n_genomes_unique_site": 97,
+                "human_isolate_conservation_gate": "pass",
+            },
+        ]
+    )
+    atlas = build_atlas(
+        known,
+        pd.DataFrame(),
+        guide_conservation=conservation,
+        guide_specificity=specificity,
+        human_isolate_conservation=human,
+    ).set_index("candidate_id")
+    assert (
+        atlas.loc["colibactin", "conservation_status"]
+        == "human_isolate_panel_pass_global_diversity_pending"
+    )
+    assert (
+        "primary: 96/97 covered and 95/97 unique-site"
+        in atlas.loc["colibactin", "conservation_detail"]
+    )
+    assert (
+        atlas.loc["colibactin", "atlas_status"]
+        == "literature_priority_primary_guide_global_and_platform_validation_pending"
+    )

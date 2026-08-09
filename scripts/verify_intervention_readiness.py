@@ -25,6 +25,15 @@ def verify(results_dir: Path, dossiers_dir: Path) -> dict[str, object]:
     specificity_detail = pd.read_csv(
         results_dir / "colibactin_protected_reference_detail.csv"
     )
+    human_conservation = pd.read_csv(
+        results_dir / "colibactin_human_isolate_conservation_summary.csv"
+    ).set_index("guide_id")
+    human_source = pd.read_csv(
+        results_dir / "colibactin_human_isolate_source_summary.csv"
+    )
+    human_detail = pd.read_csv(
+        results_dir / "colibactin_human_isolate_conservation_detail.csv"
+    )
 
     checks = {
         "6755_gene_families": discovery["n_gene_families"] == 6755,
@@ -89,6 +98,42 @@ def verify(results_dir: Path, dossiers_dir: Path) -> dict[str, object]:
             ]
             .eq("human_reference")
             .all()
+        ),
+        "97_human_isolates_screened_per_guide": human_conservation["n_genomes"]
+        .eq(97)
+        .all(),
+        "both_guides_pass_human_isolate_conservation_gate": human_conservation[
+            "human_isolate_conservation_gate"
+        ]
+        .eq("pass")
+        .all(),
+        "primary_clbB_covers_96_and_is_unique_in_95": (
+            human_conservation.loc["sgclbB_4387", "n_genomes_covered"] == 96
+            and human_conservation.loc["sgclbB_4387", "n_genomes_unique_site"] == 95
+        ),
+        "secondary_clbC_covers_and_is_unique_in_97": (
+            human_conservation.loc["sgclbC_2313", "n_genomes_covered"] == 97
+            and human_conservation.loc["sgclbC_2313", "n_genomes_unique_site"] == 97
+        ),
+        "human_isolate_source_groups_are_62_fecal_and_35_clinical": (
+            human_source.groupby("source_group")["n_genomes"]
+            .unique()
+            .map(list)
+            .to_dict()
+            == {
+                "extraintestinal_clinical": [35],
+                "fecal_commensal": [62],
+            }
+        ),
+        "primary_clbB_exceptions_are_retained": (
+            human_detail.loc[
+                human_detail["guide_id"].eq("sgclbB_4387")
+                & human_detail["n_exact_pam_sites"].ne(1),
+                ["accession", "n_exact_pam_sites"],
+            ]
+            .set_index("accession")["n_exact_pam_sites"]
+            .to_dict()
+            == {"BFMV01000000": 2, "BGJT01000000": 0}
         ),
     }
     checks = {name: bool(passed) for name, passed in checks.items()}

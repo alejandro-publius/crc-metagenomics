@@ -49,13 +49,17 @@ def find_pam_sites(sequence: str, spacer: str) -> list[dict[str, object]]:
     sequence = sequence.upper()
     rc = reverse_complement(spacer)
     hits: list[dict[str, object]] = []
-    for start in range(0, len(sequence) - 22):
-        if sequence[start : start + 20] == spacer:
+    start = sequence.find(spacer)
+    while start >= 0:
+        if start + 23 <= len(sequence):
             pam = sequence[start + 20 : start + 23]
             if pam[1:] == "GG":
                 hits.append({"start_1based": start + 1, "strand": "+", "pam": pam})
-    for start in range(3, len(sequence) - 19):
-        if sequence[start : start + 20] == rc:
+        start = sequence.find(spacer, start + 1)
+
+    start = sequence.find(rc)
+    while start >= 0:
+        if start >= 3:
             pam_on_plus = sequence[start - 3 : start]
             if pam_on_plus[:2] == "CC":
                 hits.append(
@@ -65,6 +69,7 @@ def find_pam_sites(sequence: str, spacer: str) -> list[dict[str, object]]:
                         "pam": reverse_complement(pam_on_plus),
                     }
                 )
+        start = sequence.find(rc, start + 1)
     return hits
 
 

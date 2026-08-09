@@ -48,8 +48,10 @@ unsupported therapeutic claims.
   pilot is complete: both published guides had exactly one PAM-compatible site
   in all seven pks-positive references. Before inspecting any expanded-panel
   result, all 97 human pks-positive entries from a published 109-strain
-  population table and the expanded success thresholds were frozen. The scan
-  remains pending.
+  population table and the expanded success thresholds were frozen. Both
+  guides passed: `sgclbB_4387` covered 96/97 isolates and was unique in 95/97;
+  `sgclbC_2313` covered and was unique in 97/97. Global diversity and
+  assembly-independent confirmation remain.
 - Work package 7: reference pilot complete. `sgclbB_4387` had zero flagged
   near matches across ten common gut bacterial references plus GRCh38.p14.
   `sgclbC_2313` retained five human-reference sites with three or four
@@ -65,7 +67,8 @@ unsupported therapeutic claims.
 - Work package 10: complete for the current evidence. The atlas records four
   mixed-source rejections, nine parent-adjustment rejections, and three
   unresolved parent mappings, plus four known benchmarks.
-- Work package 11: working manuscript, lay summary, and first main figure are
-  drafted. Coauthor biological review and revision remain.
+- Work package 11: working manuscript, lay summary, target-attrition figure,
+  and guide tradeoff figure are drafted. Coauthor biological review and
+  revision remain.
 - Work package 12: pending final tests, clean rerun, direct coauthor signoff,
   journal formatting, and archival release.
