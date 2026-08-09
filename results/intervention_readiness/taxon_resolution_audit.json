@@ -1,0 +1,10 @@
+{
+  "analysis_layer": "taxon_resolved_address_gate",
+  "gate_rule": "dominant taxon must account for at least 80% of stratified abundance",
+  "input_sha256": "aef3906bb724226116f19d53cef3cbcb4606f95c322a5c961a72e90a59a1b6a8",
+  "interpretation_boundary": "A mixed-source result rejects the UniRef90 family as a direct taxonomic address. It does not show that every member sequence is biologically irrelevant.",
+  "n_candidates": 4,
+  "n_cohorts": 10,
+  "n_long_table_rows": 26246,
+  "n_passing_taxonomic_resolution": 0
+}

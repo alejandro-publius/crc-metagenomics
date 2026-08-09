@@ -9,6 +9,11 @@
 - A provisional atlas separates known **effector targets** from possible
   strain-selective **precision addresses**.
 - One explicit-gate evidence dossier was generated for every atlas entry.
+- Parent-species adjustment retained four of sixteen nominations.
+- A memory-safe, taxon-resolved export recovered 26,246 carrier observations
+  across all ten cohorts.
+- All four parent-adjustment survivors failed the prespecified 80% dominant-
+  carrier address gate; none had a majority carrier even at 50%.
 
 ## Current scientific signal
 
@@ -18,28 +23,28 @@ AUC 0.541, while no benchmark passes the frozen cross-population gate. This is
 not used to discard the mechanisms or infer that they are biologically
 unimportant.
 
-The discovery track produced 16 internally cross-fitted nominations. The
-strongest, `UniRef90_A0A0E2AL27`, was selected in all ten outer folds, was
-CRC-enriched in 80% of corresponding held-out cohorts, and had median held-out
-AUC 0.635. Automated annotation resolves it to a short uncharacterized protein
-from an archived *Bacteroides fragilis* genome. That makes it a possible
-strain-address lead—not a causal gene or CRISPR guide.
+The discovery track produced 16 internally cross-fitted nominations. Four
+initially added signal beyond their archived parent-species proxy, but all four
+were distributed across 7–23 taxonomic carriers. Their dominant carriers
+accounted for only 13.5–42.5% of stratified abundance, and the archived parent
+species contributed 0–19.6%. They are therefore rejected as direct editing
+addresses, not promoted to guide design.
 
 Ten of the sixteen nominations are uncharacterized. The annotated remainder
 include ordinary enzymes, regulators, recombinases, and structural machinery.
-The next analyses must determine whether these are portable strain addresses,
-taxonomic passengers, or technical aliases.
+The taxon-resolved result shows why representative database taxonomy cannot be
+treated as the organism carrying a gene family in a metagenome.
 
 ## What remains before a publishable intervention claim
 
-1. Finish taxon-resolved attribution and parent-strain adjustment.
-2. Freeze required-gene rules for known effector mechanisms.
-3. Test sequence conservation within intended harmful strains.
-4. Screen specificity against protected commensals and human sequence.
-5. Complete the structured causality and delivery/editability evidence review.
-6. Confirm the nominated sequences in an untouched external cohort at gene
-   level. Existing external species profiles do not satisfy this requirement.
-7. Obtain Rachel's biological review before freezing the final shortlist.
+1. Freeze required-gene rules for known effector mechanisms.
+2. Complete the structured causality and delivery/editability evidence review
+   for the four known benchmarks.
+3. Obtain direct biological review of the mixed-carrier interpretation and
+   stopping rule.
+4. Decide whether an untouched gene-level cohort is needed to validate the
+   methodological finding. No discovery candidate advances to guide design
+   under the current sequential gates.
 
-Until those gates are complete, `readiness_atlas.csv` is a research-priority
-atlas, not an experiment-ready or treatment-ready list.
+`readiness_atlas.csv` is a transparent rejection/readiness atlas, not an
+experiment-ready or treatment-ready list.

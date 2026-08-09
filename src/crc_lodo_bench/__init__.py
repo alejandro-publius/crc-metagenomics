@@ -38,6 +38,12 @@ from .discovery import (
     select_training_candidates,
     summarize_cross_fitted_candidates,
 )
+from .parent_adjustment import (
+    ParentAdjustmentThresholds,
+    evaluate_parent_adjustment,
+    map_candidate_parents,
+    summarize_parent_adjustment,
+)
 
 __version__ = "0.1.0"
 
@@ -56,6 +62,10 @@ __all__ = [
     "compute_gene_cohort_statistics",
     "select_training_candidates",
     "summarize_cross_fitted_candidates",
+    "ParentAdjustmentThresholds",
+    "evaluate_parent_adjustment",
+    "map_candidate_parents",
+    "summarize_parent_adjustment",
     "DEFAULT_MIN_SAMPLES_PER_COHORT",
     "DEFAULT_MIN_MINORITY_FRACTION",
     "__version__",

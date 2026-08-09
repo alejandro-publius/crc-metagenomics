@@ -86,3 +86,45 @@ def test_non_nominated_discovery_rows_do_not_enter_atlas():
 
 def test_safe_filename_removes_path_characters():
     assert safe_filename("a/b c") == "a_b_c"
+
+
+def test_mixed_taxonomic_sources_reject_an_address_candidate():
+    known = pd.DataFrame()
+    discovered = pd.DataFrame(
+        [
+            {
+                "gene_id": "UniRef90_A1",
+                "protein_names": "Example",
+                "internal_nomination": True,
+                "n_outer_selections": 8,
+                "heldout_crc_enriched_fraction": 0.75,
+                "heldout_median_auc": 0.58,
+                "external_confirmation_status": "not_yet_assessed",
+            }
+        ]
+    )
+    parent = pd.DataFrame(
+        [
+            {
+                "gene_id": "UniRef90_A1",
+                "parent_adjustment_gate": "pass",
+                "median_delta_auc": 0.03,
+                "positive_delta_fraction": 0.8,
+            }
+        ]
+    )
+    taxon = pd.DataFrame(
+        [
+            {
+                "gene_id": "UniRef90_A1",
+                "taxonomic_resolution_status": "mixed_taxonomic_sources",
+                "dominant_taxon": "Species_A",
+                "dominant_taxon_fraction": 0.4,
+                "n_detected_taxa": 4,
+            }
+        ]
+    )
+
+    atlas = build_atlas(known, discovered, parent, taxon)
+    assert atlas.loc[0, "atlas_status"] == "rejected_mixed_taxonomic_sources"
+    assert atlas.loc[0, "function_or_clade_link_status"] == "failed_taxonomic_address_gate"

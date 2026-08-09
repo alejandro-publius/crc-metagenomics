@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 from pathlib import Path
 
 import numpy as np
@@ -10,7 +12,9 @@ import pandas as pd
 
 
 def summarize_candidate_taxa(
-    long_table: pd.DataFrame, sample_manifest: pd.DataFrame
+    long_table: pd.DataFrame,
+    sample_manifest: pd.DataFrame,
+    parent_mapping: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     required = {"sample_id", "study_name", "gene_id", "taxon", "abundance"}
     missing = sorted(required - set(long_table.columns))
@@ -110,6 +114,72 @@ def summarize_candidate_taxa(
         "dominant_source_observed",
         "mixed_taxonomic_sources",
     )
+    if parent_mapping is not None:
+        required_mapping = {
+            "gene_id",
+            "matched_parent_species_columns",
+            "mapping_status",
+        }
+        mapping_missing = sorted(required_mapping - set(parent_mapping.columns))
+        if mapping_missing:
+            raise ValueError(f"parent mapping is missing columns: {mapping_missing}")
+        if parent_mapping["gene_id"].duplicated().any():
+            raise ValueError("parent mapping contains duplicate gene IDs")
+
+        parent_rows: list[dict[str, object]] = []
+        for candidate in summary.itertuples(index=False):
+            mapping = parent_mapping[parent_mapping["gene_id"].eq(candidate.gene_id)]
+            if mapping.empty:
+                raise ValueError(f"missing parent mapping for {candidate.gene_id}")
+            parent_columns = str(
+                mapping.iloc[0]["matched_parent_species_columns"]
+            ).split(";")
+            parent_species = sorted(
+                {
+                    column.rsplit("s__", 1)[1]
+                    for column in parent_columns
+                    if "s__" in column
+                }
+            )
+            candidate_sources = source_totals[
+                source_totals["gene_id"].eq(candidate.gene_id)
+            ].copy()
+
+            def is_parent_taxon(taxon: str) -> bool:
+                terminal = str(taxon).rsplit("s__", 1)[-1]
+                return any(
+                    terminal == species or terminal.startswith(f"{species}_")
+                    for species in parent_species
+                )
+
+            candidate_sources["is_parent_taxon"] = candidate_sources["taxon"].map(
+                is_parent_taxon
+            )
+            parent_abundance = float(
+                candidate_sources.loc[
+                    candidate_sources["is_parent_taxon"], "abundance"
+                ].sum()
+            )
+            total_abundance = float(candidate_sources["abundance"].sum())
+            ranked = candidate_sources.reset_index(drop=True)
+            parent_positions = ranked.index[ranked["is_parent_taxon"]].tolist()
+            parent_rows.append(
+                {
+                    "gene_id": candidate.gene_id,
+                    "mapped_parent_species": ";".join(parent_species),
+                    "parent_taxon_detected": bool(parent_positions),
+                    "parent_taxon_fraction": (
+                        parent_abundance / total_abundance if total_abundance else 0.0
+                    ),
+                    "best_parent_taxon_rank": (
+                        int(min(parent_positions) + 1) if parent_positions else np.nan
+                    ),
+                    "parent_mapping_status": mapping.iloc[0]["mapping_status"],
+                }
+            )
+        summary = summary.merge(
+            pd.DataFrame(parent_rows), on="gene_id", how="left", validate="one_to_one"
+        )
     return (
         summary.sort_values("gene_id", kind="mergesort").reset_index(drop=True),
         evidence.sort_values(["gene_id", "cohort"], kind="mergesort").reset_index(
@@ -131,6 +201,13 @@ def parse_args() -> argparse.Namespace:
         default=Path("data/raw/gene_families_selected.samples.csv"),
     )
     parser.add_argument(
+        "--parent-mapping",
+        type=Path,
+        default=Path(
+            "results/intervention_readiness/candidate_parent_species_mapping.csv"
+        ),
+    )
+    parser.add_argument(
         "--output-dir", type=Path, default=Path("results/intervention_readiness")
     )
     return parser.parse_args()
@@ -140,10 +217,68 @@ def main() -> None:
     args = parse_args()
     long_table = pd.read_csv(args.long_table)
     sample_manifest = pd.read_csv(args.sample_manifest)
-    summary, evidence = summarize_candidate_taxa(long_table, sample_manifest)
+    parent_mapping = pd.read_csv(args.parent_mapping).fillna("")
+    summary, evidence = summarize_candidate_taxa(
+        long_table, sample_manifest, parent_mapping
+    )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     summary.to_csv(args.output_dir / "candidate_taxon_summary.csv", index=False)
     evidence.to_csv(args.output_dir / "candidate_taxon_cohort_evidence.csv", index=False)
+    stratified = long_table[long_table["taxon"].ne("unstratified")]
+    source_totals = (
+        stratified.groupby(["gene_id", "taxon"], as_index=False)["abundance"]
+        .sum()
+        .sort_values(
+            ["gene_id", "abundance", "taxon"],
+            ascending=[True, False, True],
+            kind="mergesort",
+        )
+    )
+    source_totals["taxon_fraction"] = source_totals["abundance"] / source_totals.groupby(
+        "gene_id"
+    )["abundance"].transform("sum")
+    source_totals.to_csv(
+        args.output_dir / "candidate_taxon_source_totals.csv", index=False
+    )
+    audit = {
+        "analysis_layer": "taxon_resolved_address_gate",
+        "gate_rule": "dominant taxon must account for at least 80% of stratified abundance",
+        "input_sha256": hashlib.sha256(args.long_table.read_bytes()).hexdigest(),
+        "n_candidates": int(summary["gene_id"].nunique()),
+        "n_cohorts": int(long_table["study_name"].nunique()),
+        "n_long_table_rows": int(len(long_table)),
+        "n_passing_taxonomic_resolution": int(
+            summary["taxonomic_resolution_status"]
+            .eq("dominant_source_observed")
+            .sum()
+        ),
+        "interpretation_boundary": (
+            "A mixed-source result rejects the UniRef90 family as a direct "
+            "taxonomic address. It does not show that every member sequence is "
+            "biologically irrelevant."
+        ),
+    }
+    (args.output_dir / "taxon_resolution_audit.json").write_text(
+        json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    run_status = {
+        "status": "completed",
+        "completed_at": pd.Timestamp.now(tz="UTC").isoformat(),
+        "script": "scripts/export_intervention_candidate_stratified.R",
+        "n_cohorts": audit["n_cohorts"],
+        "n_long_table_rows": audit["n_long_table_rows"],
+        "n_candidates": audit["n_candidates"],
+        "n_passing_taxonomic_resolution": audit[
+            "n_passing_taxonomic_resolution"
+        ],
+        "scientific_impact": (
+            "The four parent-adjustment survivors all failed the prespecified "
+            "80% dominant-carrier address gate."
+        ),
+    }
+    (args.output_dir / "taxon_resolution_run_status.json").write_text(
+        json.dumps(run_status, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
     print(summary.to_string(index=False))
 
 

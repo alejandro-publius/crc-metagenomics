@@ -52,6 +52,15 @@ in at least seven outer folds, remain CRC-enriched in at least 70% of those
 held-out folds, and retain median held-out AUC of at least 0.55. These are
 screening rules, not statistical proof or external confirmation.
 
+For precision-address candidates, a parent-species adjustment gate is also
+frozen before running the comparison. Archived representative organism names
+are mapped only by exact genus-species name to the existing MetaPhlAn feature
+table; no synonyms may be added after viewing results. A candidate must be
+evaluable in at least seven outer folds, improve held-out AUC beyond the matched
+parent-species model in at least 70% of those folds, and have median held-out
+AUC improvement of at least 0.02. Passing this gate indicates possible
+strain-level information, not causality or a validated genomic address.
+
 ## Evidence gates
 
 No weighted score may hide a failed safety or evidence requirement. Each

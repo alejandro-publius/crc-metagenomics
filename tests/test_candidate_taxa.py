@@ -65,3 +65,44 @@ def test_dominant_taxon_and_zero_filled_prevalence_are_explicit():
     assert row["taxonomic_resolution_status"] == "dominant_source_observed"
     assert evidence["crc_prevalence"].eq(0.5).all()
     assert evidence["control_prevalence"].eq(0.0).all()
+
+
+def test_parent_fraction_includes_strain_suffixed_taxa():
+    metadata = pd.DataFrame(
+        [
+            {"sample_id": "a", "study_name": "c1", "label": 0, "country": "x"},
+            {"sample_id": "b", "study_name": "c1", "label": 1, "country": "x"},
+        ]
+    )
+    long_table = pd.DataFrame(
+        [
+            {
+                "sample_id": "a",
+                "study_name": "c1",
+                "gene_id": "g1",
+                "taxon": "g__Bacteroides.s__Bacteroides_fragilis_CAG_47",
+                "abundance": 3.0,
+            },
+            {
+                "sample_id": "b",
+                "study_name": "c1",
+                "gene_id": "g1",
+                "taxon": "g__Bacteroides.s__Bacteroides_ovatus",
+                "abundance": 1.0,
+            },
+        ]
+    )
+    parent_mapping = pd.DataFrame(
+        [
+            {
+                "gene_id": "g1",
+                "matched_parent_species_columns": "k__Bacteria|s__Bacteroides_fragilis",
+                "mapping_status": "exact_single_match",
+            }
+        ]
+    )
+    summary, _ = summarize_candidate_taxa(long_table, metadata, parent_mapping)
+
+    assert summary.loc[0, "parent_taxon_detected"]
+    assert summary.loc[0, "parent_taxon_fraction"] == 0.75
+    assert summary.loc[0, "best_parent_taxon_rank"] == 1
