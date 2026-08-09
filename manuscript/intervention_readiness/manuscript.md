@@ -22,7 +22,8 @@ taxon-stratified carriers. The taxonomic-address gate, frozen before the
 taxon-resolved analysis, required one carrier to account for at least 80% of
 stratified abundance. Separately, two published colibactin CRISPRi spacers were
 audited for exact PAM-compatible sites in a frozen seven-genome pks-positive
-reference panel.
+reference panel, then screened for conservative PAM-compatible near matches in
+ten common gut bacterial references and GRCh38.p14.
 
 **Results:** Sixteen of 6,755 families (0.24%) passed the internal recurrence
 screen. Four of sixteen added a median held-out AUC of at least 0.02 beyond
@@ -38,18 +39,21 @@ mutational signature and a reported in vivo delivered CRISPRi perturbation in
 a mouse CRC model, although the intervention report remains a preprint and
 sequence safety gates are incomplete.
 
-The two in-vivo-tested colibactin spacers were then used as literature-defined
-positive controls. Each retained exactly one PAM-compatible target site in all
-seven genomes of a frozen pks-positive reference panel. This small-panel result
-does not establish conservation across human isolates or specificity against
-protected bacteria and human sequence.
+Both in-vivo-tested colibactin spacers retained exactly one PAM-compatible
+target site in all seven genomes of a frozen pks-positive reference panel. In
+the protected-reference pilot, primary guide `sgclbB_4387` had no flagged near
+matches, whereas secondary guide `sgclbC_2313` retained five GRCh38 sites with
+three or four mismatches and an exact PAM-proximal seed. The primary guide was
+therefore prioritized, but the small panels do not establish safety or coverage
+across human pks-positive isolates.
 
 **Conclusions:** Cross-population recurrence and parent-species-adjusted
 prediction did not identify an editable microbial address. Taxon-resolved
 carrier analysis prevented four apparently strain-informative biomarkers from
 being promoted to conservation, guide-specificity, or laboratory design. The
-reproducible attrition framework is the primary contribution; the current data
-do not nominate a CRC microbiome-editing target.
+reproducible attrition framework is the primary contribution. The independent
+positive-control track prioritizes published `sgclbB_4387` over `sgclbC_2313`
+for broader validation but does not establish an experiment-ready target.
 
 ## Introduction
 
@@ -145,8 +149,25 @@ pks-positive mouse isolates reported to contain complete pks islands [13,14].
 For each spacer and genome, both DNA orientations were searched for an exact
 20-nt match with the corresponding SpCas9 NGG PAM. The pilot gate required at
 least 80% genome coverage and at least 80% of genomes to contain exactly one
-PAM-compatible site. This analysis did not assess near matches, protected
-commensals, human sequence, or patient-level pks diversity.
+PAM-compatible site. This conservation analysis did not assess near matches or
+patient-level pks diversity.
+
+### Protected-reference specificity pilot
+
+After the conservation result and before scanning any protected reference, we
+froze ten cultured gut bacterial assemblies plus GRCh38.p14. Nine bacterial
+taxa ranked among the 21 most prevalent species in healthy controls; a tenth
+*Roseburia* reference broadened protected butyrate-associated coverage. Exact
+assemblies, legacy-name mappings, prevalence ranks, and download URLs were
+retained. A site was flagged when it had a correctly oriented SpCas9 NGG PAM
+and either no more than two mismatches across the spacer or an exact
+PAM-proximal eight-base seed with no more than four total mismatches. A guide
+passed the pilot only with zero flagged sites across all eleven references.
+Insertions, deletions, non-NGG PAMs, broader strain diversity, exposure, and
+platform-specific effects were outside the frozen screen. Bacterial CRISPRi
+can produce effects from shorter seed-only matches under some expression
+conditions [15], so this operational rule is not an exhaustive off-target
+model.
 
 ## Results
 
@@ -189,6 +210,18 @@ were found in the expected NC101 genes and conserved across the six additional
 references. The atlas therefore records a reference-panel conservation pass
 for colibactin while leaving broader human-isolate conservation and specificity
 open.
+
+### Protected-reference screening separated the primary and secondary guides
+
+Primary guide `sgclbB_4387` had no flagged site in any of the ten gut bacterial
+references or GRCh38.p14 and passed the frozen pilot. Secondary guide
+`sgclbC_2313` had no bacterial flag but retained five GRCh38 sites: two with
+three mismatches and three with four mismatches, all preserving the exact
+PAM-proximal eight-base seed. It therefore did not pass. This sequence-level
+ranking independently favors the primary guide and is directionally consistent
+with the preprint's RNA-sequencing result, in which `sgclbC_2313` changed more
+genes than `sgclbB_4387` [11]. The human-reference matches do not demonstrate
+editing or exposure of human cells by a bacteria-delivered CRISPRi system.
 
 ### Four internally recurring families added information beyond annotated parent species
 
@@ -247,9 +280,12 @@ The constructive next target is therefore not one of the de novo gene-family
 addresses. Colibactin is the rational positive-control benchmark for the next
 sequence-safety work because its causal and preliminary delivery evidence is
 strongest. Its two published guides passed a small reference-panel conservation
-pilot, but protected-reference specificity and representative human-isolate
-coverage remain unresolved. That priority comes from independent experimental
-literature, not from forcing its weak stool abundance AUC to pass.
+pilot, while the protected-reference screen separated them: the primary `clbB`
+guide passed and the secondary `clbC` guide retained five human-reference
+flags. The next sequence work therefore prioritizes `sgclbB_4387`, while
+representative human-isolate coverage and platform-specific safety remain
+unresolved. That priority comes from independent experimental literature and a
+frozen sequence screen, not from forcing weak stool abundance AUC to pass.
 
 ### Limitations
 
@@ -260,8 +296,12 @@ nucleotide guide sequences. No de novo candidate advanced to conservation or
 off-target analysis because none passed the preceding address gate. The
 colibactin positive-control conservation panel contained only seven genomes,
 several from mice, and was not designed to represent human pks-positive strain
-diversity. It tested exact PAM-compatible sites only; near-match specificity
-against protected bacteria and human sequence remains untested.
+diversity. The specificity pilot used one assembly for each of ten protected
+bacterial taxa and one human reference; it does not cover strain or human
+variation, insertions or deletions, alternative PAMs, delivery exposure, or
+platform-specific off-target activity. The five `sgclbC_2313` human-reference
+flags are sequence motifs, not evidence that bacteria-delivered dCas9 reaches
+or perturbs human cells.
 There is no untouched external gene-level confirmation dataset in the present
 analysis. The 80% rule is a prespecified triage threshold, not a universal
 biological constant; however, no candidate had a majority carrier at 50%.
@@ -276,8 +316,9 @@ resolved address. The result argues against converting database representative
 labels directly into microbial editing targets and provides a reproducible
 framework for rejecting unsafe or uninterpretable candidates early.
 It also prioritizes colibactin as a literature-supported positive-control
-benchmark whose published guides passed a seven-genome conservation pilot, not
-as an approved or fully specificity-screened treatment target.
+benchmark and `sgclbB_4387` as its cleaner published guide after frozen
+conservation and protected-reference pilots. Neither is an approved or fully
+validated treatment target.
 
 ## References
 
@@ -323,3 +364,6 @@ as an approved or fully specificity-screened treatment target.
 14. Lopez LR, et al. A nadA mutation confers nicotinic acid auxotrophy in
     pro-carcinogenic intestinal *Escherichia coli* NC101. *Frontiers in
     Microbiology*. 2021. https://pmc.ncbi.nlm.nih.gov/articles/PMC8207962/
+15. Cui L, et al. A CRISPRi screen in *E. coli* reveals sequence-specific
+    toxicity of dCas9. *Nature Communications*. 2018.
+    https://www.nature.com/articles/s41467-018-04209-5

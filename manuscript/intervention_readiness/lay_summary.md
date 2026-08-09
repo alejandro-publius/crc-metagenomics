@@ -8,6 +8,7 @@ signals were actually spread across many kinds of bacteria, not confined to the
 single organism their database label suggested. The practical achievement is a
 safety checkpoint that catches misleading targets before anyone spends money
 designing a treatment or laboratory experiment around them. As a constructive
-control, two previously tested colibactin targets matched all seven reference
-genomes examined, giving the team a credible next lead while leaving broader
-human-strain and safety testing clearly unfinished.
+control, two previously tested colibactin targets matched all seven disease-
+linked reference genomes examined. A separate safety screen then kept the
+cleaner primary target and flagged the secondary one, giving the team a more
+credible next lead while leaving broader human-strain testing unfinished.

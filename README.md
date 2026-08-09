@@ -35,9 +35,11 @@ An independent structured review keeps the positive-control track alive:
 colibactin has the strongest causal and preliminary delivery evidence, including
 a reported in vivo CRISPRi result in a 2025 preprint. Both published spacers
 retained one exact PAM-compatible target in every genome of a frozen seven-
-genome pks-positive pilot panel. Broader human-isolate conservation and
-protected-genome specificity remain unresolved, so the benchmark is explicitly
-not experiment-ready.
+genome pks-positive pilot panel. In a separate frozen near-match screen of ten
+common gut bacterial references plus GRCh38, the primary `clbB` guide had no
+flagged sites; the secondary `clbC` guide retained five human-reference flags
+and did not pass. Broader human-isolate coverage and platform-specific safety
+remain unresolved, so the benchmark is explicitly not experiment-ready.
 
 ## Current answer
 

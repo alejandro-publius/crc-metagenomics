@@ -23,6 +23,7 @@ def build_atlas(
     taxon_resolution: pd.DataFrame | None = None,
     mechanism_integrity: pd.DataFrame | None = None,
     guide_conservation: pd.DataFrame | None = None,
+    guide_specificity: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     parent_lookup = (
         parent_adjustment.set_index("gene_id")
@@ -40,6 +41,11 @@ def build_atlas(
     conservation_lookup = (
         guide_conservation.groupby("target_id")
         if guide_conservation is not None
+        else None
+    )
+    specificity_lookup = (
+        guide_specificity.groupby("target_id")
+        if guide_specificity is not None
         else None
     )
     known_rows: list[dict[str, object]] = []
@@ -70,8 +76,58 @@ def build_atlas(
                 f"and uniqueness in a frozen {n_genomes}-genome pks-positive "
                 "reference panel; broader human-isolate diversity remains pending."
             )
+        specificity_status = row.specificity_status
+        specificity_detail = "No frozen protected-reference result is available."
+        if (
+            specificity_lookup is not None
+            and row.target_id in specificity_lookup.groups
+        ):
+            target_specificity = specificity_lookup.get_group(row.target_id)
+            n_guides = int(target_specificity["guide_id"].nunique())
+            n_pass = int(
+                target_specificity["protected_reference_pilot_gate"].eq("pass").sum()
+            )
+            n_references = int(target_specificity["n_references"].max())
+            n_flagged = int(target_specificity["n_flagged_sites"].sum())
+            primary = target_specificity[
+                target_specificity["benchmark_role"].eq("primary")
+            ]
+            primary_pass = (
+                len(primary) == 1
+                and primary["protected_reference_pilot_gate"].eq("pass").all()
+            )
+            if n_guides > 0 and n_pass == n_guides:
+                specificity_status = (
+                    "protected_reference_pilot_pass_broader_scope_pending"
+                )
+            elif primary_pass:
+                specificity_status = "primary_guide_pilot_pass_secondary_guide_flagged"
+            else:
+                specificity_status = "protected_reference_pilot_not_passed"
+            specificity_detail = (
+                f"{n_pass}/{n_guides} published guides passed a frozen "
+                f"{n_references}-reference near-match pilot; {n_flagged} flagged "
+                "sites were retained. Broader strain and platform-specific "
+                "assessment remains pending."
+            )
         if row.editability_evidence_status == "targeted_in_vivo_crispri_preprint":
-            if conservation_status == "reference_panel_pass_human_diversity_pending":
+            if (
+                conservation_status == "reference_panel_pass_human_diversity_pending"
+                and specificity_status
+                == "protected_reference_pilot_pass_broader_scope_pending"
+            ):
+                known_atlas_status = (
+                    "literature_priority_human_isolate_and_platform_validation_pending"
+                )
+            elif (
+                conservation_status == "reference_panel_pass_human_diversity_pending"
+                and specificity_status
+                == "primary_guide_pilot_pass_secondary_guide_flagged"
+            ):
+                known_atlas_status = (
+                    "literature_priority_primary_guide_human_isolate_validation_pending"
+                )
+            elif conservation_status == "reference_panel_pass_human_diversity_pending":
                 known_atlas_status = (
                     "literature_priority_specificity_and_human_diversity_pending"
                 )
@@ -107,7 +163,8 @@ def build_atlas(
                 ),
                 "conservation_status": conservation_status,
                 "conservation_detail": conservation_detail,
-                "specificity_status": row.specificity_status,
+                "specificity_status": specificity_status,
+                "specificity_detail": specificity_detail,
                 "editability_status": row.editability_evidence_status,
                 "external_gene_confirmation_status": "not_yet_assessed",
                 "atlas_status": known_atlas_status,
@@ -205,6 +262,10 @@ def build_atlas(
                     "sequential address gate."
                 ),
                 "specificity_status": "not_yet_assessed",
+                "specificity_detail": (
+                    "Not run because the candidate did not pass every preceding "
+                    "sequential address gate."
+                ),
                 "editability_status": "platform_dependent_not_yet_assessed",
                 "external_gene_confirmation_status": row.external_confirmation_status,
                 "atlas_status": atlas_status,
@@ -278,6 +339,10 @@ def write_dossiers(atlas: pd.DataFrame, output_dir: Path) -> None:
 
 {getattr(candidate, "conservation_detail", "Not yet assessed.")}
 
+## Protected-reference specificity detail
+
+{getattr(candidate, "specificity_detail", "Not yet assessed.")}
+
 ## Experiment-enabling next evidence
 
 Resolve every non-passing gate with versioned public data or a prespecified
@@ -301,6 +366,13 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path(
             "results/intervention_readiness/colibactin_guide_conservation_summary.csv"
+        ),
+    )
+    parser.add_argument(
+        "--guide-specificity",
+        type=Path,
+        default=Path(
+            "results/intervention_readiness/colibactin_specificity_pilot_summary.csv"
         ),
     )
     parser.add_argument(
@@ -339,6 +411,7 @@ def main() -> None:
     taxon_resolution = pd.read_csv(args.taxon_resolution)
     mechanism_integrity = pd.read_csv(args.mechanism_integrity)
     guide_conservation = pd.read_csv(args.guide_conservation)
+    guide_specificity = pd.read_csv(args.guide_specificity)
     atlas = build_atlas(
         known,
         discovered,
@@ -346,6 +419,7 @@ def main() -> None:
         taxon_resolution,
         mechanism_integrity,
         guide_conservation,
+        guide_specificity,
     )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     atlas.to_csv(args.output_dir / "readiness_atlas.csv", index=False)

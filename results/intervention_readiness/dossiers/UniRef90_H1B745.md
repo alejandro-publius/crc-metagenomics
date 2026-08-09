@@ -36,6 +36,10 @@ dominant carrier g__Faecalibacterium.s__Faecalibacterium_prausnitzii accounted f
 
 Not run because the candidate did not pass every preceding sequential address gate.
 
+## Protected-reference specificity detail
+
+Not run because the candidate did not pass every preceding sequential address gate.
+
 ## Experiment-enabling next evidence
 
 Resolve every non-passing gate with versioned public data or a prespecified

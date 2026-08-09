@@ -36,6 +36,10 @@ dominant carrier g__Bacteroides.s__Bacteroides_ovatus accounted for 24.3% across
 
 Not run because the candidate did not pass every preceding sequential address gate.
 
+## Protected-reference specificity detail
+
+Not run because the candidate did not pass every preceding sequential address gate.
+
 ## Experiment-enabling next evidence
 
 Resolve every non-passing gate with versioned public data or a prespecified

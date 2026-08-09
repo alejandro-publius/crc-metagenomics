@@ -1,6 +1,7 @@
 {
   "checks": {
     "0_taxonomic_addresses": true,
+    "11_protected_references_screened_per_guide": true,
     "16_internal_nominations": true,
     "20_atlas_entries": true,
     "20_candidate_dossiers": true,
@@ -9,16 +10,18 @@
     "4_parent_adjustment_pass": true,
     "6755_gene_families": true,
     "7_genomes_in_colibactin_pilot": true,
-    "both_colibactin_guides_pass_reference_pilot": true,
+    "both_colibactin_guides_pass_7_genome_conservation_pilot": true,
     "carrier_range_13_5_to_42_5_percent": true,
     "colibactin_has_reported_e3_preprint": true,
     "fusobacterial_mechanism_not_represented": true,
     "known_target_review_marks_0_experiment_ready": true,
     "no_experiment_ready_claim": true,
     "no_majority_carrier_at_50_percent": true,
-    "parent_fraction_at_most_19_6_percent": true
+    "parent_fraction_at_most_19_6_percent": true,
+    "primary_clbB_guide_passes_specificity_pilot": true,
+    "secondary_clbC_guide_retains_5_human_flags": true
   },
   "claim_boundary": "Verification confirms saved computational claims only; it is not biological or coauthor approval.",
-  "n_checks": 17,
+  "n_checks": 20,
   "status": "pass"
 }

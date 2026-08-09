@@ -19,6 +19,12 @@ def verify(results_dir: Path, dossiers_dir: Path) -> dict[str, object]:
     guide_conservation = pd.read_csv(
         results_dir / "colibactin_guide_conservation_summary.csv"
     )
+    guide_specificity = pd.read_csv(
+        results_dir / "colibactin_specificity_pilot_summary.csv"
+    ).set_index("guide_id")
+    specificity_detail = pd.read_csv(
+        results_dir / "colibactin_protected_reference_detail.csv"
+    )
 
     checks = {
         "6755_gene_families": discovery["n_gene_families"] == 6755,
@@ -61,11 +67,29 @@ def verify(results_dir: Path, dossiers_dir: Path) -> dict[str, object]:
         == "not_represented_in_frozen_assay",
         "2_published_colibactin_guides_audited": len(guide_conservation) == 2,
         "7_genomes_in_colibactin_pilot": guide_conservation["n_genomes"].eq(7).all(),
-        "both_colibactin_guides_pass_reference_pilot": guide_conservation[
+        "both_colibactin_guides_pass_7_genome_conservation_pilot": guide_conservation[
             "pilot_conservation_gate"
         ]
         .eq("pass")
         .all(),
+        "11_protected_references_screened_per_guide": guide_specificity["n_references"]
+        .eq(11)
+        .all(),
+        "primary_clbB_guide_passes_specificity_pilot": (
+            guide_specificity.loc["sgclbB_4387", "protected_reference_pilot_gate"]
+            == "pass"
+            and guide_specificity.loc["sgclbB_4387", "n_flagged_sites"] == 0
+        ),
+        "secondary_clbC_guide_retains_5_human_flags": (
+            guide_specificity.loc["sgclbC_2313", "protected_reference_pilot_gate"]
+            == "not_passed"
+            and guide_specificity.loc["sgclbC_2313", "n_flagged_sites"] == 5
+            and specificity_detail.loc[
+                specificity_detail["n_flagged_sites"].gt(0), "reference_class"
+            ]
+            .eq("human_reference")
+            .all()
+        ),
     }
     checks = {name: bool(passed) for name, passed in checks.items()}
     failed = [name for name, passed in checks.items() if not passed]

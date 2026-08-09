@@ -47,8 +47,11 @@ unsupported therapeutic claims.
   stopping rule. For the colibactin positive control, a frozen seven-genome
   pilot is complete: both published guides had exactly one PAM-compatible site
   in all seven pks-positive references. A broader human-isolate panel remains.
-- Work package 7: pending. No protected-bacterial or human-reference near-match
-  screen has passed; conservation must not be interpreted as specificity.
+- Work package 7: reference pilot complete. `sgclbB_4387` had zero flagged
+  near matches across ten common gut bacterial references plus GRCh38.p14.
+  `sgclbC_2313` retained five human-reference sites with three or four
+  mismatches and an exact PAM-proximal seed and did not pass. Broader strain and
+  platform-specific assessment remains; this is not a safety claim.
 - Work package 8: computationally complete. Six primary studies were tiered.
   Colibactin has the strongest preliminary delivery evidence (E3), but that
   targeted in vivo CRISPRi study is a preprint; the other benchmarks have E1

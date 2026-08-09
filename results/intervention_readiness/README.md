@@ -22,6 +22,10 @@
 - The two published colibactin spacers each retained exactly one PAM-compatible
   target site in all seven genomes of a literature-defined pks-positive pilot
   panel. This is a reference-panel pass, not a human-diversity or safety pass.
+- In a frozen panel of ten common gut bacterial references plus GRCh38.p14,
+  primary guide `sgclbB_4387` had no flagged near matches. Secondary guide
+  `sgclbC_2313` had five GRCh38 sites with three or four mismatches and an exact
+  PAM-proximal seed, so it did not pass the protected-reference pilot.
 - Frozen assay coverage is partial for colibactin (13/19 prespecified genes) and
   bile-acid conversion (8/10 genes), complete only for the single `bft`
   effector, and absent for `fadA`/`fap2`.
@@ -50,9 +54,10 @@ treated as the organism carrying a gene family in a metagenome.
 
 1. Obtain direct biological review of the mechanism-integrity summaries,
    mixed-carrier interpretation, and stopping rule.
-2. Extend the completed seven-genome colibactin conservation pilot to a frozen
-   human-isolate panel and run protected-bacterial and human-reference
-   specificity analyses; do not revive rejected de novo addresses.
+2. Extend the completed colibactin pilots to a frozen human-isolate panel and
+   platform-specific safety analysis, prioritizing `sgclbB_4387` and retaining
+   the unfavorable `sgclbC_2313` result; do not revive rejected de novo
+   addresses.
 3. Decide whether an untouched gene-level cohort is needed to validate the
    methodological finding. No discovery candidate advances to guide design
    under the current sequential gates.

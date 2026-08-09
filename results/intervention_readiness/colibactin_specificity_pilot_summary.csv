@@ -1,0 +1,3 @@
+target_id,guide_id,benchmark_role,n_references,n_bacterial_references,n_human_references,n_references_flagged,n_flagged_sites,protected_reference_pilot_gate
+colibactin,sgclbB_4387,primary,11,10,1,0,0,pass
+colibactin,sgclbC_2313,secondary,11,10,1,1,5,not_passed

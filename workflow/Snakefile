@@ -123,6 +123,37 @@ rule colibactin_reference_conservation:
         "python3 {input.script} > {log} 2>&1"
 
 
+rule protected_reference_selection:
+    input:
+        references="research/intervention_readiness/protected_reference_panel.csv",
+        species="data/processed/species_filtered.csv",
+        metadata="data/processed/metadata_clean.csv",
+        script="scripts/summarize_protected_reference_selection.py",
+    output:
+        "results/intervention_readiness/protected_reference_selection.csv",
+    log:
+        "logs/workflow_protected_reference_selection.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
+rule colibactin_protected_reference_specificity:
+    input:
+        guides="research/intervention_readiness/published_colibactin_guides.csv",
+        references="research/intervention_readiness/protected_reference_panel.csv",
+        selection="results/intervention_readiness/protected_reference_selection.csv",
+        protocol="research/intervention_readiness/colibactin_specificity_protocol.md",
+        script="scripts/audit_colibactin_protected_references.py",
+    output:
+        detail="results/intervention_readiness/colibactin_protected_reference_detail.csv",
+        summary="results/intervention_readiness/colibactin_specificity_pilot_summary.csv",
+        audit="results/intervention_readiness/colibactin_specificity_pilot_audit.json",
+    log:
+        "logs/workflow_colibactin_specificity.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
 rule verify_intervention_readiness:
     input:
         "results/intervention_readiness/discovery_audit.json",
@@ -133,6 +164,8 @@ rule verify_intervention_readiness:
         "results/intervention_readiness/known_target_evidence_summary.csv",
         "results/intervention_readiness/known_target_mechanism_integrity.csv",
         "results/intervention_readiness/colibactin_guide_conservation_summary.csv",
+        "results/intervention_readiness/colibactin_specificity_pilot_summary.csv",
+        "results/intervention_readiness/colibactin_protected_reference_detail.csv",
     output:
         "results/intervention_readiness/verification.json",
     log:

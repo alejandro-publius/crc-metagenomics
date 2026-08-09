@@ -36,6 +36,10 @@ Not applicable to this benchmark-level association result.
 
 No frozen sequence-conservation result is available.
 
+## Protected-reference specificity detail
+
+No frozen protected-reference result is available.
+
 ## Experiment-enabling next evidence
 
 Resolve every non-passing gate with versioned public data or a prespecified
