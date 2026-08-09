@@ -1,0 +1,8 @@
+{
+  "older_minus_younger_auc": -0.03759999999999997,
+  "ci_low": -0.15680999999999992,
+  "ci_high": 0.08520000000000005,
+  "bootstrap_two_sided_p": 0.5566,
+  "bootstrap_replicates": 10000,
+  "resampling": "within outcome class and age stratum"
+}

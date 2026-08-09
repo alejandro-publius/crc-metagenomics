@@ -1,0 +1,331 @@
+{
+  "mostRecentCrossRefUpdated": "2026-01-28",
+  "oldestCrossRefCreated": "2017-04-19",
+  "sequence": {
+    "crc64": "7142731F4E254C22",
+    "length": 62,
+    "md5": "24F21986BE53D1A65661B729200A5738",
+    "molWeight": 6752,
+    "value": "MPDRRGSATKSGNGLQKTSKTISVWRFGYLLLFLLFFCCFGCQRGEKPAVTGFFPATSPATG"
+  },
+  "uniParcCrossReferences": [
+    {
+      "active": false,
+      "created": "2020-06-17",
+      "database": "UniProtKB/TrEMBL",
+      "geneName": "GT649_00500",
+      "id": "A0A6B1RW25",
+      "lastUpdated": "2024-03-27",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Tweety protein",
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": false,
+      "created": "2025-02-05",
+      "database": "UniProtKB/TrEMBL",
+      "geneName": "GT664_00500",
+      "id": "A0AB36AZR9",
+      "lastUpdated": "2026-01-28",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Tweety protein",
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": false,
+      "created": "2017-04-19",
+      "database": "RefSeq",
+      "id": "WP_084494612",
+      "lastUpdated": "2020-11-02",
+      "organism": {
+        "scientificName": "Lachnospiraceae bacterium 3_1_57FAA_CT1",
+        "taxonId": 658086
+      },
+      "proteinName": "hypothetical protein",
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-02-04",
+      "database": "EMBLWGS",
+      "geneName": "GT665_00500",
+      "id": "MZH70612",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000450766"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-02-12",
+      "database": "EMBLWGS",
+      "geneName": "GT670_01665",
+      "id": "MZH85301",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000460335"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-02-15",
+      "database": "EMBLWGS",
+      "geneName": "GT648_01665",
+      "id": "MZH81080",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000461383"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-02-22",
+      "database": "EMBLWGS",
+      "geneName": "GT673_00500",
+      "id": "MZK77950",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000466726"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-02-27",
+      "database": "EMBLWGS",
+      "geneName": "GT666_01665",
+      "id": "MZJ10701",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000470071"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-02-27",
+      "database": "EMBLWGS",
+      "geneName": "GT684_00500",
+      "id": "MZJ06264",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000470292"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-03-19",
+      "database": "EMBLWGS",
+      "geneName": "GT663_00500",
+      "id": "MZI83414",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000476405"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-03-19",
+      "database": "EMBLWGS",
+      "geneName": "GT586_00530",
+      "id": "MZH69573",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000479807"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-03-19",
+      "database": "EMBLWGS",
+      "geneName": "GT669_00500",
+      "id": "MZH62703",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000472666"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-03-27",
+      "database": "EMBLWGS",
+      "geneName": "GT649_00500",
+      "id": "MZH58499",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000478871"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-03-27",
+      "database": "EMBLWGS",
+      "geneName": "GT681_01665",
+      "id": "MZH76874",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000476419"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-11-30",
+      "database": "EMBLWGS",
+      "geneName": "GT664_00500",
+      "id": "MZH54262",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000604383"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    },
+    {
+      "active": true,
+      "created": "2020-11-30",
+      "database": "EMBLWGS",
+      "geneName": "GT654_01670",
+      "id": "MZH92346",
+      "lastUpdated": "2026-01-10",
+      "organism": {
+        "scientificName": "Clostridium innocuum",
+        "taxonId": 1522
+      },
+      "proteinName": "Uncharacterized protein",
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "id": "UP000644686"
+        }
+      ],
+      "version": 1,
+      "versionI": 1
+    }
+  ],
+  "uniParcId": "UPI000A0106DD"
+}

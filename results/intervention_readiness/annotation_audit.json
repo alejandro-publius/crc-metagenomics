@@ -1,0 +1,13 @@
+{
+  "interpretation_boundary": "Automated names describe archived sequences; they do not establish a CRC mechanism or an intervention target.",
+  "n_annotated_records": 16,
+  "n_internal_nominations": 16,
+  "n_uncharacterized": 10,
+  "release_headers": {
+    "X-UniProt-Release": "2026_02",
+    "X-UniProt-Release-Date": "10-June-2026"
+  },
+  "retrieved_at_utc": "2026-08-08T23:28:32.521990+00:00",
+  "source": "UniProt REST API and UniParc sequence archive",
+  "source_documentation": "https://www.uniprot.org/help/api_queries"
+}

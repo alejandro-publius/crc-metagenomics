@@ -1,0 +1,9 @@
+{
+  "claim_boundary": "A protected-reference pilot cannot establish comprehensive off-target safety, patient-strain coverage, delivery safety, or therapeutic readiness.",
+  "n_bacterial_references": 10,
+  "n_guides": 2,
+  "n_human_references": 1,
+  "n_references": 11,
+  "protocol": "research/intervention_readiness/colibactin_specificity_protocol.md",
+  "status": "complete_frozen_protected_reference_pilot"
+}

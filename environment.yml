@@ -15,6 +15,7 @@ dependencies:
   # --- Core Python (matches requirements.lock) ---
   - python=3.11
   - pip
+  - certifi=2024.2.2
   - pandas=2.2.3
   - numpy=1.26.4
   - scikit-learn=1.4.2

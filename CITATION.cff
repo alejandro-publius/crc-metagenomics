@@ -1,15 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this software or its results, please cite it as below."
-title: "Cross-cohort gut microbiome classification of colorectal cancer: a 10-cohort meta-analysis"
+title: "Biological detail does not guarantee portability of colorectal cancer metagenomic classifiers"
 abstract: >-
-  Country-aware leave-one-dataset-out (LODO) meta-analysis of gut shotgun
-  metagenomes from 10 colorectal cancer cohorts (n = 1,522 subjects),
-  showing that species-only Random Forest classifiers significantly
-  outperform joint species-plus-pathway models for CRC detection across
-  cohorts.
+  Prospective portability stress test across ten colorectal-cancer development
+  cohorts and an untouched 200-sample external cohort, comparing taxonomic,
+  functional, gene-family, mechanistic, correction, and label-free risk signals.
 type: software
-version: "1.0.0"
-date-released: "2026-05-18"
+version: "2.0.0-rc1"
+date-released: "2026-08-08"
 license: MIT
 repository-code: "https://github.com/alejandro-publius/crc-metagenomics"
 keywords:
@@ -19,6 +17,8 @@ keywords:
   - machine learning
   - meta-analysis
   - LODO
+  - external validation
+  - dataset shift
 authors:
   - given-names: Alejandro
     family-names: Velazquez

@@ -1,0 +1,194 @@
+"""Reproducibility and learning workflow for committed project artifacts."""
+
+from pathlib import Path
+
+
+TEST_FILES = sorted(str(path) for path in Path("tests").glob("test_*.py"))
+
+
+rule all:
+    input:
+        "data/derived/crc_research.sqlite",
+        "results/workflow_sanity.ok",
+        "results/workflow_verify.ok",
+        "results/workflow_tests.ok",
+        "results/intervention_readiness/verification.json",
+
+
+rule research_catalog:
+    input:
+        schema="learning/sql/schema.sql",
+        metadata="data/processed/metadata_clean.csv",
+        baseline="results/baseline_results.csv",
+        joint="results/joint_results.csv",
+        species_preds="results/preds_species_rf.csv",
+        joint_rf_preds="results/preds_joint_rf.csv",
+        joint_xgb_preds="results/preds_joint_xgb.csv",
+        gene_results="results/gene_family_lodo_results.csv",
+        gene_preds="results/preds_gene_family_elastic_net.csv",
+    output:
+        "data/derived/crc_research.sqlite",
+    log:
+        "logs/workflow_catalog.log",
+    shell:
+        "python3 scripts/build_research_catalog.py --output {output} "
+        "> {log} 2>&1"
+
+
+rule sanity_check:
+    input:
+        "data/processed/species_filtered.csv",
+        "data/processed/pathway_unstratified.csv",
+        "data/processed/metadata_clean.csv",
+    output:
+        touch("results/workflow_sanity.ok"),
+    log:
+        "logs/workflow_sanity.log",
+    shell:
+        "python3 scripts/sanity_check.py > {log} 2>&1"
+
+
+rule verify_results:
+    input:
+        "results/verify_manifest.yaml",
+        "results/baseline_results.csv",
+        "results/joint_results.csv",
+        "results/delong_results.csv",
+        "results/bootstrap_ci.csv",
+        "data/processed/metadata_clean.csv",
+    output:
+        touch("results/workflow_verify.ok"),
+    log:
+        "logs/workflow_verify.log",
+    shell:
+        "python3 scripts/verify_results.py --manifest {input[0]} "
+        "> {log} 2>&1"
+
+
+rule fast_tests:
+    input:
+        TEST_FILES,
+        "scripts/build_research_catalog.py",
+        "learning/sql/schema.sql",
+    output:
+        touch("results/workflow_tests.ok"),
+    log:
+        "logs/workflow_tests.log",
+    shell:
+        "python3 -m pytest tests/ -q -m 'not slow' > {log} 2>&1"
+
+
+rule known_target_evidence:
+    input:
+        review="research/intervention_readiness/known_target_evidence_review.csv",
+        registry="research/intervention_readiness/known_target_registry.csv",
+        protocol="research/intervention_readiness/evidence_review_protocol.md",
+        script="scripts/validate_known_target_evidence.py",
+    output:
+        summary="results/intervention_readiness/known_target_evidence_summary.csv",
+        audit="results/intervention_readiness/known_target_evidence_audit.json",
+    log:
+        "logs/workflow_known_target_evidence.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
+rule known_target_mechanism_integrity:
+    input:
+        registry="research/intervention_readiness/known_target_registry.csv",
+        manifest="results/mechanism_panel/frozen_manifest.csv",
+        script="scripts/summarize_mechanism_integrity.py",
+    output:
+        summary="results/intervention_readiness/known_target_mechanism_integrity.csv",
+        audit="results/intervention_readiness/known_target_mechanism_integrity_audit.json",
+    log:
+        "logs/workflow_known_target_integrity.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
+rule colibactin_reference_conservation:
+    input:
+        guides="research/intervention_readiness/published_colibactin_guides.csv",
+        genomes="research/intervention_readiness/colibactin_reference_genomes.csv",
+        protocol="research/intervention_readiness/colibactin_sequence_audit_protocol.md",
+        script="scripts/audit_published_colibactin_guides.py",
+    output:
+        detail="results/intervention_readiness/colibactin_guide_reference_panel.csv",
+        summary="results/intervention_readiness/colibactin_guide_conservation_summary.csv",
+        audit="results/intervention_readiness/colibactin_guide_conservation_audit.json",
+    log:
+        "logs/workflow_colibactin_conservation.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
+rule colibactin_human_isolate_conservation:
+    input:
+        guides="research/intervention_readiness/published_colibactin_guides.csv",
+        genomes="research/intervention_readiness/colibactin_human_isolate_panel.csv",
+        protocol="research/intervention_readiness/colibactin_human_isolate_protocol.md",
+        script="scripts/audit_colibactin_human_isolates.py",
+    output:
+        detail="results/intervention_readiness/colibactin_human_isolate_conservation_detail.csv",
+        summary="results/intervention_readiness/colibactin_human_isolate_conservation_summary.csv",
+        source="results/intervention_readiness/colibactin_human_isolate_source_summary.csv",
+        audit="results/intervention_readiness/colibactin_human_isolate_conservation_audit.json",
+    log:
+        "logs/workflow_colibactin_human_isolate_conservation.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
+rule protected_reference_selection:
+    input:
+        references="research/intervention_readiness/protected_reference_panel.csv",
+        species="data/processed/species_filtered.csv",
+        metadata="data/processed/metadata_clean.csv",
+        script="scripts/summarize_protected_reference_selection.py",
+    output:
+        "results/intervention_readiness/protected_reference_selection.csv",
+    log:
+        "logs/workflow_protected_reference_selection.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
+rule colibactin_protected_reference_specificity:
+    input:
+        guides="research/intervention_readiness/published_colibactin_guides.csv",
+        references="research/intervention_readiness/protected_reference_panel.csv",
+        selection="results/intervention_readiness/protected_reference_selection.csv",
+        protocol="research/intervention_readiness/colibactin_specificity_protocol.md",
+        script="scripts/audit_colibactin_protected_references.py",
+    output:
+        detail="results/intervention_readiness/colibactin_protected_reference_detail.csv",
+        summary="results/intervention_readiness/colibactin_specificity_pilot_summary.csv",
+        audit="results/intervention_readiness/colibactin_specificity_pilot_audit.json",
+    log:
+        "logs/workflow_colibactin_specificity.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
+rule verify_intervention_readiness:
+    input:
+        "results/intervention_readiness/discovery_audit.json",
+        "results/intervention_readiness/parent_adjustment_summary.csv",
+        "results/intervention_readiness/candidate_taxon_summary.csv",
+        "results/intervention_readiness/readiness_atlas.csv",
+        "results/intervention_readiness/taxonomic_gate_threshold_sensitivity.csv",
+        "results/intervention_readiness/known_target_evidence_summary.csv",
+        "results/intervention_readiness/known_target_mechanism_integrity.csv",
+        "results/intervention_readiness/colibactin_guide_conservation_summary.csv",
+        "results/intervention_readiness/colibactin_specificity_pilot_summary.csv",
+        "results/intervention_readiness/colibactin_protected_reference_detail.csv",
+        "results/intervention_readiness/colibactin_human_isolate_conservation_summary.csv",
+        "results/intervention_readiness/colibactin_human_isolate_source_summary.csv",
+        "results/intervention_readiness/colibactin_human_isolate_conservation_detail.csv",
+    output:
+        "results/intervention_readiness/verification.json",
+    log:
+        "logs/workflow_intervention_verify.log",
+    shell:
+        "python3 scripts/verify_intervention_readiness.py > {log} 2>&1"

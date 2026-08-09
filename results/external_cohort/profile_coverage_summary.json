@@ -1,0 +1,9 @@
+{
+  "locked_features": 229,
+  "locked_features_observed_any_sample": 147,
+  "mean_matched_abundance_percent": 45.1680307,
+  "median_matched_abundance_percent": 46.049335,
+  "min_matched_abundance_percent": 4.456979999999999,
+  "max_matched_abundance_percent": 94.28199000000001,
+  "mapping_rule": "normalized exact terminal species name; no synonym guessing"
+}

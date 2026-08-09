@@ -25,6 +25,25 @@ from .lodo import (
 )
 from .filters import per_fold_pathway_filter
 from .stats import bootstrap_pooled_ci, delong_test
+from .readiness import (
+    CrossPopulationThresholds,
+    compute_cohort_target_associations,
+    summarize_cross_population_evidence,
+    validate_target_registry,
+)
+from .discovery import (
+    DiscoveryThresholds,
+    build_cross_fitted_evidence,
+    compute_gene_cohort_statistics,
+    select_training_candidates,
+    summarize_cross_fitted_candidates,
+)
+from .parent_adjustment import (
+    ParentAdjustmentThresholds,
+    evaluate_parent_adjustment,
+    map_candidate_parents,
+    summarize_parent_adjustment,
+)
 
 __version__ = "0.1.0"
 
@@ -34,6 +53,19 @@ __all__ = [
     "per_fold_pathway_filter",
     "delong_test",
     "bootstrap_pooled_ci",
+    "CrossPopulationThresholds",
+    "compute_cohort_target_associations",
+    "summarize_cross_population_evidence",
+    "validate_target_registry",
+    "DiscoveryThresholds",
+    "build_cross_fitted_evidence",
+    "compute_gene_cohort_statistics",
+    "select_training_candidates",
+    "summarize_cross_fitted_candidates",
+    "ParentAdjustmentThresholds",
+    "evaluate_parent_adjustment",
+    "map_candidate_parents",
+    "summarize_parent_adjustment",
     "DEFAULT_MIN_SAMPLES_PER_COHORT",
     "DEFAULT_MIN_MINORITY_FRACTION",
     "__version__",

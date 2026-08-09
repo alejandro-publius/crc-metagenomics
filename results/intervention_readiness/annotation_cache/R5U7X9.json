@@ -1,0 +1,183 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI00033A417A"
+    },
+    "inactiveReason": {
+      "deletedReason": "Not part of a reference proteome",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "R5U7X9",
+    "uniProtkbId": "R5U7X9_9BACE"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2026-03-19",
+    "oldestCrossRefCreated": "2013-06-05",
+    "sequence": {
+      "crc64": "731D48102B60F480",
+      "length": 213,
+      "md5": "D4F35BB08F1E2BB9FE1B68F7172DE56E",
+      "molWeight": 23210,
+      "value": "MPTFVQILDFIGTFAFAISGIRLASAKRFDWFGAYVVGLATAIGGGTIRDVLLDVTPGWMTDPIYLICTGVALLWVICFGRWLIRLNNTFFIFDSIGLALFTVVGVGKSIALGYPFWVAIIMGSITGAAGGVIRDVFINEIPLIFRKEIYAMACVVGGITYWLCHVAGMESYGCQLVGGSTVFFARILAVKYHICLPILKGSDEVEANENKEQ"
+    },
+    "sequenceFeatures": [
+      {
+        "database": "Pfam",
+        "databaseId": "PF03458",
+        "interproGroup": {
+          "id": "IPR005115",
+          "name": "Glycine transporter"
+        },
+        "locations": [
+          {
+            "end": 79,
+            "start": 7
+          },
+          {
+            "end": 165,
+            "start": 92
+          }
+        ]
+      },
+      {
+        "database": "PANTHER",
+        "databaseId": "PTHR30506",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 203,
+            "start": 2
+          }
+        ]
+      }
+    ],
+    "uniParcCrossReferences": [
+      {
+        "active": false,
+        "created": "2013-07-24",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "BN535_01498",
+        "id": "R5U7X9",
+        "lastUpdated": "2024-05-29",
+        "organism": {
+          "scientificName": "Bacteroides caccae CAG:21",
+          "taxonId": 1263037
+        },
+        "proteinName": "Glycine transporter domain-containing protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2021-06-11",
+        "database": "RefSeq",
+        "id": "WP_022042199",
+        "lastUpdated": "2026-03-16",
+        "organism": {
+          "scientificName": "Bacteroides caccae",
+          "taxonId": 47678
+        },
+        "proteinName": "trimeric intracellular cation channel family protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-09-29",
+        "database": "RefSeq",
+        "id": "WP_022042199",
+        "lastUpdated": "2015-08-27",
+        "ncbiGi": "547310312",
+        "organism": {
+          "scientificName": "Bacteroides caccae CAG:21",
+          "taxonId": 1263037
+        },
+        "proteinName": "hypothetical protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2013-06-05",
+        "database": "EMBLWGS",
+        "geneName": "BN535_01498",
+        "id": "CCZ71749",
+        "lastUpdated": "2026-01-10",
+        "ncbiGi": "524207271",
+        "organism": {
+          "scientificName": "Bacteroides caccae CAG:21",
+          "taxonId": 1263037
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000017990"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2021-10-02",
+        "database": "EMBL_CON",
+        "geneName": "BN535_01498",
+        "id": "CCZ71749",
+        "lastUpdated": "2026-03-19",
+        "organism": {
+          "scientificName": "Bacteroides caccae CAG:21",
+          "taxonId": 1263037
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000017990"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|1263037.3.peg.1618",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides caccae CAG:21",
+          "taxonId": 1263037
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "id": "ENSB:1PWl7ZUMG5XpbfH",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides caccae CAG:21",
+          "taxonId": 1263037
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2020-09-21",
+        "database": "EnsemblBacteria",
+        "id": "CCZ71749",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Bacteroides caccae CAG:21",
+          "taxonId": 1263037
+        },
+        "versionI": 1
+      }
+    ],
+    "uniParcId": "UPI00033A417A"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "completed_at": "2026-08-09T00:30:15.102785+00:00",
+  "n_candidates": 4,
+  "n_cohorts": 10,
+  "n_long_table_rows": 26246,
+  "n_passing_taxonomic_resolution": 0,
+  "scientific_impact": "The four parent-adjustment survivors all failed the prespecified 80% dominant-carrier address gate.",
+  "script": "scripts/export_intervention_candidate_stratified.R",
+  "status": "completed"
+}

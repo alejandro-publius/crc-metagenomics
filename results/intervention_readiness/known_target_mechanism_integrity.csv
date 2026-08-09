@@ -1,0 +1,5 @@
+target_id,n_prespecified_genes,n_genes_represented,represented_gene_fraction,n_unique_detected_uniref90_clusters,represented_genes,missing_genes,mechanism_integrity_status,integrity_claim_boundary
+colibactin,19,13,0.6842105263157895,13,clbA;clbB;clbC;clbD;clbE;clbF;clbG;clbI;clbM;clbN;clbP;clbQ;clbR,clbH;clbJ;clbK;clbL;clbO;clbS,partial_multigene_representation,"Representation counts frozen assay mappings; it does not prove co-location, expression, pathway activity, or causality."
+fragilysin,1,1,1.0,2,bft,,single_effector_represented,"Representation counts frozen assay mappings; it does not prove co-location, expression, pathway activity, or causality."
+fusobacterial_adhesion,2,0,0.0,0,,fadA;fap2,not_represented_in_frozen_assay,"Representation counts frozen assay mappings; it does not prove co-location, expression, pathway activity, or causality."
+secondary_bile_acids,10,8,0.8,6,baiA1;baiA2;baiB;baiC;baiD;baiE;baiF;baiH,baiJ;baiP,partial_multigene_representation,"Representation counts frozen assay mappings; it does not prove co-location, expression, pathway activity, or causality."

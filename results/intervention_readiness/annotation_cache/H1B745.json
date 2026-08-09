@@ -1,0 +1,579 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI000246D536"
+    },
+    "inactiveReason": {
+      "deletedReason": "Not part of a reference proteome",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "H1B745",
+    "uniProtkbId": "H1B745_9FIRM"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2026-03-16",
+    "oldestCrossRefCreated": "2012-01-16",
+    "sequence": {
+      "crc64": "6C671FB1551F3F1A",
+      "length": 157,
+      "md5": "72F6FBC5B7553859E5AAA7C3910B3B41",
+      "molWeight": 18116,
+      "value": "MGAWGIKALERDEGLDVLDILKNEYVPEHPVMDLGEMIELMKEEVMLGSDFSQIDFLFDNTAMALAELYFQWKDNSKLDYDHEEAIWDKVTGFTASKEALAFLLRQLTDIKNEVPDEDGIREIVDLWKNEDSGEIAPAWLEHLNQLIDRLDSEPEAR"
+    },
+    "sequenceFeatures": [
+      {
+        "database": "Pfam",
+        "databaseId": "PF14078",
+        "interproGroup": {
+          "id": "IPR025355",
+          "name": "Protein of unknown function DUF4259"
+        },
+        "locations": [
+          {
+            "end": 134,
+            "start": 2
+          }
+        ]
+      }
+    ],
+    "uniParcCrossReferences": [
+      {
+        "active": false,
+        "created": "2012-03-21",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "HMPREF0981_01028",
+        "id": "H1B745",
+        "lastUpdated": "2025-06-18",
+        "organism": {
+          "scientificName": "Erysipelotrichaceae bacterium 6_1_45",
+          "taxonId": 469614
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2024-10-02",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "MKC95_03725",
+        "id": "A0AAP2UL03",
+        "lastUpdated": "2026-01-28",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2025-02-22",
+        "database": "RefSeq",
+        "id": "WP_008816757",
+        "lastUpdated": "2026-03-16",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2012-11-21",
+        "database": "RefSeq",
+        "id": "ZP_16407708",
+        "lastUpdated": "2013-07-18",
+        "ncbiGi": "422326680",
+        "organism": {
+          "scientificName": "Erysipelotrichaceae bacterium 6_1_45",
+          "taxonId": 469614
+        },
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-07-19",
+        "database": "RefSeq",
+        "id": "WP_008816757",
+        "lastUpdated": "2021-11-04",
+        "ncbiGi": "496092250",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2022-01-03",
+        "database": "RefSeq",
+        "id": "WP_008816757",
+        "lastUpdated": "2024-07-03",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2012-01-16",
+        "database": "EMBLWGS",
+        "geneName": "HMPREF0981_01028",
+        "id": "EHO30915",
+        "lastUpdated": "2026-01-10",
+        "ncbiGi": "371665756",
+        "organism": {
+          "scientificName": "Erysipelotrichaceae bacterium 6_1_45",
+          "taxonId": 469614
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000003818"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-12-01",
+        "database": "EMBLWGS",
+        "geneName": "MKC41_19985",
+        "id": "MCR0473889",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001206790"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-12-03",
+        "database": "EMBLWGS",
+        "geneName": "MKC61_04315",
+        "id": "MCR0498034",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001206019"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-12-04",
+        "database": "EMBLWGS",
+        "geneName": "MKC95_03725",
+        "id": "MCR0231873",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001203972"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-03-25",
+        "database": "EMBL",
+        "geneName": "CE91St51_36060",
+        "id": "BDF01569",
+        "lastUpdated": "2024-07-17",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Chromosome",
+            "id": "UP001430718"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-28",
+        "database": "EMBLWGS",
+        "geneName": "KTG08_16455",
+        "id": "MBU9107615",
+        "lastUpdated": "2026-01-12",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001430600"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-28",
+        "database": "EMBLWGS",
+        "geneName": "KSY98_07960",
+        "id": "MBV4169150",
+        "lastUpdated": "2026-01-12",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001430724"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-28",
+        "database": "EMBLWGS",
+        "geneName": "MKA44_08100",
+        "id": "MCR0218378",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001431345"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-28",
+        "database": "EMBLWGS",
+        "geneName": "MKA57_22170",
+        "id": "MCR0225920",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001431270"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-28",
+        "database": "EMBLWGS",
+        "geneName": "MKC80_19415",
+        "id": "MCR0230248",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001431260"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-28",
+        "database": "EMBLWGS",
+        "geneName": "MKD15_19540",
+        "id": "MCR0366997",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001431325"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-28",
+        "database": "EMBLWGS",
+        "geneName": "MKC96_05645",
+        "id": "MCR0377453",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001431319"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-28",
+        "database": "EMBLWGS",
+        "geneName": "MKD11_02145",
+        "id": "MCR0433721",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001431277"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-28",
+        "database": "EMBLWGS",
+        "geneName": "MKC45_15365",
+        "id": "MCR0551977",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001431314"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-28",
+        "database": "EMBLWGS",
+        "geneName": "MKA47_18225",
+        "id": "MCR0608264",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001431251"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2024-05-30",
+        "database": "EMBLWGS",
+        "geneName": "MKC42_20590",
+        "id": "MCR0451441",
+        "lastUpdated": "2026-01-10",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP001431367"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2013-03-19",
+        "database": "SEED",
+        "id": "fig|469614.3.peg.1050",
+        "lastUpdated": "2013-03-19",
+        "organism": {
+          "scientificName": "Erysipelotrichaceae bacterium 6_1_45",
+          "taxonId": 469614
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|469614.3.peg.1050",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Erysipelotrichaceae bacterium 6_1_45",
+          "taxonId": 469614
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "id": "ENSB:s7rXWQ-pma398wE",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Erysipelotrichaceae bacterium 6_1_45",
+          "taxonId": 469614
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2025-07-01",
+        "database": "EMBLWGS",
+        "geneName": "ACR75Z_02490",
+        "id": "MGJ0707978",
+        "lastUpdated": "2026-01-12",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2025-07-01",
+        "database": "EMBLWGS",
+        "geneName": "ACR75U_09495",
+        "id": "MGJ0831531",
+        "lastUpdated": "2026-01-12",
+        "organism": {
+          "scientificName": "Clostridium innocuum",
+          "taxonId": 1522
+        },
+        "proteinName": "DUF4259 domain-containing protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-01-21",
+        "database": "EnsemblBacteria",
+        "id": "EHO30915",
+        "lastUpdated": "2013-01-21",
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-03-18",
+        "database": "PATRIC",
+        "id": "69279800",
+        "lastUpdated": "2014-07-08",
+        "organism": {
+          "scientificName": "Erysipelotrichaceae bacterium 6_1_45",
+          "taxonId": 469614
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-09-08",
+        "database": "EnsemblBacteria",
+        "id": "EHO30915",
+        "lastUpdated": "2015-01-09",
+        "organism": {
+          "scientificName": "Erysipelotrichaceae bacterium 6_1_45",
+          "taxonId": 469614
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2015-06-02",
+        "database": "EnsemblBacteria",
+        "id": "EHO30915",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Erysipelotrichaceae bacterium 6_1_45",
+          "taxonId": 469614
+        },
+        "versionI": 1
+      }
+    ],
+    "uniParcId": "UPI000246D536"
+  }
+}

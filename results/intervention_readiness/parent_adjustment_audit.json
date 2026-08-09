@@ -1,0 +1,14 @@
+{
+  "analysis_layer": "parent_species_adjustment",
+  "interpretation_boundary": "Passing means added held-out discrimination beyond an annotated parent-species proxy. It does not establish the sequence's true taxonomic source, causality, specificity, or editability.",
+  "mapping_rule": "exact archived representative binomial to exact MetaPhlAn species; no synonyms",
+  "mapping_sha256": "023e69ae244c2bc029dc9b35dc56dc67568178a7a84e0380391a9803d4ee3a22",
+  "n_candidates": 16,
+  "n_candidates_passing": 4,
+  "n_candidates_with_parent_match": 13,
+  "thresholds": {
+    "min_evaluable_folds": 7,
+    "min_median_delta_auc": 0.02,
+    "min_positive_delta_fraction": 0.7
+  }
+}

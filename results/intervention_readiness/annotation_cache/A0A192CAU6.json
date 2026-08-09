@@ -1,0 +1,112 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI0007F0E539"
+    },
+    "inactiveReason": {
+      "deletedReason": "Not part of a reference proteome",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "A0A192CAU6",
+    "uniProtkbId": "A0A192CAU6_ECO25"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2026-01-28",
+    "oldestCrossRefCreated": "2016-07-02",
+    "sequence": {
+      "crc64": "AA22B32EB2CDC697",
+      "length": 50,
+      "md5": "A89F3213E5B41BA74A409B60C511A5FC",
+      "molWeight": 5879,
+      "value": "MQHLSHGSRRHILISENFRGCQDQVRFFALHRIKPHAPPLVRAPVNSFEF"
+    },
+    "uniParcCrossReferences": [
+      {
+        "active": false,
+        "created": "2016-10-05",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "WLH_01631",
+        "id": "A0A192CAU6",
+        "lastUpdated": "2026-01-28",
+        "organism": {
+          "scientificName": "Escherichia coli O25b:H4",
+          "taxonId": 941280
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-07-02",
+        "database": "EMBL",
+        "geneName": "WLH_01631",
+        "id": "ANK02892",
+        "lastUpdated": "2024-07-17",
+        "ncbiGi": "1036411557",
+        "organism": {
+          "scientificName": "Escherichia coli O25b:H4",
+          "taxonId": 941280
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Chromosome",
+            "id": "UP000183316"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-07-02",
+        "database": "EMBL",
+        "geneName": "WLH_02492",
+        "id": "ANK03753",
+        "lastUpdated": "2024-07-17",
+        "ncbiGi": "1036412418",
+        "organism": {
+          "scientificName": "Escherichia coli O25b:H4",
+          "taxonId": 941280
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Chromosome",
+            "id": "UP000183316"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2020-09-21",
+        "database": "EnsemblBacteria",
+        "id": "ANK02892",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Escherichia coli O25b:H4",
+          "taxonId": 941280
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2020-09-21",
+        "database": "EnsemblBacteria",
+        "id": "ANK03753",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Escherichia coli O25b:H4",
+          "taxonId": 941280
+        },
+        "versionI": 1
+      }
+    ],
+    "uniParcId": "UPI0007F0E539"
+  }
+}

@@ -1,0 +1,5 @@
+target_id,n_primary_evidence_rows,highest_causal_tier,highest_editability_tier,n_peer_reviewed_rows,n_preprint_rows,causal_evidence_status,editability_evidence_status,experiment_ready
+colibactin,2,C3,E3,1,1,human_signature_plus_animal_targeted_perturbation,targeted_in_vivo_crispri_preprint,False
+fragilysin,1,C2,E1,1,0,animal_isogenic_deletion_necessity,isogenic_deletion_only,False
+fusobacterial_adhesion,2,C2,E1,2,0,animal_genetic_mutant_support,isogenic_mutants_only,False
+secondary_bile_acids,1,C2,E1,1,0,animal_pathway_mutant_support,isogenic_pathway_mutant_only,False

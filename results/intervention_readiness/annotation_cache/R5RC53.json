@@ -1,0 +1,299 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI000338CE9B"
+    },
+    "inactiveReason": {
+      "deletedReason": "Not part of a reference proteome",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "R5RC53",
+    "uniProtkbId": "R5RC53_BACFG"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2026-06-10",
+    "oldestCrossRefCreated": "2013-06-05",
+    "sequence": {
+      "crc64": "25BDC89CFFC3E355",
+      "length": 127,
+      "md5": "5BDEC907F651C93204817CCFE4CE93C1",
+      "molWeight": 14927,
+      "value": "MILLLFADENKIDTFYKPFKIESMEVVTIEKRTFSYVCERFTEFAKRIESLCSTHTQKVENWLDSQEVCLLLGVSKRTLQYYRSSGRLAYSQIGSKIYYKTSDIERIIADSETQNQSPKHPTSYEKN"
+    },
+    "sequenceFeatures": [
+      {
+        "database": "Pfam",
+        "databaseId": "PF12728",
+        "interproGroup": {
+          "id": "IPR041657",
+          "name": "Helix-turn-helix domain, group 17"
+        },
+        "locations": [
+          {
+            "end": 109,
+            "start": 62
+          }
+        ]
+      },
+      {
+        "database": "SUPFAM",
+        "databaseId": "SSF46955",
+        "interproGroup": {
+          "id": "IPR009061",
+          "name": "Putative DNA-binding domain superfamily"
+        },
+        "locations": [
+          {
+            "end": 110,
+            "start": 62
+          }
+        ]
+      },
+      {
+        "database": "PANTHER",
+        "databaseId": "PTHR34585",
+        "interproGroup": {},
+        "locations": [
+          {
+            "end": 112,
+            "start": 24
+          }
+        ]
+      }
+    ],
+    "uniParcCrossReferences": [
+      {
+        "active": true,
+        "created": "2017-03-15",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "SAMN05444350_1646",
+        "id": "A0A1M6M6T1",
+        "lastUpdated": "2026-06-10",
+        "organism": {
+          "scientificName": "Bacteroides stercorirosoris",
+          "taxonId": 871324
+        },
+        "proteinName": "Helix-turn-helix domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000184192"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-07-24",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "BN707_00168",
+        "id": "R5RC53",
+        "lastUpdated": "2024-03-27",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "proteinName": "MerR family transcriptional regulator",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-09-29",
+        "database": "RefSeq",
+        "id": "WP_022011029",
+        "lastUpdated": "2015-08-27",
+        "ncbiGi": "547277328",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "proteinName": "merR family transcriptional regulator",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2013-06-05",
+        "database": "EMBLWGS",
+        "geneName": "BN707_00168",
+        "id": "CCZ38248",
+        "lastUpdated": "2026-01-10",
+        "ncbiGi": "524168147",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "proteinName": "MerR family transcriptional regulator",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000018103"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-12-12",
+        "database": "EMBLWGS",
+        "geneName": "SAMN05444350_1646",
+        "id": "SHJ79120",
+        "lastUpdated": "2026-01-12",
+        "ncbiGi": "1110472455",
+        "organism": {
+          "scientificName": "Bacteroides stercorirosoris",
+          "taxonId": 871324
+        },
+        "proteinName": "Helix-turn-helix domain-containing protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000184192"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|1236514.3.peg.5844",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides stercorirosoris JCM 17103",
+          "taxonId": 1236514
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|1263047.3.peg.194",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|1339270.3.peg.2048",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides fragilis str. I1345",
+          "taxonId": 1339270
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|817.58.peg.1856",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2016-04-06",
+        "database": "PATRIC",
+        "id": "fig|871324.4.peg.53",
+        "lastUpdated": "2017-02-18",
+        "organism": {
+          "scientificName": "Bacteroides stercorirosoris",
+          "taxonId": 871324
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2022-06-17",
+        "database": "EMBL",
+        "id": "DAH02559",
+        "lastUpdated": "2026-03-19",
+        "organism": {
+          "scientificName": "Caudoviricetes sp.",
+          "taxonId": 2832643
+        },
+        "proteinName": "Helix-turn-helix domain protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "id": "ENSB:Vx1sSlV01-jRPMh",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2023-04-15",
+        "database": "EnsemblBacteria",
+        "id": "ENSB:uVOEsfmWTLHxgj6",
+        "lastUpdated": "2025-06-14",
+        "organism": {
+          "scientificName": "Bacteroides stercorirosoris",
+          "taxonId": 871324
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2014-07-08",
+        "database": "PATRIC",
+        "id": "245523382",
+        "lastUpdated": "2014-07-08",
+        "organism": {
+          "scientificName": "Bacteroides fragilis str. I1345",
+          "taxonId": 1339270
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2020-09-21",
+        "database": "EnsemblBacteria",
+        "id": "CCZ38248",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CAG:558",
+          "taxonId": 1263047
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2020-09-21",
+        "database": "EnsemblBacteria",
+        "id": "SHJ79120",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Bacteroides stercorirosoris",
+          "taxonId": 871324
+        },
+        "versionI": 1
+      }
+    ],
+    "uniParcId": "UPI000338CE9B"
+  }
+}

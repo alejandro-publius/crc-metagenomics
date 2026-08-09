@@ -1,0 +1,10 @@
+{
+  "manifest_sha256": "17b98b1c55685a5260261fd50614971166754ef9c09bb512d0b7675f06c9eb7b",
+  "n_accessions": 48,
+  "n_detected_clusters": 21,
+  "n_prespecified_genes": 32,
+  "n_uniref90_clusters": 31,
+  "selection_used_outcome_labels": false,
+  "source_snapshot": "2026-08-08",
+  "status": "frozen_before_outcome_modeling"
+}

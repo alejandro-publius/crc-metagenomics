@@ -1,14 +1,78 @@
-# Species-level taxonomic features alone outperform joint species-plus-pathway models for colorectal cancer detection
+# Stress-testing portable colorectal-cancer metagenomic biomarkers
 
 **Alejandro Velazquez and Rachel Selbrede**
 
-A rigorous multi-cohort re-evaluation of the Thomas et al. (2019) CRC classification framework, demonstrating that species-only Random Forest classifiers significantly outperform joint species-plus-pathway models under leave-one-dataset-out (LODO) cross-validation across 10 independent cohorts.
+A reproducible study of a practical question: **which stool-metagenomic CRC
+signals survive transfer to a new study, and can failure be anticipated before
+target labels arrive?** Ten development cohorts are treated as distinct
+deployment environments. Taxa, broad pathways, gene families, prespecified
+mechanisms, correction strategies, and label-free risk signals are evaluated
+without letting a held-out cohort choose its own features. A completely
+separate 200-sample shotgun cohort provides the untouched final validation.
 
-## Key finding
+## Active intervention-readiness extension
+
+The next study layer asks a different, constructive question: **which CRC-linked
+microbial mechanisms or strain-selective genomic addresses are credible enough
+to justify precision microbiome-editing experiments?** It preserves the
+portability benchmark while adding a frozen known-target registry, cross-fitted
+gene-family discovery, explicit evidence gates, and candidate dossiers. The
+protocol and complete work-package definition are in
+`manuscript/intervention_readiness/00_study_protocol.md` and
+`research/intervention_readiness/BUILD_PLAN.md`. Internal nominations are
+research leads, not causal genes, CRISPR guides, or treatment recommendations.
+
+The completed discovery funnel evaluated **6,755** UniRef90 families, retained
+**16** cross-population nominations, and found **4** that added held-out signal
+beyond an annotated parent-species proxy. Taxon-resolved HUMAnN evidence then
+showed that all four were distributed across multiple organisms: their largest
+carrier contributed only **13.5–42.5%**, so **0** passed the frozen 80%
+taxonomic-address gate. This turns the extension into a concrete safety result:
+a recurring metagenomic biomarker and its database representative label are not
+enough to nominate a precision microbiome-editing target.
+
+An independent structured review keeps the positive-control track alive:
+colibactin has the strongest causal and preliminary delivery evidence, including
+a reported in vivo CRISPRi result in a 2025 preprint. Both published spacers
+retained one exact PAM-compatible target in every genome of a frozen seven-
+genome pks-positive pilot panel. A separately frozen population panel then
+retained all 97 human-derived pks-positive entries from a published strain
+table: the primary `clbB` guide covered 96/97 isolates and was unique in 95/97,
+while the secondary `clbC` guide covered and was unique in 97/97; both passed
+the predeclared conservation gate. The specificity result ran in the opposite
+direction: across ten protected gut bacterial references plus GRCh38, `clbB`
+had no flagged sites, while `clbC` retained five human-reference flags and did
+not pass. This tradeoff prioritizes `clbB` as the cleaner current lead while
+showing that a secondary guide should be redesigned. Global diversity,
+platform-specific safety, and laboratory validation remain unresolved, so the
+benchmark is explicitly not experiment-ready.
+
+## Current answer
 
 Species-only RF achieves a pooled LODO AUC of **0.781** (95% bootstrap CI: 0.757 to 0.805; 10,000 cohort-stratified resamples on n = 1,339 pooled held-out predictions), significantly outperforming:
 - Joint species+pathway RF: AUC 0.756 (DeLong z = 3.35, p = 0.0008)
 - Joint species+pathway XGBoost: AUC 0.766 (DeLong z = 2.00, p = 0.046)
+
+Adding complexity has not produced a portable improvement:
+
+- leakage-safe gene families average 0.693 per-cohort AUC;
+- a frozen mechanism panel averages 0.569 and adds no value beyond its parent species;
+- strict species-aware pathway correction reaches 0.773 versus 0.771 uncorrected;
+- a label-free generalization-risk model is worse than historical model
+  performance (MAE 0.094 versus 0.062), an important negative result rather
+  than a tuned success claim.
+
+The untouched external species model achieved **AUC 0.798** (95% CI 0.737 to
+0.855) and average precision 0.781 across 100 CRC and 100 control samples. Age-
+stratified AUCs were 0.784 (older) and 0.822 (younger), with no supported
+difference. The label-free risk model predicted 0.840, while the simpler
+historical species mean predicted 0.807 and was closer to the observed result.
+
+The working conclusion is therefore not merely "species beat pathways." It is
+that increasingly specific biological and corrective representations fail to
+transfer reliably across studies, while simple taxonomic history remains the
+strongest predeployment guide tested so far. The external result was retained
+without model, threshold, feature, or sample selection after scoring.
 
 This result is stable across random seeds (mean per-cohort AUC 0.810 +/- 0.002 across 5 seeds), filter thresholds (joint RF per-cohort AUC 0.781 to 0.835 across a 4x5 prevalence-by-mean grid; spread 0.055), and confounder adjustments (age, sex, BMI; mean per-cohort AUC 0.800 to 0.814 across direct/residualized x RF/XGB cells, vs unadjusted species-RF baseline 0.807).
 
@@ -23,7 +87,12 @@ This result is stable across random seeds (mean per-cohort AUC 0.810 +/- 0.002 a
 
 ## Manuscript
 
-The complete manuscript is in `manuscript/`:
+The coauthor-review manuscript, source, figures, and study blueprint are in
+`manuscript/generalization_risk/`. The older species-versus-pathway manuscript
+is retained under `manuscript/markdown/` as a provenance snapshot, not the
+submission target.
+
+Older generated files in `manuscript/` include:
 - `CRC_Manuscript_Complete.docx` (single merged document)
 - Individual section files (Title Page, Abstract, Introduction, Methods, Results, Discussion, References, Table 1, Supplementary Tables)
 - `figures/` (Figures 1 to 4 in PNG 300 DPI and PDF). Figure 1 = forest plot of per-cohort and pooled LODO AUCs; Figure 2 = ROC curves; Figure 3 = TreeSHAP top-species importance for CRC; Figure 4 = three-panel TreeSHAP across the adenoma-carcinoma sequence (healthy-vs-adenoma | CRC-vs-healthy | adenoma-vs-CRC)
@@ -80,6 +149,8 @@ See `src/crc_lodo_bench/README.md` for the full API and a runnable example.
 
 - **Country-aware LODO**: when a cohort is held out as the test fold, all cohorts from the same country are excluded from training. This prevents population-level confounding — without this fix, ThomasAM_2019_c (Japan) achieved AUC=0.999 due to YachidaS_2019 (Japan) in the training set; corrected AUC is 0.836.
 - **Biologically-guided pathway shortlist**: 86 unique CRC-relevant pathways selected by keyword matching across 9 biological groups (butyrate/SCFA, fermentation, LPS/inflammation, polyamine, tryptophan, folate/one-carbon, sulfur/methionine, glycan/mucin, bile-acid metabolism). Mean per-cohort LODO AUC 0.817, comparable to the species-only baseline (0.807).
+- **Gene-family transfer benchmark**: leakage-safe, fold-specific screening of unstratified UniRef90 gene families followed by sparse elastic-net LODO modeling. Mean per-cohort AUC is 0.693 (range 0.570 to 0.812), below the species-only baseline and notably heterogeneous across cohorts. This is a baseline for investigating transfer failure, not a claim that gene families improve accuracy.
+- **Frozen mechanism panel**: experimentally motivated colibactin, *B. fragilis* toxin, and bile-acid genes were mapped and frozen before outcome modeling. Mechanism scores average 0.569 LODO AUC; adding them to their parent species does not improve the parent-species baseline (0.655 vs 0.656), establishing an interpretable negative result without outcome-driven feature selection.
 
 ## Robustness battery
 
@@ -88,7 +159,7 @@ See `src/crc_lodo_bench/README.md` for the full API and a runnable example.
 - Confounder assessment (direct inclusion + residualization of age, sex, BMI; per-cohort AUC 0.800 to 0.814 across the four cells)
 - Random seed stability (5 seeds {0, 1, 2, 42, 100}; per-cohort AUC 0.810 +/- 0.002, range 0.807 to 0.811)
 - Bootstrap confidence intervals (10,000 resamples; cohort-stratified for the pooled CI)
-- Per-fold ComBat batch correction (mean per-cohort AUC 0.815, vs uncorrected 0.807)
+- Strict source-only species-aware correction (species mean AUC 0.814; corrected stratified functions 0.773 vs 0.771 uncorrected) plus a separately labeled unlabeled-target adaptation pilot (0.777). The earlier joint train/test ComBat result of 0.815 is retained only as a transductive upper bound.
 - Biologically-guided pathway feature subset (mean per-cohort AUC 0.817)
 - Adenoma classification LODO (4 cohorts, 183 adenoma samples)
 
@@ -107,6 +178,11 @@ See `src/crc_lodo_bench/README.md` for the full API and a runnable example.
 | `results/shap_crc_features.csv` | SHAP values (RF) |
 | `results/shap_crc_xgb.csv` | SHAP values (XGBoost) |
 | `results/bio_pathway_results.csv` | Biologically-guided pathway LODO results |
+| `results/gene_family_lodo_results.csv` | Fold-specific UniRef90 elastic-net LODO results |
+| `results/mechanism_panel/` | Frozen mechanism mapping, coverage, scores, predictions, and results |
+| `results/independent_profiler/` | High-stringency raw-read recovery pilot for the frozen mechanisms |
+| `results/generalization_risk/` | Label-free target-performance estimates under outer cohort holdout |
+| `results/external_cohort/` | Frozen 200-run external manifest and executable locked scorer |
 | `results/adenoma_lodo_results.csv` | Adenoma cross-cohort LODO results |
 | `results/decisions_addendum.md` | Decision log for all analytical choices |
 

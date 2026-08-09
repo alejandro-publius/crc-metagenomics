@@ -1,0 +1,41 @@
+target_id,display_name,cohort,country,n_crc,n_control,assay_available,evaluable,crc_prevalence,control_prevalence,prevalence_difference,association_auc,direction,median_completeness_when_detected
+colibactin,Colibactin genotoxicity,FengQ_2015,AUT,46,61,True,True,0.21739130434782608,0.13114754098360656,0.08624376336421952,0.5434782608695652,crc_enriched,0.8846153846153847
+colibactin,Colibactin genotoxicity,GuptaA_2019,IND,30,30,True,True,0.16666666666666666,0.06666666666666667,0.09999999999999999,0.5522222222222223,crc_enriched,0.0769230769230769
+colibactin,Colibactin genotoxicity,ThomasAM_2018a,ITA,29,24,True,True,0.2413793103448276,0.08333333333333333,0.15804597701149425,0.5862068965517242,crc_enriched,1.0
+colibactin,Colibactin genotoxicity,ThomasAM_2018b,ITA,32,28,True,True,0.3125,0.14285714285714285,0.16964285714285715,0.5825892857142857,crc_enriched,0.8846153846153847
+colibactin,Colibactin genotoxicity,ThomasAM_2019_c,JPN,40,40,True,True,0.25,0.175,0.07500000000000001,0.539375,crc_enriched,0.9230769230769232
+colibactin,Colibactin genotoxicity,VogtmannE_2016,USA,52,52,True,True,0.11538461538461539,0.07692307692307693,0.038461538461538464,0.5173816568047338,crc_enriched,0.4230769230769231
+colibactin,Colibactin genotoxicity,WirbelJ_2018,DEU,60,65,True,True,0.13333333333333333,0.1076923076923077,0.025641025641025633,0.5187179487179487,crc_enriched,0.7692307692307693
+colibactin,Colibactin genotoxicity,YachidaS_2019,JPN,258,250,True,True,0.2558139534883721,0.228,0.027813953488372095,0.5132403100775194,crc_enriched,0.7692307692307693
+colibactin,Colibactin genotoxicity,YuJ_2015,CHN,74,54,True,True,0.25675675675675674,0.25925925925925924,-0.0025025025025025016,0.49874874874874875,control_enriched,0.2307692307692307
+colibactin,Colibactin genotoxicity,ZellerG_2014,FRA,53,61,True,True,0.32075471698113206,0.11475409836065574,0.2060006186204763,0.5920197958552428,crc_enriched,1.0
+fragilysin,B. fragilis toxin,FengQ_2015,AUT,46,61,True,True,0.021739130434782608,0.0,0.021739130434782608,0.5108695652173914,crc_enriched,1.0
+fragilysin,B. fragilis toxin,GuptaA_2019,IND,30,30,True,False,0.0,0.0,0.0,0.5,tie,
+fragilysin,B. fragilis toxin,ThomasAM_2018a,ITA,29,24,True,False,0.0,0.0,0.0,0.5,tie,
+fragilysin,B. fragilis toxin,ThomasAM_2018b,ITA,32,28,True,True,0.09375,0.07142857142857142,0.022321428571428575,0.5122767857142857,crc_enriched,1.0
+fragilysin,B. fragilis toxin,ThomasAM_2019_c,JPN,40,40,True,True,0.025,0.075,-0.049999999999999996,0.4759375,control_enriched,1.0
+fragilysin,B. fragilis toxin,VogtmannE_2016,USA,52,52,True,True,0.1346153846153846,0.11538461538461539,0.019230769230769218,0.5118343195266272,crc_enriched,1.0
+fragilysin,B. fragilis toxin,WirbelJ_2018,DEU,60,65,True,True,0.06666666666666667,0.03076923076923077,0.035897435897435895,0.5174358974358975,crc_enriched,1.0
+fragilysin,B. fragilis toxin,YachidaS_2019,JPN,258,250,True,True,0.06976744186046512,0.064,0.005767441860465114,0.5029767441860464,crc_enriched,1.0
+fragilysin,B. fragilis toxin,YuJ_2015,CHN,74,54,True,True,0.02702702702702703,0.018518518518518517,0.008508508508508511,0.5045045045045046,crc_enriched,1.0
+fragilysin,B. fragilis toxin,ZellerG_2014,FRA,53,61,True,True,0.07547169811320754,0.11475409836065574,-0.039282400247448196,0.48221466130528917,control_enriched,1.0
+fusobacterial_adhesion,Fusobacterial adhesion,FengQ_2015,AUT,46,61,False,False,,,,,not_assayed,
+fusobacterial_adhesion,Fusobacterial adhesion,GuptaA_2019,IND,30,30,False,False,,,,,not_assayed,
+fusobacterial_adhesion,Fusobacterial adhesion,ThomasAM_2018a,ITA,29,24,False,False,,,,,not_assayed,
+fusobacterial_adhesion,Fusobacterial adhesion,ThomasAM_2018b,ITA,32,28,False,False,,,,,not_assayed,
+fusobacterial_adhesion,Fusobacterial adhesion,ThomasAM_2019_c,JPN,40,40,False,False,,,,,not_assayed,
+fusobacterial_adhesion,Fusobacterial adhesion,VogtmannE_2016,USA,52,52,False,False,,,,,not_assayed,
+fusobacterial_adhesion,Fusobacterial adhesion,WirbelJ_2018,DEU,60,65,False,False,,,,,not_assayed,
+fusobacterial_adhesion,Fusobacterial adhesion,YachidaS_2019,JPN,258,250,False,False,,,,,not_assayed,
+fusobacterial_adhesion,Fusobacterial adhesion,YuJ_2015,CHN,74,54,False,False,,,,,not_assayed,
+fusobacterial_adhesion,Fusobacterial adhesion,ZellerG_2014,FRA,53,61,False,False,,,,,not_assayed,
+secondary_bile_acids,Secondary bile-acid conversion,FengQ_2015,AUT,46,61,True,True,0.2391304347826087,0.18032786885245902,0.05880256593014968,0.5356379187455452,crc_enriched,0.6875
+secondary_bile_acids,Secondary bile-acid conversion,GuptaA_2019,IND,30,30,True,True,0.06666666666666667,0.0,0.06666666666666667,0.5333333333333333,crc_enriched,0.375
+secondary_bile_acids,Secondary bile-acid conversion,ThomasAM_2018a,ITA,29,24,True,True,0.06896551724137931,0.08333333333333333,-0.01436781609195402,0.4913793103448275,control_enriched,0.4375
+secondary_bile_acids,Secondary bile-acid conversion,ThomasAM_2018b,ITA,32,28,True,True,0.125,0.17857142857142858,-0.053571428571428575,0.47656249999999994,control_enriched,0.625
+secondary_bile_acids,Secondary bile-acid conversion,ThomasAM_2019_c,JPN,40,40,True,True,0.25,0.1,0.15,0.5718749999999999,crc_enriched,1.0
+secondary_bile_acids,Secondary bile-acid conversion,VogtmannE_2016,USA,52,52,True,True,0.21153846153846154,0.07692307692307693,0.1346153846153846,0.5684171597633135,crc_enriched,0.375
+secondary_bile_acids,Secondary bile-acid conversion,WirbelJ_2018,DEU,60,65,True,True,0.18333333333333332,0.046153846153846156,0.13717948717948716,0.5692307692307692,crc_enriched,0.4375
+secondary_bile_acids,Secondary bile-acid conversion,YachidaS_2019,JPN,258,250,True,True,0.22868217054263565,0.148,0.08068217054263566,0.5392945736434108,crc_enriched,0.75
+secondary_bile_acids,Secondary bile-acid conversion,YuJ_2015,CHN,74,54,True,True,0.2972972972972973,0.09259259259259259,0.20470470470470473,0.6056056056056056,crc_enriched,1.0
+secondary_bile_acids,Secondary bile-acid conversion,ZellerG_2014,FRA,53,61,True,True,0.07547169811320754,0.13114754098360656,-0.05567584287039902,0.47309000927930706,control_enriched,1.0

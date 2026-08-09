@@ -1,0 +1,350 @@
+{
+  "annotationScore": 1.0,
+  "comments": [
+    {
+      "commentType": "CAUTION",
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "ODR46899.1",
+              "source": "EMBL"
+            }
+          ],
+          "value": "The sequence shown here is derived from an EMBL/GenBank/DDBJ whole genome shotgun (WGS) entry which is preliminary data"
+        }
+      ]
+    }
+  ],
+  "entryAudit": {
+    "entryVersion": 29,
+    "firstPublicDate": "2017-01-18",
+    "lastAnnotationUpdateDate": "2026-06-10",
+    "lastSequenceUpdateDate": "2017-01-18",
+    "sequenceVersion": 1
+  },
+  "entryType": "UniProtKB unreviewed (TrEMBL)",
+  "extraAttributes": {
+    "countByCommentType": {
+      "CAUTION": 1
+    },
+    "countByFeatureType": {
+      "Domain": 1
+    },
+    "uniParcId": "UPI00015E7DFB"
+  },
+  "features": [
+    {
+      "description": "Helix-turn-helix",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000259",
+          "id": "PF12728",
+          "source": "Pfam"
+        }
+      ],
+      "location": {
+        "end": {
+          "modifier": "EXACT",
+          "value": 71
+        },
+        "start": {
+          "modifier": "EXACT",
+          "value": 25
+        }
+      },
+      "type": "Domain"
+    }
+  ],
+  "genes": [
+    {
+      "orfNames": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "ODR46899.1",
+              "source": "EMBL"
+            }
+          ],
+          "value": "BEI63_27055"
+        }
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "category": "Molecular function",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000313",
+          "id": "ODR46899.1",
+          "source": "EMBL"
+        }
+      ],
+      "id": "KW-0238",
+      "name": "DNA-binding"
+    },
+    {
+      "category": "Technical term",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000313",
+          "id": "UP000094869",
+          "source": "Proteomes"
+        }
+      ],
+      "id": "KW-1185",
+      "name": "Reference proteome"
+    }
+  ],
+  "organism": {
+    "evidences": [
+      {
+        "evidenceCode": "ECO:0000313",
+        "id": "ODR46899.1",
+        "source": "EMBL"
+      },
+      {
+        "evidenceCode": "ECO:0000313",
+        "id": "UP000094869",
+        "source": "Proteomes"
+      }
+    ],
+    "lineage": [
+      "Bacteria",
+      "Bacillati",
+      "Bacillota",
+      "Clostridia",
+      "Lachnospirales",
+      "Lachnospiraceae",
+      "Eisenbergiella"
+    ],
+    "scientificName": "Eisenbergiella tayi",
+    "taxonId": 1432052
+  },
+  "primaryAccession": "A0A1E3UBQ7",
+  "proteinDescription": {
+    "submissionNames": [
+      {
+        "fullName": {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "ODR46899.1",
+              "source": "EMBL"
+            }
+          ],
+          "value": "DNA-binding protein"
+        }
+      }
+    ]
+  },
+  "proteinExistence": "4: Predicted",
+  "references": [
+    {
+      "citation": {
+        "authors": [
+          "Bernier A.-M.",
+          "Burdz T.",
+          "Wiebe D.",
+          "Bernard K."
+        ],
+        "citationType": "submission",
+        "id": "CI-2KMAOJF9BNEIA",
+        "publicationDate": "AUG-2016",
+        "submissionDatabase": "EMBL/GenBank/DDBJ databases",
+        "title": "Characterization of Isolates of Eisenbergiella tayi Derived from Blood Cultures, Using Whole Genome Sequencing."
+      },
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000313",
+          "id": "ODR46899.1",
+          "source": "EMBL"
+        },
+        {
+          "evidenceCode": "ECO:0000313",
+          "id": "UP000094869",
+          "source": "Proteomes"
+        }
+      ],
+      "referenceComments": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "ODR46899.1",
+              "source": "EMBL"
+            },
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "UP000094869",
+              "source": "Proteomes"
+            }
+          ],
+          "type": "STRAIN",
+          "value": "NML120146"
+        }
+      ],
+      "referenceNumber": 1,
+      "referencePositions": [
+        "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+      ]
+    }
+  ],
+  "sequence": {
+    "crc64": "EC7E0FF756F82028",
+    "length": 75,
+    "md5": "A74B2BE2D4F4B9B2F67FC385875A82A3",
+    "molWeight": 8739,
+    "value": "MFEARIAELNRFNEQNPVSYDKRTYTVDEIQDILGISRPTAYNLVKQGVFHSVRVGGHIRISKKSFDDWLDHADE"
+  },
+  "uniProtKBCrossReferences": [
+    {
+      "database": "EMBL",
+      "id": "MEHD01000047",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ODR46899.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "RefSeq",
+      "id": "WP_002569114.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "NZ_BAABXS010000002.1"
+        }
+      ]
+    },
+    {
+      "database": "GeneID",
+      "id": "86193776",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "OrthoDB",
+      "id": "9800833at2",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "Proteomes",
+      "id": "UP000094869",
+      "properties": [
+        {
+          "key": "Component",
+          "value": "Unassembled WGS sequence"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0003677",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "F:DNA binding"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IEA:UniProtKB-KW"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR009061",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "DNA-bd_dom_put_sf"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR041657",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "HTH_17"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR010093",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "SinI_DNA-bd"
+        }
+      ]
+    },
+    {
+      "database": "NCBIfam",
+      "id": "TIGR01764",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "excise"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Pfam",
+      "id": "PF12728",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "HTH_17"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "SUPFAM",
+      "id": "SSF46955",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Putative DNA-binding domain"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "uniProtkbId": "A0A1E3UBQ7_9FIRM"
+}

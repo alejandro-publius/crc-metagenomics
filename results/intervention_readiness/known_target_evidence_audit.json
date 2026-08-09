@@ -1,0 +1,8 @@
+{
+  "interpretation_boundary": "The review records reported causal and engineering evidence. It does not complete conservation, specificity, delivery safety, or coauthor biological review.",
+  "n_experiment_ready": 0,
+  "n_primary_evidence_rows": 6,
+  "n_targets": 4,
+  "rubric": "research/intervention_readiness/evidence_review_protocol.md",
+  "status": "complete_structured_primary_evidence_pass"
+}

@@ -1,0 +1,142 @@
+{
+  "inactive_uniprot": {
+    "annotationScore": 0.0,
+    "entryType": "Inactive",
+    "extraAttributes": {
+      "uniParcId": "UPI0002693D54"
+    },
+    "inactiveReason": {
+      "deletedReason": "Not part of a reference proteome",
+      "inactiveReasonType": "DELETED"
+    },
+    "primaryAccession": "A0A0E2AL27",
+    "uniProtkbId": "A0A0E2AL27_BACFG"
+  },
+  "uniparc": {
+    "mostRecentCrossRefUpdated": "2026-01-28",
+    "oldestCrossRefCreated": "2012-06-27",
+    "sequence": {
+      "crc64": "930C92BCAB12CF8E",
+      "length": 38,
+      "md5": "4BC5EAD40F6CB376FB680764007D2FCA",
+      "molWeight": 4373,
+      "value": "MRSRALYTPPVKPWEPGVPEVRNRKDRPRVKLVTGAKS"
+    },
+    "uniParcCrossReferences": [
+      {
+        "active": false,
+        "created": "2012-10-03",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "HMPREF1056_04033",
+        "id": "I9AUB9",
+        "lastUpdated": "2015-03-04",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CL07T12C05",
+          "taxonId": 997883
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2015-05-27",
+        "database": "UniProtKB/TrEMBL",
+        "geneName": "HMPREF1056_04033",
+        "id": "A0A0E2AL27",
+        "lastUpdated": "2026-01-28",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CL07T12C05",
+          "taxonId": 997883
+        },
+        "proteinName": "Uncharacterized protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2012-11-22",
+        "database": "RefSeq",
+        "id": "ZP_17246346",
+        "lastUpdated": "2013-07-18",
+        "ncbiGi": "423267364",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CL07T12C05",
+          "taxonId": 997883
+        },
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-07-19",
+        "database": "RefSeq",
+        "id": "WP_005799996",
+        "lastUpdated": "2014-11-03",
+        "ncbiGi": "492288785",
+        "organism": {
+          "scientificName": "Bacteroides fragilis",
+          "taxonId": 817
+        },
+        "proteinName": "hypothetical protein",
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": true,
+        "created": "2012-06-27",
+        "database": "EMBLWGS",
+        "geneName": "HMPREF1056_04033",
+        "id": "EIY91250",
+        "lastUpdated": "2026-01-10",
+        "ncbiGi": "392698067",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CL07T12C05",
+          "taxonId": 997883
+        },
+        "proteinName": "Uncharacterized protein",
+        "proteomes": [
+          {
+            "component": "Unassembled WGS sequence",
+            "id": "UP000003879"
+          }
+        ],
+        "version": 1,
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-01-21",
+        "database": "EnsemblBacteria",
+        "id": "EIY91250",
+        "lastUpdated": "2013-01-21",
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2013-09-08",
+        "database": "EnsemblBacteria",
+        "id": "EIY91250",
+        "lastUpdated": "2015-01-09",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CL07T12C05",
+          "taxonId": 997883
+        },
+        "versionI": 1
+      },
+      {
+        "active": false,
+        "created": "2015-06-02",
+        "database": "EnsemblBacteria",
+        "id": "EIY91250",
+        "lastUpdated": "2022-12-14",
+        "organism": {
+          "scientificName": "Bacteroides fragilis CL07T12C05",
+          "taxonId": 997883
+        },
+        "versionI": 3
+      }
+    ],
+    "uniParcId": "UPI0002693D54"
+  }
+}

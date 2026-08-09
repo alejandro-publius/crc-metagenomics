@@ -1,6 +1,7 @@
 {
-  "title": "Cross-cohort gut microbiome classification of colorectal cancer: a 10-cohort meta-analysis",
-  "description": "Code, processed data, and per-sample predictions for a country-aware leave-one-dataset-out (LODO) meta-analysis of gut shotgun metagenomes from 10 colorectal cancer cohorts (n = 1,522 subjects). Demonstrates that species-only Random Forest classifiers significantly outperform joint species-plus-pathway models for CRC detection across cohorts. Includes a robustness battery (seed, threshold, confounder, batch correction), pathway shortlist analysis, and a 4-cohort adenoma classification arm.",
+  "title": "Biological detail does not guarantee portability of colorectal cancer metagenomic classifiers",
+  "description": "Code, processed data, profiles, and per-sample predictions for a prospective portability stress test across ten colorectal-cancer development cohorts and an untouched 200-sample external cohort. Compares species, pathways, gene families, frozen mechanisms, correction strategies, and label-free performance-risk signals under country-aware held-out-study evaluation.",
+  "version": "2.0.0-rc1",
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
@@ -22,7 +23,9 @@
     "metagenomics",
     "machine learning",
     "meta-analysis",
-    "LODO"
+    "LODO",
+    "external validation",
+    "dataset shift"
   ],
   "related_identifiers": [
     {

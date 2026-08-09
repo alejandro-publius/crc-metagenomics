@@ -1,0 +1,20 @@
+{
+  "analysis_layer": "cross_fitted_gene_family_discovery",
+  "matrix_prefix": "data/raw/gene_families_selected",
+  "n_gene_families": 6755,
+  "n_internal_nominations": 16,
+  "n_outer_folds": 10,
+  "n_samples": 1339,
+  "n_unique_selected_gene_families": 202,
+  "selection_boundary": "Each outer fold uses only its training cohorts. Internal nomination is not external confirmation and does not establish causality.",
+  "thresholds": {
+    "max_candidates_per_fold": 100,
+    "min_heldout_crc_enriched_fraction": 0.7,
+    "min_heldout_evaluable": 7,
+    "min_heldout_median_auc": 0.55,
+    "min_outer_selections": 7,
+    "min_training_cohorts": 3,
+    "min_training_crc_enriched_fraction": 0.7,
+    "min_training_median_auc": 0.55
+  }
+}

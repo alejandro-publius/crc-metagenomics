@@ -1,0 +1,196 @@
+{
+  "annotationScore": 1.0,
+  "comments": [
+    {
+      "commentType": "CAUTION",
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "ODR46521.1",
+              "source": "EMBL"
+            }
+          ],
+          "value": "The sequence shown here is derived from an EMBL/GenBank/DDBJ whole genome shotgun (WGS) entry which is preliminary data"
+        }
+      ]
+    }
+  ],
+  "entryAudit": {
+    "entryVersion": 16,
+    "firstPublicDate": "2017-01-18",
+    "lastAnnotationUpdateDate": "2026-06-10",
+    "lastSequenceUpdateDate": "2017-01-18",
+    "sequenceVersion": 1
+  },
+  "entryType": "UniProtKB unreviewed (TrEMBL)",
+  "extraAttributes": {
+    "countByCommentType": {
+      "CAUTION": 1
+    },
+    "uniParcId": "UPI00020DFF83"
+  },
+  "genes": [
+    {
+      "orfNames": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "ODR46521.1",
+              "source": "EMBL"
+            }
+          ],
+          "value": "BEI63_27375"
+        }
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "category": "Technical term",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000313",
+          "id": "UP000094869",
+          "source": "Proteomes"
+        }
+      ],
+      "id": "KW-1185",
+      "name": "Reference proteome"
+    }
+  ],
+  "organism": {
+    "evidences": [
+      {
+        "evidenceCode": "ECO:0000313",
+        "id": "ODR46521.1",
+        "source": "EMBL"
+      },
+      {
+        "evidenceCode": "ECO:0000313",
+        "id": "UP000094869",
+        "source": "Proteomes"
+      }
+    ],
+    "lineage": [
+      "Bacteria",
+      "Bacillati",
+      "Bacillota",
+      "Clostridia",
+      "Lachnospirales",
+      "Lachnospiraceae",
+      "Eisenbergiella"
+    ],
+    "scientificName": "Eisenbergiella tayi",
+    "taxonId": 1432052
+  },
+  "primaryAccession": "A0A1E3U585",
+  "proteinDescription": {
+    "submissionNames": [
+      {
+        "fullName": {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "ODR46521.1",
+              "source": "EMBL"
+            }
+          ],
+          "value": "Uncharacterized protein"
+        }
+      }
+    ]
+  },
+  "proteinExistence": "4: Predicted",
+  "references": [
+    {
+      "citation": {
+        "authors": [
+          "Bernier A.-M.",
+          "Burdz T.",
+          "Wiebe D.",
+          "Bernard K."
+        ],
+        "citationType": "submission",
+        "id": "CI-2KMAOJF9BNEIA",
+        "publicationDate": "AUG-2016",
+        "submissionDatabase": "EMBL/GenBank/DDBJ databases",
+        "title": "Characterization of Isolates of Eisenbergiella tayi Derived from Blood Cultures, Using Whole Genome Sequencing."
+      },
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000313",
+          "id": "ODR46521.1",
+          "source": "EMBL"
+        },
+        {
+          "evidenceCode": "ECO:0000313",
+          "id": "UP000094869",
+          "source": "Proteomes"
+        }
+      ],
+      "referenceComments": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "ODR46521.1",
+              "source": "EMBL"
+            },
+            {
+              "evidenceCode": "ECO:0000313",
+              "id": "UP000094869",
+              "source": "Proteomes"
+            }
+          ],
+          "type": "STRAIN",
+          "value": "NML120146"
+        }
+      ],
+      "referenceNumber": 1,
+      "referencePositions": [
+        "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+      ]
+    }
+  ],
+  "sequence": {
+    "crc64": "F16C6E68783EC61C",
+    "length": 72,
+    "md5": "5DEF81132D85A8FF89D96505C1714431",
+    "molWeight": 8764,
+    "value": "MNMCTVREIREAIQEDCRSQRDMESTEIDRVFQTLPFSQERDLFDKPPMPKRPYRRKKKRYRQTLTAATILL"
+  },
+  "uniProtKBCrossReferences": [
+    {
+      "database": "EMBL",
+      "id": "MEHD01000049",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ODR46521.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "Proteomes",
+      "id": "UP000094869",
+      "properties": [
+        {
+          "key": "Component",
+          "value": "Unassembled WGS sequence"
+        }
+      ]
+    }
+  ],
+  "uniProtkbId": "A0A1E3U585_9FIRM"
+}

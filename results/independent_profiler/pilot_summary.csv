@@ -1,0 +1,5 @@
+sample_id,study_name,label,NCBI_accession,reads_requested,unique_reads_with_panel_hit,genes_detected,mechanisms_detected
+GupDM_HAG,GuptaA_2019,0,SRR5898912,250000,0,0,0
+GupDM_A1,GuptaA_2019,1,SRR8865598,250000,20,10,1
+CCMD10032470ST-11-0,WirbelJ_2018,0,ERR2726404,250000,0,0,0
+CCMD19168690ST-11-0,WirbelJ_2018,1,ERR2726410,250000,1,1,1
