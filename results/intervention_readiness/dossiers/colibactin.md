@@ -34,7 +34,7 @@ Not applicable to this benchmark-level association result.
 
 ## Sequence-conservation detail
 
-2/2 published guides passed exact-site coverage and uniqueness in a frozen 7-genome pks-positive reference panel; the expanded human-isolate gate was evaluated separately. Expanded audit: 2/2 guides passed the frozen 97-human-isolate panel (sgclbB_4387: 96/97 covered and 95/97 unique-site; sgclbC_2313: 97/97 covered and 97/97 unique-site). Global pks-positive diversity and assembly-independent confirmation remain pending.
+2/2 published guides passed exact-site coverage and uniqueness in a frozen 7-genome pks-positive reference panel; the expanded human-isolate gate was evaluated separately. Expanded audit: 2/2 guides passed the frozen 97-human-isolate panel (sgclbB_4387: 96/97 covered and 95/97 unique-site; sgclbC_2313: 97/97 covered and 97/97 unique-site). Global pks-positive diversity and assembly-independent confirmation remain pending. Frozen source-read follow-up resolved UPEC79 as `resolved_assembly_omission` with 30 exact primary-site reads. JML024 remains `unresolved_duplicate` (combined_probe_to_control_ratio=0.757).
 
 ## Protected-reference specificity detail
 

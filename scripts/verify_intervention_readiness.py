@@ -34,6 +34,13 @@ def verify(results_dir: Path, dossiers_dir: Path) -> dict[str, object]:
     human_detail = pd.read_csv(
         results_dir / "colibactin_human_isolate_conservation_detail.csv"
     )
+    exception_support = pd.read_csv(
+        results_dir / "colibactin_exception_read_support.csv"
+    ).set_index(["strain", "guide_role"])
+    exception_resolution = pd.read_csv(
+        results_dir / "colibactin_exception_resolution.csv"
+    ).set_index("case_id")
+    jml_probes = pd.read_csv(results_dir / "jml024_contig_probe_support.csv")
 
     checks = {
         "6755_gene_families": discovery["n_gene_families"] == 6755,
@@ -134,6 +141,31 @@ def verify(results_dir: Path, dossiers_dir: Path) -> dict[str, object]:
             .set_index("accession")["n_exact_pam_sites"]
             .to_dict()
             == {"BFMV01000000": 2, "BGJT01000000": 0}
+        ),
+        "upec79_absence_resolved_as_assembly_omission": (
+            exception_resolution.loc["upec79_absent", "resolution_status"]
+            == "resolved_assembly_omission"
+            and exception_support.loc[("UPEC79", "primary"), "exact_supporting_reads"]
+            == 30
+            and exception_support.loc[("UPEC79", "secondary"), "exact_supporting_reads"]
+            == 24
+        ),
+        "jml024_duplicate_remains_unresolved_by_frozen_depth_rule": (
+            exception_resolution.loc["jml024_duplicate", "resolution_status"]
+            == "unresolved_duplicate"
+            and exception_resolution.loc["jml024_duplicate", "support_metric"]
+            == "combined_probe_to_control_ratio=0.757"
+            and jml_probes.loc[
+                jml_probes["probe_group"].eq("jml024_short_contig"),
+                "supporting_reads",
+            ].eq(1).all()
+        ),
+        "2627284_exception_read_records_scanned": (
+            exception_support.reset_index()
+            .groupby("strain")["n_reads_scanned"]
+            .first()
+            .sum()
+            == 2_627_284
         ),
     }
     checks = {name: bool(passed) for name, passed in checks.items()}

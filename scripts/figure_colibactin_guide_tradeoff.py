@@ -114,8 +114,11 @@ def main() -> None:
     )
     figure.text(
         0.5,
-        -0.01,
-        "Sequence flags are screening motifs, not evidence of exposure or editing in human cells.",
+        -0.035,
+        (
+            "Source reads restored the UPEC79 primary site (30 reads); the JML024 "
+            "duplicate remained unresolved. Sequence flags are not evidence of editing."
+        ),
         ha="center",
         fontsize=8,
         color="#555555",

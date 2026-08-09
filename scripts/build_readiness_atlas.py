@@ -25,6 +25,7 @@ def build_atlas(
     guide_conservation: pd.DataFrame | None = None,
     guide_specificity: pd.DataFrame | None = None,
     human_isolate_conservation: pd.DataFrame | None = None,
+    guide_exception_resolution: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     parent_lookup = (
         parent_adjustment.set_index("gene_id")
@@ -119,6 +120,19 @@ def build_atlas(
                 "pks-positive diversity and assembly-independent confirmation "
                 "remain pending."
             )
+        if row.target_id == "colibactin" and guide_exception_resolution is not None:
+            exception_lookup = guide_exception_resolution.set_index("case_id")
+            required_cases = {"jml024_duplicate", "upec79_absent"}
+            if required_cases.issubset(exception_lookup.index):
+                upec = exception_lookup.loc["upec79_absent"]
+                jml = exception_lookup.loc["jml024_duplicate"]
+                conservation_detail = (
+                    f"{conservation_detail} Frozen source-read follow-up resolved "
+                    f"UPEC79 as `{upec.resolution_status}` with "
+                    f"{int(upec.primary_exact_supporting_reads)} exact primary-site "
+                    f"reads. JML024 remains `{jml.resolution_status}` "
+                    f"({jml.support_metric})."
+                )
         specificity_status = row.specificity_status
         specificity_detail = "No frozen protected-reference result is available."
         if (
@@ -446,6 +460,13 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--guide-exception-resolution",
+        type=Path,
+        default=Path(
+            "results/intervention_readiness/colibactin_exception_resolution.csv"
+        ),
+    )
+    parser.add_argument(
         "--discovered",
         type=Path,
         default=Path("results/intervention_readiness/candidate_annotations.csv"),
@@ -483,6 +504,7 @@ def main() -> None:
     guide_conservation = pd.read_csv(args.guide_conservation)
     guide_specificity = pd.read_csv(args.guide_specificity)
     human_isolate_conservation = pd.read_csv(args.human_isolate_conservation)
+    guide_exception_resolution = pd.read_csv(args.guide_exception_resolution)
     atlas = build_atlas(
         known,
         discovered,
@@ -492,6 +514,7 @@ def main() -> None:
         guide_conservation,
         guide_specificity,
         human_isolate_conservation,
+        guide_exception_resolution,
     )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     atlas.to_csv(args.output_dir / "readiness_atlas.csv", index=False)

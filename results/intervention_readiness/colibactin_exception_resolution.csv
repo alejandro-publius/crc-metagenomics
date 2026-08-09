@@ -1,0 +1,3 @@
+case_id,strain,resolution_status,decision_reason,primary_exact_supporting_reads,secondary_exact_supporting_reads,near_variant_supporting_reads,support_metric
+jml024_duplicate,JML024,unresolved_duplicate,"The contigs are not redundant by the frozen rule, but source-read depth does not establish approximately two copies relative to the control.",24,29,20,combined_probe_to_control_ratio=0.757
+upec79_absent,UPEC79,resolved_assembly_omission,At least three source reads recover the exact primary site.,30,24,24,frozen read-count thresholds

@@ -326,12 +326,29 @@ def test_human_isolate_panel_records_conservation_specificity_tradeoff():
             },
         ]
     )
+    exception_resolution = pd.DataFrame(
+        [
+            {
+                "case_id": "jml024_duplicate",
+                "resolution_status": "unresolved_duplicate",
+                "primary_exact_supporting_reads": 24,
+                "support_metric": "combined_probe_to_control_ratio=0.757",
+            },
+            {
+                "case_id": "upec79_absent",
+                "resolution_status": "resolved_assembly_omission",
+                "primary_exact_supporting_reads": 30,
+                "support_metric": "frozen read-count thresholds",
+            },
+        ]
+    )
     atlas = build_atlas(
         known,
         pd.DataFrame(),
         guide_conservation=conservation,
         guide_specificity=specificity,
         human_isolate_conservation=human,
+        guide_exception_resolution=exception_resolution,
     ).set_index("candidate_id")
     assert (
         atlas.loc["colibactin", "conservation_status"]
@@ -341,6 +358,12 @@ def test_human_isolate_panel_records_conservation_specificity_tradeoff():
         "primary: 96/97 covered and 95/97 unique-site"
         in atlas.loc["colibactin", "conservation_detail"]
     )
+    assert "resolved_assembly_omission" in atlas.loc[
+        "colibactin", "conservation_detail"
+    ]
+    assert "unresolved_duplicate" in atlas.loc[
+        "colibactin", "conservation_detail"
+    ]
     assert (
         atlas.loc["colibactin", "atlas_status"]
         == "literature_priority_primary_guide_global_and_platform_validation_pending"

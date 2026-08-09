@@ -12,6 +12,8 @@ control, two previously tested colibactin targets matched all seven disease-
 linked reference genomes examined. In a larger follow-up, the primary target
 matched 96 of 97 human-derived bacterial genomes and the secondary matched all
 97. A separate safety screen produced the opposite ranking: the primary target
-was cleaner, while the secondary was flagged. That honest tradeoff gives the
-team a credible primary lead and a reason to redesign its backup, without
-claiming either is a safe treatment.
+was cleaner, while the secondary was flagged. Checking the original sequencing
+reads recovered the primary target in the one genome assembly that had missed
+it, but could not prove that another apparent duplicate was a real second copy.
+That honest tradeoff gives the team a credible primary lead and a reason to
+redesign its backup, without claiming either is a safe treatment.

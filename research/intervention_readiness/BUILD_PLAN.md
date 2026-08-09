@@ -51,9 +51,14 @@ unsupported therapeutic claims.
   population table and the expanded success thresholds were frozen. Both
   guides passed: `sgclbB_4387` covered 96/97 isolates and was unique in 95/97;
   `sgclbC_2313` covered and was unique in 97/97. Global diversity and
-  assembly-independent confirmation remain. Follow-up rules for the JML024
+  broader independent confirmation remain. Follow-up rules for the JML024
   duplicate and UPEC79 absence were frozen before inspecting their contigs or
-  source reads.
+  source reads. Checksum-validated source reads resolved UPEC79 as a draft-
+  assembly omission (30 exact primary-site reads). JML024 remains unresolved:
+  both contig neighborhoods had read support, but combined target-neighborhood
+  depth was 0.757 times the single-copy control rather than the approximately
+  twofold depth required to support two copies. AlphaFold was closed as out of
+  scope because neither exception presents a protein-structure question.
 - Work package 7: reference pilot complete. `sgclbB_4387` had zero flagged
   near matches across ten common gut bacterial references plus GRCh38.p14.
   `sgclbC_2313` retained five human-reference sites with three or four
@@ -72,5 +77,5 @@ unsupported therapeutic claims.
 - Work package 11: working manuscript, lay summary, target-attrition figure,
   and guide tradeoff figure are drafted. Coauthor biological review and
   revision remain.
-- Work package 12: pending final tests, clean rerun, direct coauthor signoff,
+- Work package 12: pending direct coauthor signoff,
   journal formatting, and archival release.

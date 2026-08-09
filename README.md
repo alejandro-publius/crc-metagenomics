@@ -43,7 +43,11 @@ the predeclared conservation gate. The specificity result ran in the opposite
 direction: across ten protected gut bacterial references plus GRCh38, `clbB`
 had no flagged sites, while `clbC` retained five human-reference flags and did
 not pass. This tradeoff prioritizes `clbB` as the cleaner current lead while
-showing that a secondary guide should be redesigned. Global diversity,
+showing that a secondary guide should be redesigned. Checksum-validated source
+reads recovered the exact `clbB` target in UPEC79, resolving the panel's sole
+assembly-level absence; the apparent JML024 duplicate did not show the frozen
+approximately two-copy depth and remains unresolved. AlphaFold was explicitly
+closed as irrelevant to these DNA-representation exceptions. Global diversity,
 platform-specific safety, and laboratory validation remain unresolved, so the
 benchmark is explicitly not experiment-ready.
 

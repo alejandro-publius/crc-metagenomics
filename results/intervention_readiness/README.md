@@ -31,6 +31,14 @@
   primary guide `sgclbB_4387` had no flagged near matches. Secondary guide
   `sgclbC_2313` had five GRCh38 sites with three or four mismatches and an exact
   PAM-proximal seed, so it did not pass the protected-reference pilot.
+- The two primary-guide assembly exceptions were reconciled against 2,627,284
+  checksum-validated source-read records. UPEC79 is a resolved draft-assembly
+  omission: 30 reads recover the exact primary target while its assembly has
+  none. JML024 remains an explicit unresolved duplicate: the long contig is
+  well supported, every selected short-contig probe appears in only one read,
+  and combined median probe depth is 0.757 times—not approximately twice—the
+  single-copy control. No later or independent assembly for either source
+  sample was identified in the provider mapping.
 - Frozen assay coverage is partial for colibactin (13/19 prespecified genes) and
   bile-acid conversion (8/10 genes), complete only for the single `bft`
   effector, and absent for `fadA`/`fap2`.
@@ -61,8 +69,9 @@ treated as the organism carrying a gene family in a metagenome.
    mixed-carrier interpretation, and stopping rule.
 2. Extend the completed colibactin pilots beyond the single-country 97-isolate
    panel and into platform-specific assessment. Carry `sgclbB_4387` as the
-   cleaner current lead, redesign rather than quietly reuse the flagged
-   `sgclbC_2313` backup, and do not revive rejected de novo addresses.
+   cleaner current lead while retaining JML024 as unresolved, redesign rather
+   than quietly reuse the flagged `sgclbC_2313` backup, and do not revive
+   rejected de novo addresses.
 3. Decide whether an untouched gene-level cohort is needed to validate the
    methodological finding. No discovery candidate advances to guide design
    under the current sequential gates.
