@@ -2,6 +2,9 @@
 
 **Alejandro Velazquez and Rachel Selbrede**
 
+[![verify](https://github.com/alejandro-publius/crc-metagenomics/actions/workflows/verify.yml/badge.svg)](https://github.com/alejandro-publius/crc-metagenomics/actions/workflows/verify.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A reproducible study of a practical question: **which stool-metagenomic CRC
 signals survive transfer to a new study, and can failure be anticipated before
 target labels arrive?** Ten development cohorts are treated as distinct
@@ -9,6 +12,48 @@ deployment environments. Taxa, broad pathways, gene families, prespecified
 mechanisms, correction strategies, and label-free risk signals are evaluated
 without letting a held-out cohort choose its own features. A completely
 separate 200-sample shotgun cohort provides the untouched final validation.
+
+![Visual abstract of the country-aware CRC metagenomics benchmark](figures/visual_abstract.png)
+
+## Research system architecture
+
+This is not one model. It is an evidence system with frozen inputs, three
+analysis tracks, explicit stopping rules, and machine-checked claims.
+
+```mermaid
+flowchart LR
+    subgraph Inputs["Versioned public inputs"]
+        CMD["curatedMetagenomicData<br/>species · pathways · gene families"]
+        EXT["Untouched external cohort<br/>200 shotgun metagenomes"]
+        PUB["Primary literature<br/>genomes · source reads"]
+    end
+
+    FREEZE["Frozen protocols<br/>manifests · checksums · thresholds"]
+
+    subgraph Tracks["Independent analysis tracks"]
+        PORT["Portability benchmark<br/>country-aware LODO"]
+        ADDR["Intervention funnel<br/>6,755 → 16 → 4 → 0"]
+        COLI["Colibactin control<br/>conservation · specificity · read reconciliation"]
+    end
+
+    VERIFY["Claim verification<br/>pytest · audit JSON · GitHub Actions"]
+    OUT["Auditable outputs<br/>results · atlas · dossiers · manuscripts · release"]
+
+    CMD --> FREEZE
+    EXT --> FREEZE
+    PUB --> FREEZE
+    FREEZE --> PORT
+    FREEZE --> ADDR
+    FREEZE --> COLI
+    PORT --> VERIFY
+    ADDR --> VERIFY
+    COLI --> VERIFY
+    VERIFY --> OUT
+```
+
+The [architecture guide](docs/ARCHITECTURE.md) explains the components, data
+flow, trust boundaries, and why failed candidates remain visible instead of
+being silently removed.
 
 ## Active intervention-readiness extension
 
@@ -50,6 +95,16 @@ approximately two-copy depth and remains unresolved. AlphaFold was explicitly
 closed as irrelevant to these DNA-representation exceptions. Global diversity,
 platform-specific safety, and laboratory validation remain unresolved, so the
 benchmark is explicitly not experiment-ready.
+
+<p align="center">
+  <img src="manuscript/intervention_readiness/figures/Figure1_target_attrition.png" alt="Candidate attrition from 6,755 gene families to zero taxonomically resolved addresses" width="49%">
+  <img src="manuscript/intervention_readiness/figures/Figure2_colibactin_guide_tradeoff.png" alt="Conservation and specificity tradeoff between two published colibactin guides" width="49%">
+</p>
+
+The left figure shows the central safety result: apparently promising signals
+fail when their true bacterial carriers are checked. The right figure shows
+the constructive positive control: the better-conserved guide is not the
+cleaner specificity choice.
 
 ## Current answer
 
