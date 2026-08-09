@@ -26,7 +26,9 @@ reference panel, then screened for conservative PAM-compatible near matches in
 ten common gut bacterial references and GRCh38.p14. Before expanded
 conservation results were inspected, all 97 human-host entries in a published
 pks-positive population table and stricter overall and subgroup gates were
-frozen.
+frozen. Rules for reconciling the one absent and one duplicated primary-guide
+assembly result were then frozen before examining target-bearing contigs or
+checksum-validated source reads.
 
 **Results:** Sixteen of 6,755 families (0.24%) passed the internal recurrence
 screen. Four of sixteen added a median held-out AUC of at least 0.02 beyond
@@ -50,8 +52,11 @@ predeclared conservation gate. In the protected-reference pilot, primary guide
 `sgclbB_4387` had no flagged near matches, whereas secondary guide
 `sgclbC_2313` retained five GRCh38 sites with three or four mismatches and an
 exact PAM-proximal seed. The primary guide was therefore prioritized as the
-cleaner current lead, while its one missing and one duplicated human-isolate
-result and the secondary guide's flags prevent an experiment-ready claim.
+cleaner current lead. Source reads resolved the UPEC79 absence as a draft-
+assembly omission (30 exact supporting reads). JML024 did not satisfy the
+frozen approximately two-copy depth rule and remained an unresolved duplicate.
+That unresolved exception and the secondary guide's flags prevent an
+experiment-ready claim.
 
 **Conclusions:** Cross-population recurrence and parent-species-adjusted
 prediction did not identify an editable microbial address. Taxon-resolved
@@ -174,6 +179,23 @@ All missing and duplicated sites were preserved. The paper reports that pks
 carriage did not guarantee colibactin production, so this audit measures
 spacer/PAM conservation rather than functional toxin production.
 
+### Primary-guide assembly-exception reconciliation
+
+After the 97-isolate result, the JML024 duplicate and UPEC79 absence were
+registered as the only follow-up cases and interpretation rules were frozen.
+The complete target-bearing contigs were compared first. Paired FASTQ files for
+DRR102722 and DRR103319 were then retrieved from ENA, validated against the
+provider byte counts and MD5 checksums, and streamed without subsampling. Both
+read orientations were searched for the exact spacer plus NGG PAM and for
+PAM-compatible spacer variants with up to four mismatches. The conserved
+secondary guide served as a within-run recovery control. For JML024, twelve
+assembly-unique 31-base probes were selected from each of the long primary-
+target contig, short primary-target contig, and secondary-target neighborhood.
+The duplicate could be called distinct only if both neighborhoods were
+supported and combined median probe depth was approximately twice the single-
+copy control. Public assembly mappings were also checked for a later or
+independent assembly of the same source sample.
+
 ### Protected-reference specificity pilot
 
 After the conservation result and before scanning any protected reference, we
@@ -241,8 +263,27 @@ commensals and 34/35 extraintestinal clinical isolates. Fecal strain JML024 had
 two exact sites in its draft assembly, while urine isolate UPEC79 had none.
 Secondary `sgclbC_2313` covered and was unique in all 97 isolates, including
 both source groups. Both guides passed the predeclared gate. The exceptions
-were retained as unresolved sequence or draft-assembly differences rather than
-removed post hoc (Figure 2A).
+were retained for frozen source-read reconciliation rather than removed post
+hoc (Figure 2A).
+
+### Source reads resolved the UPEC79 absence but not the JML024 duplicate
+
+All four FASTQ files passed the provider size and MD5 checks. The scan retained
+1,696,398 JML024 and 930,886 UPEC79 read records. In UPEC79, 30 reads recovered
+the exact primary spacer/PAM and 24 recovered the secondary control, satisfying
+the prespecified assembly-omission rule. Thus, combining the frozen assembly
+screen with its prespecified source-read follow-up supported the primary target
+sequence across all 97 isolate records even though it was present in only 96/97
+draft assemblies.
+
+JML024 contained 24 exact primary-target reads and 29 secondary-control reads.
+The two target-bearing contigs were not redundant under the frozen 500-base,
+99.9%-identity rule. Median support was 25.5 reads across long-contig probes,
+one read across short-contig probes, and 35 reads across secondary-control
+probes. The combined target-to-control depth ratio was 0.757, not approximately
+twofold. JML024 therefore remained `unresolved_duplicate`; the analysis does
+not claim a biological duplication. Provider mappings exposed only the same
+original draft assemblies for both samples, not independent later assemblies.
 
 ### Protected-reference screening separated the primary and secondary guides
 
@@ -318,11 +359,13 @@ pilot and the larger 97-human-isolate gate. Their rankings then diverged. The
 secondary `clbC` site was perfectly conserved in the expanded panel but
 retained five human-reference flags; the primary `clbB` guide passed the
 protected-reference pilot but had one absent and one duplicated target in the
-human-isolate assemblies. We therefore prioritize `sgclbB_4387` as the cleaner
-current default while treating its coverage as non-universal and recommending
-redesign, rather than reuse, of the secondary guide. That priority comes from
-independent experimental literature and frozen sequence screens, not from
-forcing weak stool abundance AUC to pass.
+human-isolate assemblies. Source reads subsequently showed that the absent
+UPEC79 site was an assembly omission, while the JML024 duplicate remained
+unresolved under a frozen depth rule. We therefore prioritize `sgclbB_4387` as
+the cleaner current default while retaining one unresolved uniqueness
+exception and recommending redesign, rather than reuse, of the secondary
+guide. That priority comes from independent experimental literature and frozen
+sequence screens, not from forcing weak stool abundance AUC to pass.
 
 ### Limitations
 
@@ -334,8 +377,10 @@ off-target analysis because none passed the preceding address gate. The
 expanded colibactin panel improves on the original seven genomes but is a
 single published Japanese collection dominated by phylogroup B2 and largely
 represented by short-read draft assemblies. It does not establish global
-pks-positive diversity, and the JML024 duplicate and UPEC79 absence may reflect
-real biology or assembly limitations. The specificity pilot used one assembly
+pks-positive diversity. Source reads resolved the UPEC79 absence as an assembly
+omission, but the JML024 duplicate remains unresolved and could reflect a rare
+read, strain mixture, or another assembly limitation rather than a biological
+copy. The specificity pilot used one assembly
 for each of ten protected bacterial taxa and one human reference; it does not
 cover strain or human variation, insertions or deletions, alternative PAMs,
 delivery exposure, or platform-specific off-target activity. The five
@@ -356,10 +401,12 @@ labels directly into microbial editing targets and provides a reproducible
 framework for rejecting unsafe or uninterpretable candidates early.
 It also prioritizes colibactin as a literature-supported positive-control
 benchmark and `sgclbB_4387` as its cleaner published guide after frozen
-reference, 97-human-isolate, and protected-reference audits. Its coverage was
-not universal, and the more conserved `sgclbC_2313` guide retained specificity
-flags; this tradeoff supports a cleaner primary plus a redesigned secondary,
-not a treatment claim. Neither is an approved or fully validated target.
+reference, 97-human-isolate, source-read, and protected-reference audits. The
+UPEC79 source reads repaired the sole assembly-level absence, but JML024
+uniqueness remains unresolved and the more assembly-conserved `sgclbC_2313`
+guide retained specificity flags. This tradeoff supports a cleaner primary plus
+a redesigned secondary, not a treatment claim. Neither is an approved or fully
+validated target.
 
 ## References
 

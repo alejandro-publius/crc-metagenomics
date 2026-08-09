@@ -1,0 +1,56 @@
+{
+  "claim_boundary": "This resolves source-read representation only. It does not establish guide expression, knockdown, colibactin production, delivery, specificity, or safety.",
+  "independent_assembly_search": {
+    "jml024": "GCA_005385205.1 / ASM538520v1 / BFMV01 only",
+    "later_or_independent_assembly_found": false,
+    "provider": "ENA assembly BioSample mapping",
+    "upec79": "GCA_005397665.1 / ASM539766v1 / BGJT01 only"
+  },
+  "jml024_contig_structure": {
+    "note": "The 302-bp target-bearing contig is neither contained in nor at least 500-bp/99.9%-identical to the 108,917-bp target-bearing contig.",
+    "primary_target_records": [
+      {
+        "length": 108917,
+        "record_id": "BFMV01000051|BFMV01000051.1",
+        "target_start_1based": 18382
+      },
+      {
+        "length": 302,
+        "record_id": "BFMV01000280|BFMV01000280.1",
+        "target_start_1based": 255
+      }
+    ],
+    "redundant_contig_rule_passed": false,
+    "secondary_target_record": {
+      "length": 108917,
+      "record_id": "BFMV01000051|BFMV01000051.1",
+      "target_start_1based": 25976
+    }
+  },
+  "protocol": "research/intervention_readiness/colibactin_exception_resolution_protocol.md",
+  "provider_checksums_validated": true,
+  "read_manifest": "research/intervention_readiness/colibactin_exception_read_manifest.csv",
+  "resolution": [
+    {
+      "case_id": "jml024_duplicate",
+      "decision_reason": "The contigs are not redundant by the frozen rule, but source-read depth does not establish approximately two copies relative to the control.",
+      "near_variant_supporting_reads": 20,
+      "primary_exact_supporting_reads": 24,
+      "resolution_status": "unresolved_duplicate",
+      "secondary_exact_supporting_reads": 29,
+      "strain": "JML024",
+      "support_metric": "combined_probe_to_control_ratio=0.757"
+    },
+    {
+      "case_id": "upec79_absent",
+      "decision_reason": "At least three source reads recover the exact primary site.",
+      "near_variant_supporting_reads": 24,
+      "primary_exact_supporting_reads": 30,
+      "resolution_status": "resolved_assembly_omission",
+      "secondary_exact_supporting_reads": 24,
+      "strain": "UPEC79",
+      "support_metric": "frozen read-count thresholds"
+    }
+  ],
+  "status": "complete_source_read_reconciliation"
+}

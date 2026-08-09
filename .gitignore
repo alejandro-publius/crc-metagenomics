@@ -45,6 +45,7 @@ data/interim/independent_profiler/
 data/interim/intervention_candidate_stratified/
 data/interim/colibactin_reference_panel/
 data/interim/colibactin_human_isolate_panel/
+data/interim/colibactin_exception_reads/
 data/interim/protected_reference_panel/
 data/raw/gene_families_selected.*
 data/raw/mechanism_panel.*

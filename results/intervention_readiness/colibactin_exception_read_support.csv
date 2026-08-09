@@ -1,0 +1,5 @@
+run_accession,strain,guide_role,guide_id,n_reads_scanned,exact_supporting_reads,exact_pam_sites_in_reads
+DRR102722,JML024,primary,sgclbB_4387,1696398,24,24
+DRR102722,JML024,secondary,sgclbC_2313,1696398,29,29
+DRR103319,UPEC79,primary,sgclbB_4387,930886,30,30
+DRR103319,UPEC79,secondary,sgclbC_2313,930886,24,24

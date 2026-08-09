@@ -1,0 +1,5 @@
+case_id,strain,run_accession,mate,read_url,md5,bytes,provider,library_strategy,platform,biosample,experiment,project
+jml024_duplicate,JML024,DRR102722,1,https://ftp.sra.ebi.ac.uk/vol1/fastq/DRR102/DRR102722/DRR102722_1.fastq.gz,ae03fbdaa5f09dbb4d38d7819bb2fa5d,192102712,ENA,WGS,Illumina MiSeq,SAMD00077130,DRX096142,PRJDB5579
+jml024_duplicate,JML024,DRR102722,2,https://ftp.sra.ebi.ac.uk/vol1/fastq/DRR102/DRR102722/DRR102722_2.fastq.gz,aa89db8c357df1b315081af0fb825586,213756056,ENA,WGS,Illumina MiSeq,SAMD00077130,DRX096142,PRJDB5579
+upec79_absent,UPEC79,DRR103319,1,https://ftp.sra.ebi.ac.uk/vol1/fastq/DRR103/DRR103319/DRR103319_1.fastq.gz,db0ed630fb4a71d5f1d9030185d0fad5,94142204,ENA,WGS,Illumina MiSeq,SAMD00077727,DRX096739,PRJDB5579
+upec79_absent,UPEC79,DRR103319,2,https://ftp.sra.ebi.ac.uk/vol1/fastq/DRR103/DRR103319/DRR103319_2.fastq.gz,b9387e4cd12652b562232c430b82bf56,110203492,ENA,WGS,Illumina MiSeq,SAMD00077727,DRX096739,PRJDB5579
