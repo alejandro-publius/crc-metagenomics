@@ -2,7 +2,7 @@
 
 - **Candidate ID:** `colibactin`
 - **Class:** effector_benchmark
-- **Current atlas status:** benchmark_incomplete
+- **Current atlas status:** literature_priority_specificity_and_human_diversity_pending
 
 ## Why it is in the atlas
 
@@ -15,10 +15,11 @@
 | Human cross-population recurrence | not_passed |
 | Signal beyond annotated parent species | not_applicable_effector_benchmark |
 | Taxon-resolved carrier | not_applicable_effector_benchmark |
-| Biological function or harmful-clade link | pending_structured_review |
-| Sequence conservation | not_yet_assessed |
+| Biological function or harmful-clade link | human_signature_plus_animal_targeted_perturbation |
+| Assay representation of required mechanism | partial_multigene_representation |
+| Sequence conservation | reference_panel_pass_human_diversity_pending |
 | Specificity against protected organisms/human sequence | not_yet_assessed |
-| Editing and delivery feasibility | pending_structured_review |
+| Editing and delivery feasibility | targeted_in_vivo_crispri_preprint |
 | External gene-level confirmation | not_yet_assessed |
 
 ## Claim boundary
@@ -30,6 +31,10 @@ A literature-motivated mechanism; human association does not by itself establish
 Not applicable: the known-effect benchmark is defined by a prespecified mechanism rather than a discovered address family.
 
 Not applicable to this benchmark-level association result.
+
+## Sequence-conservation detail
+
+2/2 published guides passed exact-site coverage and uniqueness in a frozen 7-genome pks-positive reference panel; broader human-isolate diversity remains pending.
 
 ## Experiment-enabling next evidence
 

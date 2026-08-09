@@ -1,0 +1,3 @@
+target_id,guide_id,target_gene,benchmark_role,n_genomes,n_genomes_covered,n_genomes_unique_site,coverage_fraction,unique_site_fraction,pilot_conservation_gate
+colibactin,sgclbB_4387,clbB,primary,7,7,7,1.0,1.0,pass
+colibactin,sgclbC_2313,clbC,secondary,7,7,7,1.0,1.0,pass

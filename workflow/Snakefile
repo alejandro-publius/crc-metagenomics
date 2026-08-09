@@ -78,6 +78,51 @@ rule fast_tests:
         "python3 -m pytest tests/ -q -m 'not slow' > {log} 2>&1"
 
 
+rule known_target_evidence:
+    input:
+        review="research/intervention_readiness/known_target_evidence_review.csv",
+        registry="research/intervention_readiness/known_target_registry.csv",
+        protocol="research/intervention_readiness/evidence_review_protocol.md",
+        script="scripts/validate_known_target_evidence.py",
+    output:
+        summary="results/intervention_readiness/known_target_evidence_summary.csv",
+        audit="results/intervention_readiness/known_target_evidence_audit.json",
+    log:
+        "logs/workflow_known_target_evidence.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
+rule known_target_mechanism_integrity:
+    input:
+        registry="research/intervention_readiness/known_target_registry.csv",
+        manifest="results/mechanism_panel/frozen_manifest.csv",
+        script="scripts/summarize_mechanism_integrity.py",
+    output:
+        summary="results/intervention_readiness/known_target_mechanism_integrity.csv",
+        audit="results/intervention_readiness/known_target_mechanism_integrity_audit.json",
+    log:
+        "logs/workflow_known_target_integrity.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
+rule colibactin_reference_conservation:
+    input:
+        guides="research/intervention_readiness/published_colibactin_guides.csv",
+        genomes="research/intervention_readiness/colibactin_reference_genomes.csv",
+        protocol="research/intervention_readiness/colibactin_sequence_audit_protocol.md",
+        script="scripts/audit_published_colibactin_guides.py",
+    output:
+        detail="results/intervention_readiness/colibactin_guide_reference_panel.csv",
+        summary="results/intervention_readiness/colibactin_guide_conservation_summary.csv",
+        audit="results/intervention_readiness/colibactin_guide_conservation_audit.json",
+    log:
+        "logs/workflow_colibactin_conservation.log",
+    shell:
+        "python3 {input.script} > {log} 2>&1"
+
+
 rule verify_intervention_readiness:
     input:
         "results/intervention_readiness/discovery_audit.json",
@@ -85,6 +130,9 @@ rule verify_intervention_readiness:
         "results/intervention_readiness/candidate_taxon_summary.csv",
         "results/intervention_readiness/readiness_atlas.csv",
         "results/intervention_readiness/taxonomic_gate_threshold_sensitivity.csv",
+        "results/intervention_readiness/known_target_evidence_summary.csv",
+        "results/intervention_readiness/known_target_mechanism_integrity.csv",
+        "results/intervention_readiness/colibactin_guide_conservation_summary.csv",
     output:
         "results/intervention_readiness/verification.json",
     log:

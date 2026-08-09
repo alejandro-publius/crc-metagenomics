@@ -31,6 +31,14 @@ taxonomic-address gate. This turns the extension into a concrete safety result:
 a recurring metagenomic biomarker and its database representative label are not
 enough to nominate a precision microbiome-editing target.
 
+An independent structured review keeps the positive-control track alive:
+colibactin has the strongest causal and preliminary delivery evidence, including
+a reported in vivo CRISPRi result in a 2025 preprint. Both published spacers
+retained one exact PAM-compatible target in every genome of a frozen seven-
+genome pks-positive pilot panel. Broader human-isolate conservation and
+protected-genome specificity remain unresolved, so the benchmark is explicitly
+not experiment-ready.
+
 ## Current answer
 
 Species-only RF achieves a pooled LODO AUC of **0.781** (95% bootstrap CI: 0.757 to 0.805; 10,000 cohort-stratified resamples on n = 1,339 pooled held-out predictions), significantly outperforming:

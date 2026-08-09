@@ -14,6 +14,17 @@
   across all ten cohorts.
 - All four parent-adjustment survivors failed the prespecified 80% dominant-
   carrier address gate; none had a majority carrier even at 50%.
+- A structured review of six primary studies separates causal evidence from
+  genetic and delivered-edit evidence for the four known benchmarks.
+- Colibactin is the only benchmark with reported in vivo delivered CRISPRi that
+  changes a CRC-relevant phenotype, but that report is a preprint and the
+  benchmark remains incomplete for comprehensive conservation and specificity.
+- The two published colibactin spacers each retained exactly one PAM-compatible
+  target site in all seven genomes of a literature-defined pks-positive pilot
+  panel. This is a reference-panel pass, not a human-diversity or safety pass.
+- Frozen assay coverage is partial for colibactin (13/19 prespecified genes) and
+  bile-acid conversion (8/10 genes), complete only for the single `bft`
+  effector, and absent for `fadA`/`fap2`.
 
 ## Current scientific signal
 
@@ -37,12 +48,12 @@ treated as the organism carrying a gene family in a metagenome.
 
 ## What remains before a publishable intervention claim
 
-1. Freeze required-gene rules for known effector mechanisms.
-2. Complete the structured causality and delivery/editability evidence review
-   for the four known benchmarks.
-3. Obtain direct biological review of the mixed-carrier interpretation and
-   stopping rule.
-4. Decide whether an untouched gene-level cohort is needed to validate the
+1. Obtain direct biological review of the mechanism-integrity summaries,
+   mixed-carrier interpretation, and stopping rule.
+2. Extend the completed seven-genome colibactin conservation pilot to a frozen
+   human-isolate panel and run protected-bacterial and human-reference
+   specificity analyses; do not revive rejected de novo addresses.
+3. Decide whether an untouched gene-level cohort is needed to validate the
    methodological finding. No discovery candidate advances to guide design
    under the current sequential gates.
 

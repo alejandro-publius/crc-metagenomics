@@ -1,0 +1,8 @@
+{
+  "claim_boundary": "Exact target conservation in a seven-genome reference panel is not comprehensive human-strain conservation, near-match specificity, safety, delivery, or therapeutic readiness.",
+  "n_genomes": 7,
+  "n_guides": 2,
+  "n_guides_passing_pilot": 2,
+  "protocol": "research/intervention_readiness/colibactin_sequence_audit_protocol.md",
+  "status": "complete_literature_defined_reference_panel_pilot"
+}

@@ -14,6 +14,11 @@ def verify(results_dir: Path, dossiers_dir: Path) -> dict[str, object]:
     taxon = pd.read_csv(results_dir / "candidate_taxon_summary.csv")
     atlas = pd.read_csv(results_dir / "readiness_atlas.csv")
     sensitivity = pd.read_csv(results_dir / "taxonomic_gate_threshold_sensitivity.csv")
+    evidence = pd.read_csv(results_dir / "known_target_evidence_summary.csv")
+    integrity = pd.read_csv(results_dir / "known_target_mechanism_integrity.csv")
+    guide_conservation = pd.read_csv(
+        results_dir / "colibactin_guide_conservation_summary.csv"
+    )
 
     checks = {
         "6755_gene_families": discovery["n_gene_families"] == 6755,
@@ -39,7 +44,28 @@ def verify(results_dir: Path, dossiers_dir: Path) -> dict[str, object]:
         == 0,
         "20_atlas_entries": len(atlas) == 20,
         "20_candidate_dossiers": len(list(dossiers_dir.glob("*.md"))) == 20,
-        "no_experiment_ready_claim": not atlas["atlas_status"].eq("experiment_ready").any(),
+        "no_experiment_ready_claim": not atlas["atlas_status"]
+        .eq("experiment_ready")
+        .any(),
+        "4_known_targets_structurally_reviewed": len(evidence) == 4,
+        "known_target_review_marks_0_experiment_ready": not evidence["experiment_ready"]
+        .astype(bool)
+        .any(),
+        "colibactin_has_reported_e3_preprint": evidence.set_index("target_id").loc[
+            "colibactin", "highest_editability_tier"
+        ]
+        == "E3",
+        "fusobacterial_mechanism_not_represented": integrity.set_index("target_id").loc[
+            "fusobacterial_adhesion", "mechanism_integrity_status"
+        ]
+        == "not_represented_in_frozen_assay",
+        "2_published_colibactin_guides_audited": len(guide_conservation) == 2,
+        "7_genomes_in_colibactin_pilot": guide_conservation["n_genomes"].eq(7).all(),
+        "both_colibactin_guides_pass_reference_pilot": guide_conservation[
+            "pilot_conservation_gate"
+        ]
+        .eq("pass")
+        .all(),
     }
     checks = {name: bool(passed) for name, passed in checks.items()}
     failed = [name for name, passed in checks.items() if not passed]

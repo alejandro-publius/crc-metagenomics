@@ -21,15 +21,66 @@ def build_atlas(
     discovered: pd.DataFrame,
     parent_adjustment: pd.DataFrame | None = None,
     taxon_resolution: pd.DataFrame | None = None,
+    mechanism_integrity: pd.DataFrame | None = None,
+    guide_conservation: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     parent_lookup = (
-        parent_adjustment.set_index("gene_id") if parent_adjustment is not None else None
+        parent_adjustment.set_index("gene_id")
+        if parent_adjustment is not None
+        else None
     )
     taxon_lookup = (
         taxon_resolution.set_index("gene_id") if taxon_resolution is not None else None
     )
+    integrity_lookup = (
+        mechanism_integrity.set_index("target_id")
+        if mechanism_integrity is not None
+        else None
+    )
+    conservation_lookup = (
+        guide_conservation.groupby("target_id")
+        if guide_conservation is not None
+        else None
+    )
     known_rows: list[dict[str, object]] = []
     for row in known.itertuples(index=False):
+        integrity_status = (
+            str(integrity_lookup.loc[row.target_id, "mechanism_integrity_status"])
+            if integrity_lookup is not None and row.target_id in integrity_lookup.index
+            else "not_yet_assessed"
+        )
+        conservation_status = row.conservation_status
+        conservation_detail = "No frozen sequence-conservation result is available."
+        if (
+            conservation_lookup is not None
+            and row.target_id in conservation_lookup.groups
+        ):
+            target_conservation = conservation_lookup.get_group(row.target_id)
+            n_guides = int(target_conservation["guide_id"].nunique())
+            n_pass = int(
+                target_conservation["pilot_conservation_gate"].eq("pass").sum()
+            )
+            n_genomes = int(target_conservation["n_genomes"].max())
+            if n_guides > 0 and n_pass == n_guides:
+                conservation_status = "reference_panel_pass_human_diversity_pending"
+            else:
+                conservation_status = "reference_panel_not_passed"
+            conservation_detail = (
+                f"{n_pass}/{n_guides} published guides passed exact-site coverage "
+                f"and uniqueness in a frozen {n_genomes}-genome pks-positive "
+                "reference panel; broader human-isolate diversity remains pending."
+            )
+        if row.editability_evidence_status == "targeted_in_vivo_crispri_preprint":
+            if conservation_status == "reference_panel_pass_human_diversity_pending":
+                known_atlas_status = (
+                    "literature_priority_specificity_and_human_diversity_pending"
+                )
+            else:
+                known_atlas_status = "literature_priority_sequence_gates_pending"
+        elif row.causal_evidence_status != "pending_structured_review":
+            known_atlas_status = "mechanistically_supported_delivery_pending"
+        else:
+            known_atlas_status = "benchmark_incomplete"
         known_rows.append(
             {
                 "candidate_id": row.target_id,
@@ -44,6 +95,7 @@ def build_atlas(
                     else "not evaluable in the current gene-family assay"
                 ),
                 "function_or_clade_link_status": row.causal_evidence_status,
+                "mechanism_integrity_status": integrity_status,
                 "parent_species_independence_status": "not_applicable_effector_benchmark",
                 "parent_species_independence_detail": (
                     "Not applicable: the known-effect benchmark is defined by a "
@@ -53,11 +105,12 @@ def build_atlas(
                 "taxonomic_source_detail": (
                     "Not applicable to this benchmark-level association result."
                 ),
-                "conservation_status": row.conservation_status,
+                "conservation_status": conservation_status,
+                "conservation_detail": conservation_detail,
                 "specificity_status": row.specificity_status,
                 "editability_status": row.editability_evidence_status,
                 "external_gene_confirmation_status": "not_yet_assessed",
-                "atlas_status": "benchmark_incomplete",
+                "atlas_status": known_atlas_status,
                 "claim_boundary": (
                     "A literature-motivated mechanism; human association does not "
                     "by itself establish a safe editing target."
@@ -86,7 +139,9 @@ def build_atlas(
                     f"{parent.positive_delta_fraction:.0%} of evaluable folds"
                 )
             else:
-                parent_detail = "not evaluable because no exact parent-species match was frozen"
+                parent_detail = (
+                    "not evaluable because no exact parent-species match was frozen"
+                )
 
         taxon_status = "not_yet_assessed"
         taxon_detail = "taxon-resolved carrier evidence has not been evaluated"
@@ -139,11 +194,16 @@ def build_atlas(
                     f"consistency; median held-out AUC {row.heldout_median_auc:.3f}"
                 ),
                 "function_or_clade_link_status": function_or_clade,
+                "mechanism_integrity_status": "not_applicable_address_candidate",
                 "parent_species_independence_status": parent_status,
                 "parent_species_independence_detail": parent_detail,
                 "taxonomic_source_status": taxon_status,
                 "taxonomic_source_detail": taxon_detail,
                 "conservation_status": "not_yet_assessed",
+                "conservation_detail": (
+                    "Not run because the candidate did not pass every preceding "
+                    "sequential address gate."
+                ),
                 "specificity_status": "not_yet_assessed",
                 "editability_status": "platform_dependent_not_yet_assessed",
                 "external_gene_confirmation_status": row.external_confirmation_status,
@@ -169,7 +229,9 @@ def build_atlas(
         .any(axis=1)
     )
     if forbidden_ready.any():
-        raise ValueError("a candidate with an incomplete mandatory gate was marked ready")
+        raise ValueError(
+            "a candidate with an incomplete mandatory gate was marked ready"
+        )
     return atlas.sort_values(
         ["candidate_class", "candidate_id"], kind="mergesort"
     ).reset_index(drop=True)
@@ -196,6 +258,7 @@ def write_dossiers(atlas: pd.DataFrame, output_dir: Path) -> None:
 | Signal beyond annotated parent species | {candidate.parent_species_independence_status} |
 | Taxon-resolved carrier | {candidate.taxonomic_source_status} |
 | Biological function or harmful-clade link | {candidate.function_or_clade_link_status} |
+| Assay representation of required mechanism | {candidate.mechanism_integrity_status} |
 | Sequence conservation | {candidate.conservation_status} |
 | Specificity against protected organisms/human sequence | {candidate.specificity_status} |
 | Editing and delivery feasibility | {candidate.editability_status} |
@@ -207,9 +270,13 @@ def write_dossiers(atlas: pd.DataFrame, output_dir: Path) -> None:
 
 ## Address-resolution detail
 
-{getattr(candidate, 'parent_species_independence_detail', 'Not applicable.')}
+{getattr(candidate, "parent_species_independence_detail", "Not applicable.")}
 
-{getattr(candidate, 'taxonomic_source_detail', 'Not applicable.')}
+{getattr(candidate, "taxonomic_source_detail", "Not applicable.")}
+
+## Sequence-conservation detail
+
+{getattr(candidate, "conservation_detail", "Not yet assessed.")}
 
 ## Experiment-enabling next evidence
 
@@ -230,6 +297,13 @@ def parse_args() -> argparse.Namespace:
         default=Path("results/intervention_readiness/known_target_summary.csv"),
     )
     parser.add_argument(
+        "--guide-conservation",
+        type=Path,
+        default=Path(
+            "results/intervention_readiness/colibactin_guide_conservation_summary.csv"
+        ),
+    )
+    parser.add_argument(
         "--discovered",
         type=Path,
         default=Path("results/intervention_readiness/candidate_annotations.csv"),
@@ -247,6 +321,13 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("results/intervention_readiness/candidate_taxon_summary.csv"),
     )
+    parser.add_argument(
+        "--mechanism-integrity",
+        type=Path,
+        default=Path(
+            "results/intervention_readiness/known_target_mechanism_integrity.csv"
+        ),
+    )
     return parser.parse_args()
 
 
@@ -256,7 +337,16 @@ def main() -> None:
     discovered = pd.read_csv(args.discovered)
     parent_adjustment = pd.read_csv(args.parent_adjustment)
     taxon_resolution = pd.read_csv(args.taxon_resolution)
-    atlas = build_atlas(known, discovered, parent_adjustment, taxon_resolution)
+    mechanism_integrity = pd.read_csv(args.mechanism_integrity)
+    guide_conservation = pd.read_csv(args.guide_conservation)
+    atlas = build_atlas(
+        known,
+        discovered,
+        parent_adjustment,
+        taxon_resolution,
+        mechanism_integrity,
+        guide_conservation,
+    )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     atlas.to_csv(args.output_dir / "readiness_atlas.csv", index=False)
     write_dossiers(atlas, args.output_dir / "dossiers")

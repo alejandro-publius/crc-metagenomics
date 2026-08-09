@@ -20,7 +20,9 @@ were tested for discrimination beyond an exactly matched annotated parent
 species. Parent-adjustment survivors were then traced to their HUMAnN
 taxon-stratified carriers. The taxonomic-address gate, frozen before the
 taxon-resolved analysis, required one carrier to account for at least 80% of
-stratified abundance.
+stratified abundance. Separately, two published colibactin CRISPRi spacers were
+audited for exact PAM-compatible sites in a frozen seven-genome pks-positive
+reference panel.
 
 **Results:** Sixteen of 6,755 families (0.24%) passed the internal recurrence
 screen. Four of sixteen added a median held-out AUC of at least 0.02 beyond
@@ -30,6 +32,17 @@ distributed across 7–23 taxa, and its largest carrier accounted for only
 13.5–42.5% of stratified abundance. The species implied by the archived UniRef
 representative accounted for 0–19.6% and was never the largest carrier. No
 candidate passed even a post hoc 50% majority-carrier sensitivity threshold.
+Separately, structured primary-evidence review identified colibactin as the
+strongest literature-supported experimental benchmark: it has a human
+mutational signature and a reported in vivo delivered CRISPRi perturbation in
+a mouse CRC model, although the intervention report remains a preprint and
+sequence safety gates are incomplete.
+
+The two in-vivo-tested colibactin spacers were then used as literature-defined
+positive controls. Each retained exactly one PAM-compatible target site in all
+seven genomes of a frozen pks-positive reference panel. This small-panel result
+does not establish conservation across human isolates or specificity against
+protected bacteria and human sequence.
 
 **Conclusions:** Cross-population recurrence and parent-species-adjusted
 prediction did not identify an editable microbial address. Taxon-resolved
@@ -121,6 +134,20 @@ laboratory design. This protects against retrofitting an editing proposal to a
 disease-associated but taxonomically ambiguous feature. Failed and unresolved
 candidates remain in the public atlas.
 
+### Published-guide positive-control audit
+
+The two in-vivo-tested colibactin spacers reported by Hamp et al. were
+transcribed from Supplementary Table S4, including an explicit reverse-
+complement check [11]. After confirming the expected NC101 on-target site and
+before inspecting cross-strain results, we froze a seven-genome pks-positive
+panel: the complete NC101 genome plus IHE3034, A192PP, and four independent
+pks-positive mouse isolates reported to contain complete pks islands [13,14].
+For each spacer and genome, both DNA orientations were searched for an exact
+20-nt match with the corresponding SpCas9 NGG PAM. The pilot gate required at
+least 80% genome coverage and at least 80% of genomes to contain exactly one
+PAM-compatible site. This analysis did not assess near matches, protected
+commensals, human sequence, or patient-level pks diversity.
+
 ## Results
 
 ### Known CRC mechanisms were directionally recurrent but weak abundance classifiers
@@ -132,6 +159,36 @@ secondary bile-acid conversion in 7 of 10 (median AUC 0.537). Fusobacterial
 adhesion was not evaluable in the frozen gene-family assay. These results do
 not negate experimental evidence for the mechanisms; they show that a known
 mechanism need not be a strong abundance classifier in stool.
+
+### Structured evidence review separates causal support from delivery readiness
+
+Six primary studies were extracted under a frozen tiering rubric. Colibactin
+reached C3 because its experimentally reproduced mutational pattern has been
+detected in human cancer genomes. It reached E3 only through a 2025 preprint
+reporting conjugative CRISPRi delivery, reduced genotoxicity, and lower
+tumorigenesis in mice [11]. Fragilysin, FadA/Fap2, and microbial
+7alpha-dehydroxylation each reached C2: isogenic microbial mutants changed a
+CRC-relevant animal phenotype or tumor targeting [8–10,12]. They remained E1
+because the experiments used constructed strains rather than delivering an
+edit to an established native community.
+
+The frozen metagenomic assay did not fully represent these mechanisms.
+Thirteen of nineteen prespecified colibactin genes were represented. The single
+`bft` effector was represented, while neither `fadA` nor `fap2` was recovered.
+Eight of ten prespecified bile-acid genes were represented by six distinct
+UniRef90 clusters. These counts describe assay coverage, not gene co-location,
+expression, or pathway activity. No known benchmark was labeled
+experiment-ready.
+
+### Published colibactin guides passed a small reference-panel conservation pilot
+
+Both reported guides passed the frozen pilot. `sgclbB_4387` and
+`sgclbC_2313` each had one and only one exact PAM-compatible site in all seven
+genomes (7/7 coverage and 7/7 unique-site coverage for each guide). The sites
+were found in the expected NC101 genes and conserved across the six additional
+references. The atlas therefore records a reference-panel conservation pass
+for colibactin while leaving broader human-isolate conservation and specificity
+open.
 
 ### Four internally recurring families added information beyond annotated parent species
 
@@ -186,13 +243,25 @@ taxonomic interpretation. Association strength, causal function, and editing
 addressability are therefore separate dimensions; no weighted readiness score
 should allow one to substitute for another.
 
+The constructive next target is therefore not one of the de novo gene-family
+addresses. Colibactin is the rational positive-control benchmark for the next
+sequence-safety work because its causal and preliminary delivery evidence is
+strongest. Its two published guides passed a small reference-panel conservation
+pilot, but protected-reference specificity and representative human-isolate
+coverage remain unresolved. That priority comes from independent experimental
+literature, not from forcing its weak stool abundance AUC to pass.
+
 ### Limitations
 
 The analysis uses processed stool metagenomes rather than isolates, assemblies,
 or tumor tissue. HUMAnN strata are computational assignments and do not prove
 physical gene location. UniRef90 families combine homologs and are not
-nucleotide guide sequences. The study did not run conservation or off-target
-guide screens because no de novo candidate passed the preceding address gate.
+nucleotide guide sequences. No de novo candidate advanced to conservation or
+off-target analysis because none passed the preceding address gate. The
+colibactin positive-control conservation panel contained only seven genomes,
+several from mice, and was not designed to represent human pks-positive strain
+diversity. It tested exact PAM-compatible sites only; near-match specificity
+against protected bacteria and human sequence remains untested.
 There is no untouched external gene-level confirmation dataset in the present
 analysis. The 80% rule is a prespecified triage threshold, not a universal
 biological constant; however, no candidate had a majority carrier at 50%.
@@ -206,6 +275,9 @@ sequential path from association to parent-independent signal to taxonomically
 resolved address. The result argues against converting database representative
 labels directly into microbial editing targets and provides a reproducible
 framework for rejecting unsafe or uninterpretable candidates early.
+It also prioritizes colibactin as a literature-supported positive-control
+benchmark whose published guides passed a seven-genome conservation pilot, not
+as an approved or fully specificity-screened treatment target.
 
 ## References
 
@@ -233,8 +305,21 @@ framework for rejecting unsafe or uninterpretable candidates early.
 8. Chung L, et al. Bacteroides fragilis toxin coordinates a pro-carcinogenic
    inflammatory cascade via targeting of colonic epithelial cells. 2018.
    https://pubmed.ncbi.nlm.nih.gov/29398651/
-9. Rubinstein MR, et al. Fusobacterium nucleatum promotes colorectal cancer by
-   inducing Wnt/beta-catenin modulator Annexin A1. 2017.
-   https://pmc.ncbi.nlm.nih.gov/articles/PMC5465824/
-10. Cao Y, et al. Gut microbiota and metabolites in colorectal cancer: the role
-    of secondary bile acids. 2022. https://pubmed.ncbi.nlm.nih.gov/36343662/
+9. Guo P, et al. FadA promotes DNA damage and progression of *Fusobacterium
+   nucleatum*-induced colorectal cancer through up-regulation of Chk2. 2020.
+   https://pmc.ncbi.nlm.nih.gov/articles/PMC7523382/
+10. Abed J, et al. Fap2 mediates *Fusobacterium nucleatum* colorectal
+    adenocarcinoma enrichment by binding to tumor-expressed Gal-GalNAc. 2016.
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC5465824/
+11. Hamp B, et al. Programmable conjugative CRISPR interference targeting
+    genotoxin in the gut. *bioRxiv*. 2025.
+    https://pubmed.ncbi.nlm.nih.gov/41278642/
+12. Osswald A, et al. Secondary bile acid production by gut bacteria promotes
+    Western diet-associated colorectal cancer. *Gut*. 2025.
+    https://pubmed.ncbi.nlm.nih.gov/41412727/
+13. Mannion A, et al. Draft genome sequences of five novel polyketide
+    synthetase-containing mouse *Escherichia coli* strains. *Genome
+    Announcements*. 2016. https://pmc.ncbi.nlm.nih.gov/articles/PMC5054322/
+14. Lopez LR, et al. A nadA mutation confers nicotinic acid auxotrophy in
+    pro-carcinogenic intestinal *Escherichia coli* NC101. *Frontiers in
+    Microbiology*. 2021. https://pmc.ncbi.nlm.nih.gov/articles/PMC8207962/

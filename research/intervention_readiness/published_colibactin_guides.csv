@@ -1,0 +1,3 @@
+target_id,guide_id,target_gene,spacer_5to3,reverse_complement_5to3,benchmark_role,in_vivo_use,source_url,source_location,interpretation_boundary
+colibactin,sgclbB_4387,clbB,GAACGCGATAGATCTATAGC,GCTATAGATCTATCGCGTTC,primary,yes,https://pmc.ncbi.nlm.nih.gov/articles/PMC12633163/,Table S4 pages 85 and 88; main text and Extended Figures 11-13,"Published CRISPRi positive control; not a newly designed or clinically recommended guide"
+colibactin,sgclbC_2313,clbC,ACGAAAGGTACGCTTAACAC,GTGTTAAGCGTACCTTTCGT,secondary,yes,https://pmc.ncbi.nlm.nih.gov/articles/PMC12633163/,Table S4 pages 86 and 88; main text and Extended Figures 11-12,"Published CRISPRi positive control; broader transcriptional changes were reported than for sgclbB_4387"

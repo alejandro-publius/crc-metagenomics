@@ -39,12 +39,20 @@ unsupported therapeutic claims.
 - Work package 4: complete. Automated UniProt/UniParc provenance and the
   ten-cohort taxon-resolved export are complete. All four parent-adjustment
   survivors failed the frozen taxonomic-address gate.
-- Work packages 5–7: not triggered for de novo candidates under the sequential
-  stopping rule. No mixed-carrier family advances to conservation, guide
-  specificity, or editing design. Required-gene integrity for known benchmarks
-  remains pending.
-- Work package 8: structured causality and editability review of known
-  benchmarks remains pending.
+- Work package 5: computational assay-integrity accounting is complete.
+  Colibactin is represented by 13/19 prespecified genes, fragilysin by its
+  single `bft` effector, fusobacterial adhesion by 0/2 genes, and bile-acid
+  conversion by 8/10 genes (six unique clusters). Biological signoff remains.
+- Work package 6: not triggered for de novo candidates under the sequential
+  stopping rule. For the colibactin positive control, a frozen seven-genome
+  pilot is complete: both published guides had exactly one PAM-compatible site
+  in all seven pks-positive references. A broader human-isolate panel remains.
+- Work package 7: pending. No protected-bacterial or human-reference near-match
+  screen has passed; conservation must not be interpreted as specificity.
+- Work package 8: computationally complete. Six primary studies were tiered.
+  Colibactin has the strongest preliminary delivery evidence (E3), but that
+  targeted in vivo CRISPRi study is a preprint; the other benchmarks have E1
+  constructed-strain evidence only. Direct biological review remains.
 - Work package 9: no de novo candidate qualifies for external confirmation;
   whether to validate the methodological failure in an untouched cohort is a
   manuscript-design decision.
