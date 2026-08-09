@@ -1,0 +1,3 @@
+case_id,strain,wgs_accession,short_read_run,source_group,primary_exact_pam_sites,secondary_exact_pam_sites,frozen_question,status_before_followup
+jml024_duplicate,JML024,BFMV01000000,DRR102722,fecal_commensal,2,1,Are the two primary-guide sites distinct biological copies or redundant draft-assembly contigs?,unresolved
+upec79_absent,UPEC79,BGJT01000000,DRR103319,extraintestinal_clinical,0,1,Is the missing primary-guide site supported by source reads or an independent assembly?,unresolved

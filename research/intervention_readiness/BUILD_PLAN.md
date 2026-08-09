@@ -51,7 +51,9 @@ unsupported therapeutic claims.
   population table and the expanded success thresholds were frozen. Both
   guides passed: `sgclbB_4387` covered 96/97 isolates and was unique in 95/97;
   `sgclbC_2313` covered and was unique in 97/97. Global diversity and
-  assembly-independent confirmation remain.
+  assembly-independent confirmation remain. Follow-up rules for the JML024
+  duplicate and UPEC79 absence were frozen before inspecting their contigs or
+  source reads.
 - Work package 7: reference pilot complete. `sgclbB_4387` had zero flagged
   near matches across ten common gut bacterial references plus GRCh38.p14.
   `sgclbC_2313` retained five human-reference sites with three or four
