@@ -46,7 +46,10 @@ unsupported therapeutic claims.
 - Work package 6: not triggered for de novo candidates under the sequential
   stopping rule. For the colibactin positive control, a frozen seven-genome
   pilot is complete: both published guides had exactly one PAM-compatible site
-  in all seven pks-positive references. A broader human-isolate panel remains.
+  in all seven pks-positive references. Before inspecting any expanded-panel
+  result, all 97 human pks-positive entries from a published 109-strain
+  population table and the expanded success thresholds were frozen. The scan
+  remains pending.
 - Work package 7: reference pilot complete. `sgclbB_4387` had zero flagged
   near matches across ten common gut bacterial references plus GRCh38.p14.
   `sgclbC_2313` retained five human-reference sites with three or four
