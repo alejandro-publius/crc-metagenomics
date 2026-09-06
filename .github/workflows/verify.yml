@@ -51,3 +51,12 @@ jobs:
         run: |
           python3 scripts/verify_results.py
           python3 scripts/verify_intervention_readiness.py
+
+      - name: Run the test suite
+        # 187 tests under tests/ (statistical methodology, the synthetic
+        # end-to-end pipeline, the verifier itself) that until now only ran on
+        # a laptop. pytest is already in requirements.lock; the package is
+        # installed without deps so the lock stays the only source of versions.
+        run: |
+          pip install -e . --no-deps
+          python -m pytest -q
