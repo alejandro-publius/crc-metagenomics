@@ -5,6 +5,87 @@ All notable changes to this project are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.0] - 2026-09-08
+
+Engineering/reproducibility hardening pass. Tagged separately from the
+`2.0.0-rc1` manuscript release-candidate line above (git had no prior real
+tags); scoped entirely to code, tests, lint, and documentation -- no
+scientific results changed.
+
+### Fixed
+
+- `scripts/preprocessing.py --data-type=relab` is now required in the
+  README/REPRODUCING.md/REPRODUCIBILITY.md/CONTRIBUTING.md quickstart
+  commands: the `--data-type=auto` default now refuses to guess once row
+  sums exceed 100 (the committed species table is percentage-scale), so the
+  documented bare `python3 scripts/preprocessing.py` invocation failed on a
+  fresh clone.
+- `scripts/train_joint.py` now fails with one actionable line naming the
+  missing cohorts (instead of silently training on fewer cohorts, or later
+  crashing in `auc_comparison.py` on an unexplained shape mismatch) when
+  `data/raw/pathway_chunks/` does not cover every cohort the species-only
+  baseline covers -- true for a fresh clone that skips
+  `Rscript scripts/export_data.R`. It also no longer loses its own
+  `results/joint_results.csv` output if `results/baseline_results.csv`
+  (written by `train_baseline.py`) is not present yet.
+- `scripts/merge_pathways.py` now warns when its chunk scan covers fewer
+  cohorts than `data/raw/metadata.csv` expects, and refuses to overwrite an
+  already-more-complete committed `data/raw/pathway_unstratified_full.csv`
+  with a smaller partial merge (`--force` to override intentionally).
+- Regenerated the stale `data/raw/subject_audit.csv` (762 rows, reflecting
+  an earlier 7-cohort state) to match the current 1,604-sample, 11-cohort
+  `data/raw/metadata.csv`.
+- `CONTRIBUTING.md`'s "Local checks before pushing" section described a
+  `.github_local_only/workflows/` OAuth-scope workaround that no longer
+  exists (CI has lived at `.github/workflows/verify.yml` since commit
+  `f8bee25`).
+- `requirements-dev.txt` referenced a nonexistent `requirements.txt`;
+  corrected to `requirements.lock`.
+
+### Added
+
+- `[tool.ruff.lint]` in `pyproject.toml` (Pyflakes + a pycodestyle error
+  subset, ruff's own default selection, pinned explicitly), a `ruff check .`
+  step in CI, and `.pre-commit-config.yaml` running the same hook. Fixed the
+  75 findings this surfaced (unused imports/variables, multiple
+  imports/statements per line) -- no blanket ignores.
+- `[tool.pytest.ini_options]` in `pyproject.toml` registers the
+  `integration` marker and deselects it by default, so a plain `pytest -q`
+  (what CI and CONTRIBUTING.md both run) no longer silently executes
+  `scripts/test_submission_build.py`'s 23 tests and dirties the tracked
+  `submission/build/` tree -- matching that module's own documented intent.
+  Run them explicitly with `pytest -m integration`.
+- Leakage-safety regression tests for the label-free generalization-risk
+  model (`tests/test_generalization_risk.py`): `historical_feature` and
+  `outer_cohort_evaluation` must exclude a cohort's own AUC from its own
+  risk estimate. Mutation-checked (reverting either exclusion in
+  `scripts/generalization_risk.py` makes the new tests fail).
+- Subprocess regression tests for `train_joint.py`'s new cohort-coverage
+  guard (`tests/test_train_joint_cohort_coverage.py`), covering both the
+  missing-coverage failure and the full-coverage non-failure path.
+  Mutation-checked.
+- Python-version badge and a 3-command Quickstart section (within the
+  README's first ~25 lines) that runs end to end from committed data with
+  no external download.
+- A "Data-availability boundary" note in the README's reproduction section
+  explaining that `data/raw/pathway_chunks/` ships a subset of cohorts, and
+  what that does and does not block.
+
+### Verified (re-measured this pass, not carried forward from prior text)
+
+- Test suite: 187 passed, 1 skipped, 2 xfailed (190 collected) before this
+  pass's `pytest.ini_options` change; 168 passed, 1 skipped, 23 deselected,
+  2 xfailed (194 collected, +2 new files) after. `ruff check .` passes
+  clean.
+- `scripts/verify_results.py` (49 checks) and
+  `scripts/verify_intervention_readiness.py` (29 checks) both pass against
+  committed CSVs.
+- Species-only RF LODO reproduces byte-for-byte-equivalent AUCs (to 3
+  decimals) from a fresh Python 3.11 environment using only committed
+  `data/raw/` and `data/processed/` files: per-cohort mean 0.807, pooled
+  0.781, matching the README exactly, including the country-aware fix
+  (`ThomasAM_2019_c` 0.836).
+
 ## [2.0.0-rc1] - 2026-08-08
 
 Release candidate for coauthor review and archival DOI minting.
