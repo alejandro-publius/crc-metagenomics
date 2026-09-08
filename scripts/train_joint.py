@@ -26,7 +26,6 @@ import os
 import re
 import sys
 
-import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
@@ -111,6 +110,39 @@ def main(argv=None):
     if 'country' in mg.columns:
         meta_cols.append('country')
     meta = mg.loc[mask, meta_cols].reset_index(drop=True)
+
+    # Loud, actionable failure if pathway data does not cover every cohort
+    # the species-only baseline covers. `joint = sp.merge(pw, ...)` above is
+    # an inner join on sample_id, so a cohort with no HUMAnN pathway rows is
+    # silently dropped rather than erroring -- the LODO loop below would
+    # then train and report a "joint" AUC over a smaller, unstated cohort
+    # set (and any downstream comparison against the 10-cohort species
+    # baseline, e.g. auc_comparison.py, would fail on a shape mismatch with
+    # no explanation). data/raw/pathway_chunks/ ships HUMAnN tables for only
+    # a subset of cohorts (see merge_pathways.py's "Found N chunk files");
+    # the rest were intentionally left out of git for size.
+    species_cohorts = set(
+        md.loc[md['label'].isin([0, 1]), 'study_name'].unique()
+    )
+    joint_cohorts = set(meta['study_name'].unique())
+    missing_cohorts = sorted(species_cohorts - joint_cohorts)
+    if missing_cohorts:
+        raise SystemExit(
+            "train_joint.py: pathway data covers only "
+            f"{len(joint_cohorts)} of {len(species_cohorts)} cohorts used "
+            f"by the species-only baseline; missing pathway data for: "
+            f"{', '.join(missing_cohorts)}. This repo ships HUMAnN pathway "
+            "chunks for a subset of cohorts only (data/raw/pathway_chunks/); "
+            "the rest are omitted from git for size. Re-run "
+            "`Rscript scripts/export_data.R` with network access to "
+            "curatedMetagenomicData/Bioconductor to pull the full pathway "
+            "export for all cohorts, then re-run merge_pathways.py, before "
+            "training the joint model. The committed "
+            "results/preds_joint_rf.csv and results/preds_joint_xgb.csv "
+            "already reflect a full 10-cohort run and remain the source of "
+            "truth for the README's pooled AUC numbers until then."
+        )
+
     print(f'Samples: {len(X)}, pre-fold features: {X.shape[1]} '
           f'(species={len(sp_feat_cols)}, pathway candidates={len(pw_feat_cols)})')
     print(f'Filter thresholds: prevalence>={prevalence_threshold}, '
@@ -151,10 +183,6 @@ def main(argv=None):
                           feature_filter_fn=pathway_filter,
                           country_col=country_col)
 
-    bl = pd.read_csv('results/baseline_results.csv')
-    print(f'\n  Species-only RF:  {bl["auc"].mean():.3f}')
-    print(f'  Joint RF:         {rf_res["mean_auc"]:.3f}')
-    print(f'  Joint XGBoost:    {xgb_res["mean_auc"]:.3f}')
     os.makedirs('results', exist_ok=True)
     pd.DataFrame({'cohort': rf_res['cohort'],
                   'rf_auc': rf_res['auc'],
@@ -163,6 +191,19 @@ def main(argv=None):
                   'xgb_n_features': xgb_res['n_features'],
         }).to_csv('results/joint_results.csv', index=False)
     print('Saved results/joint_results.csv')
+
+    # Species-only comparison line is cosmetic (informational only -- the
+    # joint predictions/results above are already saved); don't let a
+    # missing results/baseline_results.csv (e.g. train_joint.py run before
+    # train_baseline.py) crash after the real outputs are already written.
+    print(f'  Joint RF:         {rf_res["mean_auc"]:.3f}')
+    print(f'  Joint XGBoost:    {xgb_res["mean_auc"]:.3f}')
+    try:
+        bl = pd.read_csv('results/baseline_results.csv')
+        print(f'  Species-only RF:  {bl["auc"].mean():.3f}')
+    except FileNotFoundError:
+        print('  Species-only RF:  (unavailable -- run scripts/train_baseline.py '
+              'first for the comparison line)')
 
 if __name__ == '__main__':
     main()

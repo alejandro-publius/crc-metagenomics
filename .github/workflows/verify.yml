@@ -4,14 +4,17 @@ name: verify
 # scripts/verify_results.py reads CSVs from data/processed/ and results/ and
 # exits non-zero if any of its 49 checks fail.
 #
-# Known limitation: data/raw/ is *not* committed (it is rebuilt from
-# scripts/export_data.R via curatedMetagenomicData). data/processed/ and
-# results/*.csv ARE committed, so verify_results.py can run in CI without a
-# separate data-fetch step. If those CSVs are ever removed from the repo
-# because of size, the verify job will need a preceding step that runs the
-# full preprocessing pipeline (Rscript scripts/export_data.R, then
-# scripts/preprocessing.py, then the train_*.py scripts) -- expect ~45 min
-# instead of ~30 s.
+# Known limitation: data/raw/ IS committed, but only partially -- metadata.csv
+# and species_abundance.csv cover all 10 analysis cohorts, while
+# data/raw/pathway_chunks/ ships HUMAnN pathway tables for only a subset of
+# them (the rest are omitted from git for size). data/processed/ and
+# results/*.csv ARE committed in full, so verify_results.py can run in CI
+# without a separate data-fetch step. Re-running scripts/train_joint.py from
+# a fresh clone therefore fails loudly (by design; see its cohort-coverage
+# guard) rather than silently training on fewer cohorts -- getting a full
+# from-scratch joint run requires `Rscript scripts/export_data.R` with
+# network access to curatedMetagenomicData first (~45 min end to end instead
+# of ~30 s against the committed CSVs).
 
 on:
   push:
@@ -46,6 +49,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.lock
 
+      - name: Lint (ruff)
+        # Rule selection lives in pyproject.toml's [tool.ruff.lint]: Pyflakes
+        # (F) plus a pycodestyle error subset (E4/E7/E9) -- ruff's own
+        # out-of-the-box default, pinned explicitly.
+        run: |
+          pip install ruff==0.16.6
+          ruff check .
+
       - name: Run verification checks
         # verify_results.py exits 1 on any check failure, which fails the job.
         run: |
@@ -53,10 +64,15 @@ jobs:
           python3 scripts/verify_intervention_readiness.py
 
       - name: Run the test suite
-        # 187 tests under tests/ (statistical methodology, the synthetic
-        # end-to-end pipeline, the verifier itself) that until now only ran on
-        # a laptop. pytest is already in requirements.lock; the package is
-        # installed without deps so the lock stays the only source of versions.
+        # 164 tests under tests/ (statistical methodology, the synthetic
+        # end-to-end pipeline, the verifier itself), plus 1 skip and 2 xfail.
+        # scripts/test_submission_build.py's 23 tests are marked
+        # `pytest.mark.integration` (deselected by the `addopts` in
+        # pyproject.toml's [tool.pytest.ini_options] since they rebuild
+        # submission/build/* in place); run them explicitly with
+        # `pytest -m integration` if you touch scripts/build_submission.py.
+        # pytest is already in requirements.lock; the package is installed
+        # without deps so the lock stays the only source of versions.
         run: |
           pip install -e . --no-deps
           python -m pytest -q
