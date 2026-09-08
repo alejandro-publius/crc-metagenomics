@@ -131,8 +131,6 @@ def main():
     )
 
     results_rows = []
-    pred_rows_rf = []
-    pred_rows_xgb = []
 
     # Save predictions inline via the package option
     print("\nRunning RF...")
@@ -184,13 +182,13 @@ def main():
     xgb_preds = pd.read_csv(out_dir / "preds_stratified_joint_xgb.csv")
     pooled_rf = roc_auc_score(rf_preds["y_true"], rf_preds["y_prob"])
     pooled_xgb = roc_auc_score(xgb_preds["y_true"], xgb_preds["y_prob"])
-    print(f"\n=== POOLED AUC ===")
+    print("\n=== POOLED AUC ===")
     print(f"  Species + stratified pathway RF:  {pooled_rf:.4f}")
     print(f"  Species + stratified pathway XGB: {pooled_xgb:.4f}")
-    print(f"\nCompare to existing canonical:")
-    print(f"  Species only RF:  0.7812  (results/bootstrap_ci.csv)")
-    print(f"  Joint (community pathway) RF:  0.7561")
-    print(f"  Joint (community pathway) XGB: 0.7660")
+    print("\nCompare to existing canonical:")
+    print("  Species only RF:  0.7812  (results/bootstrap_ci.csv)")
+    print("  Joint (community pathway) RF:  0.7561")
+    print("  Joint (community pathway) XGB: 0.7660")
 
 
 if __name__ == "__main__":

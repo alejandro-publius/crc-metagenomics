@@ -9,7 +9,11 @@ pattern used by train_joint.py for the headline run.
 
 Reads data/raw/pathway_abundance.csv (output of merge_pathways.py).
 """
-import pandas as pd, numpy as np, os, sys, re
+import pandas as pd
+import numpy as np
+import os
+import sys
+import re
 from sklearn.ensemble import RandomForestClassifier
 sys.path.insert(0, os.path.dirname(__file__))
 from lodo_cv import run_lodo_cv
@@ -71,7 +75,7 @@ def main():
     os.makedirs('results', exist_ok=True)
     pd.DataFrame(rows).to_csv('results/sensitivity_thresholds.csv', index=False)
     aucs = [r['mean_auc'] for r in rows]
-    print(f'\nSaved results/sensitivity_thresholds.csv')
+    print('\nSaved results/sensitivity_thresholds.csv')
     print(f'AUC range: {min(aucs):.3f} to {max(aucs):.3f}, spread {max(aucs)-min(aucs):.3f}')
 
 

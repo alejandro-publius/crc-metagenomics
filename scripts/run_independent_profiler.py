@@ -10,14 +10,11 @@ prespecified UniProt protein sequences with DIAMOND.
 from __future__ import annotations
 
 import argparse
-import csv
-import gzip
 import json
 import shutil
 import ssl
 import subprocess
 import urllib.request
-from collections import defaultdict
 from pathlib import Path
 
 import pandas as pd

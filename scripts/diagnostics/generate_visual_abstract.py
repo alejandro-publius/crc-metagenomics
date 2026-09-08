@@ -278,9 +278,9 @@ def panel_headline(ax, boot: pd.DataFrame, delong: pd.DataFrame):
     hi = pooled["ci_hi"].to_numpy()
     err = np.vstack([aucs - lo, hi - aucs])
 
-    bars = ax.bar(x, aucs, yerr=err, color=colors,
-                  capsize=4, edgecolor="white", linewidth=1.0,
-                  error_kw=dict(ecolor="#333333", lw=1.1))
+    ax.bar(x, aucs, yerr=err, color=colors,
+           capsize=4, edgecolor="white", linewidth=1.0,
+           error_kw=dict(ecolor="#333333", lw=1.1))
     for xi, a in zip(x, aucs):
         ax.text(xi, a + 0.012, f"{a:.3f}", ha="center", va="bottom",
                 fontsize=6.8, fontweight="bold", color="#222222")

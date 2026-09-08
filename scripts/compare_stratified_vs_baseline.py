@@ -12,7 +12,6 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_auc_score
 
@@ -91,7 +90,7 @@ def main():
             pd.DataFrame(delong_rows).to_csv(REPO / "results/delong_stratified_vs_baseline.csv", index=False)
 
     summary.to_csv(REPO / "results/stratified_vs_baseline_comparison.csv", index=False)
-    print(f"\nSaved: results/stratified_vs_baseline_comparison.csv")
+    print("\nSaved: results/stratified_vs_baseline_comparison.csv")
 
 
 if __name__ == "__main__":

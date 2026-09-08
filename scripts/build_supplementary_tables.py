@@ -5,7 +5,6 @@ Reads only existing inputs; does not refit models. Numbers reflect the
 10-cohort dataset with HanniganGD_2017 excluded.
 """
 import pandas as pd
-import numpy as np
 import os
 
 OUT = 'results/supplementary'

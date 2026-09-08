@@ -229,10 +229,10 @@ def main() -> None:
         )
     else:
         flagged_sentence = (
-            f"At an assumed 5% target-population prevalence, no cohort clears "
-            f"the PPV > 20% triage bar, indicating that the species RF alone "
-            f"is insufficient as a standalone enrichment layer at population "
-            f"base rates regardless of site-local calibration."
+            "At an assumed 5% target-population prevalence, no cohort clears "
+            "the PPV > 20% triage bar, indicating that the species RF alone "
+            "is insufficient as a standalone enrichment layer at population "
+            "base rates regardless of site-local calibration."
         )
 
     weakest_txt = "; ".join(_fmt(r) for _, r in weakest.iterrows())

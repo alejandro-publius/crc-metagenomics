@@ -25,13 +25,13 @@ def main():
     mg = md.merge(joint, on='sample_id', how='inner')
     print(f'after md merge: {mg.shape}')
 
-    print(f'\nlabel value counts:')
+    print('\nlabel value counts:')
     print(mg.label.value_counts(dropna=False))
 
-    print(f'\nstudy_condition value counts:')
+    print('\nstudy_condition value counts:')
     print(mg.study_condition.value_counts(dropna=False))
 
-    print(f'\nper-cohort sample counts (label in [0,1] only):')
+    print('\nper-cohort sample counts (label in [0,1] only):')
     print(mg[mg.label.isin([0, 1])].groupby('study_name').size())
 
     print(f'\ndupe sample_ids in joint? {mg.sample_id.duplicated().sum()}')

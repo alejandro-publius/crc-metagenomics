@@ -5,7 +5,8 @@ Runs the baseline classifier at multiple seeds to confirm AUC stability.
 Usage:
     python3 scripts/seed_sensitivity.py
 """
-import os, sys
+import os
+import sys
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier

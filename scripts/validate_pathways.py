@@ -12,7 +12,6 @@ code 1 if the pathway file is missing.
 import os
 import sys
 
-import numpy as np
 import pandas as pd
 
 PATH = 'data/raw/pathway_abundance.csv'

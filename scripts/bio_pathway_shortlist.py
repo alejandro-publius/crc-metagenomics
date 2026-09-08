@@ -37,9 +37,10 @@ Output:
     results/bio_pathway_results.csv  (LODO AUCs per cohort)
     results/bio_pathway_shortlist.txt (pathway names selected)
 """
-import re, os, sys
+import re
+import os
+import sys
 import pandas as pd
-import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
 sys.path.insert(0, os.path.dirname(__file__))

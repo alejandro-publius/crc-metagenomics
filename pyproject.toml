@@ -64,6 +64,29 @@ Issues = "https://github.com/alejandro-publius/crc-metagenomics/issues"
 #   Alejandro Velazquez : 0009-0007-9798-1958
 #   Rachel Selbrede     : 0009-0006-7046-3192
 
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+# Ruff's own out-of-the-box selection, pinned explicitly so CI and every
+# contributor's machine lint the same rules regardless of any local/global
+# ruff config: Pyflakes (F) plus the pycodestyle error subset (E4 import
+# placement, E7 statement style, E9 runtime/syntax errors). Deliberately not
+# opinionated about import sorting or pyupgrade-style modernization for a
+# research codebase with many one-shot analysis scripts.
+select = ["E4", "E7", "E9", "F"]
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: opt-in end-to-end test that writes into the tracked submission/ tree (slow; run explicitly with `pytest -m integration`).",
+]
+# scripts/test_submission_build.py documents itself as not running during a
+# default `pytest` invocation (it rebuilds submission/build/* in place,
+# dirtying the working tree). Nothing previously enforced that: a plain
+# `pytest -q` silently ran it too. Deselect `integration` by default so the
+# documented behaviour matches reality; opt in explicitly with -m integration.
+addopts = "-m \"not integration\""
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/crc_lodo_bench"]
 

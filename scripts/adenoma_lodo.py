@@ -7,7 +7,8 @@ scale_pos_weight per fold to handle class imbalance correctly.
 Usage:
     python3 scripts/adenoma_lodo.py
 """
-import os, sys
+import os
+import sys
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
@@ -15,7 +16,6 @@ from sklearn.metrics import roc_auc_score
 from xgboost import XGBClassifier
 
 sys.path.insert(0, os.path.dirname(__file__))
-from lodo_cv import get_lodo_splits
 
 ADENOMA_COHORTS = ['FengQ_2015', 'ZellerG_2014', 'ThomasAM_2018a', 'YachidaS_2019']
 

@@ -25,9 +25,7 @@ from __future__ import annotations
 import os
 import sys
 
-import numpy as np
 import pandas as pd
-import pytest
 
 # Test scripts/lodo_cv.py directly (canonical source-of-truth).
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

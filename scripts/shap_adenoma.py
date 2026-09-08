@@ -7,7 +7,11 @@ signal does not generalize across cohorts (mean LODO AUC ~0.56-0.58),
 so these SHAP rankings should be interpreted as exploratory /
 hypothesis-generating only.
 """
-import re, pandas as pd, numpy as np, os, shap
+import re
+import pandas as pd
+import numpy as np
+import os
+import shap
 from sklearn.ensemble import RandomForestClassifier
 
 def compute_shap(X, y, name):

@@ -78,7 +78,7 @@ def load_data():
     sp = pd.read_csv("data/processed/species_filtered.csv")
     sp_cols = [c for c in sp.columns if c != "sample_id"]
 
-    print(f"Loading pathway_abundance.csv (this is ~280MB; ~38k columns)...")
+    print("Loading pathway_abundance.csv (this is ~280MB; ~38k columns)...")
     # Read once. Use float32 for the matrix to save ~50% memory.
     pw_full = pd.read_csv("data/raw/pathway_abundance.csv")
     print(f"  pathway_abundance shape: {pw_full.shape}")

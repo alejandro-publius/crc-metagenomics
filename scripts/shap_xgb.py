@@ -6,7 +6,11 @@ feature; they do not measure cross-cohort generalization. Generalization
 claims come from the LODO scripts; SHAP here is for feature importance
 on the fitted model only.
 """
-import re, pandas as pd, numpy as np, os, shap
+import re
+import pandas as pd
+import numpy as np
+import os
+import shap
 from xgboost import XGBClassifier
 
 def compute_shap(X, y, name):

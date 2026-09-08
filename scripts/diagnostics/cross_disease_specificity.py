@@ -71,7 +71,6 @@ import argparse
 import json
 import os
 import subprocess
-import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -527,10 +526,12 @@ def make_figure(train_crc, train_ctrl, ext_preds, youden):
     }
 
     if len(train_crc):
-        boxes.append(train_crc); labels.append(f"Training CRC\n(n={len(train_crc)})")
+        boxes.append(train_crc)
+        labels.append(f"Training CRC\n(n={len(train_crc)})")
         colors.append(PAL["training_CRC"])
     if len(train_ctrl):
-        boxes.append(train_ctrl); labels.append(f"Training control\n(n={len(train_ctrl)})")
+        boxes.append(train_ctrl)
+        labels.append(f"Training control\n(n={len(train_ctrl)})")
         colors.append(PAL["training_control"])
 
     if not ext_preds.empty:
@@ -608,7 +609,6 @@ def write_specificity_note(summary: pd.DataFrame, youden: float, baseline_source
     disease_rows = summary[(summary["disease_cohort"].isin(["IBD", "T2D", "cirrhosis", "obesity"])) &
                            (summary["n_samples"] > 0) &
                            (summary["interpretation_label"] != "cohort-internal control")]
-    healthy_rows = summary[(summary["disease_cohort"] == "healthy") & (summary["n_samples"] > 0)]
     train_crc_row = summary[summary["disease_cohort"] == "training_CRC"]
     train_ctrl_row = summary[summary["disease_cohort"] == "training_control"]
 
