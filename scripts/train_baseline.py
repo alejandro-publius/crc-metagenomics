@@ -12,7 +12,6 @@ pooled bootstrap AUC ~0.781.
 import os
 import sys
 
-import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 

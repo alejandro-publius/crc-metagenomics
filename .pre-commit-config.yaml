@@ -1,0 +1,11 @@
+# pip install pre-commit && pre-commit install
+#
+# Rule selection lives in pyproject.toml's [tool.ruff.lint] (Pyflakes plus a
+# pycodestyle error subset); this hook enforces the same rules locally,
+# before CI's `ruff check .` step in .github/workflows/verify.yml.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.6
+    hooks:
+      - id: ruff
+        args: [--fix]

@@ -5,7 +5,6 @@ from pathlib import Path
 import json
 
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_absolute_error
 

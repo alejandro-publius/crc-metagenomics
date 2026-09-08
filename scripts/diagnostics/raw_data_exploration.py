@@ -24,14 +24,12 @@ No new dependencies beyond pandas, numpy, scipy, sklearn, matplotlib.
 
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from scipy.spatial.distance import pdist, squareform
-from sklearn.decomposition import PCA
 
 REPO = Path(__file__).resolve().parents[2]
 DATA_MD = REPO / "data" / "processed" / "metadata_clean.csv"

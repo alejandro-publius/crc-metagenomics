@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-from scripts.prepare_external_cohort import build_manifest, label_from_alias
+from scripts.prepare_external_cohort import label_from_alias
 from scripts.score_external_species import harmonize_gmrepo, harmonize_metaphlan
 
 

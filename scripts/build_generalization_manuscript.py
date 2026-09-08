@@ -7,7 +7,6 @@ from pathlib import Path
 import re
 
 from docx import Document
-from docx.enum.section import WD_SECTION
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
@@ -164,9 +163,11 @@ def main() -> None:
             flush()
             continue
         if line.startswith("### "):
-            flush(); doc.add_heading(line[4:], level=2)
+            flush()
+            doc.add_heading(line[4:], level=2)
         elif line.startswith("## "):
-            flush(); doc.add_heading(line[3:], level=1)
+            flush()
+            doc.add_heading(line[3:], level=1)
         elif re.match(r"^\d+\. ", line):
             flush()
             p = doc.add_paragraph()

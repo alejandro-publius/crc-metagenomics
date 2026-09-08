@@ -8,7 +8,10 @@ generalization claim comes from LODO in train_baseline.py / train_joint.py.
 Treat these SHAP rankings as "feature importance for the trained classifier"
 rather than as a cross-cohort signal of biological causality.
 """
-import pandas as pd, numpy as np, os, shap
+import pandas as pd
+import numpy as np
+import os
+import shap
 from sklearn.ensemble import RandomForestClassifier
 
 def compute_shap(X, y, name):

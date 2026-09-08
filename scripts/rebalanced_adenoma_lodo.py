@@ -34,7 +34,6 @@ Usage:
     python3 scripts/rebalanced_adenoma_lodo.py
 """
 import os
-import sys
 import warnings
 
 import numpy as np
@@ -73,7 +72,6 @@ def _manual_smote(X, y, k=5, random_state=RANDOM_STATE):
     classes, counts = np.unique(y, return_counts=True)
     if len(classes) < 2:
         return X, y
-    majority = classes[counts.argmax()]
     minority = classes[counts.argmin()]
     n_maj = counts.max()
     n_min = counts.min()

@@ -7,7 +7,6 @@ models (species RF, joint RF, joint XGB). Writes a metrics CSV and a
 
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
 import matplotlib.pyplot as plt

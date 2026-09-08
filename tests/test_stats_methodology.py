@@ -205,7 +205,6 @@ def test_per_fold_filter_is_independent_of_test_rows():
     callable. If a future refactor accidentally closes over the full X,
     this test will fail.
     """
-    rng = np.random.default_rng(0)
     n_train = 100
     # Train rows: 12% prevalence on pw_a (above 10% threshold), 5% on pw_b.
     train = pd.DataFrame({

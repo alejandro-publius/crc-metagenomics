@@ -223,7 +223,6 @@ def test_small_cohort_warning():
     drop_idx = metadata[metadata["study_name"] == "cohort_C"].index[3:]
     metadata = metadata.drop(drop_idx).reset_index(drop=True)
     X = X.drop(drop_idx).reset_index(drop=True)
-    y = metadata["label"].copy()
     with warnings.catch_warnings(record=True) as w:
         warnings.simplefilter("always")
         # Use the default threshold (10).

@@ -31,7 +31,6 @@ Output:
 """
 
 import pandas as pd
-import numpy as np
 import os
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
@@ -162,7 +161,7 @@ def main():
     # ── Section 8: Print a Methods note for the paper ──
     print("\n" + "=" * 60)
     print("Suggested Methods note (sanity-check framing):")
-    print(f'  "As a sanity check on the LODO results, we trained a Random')
+    print('  "As a sanity check on the LODO results, we trained a Random')
     print(f'   Forest on a {len(training_cohorts)}-cohort subset (excluding YuJ_2015 and')
     print(f'   ZellerG_2014) and report AUCs of {results[0]["auc"]:.3f} (YuJ_2015) and')
     print(f'   {results[1]["auc"]:.3f} (ZellerG_2014); combined AUC {overall_auc:.3f}. This is')

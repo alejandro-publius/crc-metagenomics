@@ -28,7 +28,6 @@ panel size is capped at k=50 because gains plateau well before that.
 
 from __future__ import annotations
 
-import os
 import sys
 from pathlib import Path
 

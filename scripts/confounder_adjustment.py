@@ -11,7 +11,8 @@ computed per fold using training data only to avoid leakage.
 Usage:
     python3 scripts/confounder_adjustment.py
 """
-import os, sys
+import os
+import sys
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier

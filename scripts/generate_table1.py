@@ -27,7 +27,6 @@ Output:
 """
 
 import pandas as pd
-import numpy as np
 import os
 
 
@@ -169,7 +168,7 @@ def main():
     # The to_string() method displays the full table without truncation
     print(table.to_string(index=False))
 
-    print(f"\n  Saved results/table1.csv")
+    print("\n  Saved results/table1.csv")
     print("\n" + "=" * 70)
     print("How to use this in your manuscript:")
     print("  1. Open results/table1.csv in Excel or Numbers")
