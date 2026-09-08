@@ -187,7 +187,10 @@ canonical 10-cohort / 1,522-sample working set. The committed
 already reflect this state; re-running is idempotent.
 
 ```bash
-python3 scripts/preprocessing.py         # ~30 s; writes data/processed/{species_filtered, metadata_clean}.csv
+python3 scripts/preprocessing.py --data-type=relab  # ~30 s; writes data/processed/{species_filtered, metadata_clean}.csv
+                                         #      --data-type=relab is required: the committed species
+                                         #      table is percentage-scale, and the auto heuristic now
+                                         #      refuses to guess once row sums exceed 100.
 python3 scripts/add_covariates.py        # ~2-3 min; idempotently appends age/sex/BMI/country columns
                                          #          and runs a paired-t covariate sanity LODO
 python3 scripts/generate_table1.py       # ~5 s;  results/table1.csv
@@ -200,7 +203,7 @@ Expected console output from `preprocessing.py`:
 Depth filter (>=1M reads/sample): removed N samples
 Cohort exclusion ['HanniganGD_2017']: removed M samples
 ...
-Species features: 1100ish raw -> 229 retained (prevalence>=10%, mean>=1e-4)
+Species features: 935 raw -> 229 retained (prevalence>=10%, mean>=1e-4)
 ...
 Final sample counts:
 CRC        674

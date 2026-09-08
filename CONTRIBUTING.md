@@ -6,8 +6,9 @@ Short, practical guide for working on this repo.
 
 ```bash
 pip install -r requirements.lock
-pip install pytest
+pip install -r requirements-dev.txt
 pytest tests/ -v
+ruff check .
 ```
 
 The verification smoke test (49 checks against committed CSVs) runs the
@@ -24,7 +25,7 @@ It exits non-zero on any failure.
 1. Add the cohort short name to the dataset list in `scripts/export_data.R`
    and re-run `Rscript scripts/export_data.R`. This writes the raw species
    and pathway matrices into `data/raw/`.
-2. Run `python3 scripts/preprocessing.py` to rebuild
+2. Run `python3 scripts/preprocessing.py --data-type=relab` to rebuild
    `data/processed/metadata_clean.csv`, `species_filtered.csv`, and
    `pathway_unstratified.csv`. Apply the same global filters (prevalence
    >= 10%, mean >= 1e-4 for species).
@@ -65,15 +66,14 @@ first if any numbers changed.
 ## Local checks before pushing
 
 ```bash
+ruff check .
 pytest tests/ -v
 python3 scripts/verify_results.py
 ```
 
-CI is configured at `.github_local_only/workflows/verify.yml` (the
-canonical path is `.github/workflows/verify.yml`, but the file lives
-under `.github_local_only/` because the current push token lacks the
-`workflow` OAuth scope required by GitHub to mutate workflow files).
-To enable CI: regenerate the push token with `workflow` scope, then
-`mv .github_local_only/workflows/verify.yml .github/workflows/verify.yml`
-and push. Until then, contributors should run `pytest tests/` and
-`python3 scripts/verify_results.py` locally before pushing.
+CI is configured at `.github/workflows/verify.yml` and runs `ruff check .`,
+`scripts/verify_results.py`, `scripts/verify_intervention_readiness.py`, and
+the test suite (`pytest -q`, which deselects the opt-in
+`scripts/test_submission_build.py` integration tests by default -- see
+`pyproject.toml`'s `[tool.pytest.ini_options]`) on every push and PR to
+`main`.

@@ -4,6 +4,7 @@
 
 [![verify](https://github.com/alejandro-publius/crc-metagenomics/actions/workflows/verify.yml/badge.svg)](https://github.com/alejandro-publius/crc-metagenomics/actions/workflows/verify.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](pyproject.toml)
 
 A reproducible study of a practical question: **which stool-metagenomic CRC
 signals survive transfer to a new study, and can failure be anticipated before
@@ -14,6 +15,16 @@ without letting a held-out cohort choose its own features. A completely
 separate 200-sample shotgun cohort provides the untouched final validation.
 
 ![Visual abstract of the country-aware CRC metagenomics benchmark](figures/visual_abstract.png)
+
+## Quickstart
+
+```bash
+git clone https://github.com/alejandro-publius/crc-metagenomics.git && cd crc-metagenomics
+pip install -r requirements.lock          # tested on Python 3.11
+python3 scripts/verify_results.py         # re-derives the headline AUC/DeLong/CI numbers from committed results (~30s, no data download)
+```
+
+See [REPRODUCING.md](REPRODUCING.md) for the full modeling pipeline from raw data.
 
 ## Research system architecture
 
@@ -167,7 +178,7 @@ cd crc-metagenomics
 
 pip install -r requirements.lock
 Rscript scripts/export_data.R
-python3 scripts/preprocessing.py         # -> data/processed/species_filtered.csv, metadata_clean.csv
+python3 scripts/preprocessing.py --data-type=relab  # -> data/processed/species_filtered.csv, metadata_clean.csv
 python3 scripts/merge_pathways.py        # -> data/raw/pathway_abundance.csv (required by train_joint.py)
 python3 scripts/validate_pathways.py     # sanity-checks the merged pathway matrix
 python3 scripts/filter_pathways.py       # -> data/processed/pathway_unstratified.csv (used by SHAP / adenoma)
@@ -185,6 +196,18 @@ python3 scripts/verify_results.py        # Smoke-test headline numbers
 ```
 
 All scripts use `random_state=42` and produce deterministic results. Total runtime is approximately 45 minutes on a standard workstation.
+
+**Data-availability boundary**: `data/raw/` and `data/processed/` are
+committed, but `data/raw/pathway_chunks/` (HUMAnN tables) ships only a
+subset of the 10 cohorts -- the rest are omitted from git for size. Skipping
+`Rscript scripts/export_data.R` (which needs network access to
+curatedMetagenomicData/Bioconductor) means `preprocessing.py` and the
+species-only baseline (`train_baseline.py`) still reproduce exactly from the
+committed CSVs, but `train_joint.py` will refuse to run with a one-line
+error naming the missing cohorts rather than silently training on fewer of
+them. The committed `results/preds_joint_rf.csv` / `preds_joint_xgb.csv`
+already reflect a full 10-cohort run and are the source of truth for the
+pooled AUC numbers above until you re-run Step 0 with network access.
 
 ## Use this as a library
 

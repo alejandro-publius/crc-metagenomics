@@ -27,9 +27,12 @@ Rscript scripts/audit_subject_ids.R    # verifies no duplicated subject IDs acro
 python3 scripts/merge_pathways.py      # concatenates per-cohort HUMAnN pathway chunks -> data/raw/pathway_abundance.csv
 python3 scripts/validate_pathways.py   # sanity-checks pathway matrix dimensions and sample-ID overlap
 python3 scripts/filter_pathways.py     # global static filter -> data/processed/pathway_unstratified.csv (used by SHAP / adenoma scripts only)
-python3 scripts/preprocessing.py       # quality filters: excludes HanniganGD_2017 (low depth),
+python3 scripts/preprocessing.py --data-type=relab  # quality filters: excludes HanniganGD_2017 (low depth),
                                        # drops samples <1M reads; outputs 1,522 samples, 10 cohorts
                                        # -> data/processed/species_filtered.csv, metadata_clean.csv
+                                       # --data-type is required: the committed species table is a
+                                       # percentage-scale (relab) matrix, and the --data-type=auto
+                                       # default now refuses to guess once row sums exceed 100.
 python3 scripts/generate_table1.py     # Table 1 demographics -> results/table1.csv
 python3 scripts/adenoma_counts.py      # per-cohort adenoma sample counts -> results/adenoma_counts_per_cohort.csv
 python3 scripts/add_covariates.py      # appends age/sex/BMI/country covariates onto metadata_clean.csv (idempotent)
@@ -49,6 +52,9 @@ python3 scripts/train_joint.py      # joint RF + XGBoost LODO (country-aware, pe
                                     #         Joint XGB per-cohort ~0.797 (pooled ~0.766)
                                     # 551 pathway candidates; 402-406 retained per fold
                                     # outputs: results/joint_results.csv, preds_joint_rf.csv, preds_joint_xgb.csv
+                                    # requires pathway data for every cohort in metadata_clean.csv --
+                                    # exits with a one-line error naming any missing cohort otherwise
+                                    # (see README.md's "Data-availability boundary" note)
 
 python3 scripts/auc_comparison.py   # paired tests (t, Wilcoxon) + DeLong on pooled predictions
                                     # expect: species_rf vs joint_rf DeLong z=3.35, p=0.0008
